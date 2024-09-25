@@ -3943,7 +3943,17 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
     cout << "real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
-    Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
+   // Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
+   // Fill the bin for 0 as many times as `realCounter` specifies
+for (int i = 0; i < wrongCounter; ++i) {
+    Fill(h, "Recon_Efficiency", 0);  // Fill the bin corresponding to 0
+}
+
+// Fill the bin for 1 as many times as `wrongCounter` specifies
+for (int i = 0; i < realCounter; ++i) {
+    Fill(h, "Recon_Efficiency", 1);  // Fill the bin corresponding to 1
+}
+
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
 
 }
