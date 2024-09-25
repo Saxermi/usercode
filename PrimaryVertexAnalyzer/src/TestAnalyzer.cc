@@ -341,7 +341,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   
   /* Efficiency*/
   dir->mkdir("efficiency")->cd();
-  addn(h, new TH1I('Recon_Efficiency', 'Reconstruction_efficiency', 2, 0, 2))
+  addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2))
 
   return h;
 }
