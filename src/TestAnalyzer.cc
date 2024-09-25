@@ -151,7 +151,7 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
       bunchCrossing_(0),
       orbitNumber_(0),
       fBfield_(0.),
-      simUnit_(1.0),    // cm everywher starting with CMSSW_1_2_x ??
+      simUnit_(1.0),    // cm everywhere starting with CMSSW_1_2_x ??
       simtUnit_(1.e9),  // nanoseconds  in rec, do the same for sim
       zmatch_(iConfig.getUntrackedParameter<double>("zmatch", 0.0500)),
       sigmaZoverride_(iConfig.getUntrackedParameter<double>("sigmaZ", 0.0)),
@@ -345,13 +345,13 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   addn(h, new TProfile("tfitvsnsel", "vertex fitting cpu-time vs nvertex", 300, 0., 300., 0., 1.e8));
   addn(h, new TProfile("ttimevsnsel", "vertex timing cpu-ime vs nvertex", 300, 0., 300., 0., 1.e8));
   
-  addn(h, new TProfile("tcluvsLPU", "clustering time vs pu", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("tfitvsLPU", "vertex fitting cpu-time vs pu", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("ttimevsLPU", "vertex timing cpu-time vs pu", 300, 0., 300., 0., 1.e8));
+  // addn(h, new TProfile("tcluvsLPU", "clustering time vs pu", 300, 0., 300., 0., 1.e8));     // PU = pile up?, sprich wegnehmen?
+  // addn(h, new TProfile("tfitvsLPU", "vertex fitting cpu-time vs pu", 300, 0., 300., 0., 1.e8));
+  // addn(h, new TProfile("ttimevsLPU", "vertex timing cpu-time vs pu", 300, 0., 300., 0., 1.e8));
   
-  addn(h, new TProfile("tcluvsSimPU", "clustering time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("tfitvsSimPU", "vertex fitting cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("ttimevsSimPU", "vertex timing cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
+  // addn(h, new TProfile("tcluvsSimPU", "clustering time vs #simvtx", 300, 0., 300., 0., 1.e8));
+  // addn(h, new TProfile("tfitvsSimPU", "vertex fitting cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
+  // addn(h, new TProfile("ttimevsSimPU", "vertex timing cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
   dir->cd();
 
   // for analyzeVertexTrackAssociation
@@ -359,8 +359,8 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
   addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpPt", "trkVtxAssocEffic_TPMatchedTracks_tpPt", 100, 0., 5.));
   addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", 100, 0., 5.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", 160, -4., 4.));
+  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", 100, 0., 5.)); // sicher wichtig, hwo good is match
+  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", 160, -4., 4.)); // was sind die unterschiede zw tpPt, tpEta
   
   return h;
 }
@@ -400,7 +400,7 @@ bool TestAnalyzer::get_beamspot_data(const edm::Event& iEvent) {
     wxy2_ = pow(vertexBeamSpot_.BeamWidthX(), 2) + pow(vertexBeamSpot_.BeamWidthY(), 2);
     wx_ = vertexBeamSpot_.BeamWidthX();
     wy_ = vertexBeamSpot_.BeamWidthY();
-    sigmaZ_ = vertexBeamSpot_.sigmaZ();
+    sigmaZ_ = vertexBeamSpot_.sigmaZ(); // unsicherheit von Beamspot in z-Achse
     sigmaT_ = sigmaZ_ / 2.998e1;  // c in cm/ns
     if (sigmaZ_ < 0.1) {
       reportEvent("crazy small sigma Z");
@@ -413,7 +413,7 @@ bool TestAnalyzer::get_beamspot_data(const edm::Event& iEvent) {
     }
 
     if (std::abs(vertexBeamSpot_.z0()) > 2.) {
-      reportEvent("suspicious beamspot position  %6.3f", vertexBeamSpot_.z0());
+      reportEvent("suspicious beamspot position  %6.3f", vertexBeamSpot_.z0()); // ist das weil bs im zentrum des Detektors sein soll?
       return false;
     }
 
@@ -424,7 +424,7 @@ bool TestAnalyzer::get_beamspot_data(const edm::Event& iEvent) {
   }
 
   // abort without useful beamspot data
-  if (sigmaZ_ == 0) {
+  if (sigmaZ_ == 0) { // in case somthing above went wrong
     return false;
   }
 
@@ -439,7 +439,7 @@ bool TestAnalyzer::get_miniaod_tracks(const edm::EventSetup& iSetup,
 /********************************************************************************************************/
 {   // 
    // more info https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2017
-   //
+   // get track from miniaod format
    // code from Kirill
    Handle<edm::View<pat::PackedCandidate> > tracksPackedHandle;
    iEvent.getByToken(theTracksToken_, tracksPackedHandle);
@@ -476,7 +476,7 @@ bool TestAnalyzer::get_miniaod_tracks(const edm::EventSetup& iSetup,
 
 
 
-   
+// get tracks
 /********************************************************************************************************/
 bool TestAnalyzer::get_reco_and_transient_tracks(const edm::EventSetup& iSetup,
                                                              const edm::Event& iEvent,
@@ -577,6 +577,7 @@ void TestAnalyzer::getSimEvents_pu(PileupSummaryInfo& puInfo, std::vector<SimEve
 /********************************************************************************************************
  * append the pile-up vertices to the simEvent list 
  * hard scatter assumed to be already filled in the first entry
+ * Remove or ignore this for the moment, as we only will use Signal-events
  ************************************************************************************************************/
 {
     report_counted("adding simEvts from puInfo", 1);
@@ -653,8 +654,8 @@ bool TestAnalyzer::get_MC_truth(const edm::Event& iEvent,
 
   edm::Handle<TrackingParticleCollection> TPCollectionH;
   edm::Handle<TrackingVertexCollection> TVCollectionH;
-  bool gotTP = iEvent.getByToken(trackingParticleCollectionToken_, TPCollectionH);
-  bool gotTV = iEvent.getByToken(trackingVertexCollectionToken_, TVCollectionH);
+  bool gotTP = iEvent.getByToken(trackingParticleCollectionToken_, TPCollectionH); //retrieves simulated particles
+  bool gotTV = iEvent.getByToken(trackingVertexCollectionToken_, TVCollectionH);  //retrieves simulated vertices
 
   if(gotTP)
     {
@@ -753,7 +754,7 @@ void TestAnalyzer::beginJob() {
   bookSimPVHistograms("simpvs");
   bookEventHistograms("event");
 
-  rootFile_->cd();
+  rootFile_->cd(); // warum 3 mal in dieser Funktion
 }
 
 
