@@ -339,32 +339,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   std::map<std::string, TH1*> h;  // will be returned
   
   
-  /* cpu time related */
-  dir->mkdir("cputime")->cd();
-  addn(h, new TProfile("tcluvsnsel", "clustering time vs nvertex", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("tfitvsnsel", "vertex fitting cpu-time vs nvertex", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("ttimevsnsel", "vertex timing cpu-ime vs nvertex", 300, 0., 300., 0., 1.e8));
-  
-  // addn(h, new TProfile("tcluvsLPU", "clustering time vs pu", 300, 0., 300., 0., 1.e8));     // PU = pile up?, sprich wegnehmen?
-  // addn(h, new TProfile("tfitvsLPU", "vertex fitting cpu-time vs pu", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("ttimevsLPU", "vertex timing cpu-time vs pu", 300, 0., 300., 0., 1.e8));
-  
-  // addn(h, new TProfile("tcluvsSimPU", "clustering time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("tfitvsSimPU", "vertex fitting cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("ttimevsSimPU", "vertex timing cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  dir->cd();
+  /* Efficiency*/
+  dir->mkdir("efficiency")->cd();
+  addn(h, new TH1I('Recon_Efficiency', 'Reconstruction_efficiency', 2, 0, 2))
 
-  // for analyzeVertexTrackAssociation
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpPt", "trkVtxAssocEffic_TPMatchedTracks_tpPt", 100, 0., 5.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpPt", "trkVtxAssocEffic_TPMatchedTracks_tpPt", 100, 0., 5.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", 100, 0., 5.)); // sicher wichtig, hwo good is match
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", 160, -4., 4.)); // was sind die unterschiede zw tpPt, tpEta
-  
   return h;
 }
-
 
 void TestAnalyzer::bookTrackHistograms(const char * directory_name)
 {
