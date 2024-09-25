@@ -339,32 +339,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   std::map<std::string, TH1*> h;  // will be returned
   
   
-  /* cpu time related */
-  dir->mkdir("cputime")->cd();
-  addn(h, new TProfile("tcluvsnsel", "clustering time vs nvertex", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("tfitvsnsel", "vertex fitting cpu-time vs nvertex", 300, 0., 300., 0., 1.e8));
-  addn(h, new TProfile("ttimevsnsel", "vertex timing cpu-ime vs nvertex", 300, 0., 300., 0., 1.e8));
-  
-  // addn(h, new TProfile("tcluvsLPU", "clustering time vs pu", 300, 0., 300., 0., 1.e8));     // PU = pile up?, sprich wegnehmen?
-  // addn(h, new TProfile("tfitvsLPU", "vertex fitting cpu-time vs pu", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("ttimevsLPU", "vertex timing cpu-time vs pu", 300, 0., 300., 0., 1.e8));
-  
-  // addn(h, new TProfile("tcluvsSimPU", "clustering time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("tfitvsSimPU", "vertex fitting cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  // addn(h, new TProfile("ttimevsSimPU", "vertex timing cpu-time vs #simvtx", 300, 0., 300., 0., 1.e8));
-  dir->cd();
+  /* Efficiency*/
+  dir->mkdir("efficiency")->cd();
+  addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2));
 
-  // for analyzeVertexTrackAssociation
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpPt", "trkVtxAssocEffic_TPMatchedTracks_tpPt", 100, 0., 5.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpPt", "trkVtxAssocEffic_TPMatchedTracks_tpPt", 100, 0., 5.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracks_tpEta", "trkVtxAssocEffic_TPMatchedTracks_tpEta", 160, -4., 4.));
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", 100, 0., 5.)); // sicher wichtig, hwo good is match
-  addSP(h, new TH1F("trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", 160, -4., 4.)); // was sind die unterschiede zw tpPt, tpEta
-  
   return h;
 }
-
 
 void TestAnalyzer::bookTrackHistograms(const char * directory_name)
 {
@@ -430,49 +410,6 @@ bool TestAnalyzer::get_beamspot_data(const edm::Event& iEvent) {
 
   return true;
 }
-
-/********************************************************************************************************/
-bool TestAnalyzer::get_miniaod_tracks(const edm::EventSetup& iSetup,
-                                                  const edm::Event& iEvent,
-						  const std::string &miniaod_vertexcollection_label,
-						  Tracks& tracks) 
-/********************************************************************************************************/
-{   // 
-   // more info https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2017
-   // get track from miniaod format
-   // code from Kirill
-   Handle<edm::View<pat::PackedCandidate> > tracksPackedHandle;
-   iEvent.getByToken(theTracksToken_, tracksPackedHandle);
-
-   Handle<edm::View<pat::PackedCandidate> > lostTracksPackedHandle;
-   iEvent.getByToken(theLostTracksToken_, lostTracksPackedHandle);
-
-   
-   // Create pseudo-track collection
-   edm::View<pat::PackedCandidate> tracksPacked = (*tracksPackedHandle.product());
-   edm::View<pat::PackedCandidate> lostTracksPacked = (*lostTracksPackedHandle.product());
-
-   if(verbose_){
-     cout << "get_miniaod_tracks  found " << tracksPacked.size() << " packed tracks and  " << lostTracksPacked.size() << " lost tracks"<<endl;
-   }
-   
-   // loop over both types in one go
-
-   tracks.reserve(tracksPacked.size() + lostTracksPacked.size());  // without this the track pointers become invalid
-
-   for(size_t it = 0; it < tracksPacked.size() + lostTracksPacked.size(); it++){
-     const pat::PackedCandidate &trkPacked = it < tracksPacked.size() ? tracksPacked[it] : lostTracksPacked[it - tracksPacked.size()];
-     if (trkPacked.charge() == 0.) continue; // this is a neutral, not a track
-     auto tk = MTrack(tracks.size(), trkPacked, it, theB_, vertexBeamSpot_, miniaod_vertexcollection_label, false);  // false = no
-     if(tk.has_transienttrack()){
-       tk._selected = theTrackFilter(tk.transientTrack());
-     }
-     tracks.push_back(tk);
-   }
-
-   return true;
-}
-/********************************************************************************************************/
 
 
 
@@ -3993,7 +3930,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 {
     cout << "I am in Analyzer function" << endl;
 
-    int realCounter = 0, wrongCounter = 0;
+    double realCounter = 0, wrongCounter = 0;
     for(const auto & v: vtxs){
         if(!v.isRecoFake()){
             if(v.is_real()){
