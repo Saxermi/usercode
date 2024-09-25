@@ -342,6 +342,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   /* Efficiency*/
   dir->mkdir("efficiency")->cd();
   addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2));
+  std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
 
   return h;
 }
@@ -3943,6 +3944,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     cout << "real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
     Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
+    std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
+
 }
 /*********************************************************************************************/
 
