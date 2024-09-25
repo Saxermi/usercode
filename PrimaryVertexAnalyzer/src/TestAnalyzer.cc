@@ -411,49 +411,6 @@ bool TestAnalyzer::get_beamspot_data(const edm::Event& iEvent) {
   return true;
 }
 
-/********************************************************************************************************/
-bool TestAnalyzer::get_miniaod_tracks(const edm::EventSetup& iSetup,
-                                                  const edm::Event& iEvent,
-						  const std::string &miniaod_vertexcollection_label,
-						  Tracks& tracks) 
-/********************************************************************************************************/
-{   // 
-   // more info https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookMiniAOD2017
-   // get track from miniaod format
-   // code from Kirill
-   Handle<edm::View<pat::PackedCandidate> > tracksPackedHandle;
-   iEvent.getByToken(theTracksToken_, tracksPackedHandle);
-
-   Handle<edm::View<pat::PackedCandidate> > lostTracksPackedHandle;
-   iEvent.getByToken(theLostTracksToken_, lostTracksPackedHandle);
-
-   
-   // Create pseudo-track collection
-   edm::View<pat::PackedCandidate> tracksPacked = (*tracksPackedHandle.product());
-   edm::View<pat::PackedCandidate> lostTracksPacked = (*lostTracksPackedHandle.product());
-
-   if(verbose_){
-     cout << "get_miniaod_tracks  found " << tracksPacked.size() << " packed tracks and  " << lostTracksPacked.size() << " lost tracks"<<endl;
-   }
-   
-   // loop over both types in one go
-
-   tracks.reserve(tracksPacked.size() + lostTracksPacked.size());  // without this the track pointers become invalid
-
-   for(size_t it = 0; it < tracksPacked.size() + lostTracksPacked.size(); it++){
-     const pat::PackedCandidate &trkPacked = it < tracksPacked.size() ? tracksPacked[it] : lostTracksPacked[it - tracksPacked.size()];
-     if (trkPacked.charge() == 0.) continue; // this is a neutral, not a track
-     auto tk = MTrack(tracks.size(), trkPacked, it, theB_, vertexBeamSpot_, miniaod_vertexcollection_label, false);  // false = no
-     if(tk.has_transienttrack()){
-       tk._selected = theTrackFilter(tk.transientTrack());
-     }
-     tracks.push_back(tk);
-   }
-
-   return true;
-}
-/********************************************************************************************************/
-
 
 
 // get tracks
