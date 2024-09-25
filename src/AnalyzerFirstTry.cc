@@ -3,8 +3,8 @@ First goal: make a historgram that analyzes the effiency of the matching between
 and reconstructed vertices
 */
 
-#include "cms_vertex_reco/PrimaryVertexAnalyzer/interface/FirstTryAnalyzer.h"
-#include "cms_vertex_reco/PrimaryVertexAnalyzer/interface/FFA.h"
+#include "cms_vertex_reco/interface/FirstTryAnalyzer.h"
+#include "cms_vertex_reco/interface/FFA.h"
 //  std::cout << "XDBG " << __func__ << " : " << __LINE__ << std::endl;
 
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
