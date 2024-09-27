@@ -3955,8 +3955,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    //TH1I* hist = dynamic_cast<TH1I*>(h["Recon_Efficiency"]);
-    
+    TH1I* hist = dynamic_cast<TH1I*>(h["efficiency/Recon_Efficiency"]);
+      if (!hist) {
+        std::cerr << "Error: Histogram Recon_Efficiency not found!" << std::endl;
+        return;
+    }
    // if (!hist) {
     //    std::cerr << "Histogram not found!" << std::endl;
     //    return;
@@ -3977,14 +3980,14 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     std::cout << "Real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
 
     // Fill the "Yes" bin (first bin, index 1) with realCounter
-    //hist->SetBinContent(1, realCounter);
+    hist->SetBinContent(1, realCounter);
     
     // Fill the "No" bin (second bin, index 2) with wrongCounter
-    //hist->SetBinContent(2, wrongCounter); similar to above we shouldnt need that because fill should handle it
+    hist->SetBinContent(2, wrongCounter); similar to above we shouldnt need that because fill should handle it
 
 
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
-    Fill(h, "efficiency/Recon_Efficiency", realCounter, wrongCounter);
+    //Fill(h, "efficiency/Recon_Efficiency", realCounter, wrongCounter);
 
 }
 
