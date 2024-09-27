@@ -342,24 +342,24 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     dir->mkdir("efficiency")->cd();  // Create the "efficiency" directory and navigate into it
 
     // Create the histogram for reconstruction efficiency
-    TH1I* hist = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
+    TH1I* hist_reco_matches = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
     
     // Add the histogram to the map using addn
-    addn(h, hist);
+    addn(h, hist_reco_matches);
     std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
 
     // Set bin labels for better visualization
-    hist->GetXaxis()->SetBinLabel(1, "Yes");
-    hist->GetXaxis()->SetBinLabel(2, "No");
+    hist_reco_matches->GetXaxis()->SetBinLabel(1, "Matched vertex");
+    hist_reco_matches->GetXaxis()->SetBinLabel(2, "Unmatched vertex");
 
     // Set histogram style: fill color and bar width
-    hist->SetFillColor(kOrange + 2);  // Set fill color for the bars
-    hist->SetBarWidth(0.8);           // Adjust the bar width
+    hist_reco_matches->SetFillColor(kOrange + 2);  // Set fill color for the bars
+    hist_reco_matches->SetBarWidth(0.8);           // Adjust the bar width
 
     //set y axis title
-    hist->GetYaxis()->SetTitle("Count ");
-    hist->SetMinimum(0);
-    hist->SetMaximum(150);
+    hist_reco_matches->GetYaxis()->SetTitle("Count ");
+    hist_reco_matches->SetMinimum(0);
+    hist_reco_matches->SetMaximum(150);
     // Return to the base directory to maintain proper organization
     dir->cd();
 
@@ -3955,8 +3955,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    TH1I* hist = dynamic_cast<TH1I*>(h["efficiency/Recon_Efficiency"]);
-      if (!hist) {
+    TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/Recon_Efficiency"]);
+      if (!hist_reco_matches) {
         std::cerr << "Error: Histogram Recon_Efficiency not found!" << std::endl;
         return;
     }
@@ -3980,10 +3980,10 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     std::cout << "Real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
 
     // Fill the "Yes" bin (first bin, index 1) with realCounter
-    hist->SetBinContent(1, realCounter);
+    hist_reco_matches->SetBinContent(1, realCounter);
     
     // Fill the "No" bin (second bin, index 2) with wrongCounter
-    hist->SetBinContent(2, wrongCounter);
+    hist_reco_matches->SetBinContent(2, wrongCounter);
 
 
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
