@@ -356,6 +356,10 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     hist->SetFillColor(kOrange + 2);  // Set fill color for the bars
     hist->SetBarWidth(0.8);           // Adjust the bar width
 
+    //set y axis title
+    hist->GetYaxis()->SetTitle("Count ");
+    hist->SetMinimum(0);
+    hist->SetMaximum(150);
     // Return to the base directory to maintain proper organization
     dir->cd();
 
