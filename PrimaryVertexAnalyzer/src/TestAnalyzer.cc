@@ -1263,7 +1263,7 @@ void TestAnalyzer::fillVertexHistos(std::map<std::string, TH1*>& h,
                                                 const bool verbose)
 /****************************************************************************/
 {
-  if(v.isRecoFake()) return;
+ /* if(v.isRecoFake()) return;
   // delta z = z_this - z_other
   timer_start("fillVertexHistos");
   Fill(h, vtype + "/ptmax2", v.ptmax2());
@@ -1283,6 +1283,7 @@ void TestAnalyzer::fillVertexHistos(std::map<std::string, TH1*>& h,
 
 
   timer_stop("fillVertexHistos");
+  */
 }
 /****************************************************************************/
 
@@ -3809,8 +3810,8 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
     auto const tpEta = tk._tpr->eta();
 
     // denominator: TP-matched tracks
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracks_tpPt", tpPt, isSignalSimVtx);
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracks_tpEta", tpEta, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracks_tpPt", tpPt, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracks_tpEta", tpEta, isSignalSimVtx);
 
     // find the recoVertex to which this recoTrack is assigned
     // (max trackWeight above 0.5)
@@ -3834,8 +3835,8 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
     auto const belongsToOneRecoVtx = (bestRecoVtxIdx >= 0);
     if(not belongsToOneRecoVtx) continue;
 
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithRecoVtx_tpPt", tpPt, isSignalSimVtx);
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithRecoVtx_tpEta", tpEta, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithRecoVtx_tpPt", tpPt, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithRecoVtx_tpEta", tpEta, isSignalSimVtx);
 
     // numerator #2: correct track-vertex association
     // - the recoVertex to which the recoTrack is assigned corresponds to
@@ -3847,8 +3848,8 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
     auto const belongsToCorrectRecoVtx = (uint(bestRecoVtxIdx) == idxOfRecoVtxOfSimVtx);
     if(not belongsToCorrectRecoVtx) continue;
 
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", tpPt, isSignalSimVtx);
-    Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", tpEta, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpPt", tpPt, isSignalSimVtx);
+   // Fill(h, "trkVtxAssocEffic_TPMatchedTracksWithCorrectRecoVtx_tpEta", tpEta, isSignalSimVtx);
   }
 
   //
@@ -3881,7 +3882,7 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
       auto const trkPt = tv->pt();
       auto const trkEta = tv->eta();
 
-      Fill(h, "trkVtxAssocPurity_TracksOfRecoVtx_trkPt", trkPt, isSignalVtx);
+     /* Fill(h, "trkVtxAssocPurity_TracksOfRecoVtx_trkPt", trkPt, isSignalVtx);
       Fill(h, "trkVtxAssocPurity_TracksOfRecoVtx_trkEta", trkEta, isSignalVtx);
       if     (trkPt <  1.){ Fill(h, "trkVtxAssocPurity_TracksOfRecoVtx_trkEta_trkPt000to001", trkEta, isSignalVtx); }
       else if(trkPt <  3.){ Fill(h, "trkVtxAssocPurity_TracksOfRecoVtx_trkEta_trkPt001to003", trkEta, isSignalVtx); }
@@ -3900,7 +3901,7 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
       else if(trkPt <  3.){ Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxMatchedToSimVtx_trkEta_trkPt001to003", trkEta, isSignalVtx); }
       else if(trkPt < 10.){ Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxMatchedToSimVtx_trkEta_trkPt003to010", trkEta, isSignalVtx); }
       else                { Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxMatchedToSimVtx_trkEta_trkPt010toINF", trkEta, isSignalVtx); }
-
+      */
       // index of the SimVertex from which the TrackingParticle matched to this recoTrack originates
       // (for TP-unmatched recoTracks, this equals NOT_MATCHED_TK_SIM)
       auto const tk_sim = tracks.simevent_index_from_key(tv->key());
@@ -3910,7 +3911,7 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
       if(not hasCorrectTrkVtxAsso) continue;
 
       ++ntk_matched;
-
+      /*
       Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxWithCorrectSimVtxMatch_trkPt", trkPt, isSignalVtx);
       Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxWithCorrectSimVtxMatch_trkEta", trkEta, isSignalVtx);
       if     (trkPt <  1.){ Fill(h, "trkVtxAssocPurity_TracksOfRecoVtxWithCorrectSimVtxMatch_trkEta_trkPt000to001", trkEta, isSignalVtx); }
@@ -3929,7 +3930,7 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
       auto const purity = ntk_matched / float(ntk_woFakeVtxs);
       Fill(h, "trkVtxAssocPurityWithoutFakeRecoVtxs_vs_vz", v.z(), purity, isSignalVtx);
       Fill(h, "trkVtxAssocPurityWithoutFakeRecoVtxs_vs_pu", npu, purity, isSignalVtx);
-    }
+    }*/
   }
 }
 
@@ -4059,6 +4060,7 @@ void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>&
 
   // fill histograms
   // 
+  /*
   for(unsigned int i=0; i < nsim; i++){
     Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
     Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
@@ -4085,7 +4087,7 @@ void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>&
     Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
     Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
   }
-
+*/
   
 
 
@@ -4134,39 +4136,39 @@ void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>&
   if( nsim > 0){
     int max_match = 0, max_match_c = 0,max_match_tp = 0;
     FFA(nvtxrec, nsim, recsim, max_match);
-    Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
+    //Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
 
     FFA(nvtxrec, nsim, recsim_c, max_match_c);
-    Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
+   // Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
 
     FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
+   // Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
 
-    if(nvtxrec > 0){
-      Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
-      Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
-      Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
+   // if(nvtxrec > 0){
+    //  Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
+    //  Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
+   //   Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
       //should the denominator contain only vertices with tp matchted tracks?
-    }
+   // }
 
     // include selection
     max_match = 0; 
     max_match_c = 0;
     max_match_tp = 0;
     FFA(nvtxsel, nsim, recselsim, max_match);
-    Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
+    //Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
 
     FFA(nvtxsel, nsim, recselsim_c, max_match_c);
-    Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
+   // Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
 
     FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
+    //Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
 
-    if(nvtxsel > 0){
-      Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
-      Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
-      Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
-    }
+   // if(nvtxsel > 0){
+    //  Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
+    //  Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
+    //  Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
+   // }
 
   }
   
@@ -4207,7 +4209,7 @@ void TestAnalyzer::analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
   }
 
   if (found_timing_info) {
-    Fill(h, "cputime/tcluvsSimPU", simPU_, tclu);
+  /* Fill(h, "cputime/tcluvsSimPU", simPU_, tclu);
     Fill(h, "cputime/tfitvsSimPU", simPU_, tfit);
     Fill(h, "cputime/ttimevsSimPU", simPU_, ttime);
     Fill(h, "cputime/tcluvsLPU", lumiPU_, tclu);
@@ -4215,7 +4217,7 @@ void TestAnalyzer::analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
     Fill(h, "cputime/ttimevsLPU", lumiPU_, ttime);
     Fill(h, "cputime/tcluvsnsel", nsel, tclu);
     Fill(h, "cputime/tfitvsnsel", nsel, tfit);
-    Fill(h, "cputime/ttimevsnsel", nsel, ttime);
+    Fill(h, "cputime/ttimevsnsel", nsel, ttime);*/ 
   }
 }
 /***************************************************************************************/
