@@ -3953,7 +3953,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    TH1I* hist = dynamic_cast<TH1I*>(histograms["Recon_Efficiency"]);
+    TH1I* hist = dynamic_cast<TH1I*>(h["Recon_Efficiency"]);
     
     if (!hist) {
         std::cerr << "Histogram not found!" << std::endl;
