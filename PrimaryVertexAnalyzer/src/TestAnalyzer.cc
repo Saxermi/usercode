@@ -360,6 +360,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     hist_reco_matches->GetYaxis()->SetTitle("Count ");
     hist_reco_matches->SetMinimum(0);
     hist_reco_matches->SetMaximum(150);
+    // new histogramm
+    // Definition of the 2D histogram
+    TH2F* hist_reco_vs_true_z_position = new TH2F("reco_vs_true_z_position", "Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    addn(h, hist_reco_vs_true_z_position);
+
+
     // Return to the base directory to maintain proper organization
     dir->cd();
 
@@ -3988,6 +3994,18 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
     //Fill(h, "efficiency/Recon_Efficiency", realCounter, wrongCounter);
+
+
+    // next histogram 
+    TH2F* hist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/reco_vs_true_z_position"]);
+      if (!hist_reco_vs_true_z_position) {
+        std::cerr << "Error: Histogram reco_vs_true_z_position not found!" << std::endl;
+        return;
+    }
+    if (simEvt[0].is_matched()) {
+    MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+    hist_reco_vs_true_z_position->Fill(matchedVtx.z(), simEvt[0].z);
+}
 
 }
 
