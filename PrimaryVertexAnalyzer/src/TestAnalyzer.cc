@@ -3983,7 +3983,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     hist->SetBinContent(1, realCounter);
     
     // Fill the "No" bin (second bin, index 2) with wrongCounter
-    hist->SetBinContent(2, wrongCounter); similar to above we shouldnt need that because fill should handle it
+    hist->SetBinContent(2, wrongCounter);
 
 
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
