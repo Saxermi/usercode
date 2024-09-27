@@ -3952,12 +3952,19 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
+    // Retrieve the histogram from the map
+    TH1I* hist = dynamic_cast<TH1I*>(histograms["Recon_Efficiency"]);
+    
+    if (!hist) {
+        std::cerr << "Histogram not found!" << std::endl;
+        return;
+    }
     cout << "I am in Analyzer function" << endl;
 
     double realCounter = 0, wrongCounter = 0;
     for(const auto & v: vtxs){
-        if(!v.isRecoFake()){
-            if(v.is_real()){
+        if(!v.isRecoFake()){ // Check if the vertex is not a reconstruction fake
+            if(v.is_real()){ // Check if the vertex is real
                 realCounter++;
             } else {
                 wrongCounter++;
@@ -3968,16 +3975,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     cout << "real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
    // Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
    // Fill the bin for 0 as many times as `realCounter` specifies
-for (int i = 0; i < wrongCounter; ++i) {
-    Fill(h, "Recon_Efficiency", 0);  // Fill the bin corresponding to 0
-}
 
-// Fill the bin for 1 as many times as `wrongCounter` specifies
-for (int i = 0; i < realCounter; ++i) {
-    Fill(h, "Recon_Efficiency", 1);  // Fill the bin corresponding to 1
-}
-
-    std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
+  hist->Fill(0.5, realCounter);
+    
+  // Fill "No" bin (1.5 corresponds to the second bin for "No")
+    
+  hist->Fill(1.5, wrongCounter);
+  std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
 
 }
 /*********************************************************************************************/
