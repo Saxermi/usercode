@@ -363,7 +363,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // - Create or navigate into the appropriate directory using mkdir and cd.
     // - Use addn to add histograms to the map h.
     // - Ensure proper cleanup by returning to the base directory using dir->cd().
-    cout << "The bookVertexHistograms method was run sucesssfully "
+    cout << "The bookVertexHistograms method was run sucesssfully ";
     return h;  // Return the map containing all histograms
 }
 
