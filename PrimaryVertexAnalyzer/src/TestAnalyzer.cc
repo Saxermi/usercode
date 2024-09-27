@@ -340,11 +340,34 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
   
   
   /* Efficiency*/
+  //dir->mkdir("efficiency")->cd();
+  //addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2));
+  //std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
+
+  //return h;
+
+  /* Efficiency */
   dir->mkdir("efficiency")->cd();
-  addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2));
+  
+  // Keep TH1I as it is for integer counts
+  TH1I* hist = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
+  addn(h, hist);
   std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
 
+  // Set bin labels if needed
+  hist->GetXaxis()->SetBinLabel(1, "Yes");
+  hist->GetXaxis()->SetBinLabel(2, "No");
+
+  // Set histogram style, e.g., fill color and bar width
+  hist->SetFillColor(kOrange + 2);  // Set fill color
+  hist->SetBarWidth(0.8);           // Set bar width
+
   return h;
+
+
+
+
+
 }
 
 void TestAnalyzer::bookTrackHistograms(const char * directory_name)
