@@ -336,39 +336,37 @@ TestAnalyzer::~TestAnalyzer() {
 //
 
 std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir) {
-  std::map<std::string, TH1*> h;  // will be returned
-  
-  
-  /* Efficiency*/
-  //dir->mkdir("efficiency")->cd();
-  //addn(h, new TH1I("Recon_Efficiency", "Reconstruction_efficiency", 2, 0, 2));
-  //std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
+    std::map<std::string, TH1*> h;  // will be returned
+    
+    /* Efficiency */
+    dir->mkdir("efficiency")->cd();  // Create the "efficiency" directory and navigate into it
 
-  //return h;
+    // Create the histogram for reconstruction efficiency
+    TH1I* hist = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
+    
+    // Add the histogram to the map using addn
+    addn(h, hist);
+    std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
 
-  /* Efficiency */
-  dir->mkdir("efficiency")->cd();
-  
-  // Keep TH1I as it is for integer counts
-  TH1I* hist = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
-  addn(h, hist);
-  std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
+    // Set bin labels for better visualization
+    hist->GetXaxis()->SetBinLabel(1, "Yes");
+    hist->GetXaxis()->SetBinLabel(2, "No");
 
-  // Set bin labels if needed
-  hist->GetXaxis()->SetBinLabel(1, "Yes");
-  hist->GetXaxis()->SetBinLabel(2, "No");
+    // Set histogram style: fill color and bar width
+    hist->SetFillColor(kOrange + 2);  // Set fill color for the bars
+    hist->SetBarWidth(0.8);           // Adjust the bar width
 
-  // Set histogram style, e.g., fill color and bar width
-  hist->SetFillColor(kOrange + 2);  // Set fill color
-  hist->SetBarWidth(0.8);           // Set bar width
+    // Return to the base directory to maintain proper organization
+    dir->cd();
 
-  return h;
-
-
-
-
-
+    // If you plan to add more histograms or profiles later, follow a similar structure:
+    // - Create or navigate into the appropriate directory using mkdir and cd.
+    // - Use addn to add histograms to the map h.
+    // - Ensure proper cleanup by returning to the base directory using dir->cd().
+    cout << "The bookVertexHistograms method was run sucesssfully "
+    return h;  // Return the map containing all histograms
 }
+
 
 void TestAnalyzer::bookTrackHistograms(const char * directory_name)
 {
@@ -3945,26 +3943,26 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
 
 /***************************************************************************************/
 void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
-                                                         MVertexCollection& vtxs,
-                                                         Tracks& tracks,
-                                                         vector<SimEvent>& simEvt,
-                                                         const string message)
+                                             MVertexCollection& vtxs,
+                                             Tracks& tracks,
+                                             vector<SimEvent>& simEvt,
+                                             const string message)
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    TH1I* hist = dynamic_cast<TH1I*>(h["Recon_Efficiency"]);
+    //TH1I* hist = dynamic_cast<TH1I*>(h["Recon_Efficiency"]);
     
-    if (!hist) {
-        std::cerr << "Histogram not found!" << std::endl;
-        return;
-    }
-    cout << "I am in Analyzer function" << endl;
+   // if (!hist) {
+    //    std::cerr << "Histogram not found!" << std::endl;
+    //    return;
+   // } shouldnt need that since fill should do that on its own
+    std::cout << "I am in Analyzer function" << std::endl;
 
     double realCounter = 0, wrongCounter = 0;
-    for(const auto & v: vtxs){
-        if(!v.isRecoFake()){ // Check if the vertex is not a reconstruction fake
-            if(v.is_real()){ // Check if the vertex is real
+    for(const auto& v : vtxs){
+        if (!v.isRecoFake()) { // Check if the vertex is not a reconstruction fake
+            if (v.is_real()) { // Check if the vertex is real
                 realCounter++;
             } else {
                 wrongCounter++;
@@ -3972,18 +3970,20 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         }
     }
 
-    cout << "real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
-   // Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
-   // Fill the bin for 0 as many times as `realCounter` specifies
+    std::cout << "Real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
 
-  hist->Fill(0.5, realCounter);
+    // Fill the "Yes" bin (first bin, index 1) with realCounter
+    //hist->SetBinContent(1, realCounter);
     
-  // Fill "No" bin (1.5 corresponds to the second bin for "No")
-    
-  hist->Fill(1.5, wrongCounter);
-  std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
+    // Fill the "No" bin (second bin, index 2) with wrongCounter
+    //hist->SetBinContent(2, wrongCounter); similar to above we shouldnt need that because fill should handle it
+
+
+    std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
+    Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
 
 }
+
 /*********************************************************************************************/
 
 
