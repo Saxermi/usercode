@@ -386,15 +386,28 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUHistRecoVsTrueZPositionHist);
     //set bar width to 0.1
      PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
-    // Return to the base directory to maintain proper organization
-    dir->cd();
+    //new histogram
+    //definition of an 2H histogram
+      TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, RecoVsTrueZPositionHistCategorialC1);
+      // new histogram
+      // definition of an 2H histogram
+      TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, RecoVsTrueZPositionHistCategorialC2);
+      // new histogram
+      // definition of an 2H histogram
+      TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, RecoVsTrueZPositionHistCategorialC3);
 
-    // If you plan to add more histograms or profiles later, follow a similar structure:
-    // - Create or navigate into the appropriate directory using mkdir and cd.
-    // - Use addn to add histograms to the map h.
-    // - Ensure proper cleanup by returning to the base directory using dir->cd().
-    cout << "The bookVertexHistograms method was run sucesssfully ";
-    return h;  // Return the map containing all histograms
+      // Return to the base directory to maintain proper organization
+      dir->cd();
+
+      // If you plan to add more histograms or profiles later, follow a similar structure:
+      // - Create or navigate into the appropriate directory using mkdir and cd.
+      // - Use addn to add histograms to the map h.
+      // - Ensure proper cleanup by returning to the base directory using dir->cd().
+      cout << "The bookVertexHistograms method was run sucesssfully ";
+      return h; // Return the map containing all histograms
 }
 
 
@@ -4078,8 +4091,69 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
            PUHistRecoVsTrueZPositionHist->Fill(delta_z);
         }
     }
-}
+    }
 
+        //definition of an 2H histogram
+
+
+    
+    // Initialize histograms for each category
+    TH1F* RecoVsTrueZPositionHistCategorialC1 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c1"]);
+    if (!RecoVsTrueZPositionHistCategorialC1) {
+        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c1 not found!" << std::endl;
+        return;
+    }
+
+    TH1F* RecoVsTrueZPositionHistCategorialC2 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c2"]);
+    if (!RecoVsTrueZPositionHistCategorialC2) {
+        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c2 not found!" << std::endl;
+        return;
+    }
+
+    TH1F* RecoVsTrueZPositionHistCategorialC3 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c3"]);
+    if (!RecoVsTrueZPositionHistCategorialC3) {
+        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c3 not found!" << std::endl;
+        return;
+        }
+    // Map to track the count of reconstructed vertices for each simulated vertex
+    std::unordered_map<unsigned int, int> simVertexToRecoCount;
+
+    // Loop over all reconstructed vertices to count how many times each simulated vertex is matched
+    for (unsigned int j = 0; j < vtxs.size(); ++j) {
+        MVertex& vtx = vtxs.at(j);
+        if (!vtx.isRecoFake() && vtx.sim != NOT_MATCHED_VTX_SIM) {
+            simVertexToRecoCount[vtx.sim]++;
+        }
+    }
+
+    // Loop over simulated vertices to categorize and fill histograms
+    for (size_t i = 0; i < simEvt.size(); i++) {
+        if (simEvt[i].is_matched()) {
+            if (simVertexToRecoCount[i] == 1) {
+                // Category 1: Exactly one reconstructed vertex per simulated vertex
+                unsigned int rec_index = simEvt[i].rec;
+                double rec_z = vtxs.at(rec_index).z();
+                RecoVsTrueZPositionHistCategorialC1->Fill(rec_z);
+            } else if (simVertexToRecoCount[i] > 1) {
+                // Category 2: Multiple reconstructed vertices per simulated vertex
+                for (size_t j = 0; j < vtxs.size(); ++j) {
+                    if (vtxs.at(j).sim == i) {
+                        double rec_z = vtxs.at(j).z();
+                        RecoVsTrueZPositionHistCategorialC2->Fill(rec_z);
+                    }
+                }
+            }
+        }
+    }
+
+    // Category 3: Fake vertices (reconstructed vertices not matched to any simulated vertex)
+    for (size_t i = 0; i < vtxs.size(); ++i) {
+        MVertex& vtx = vtxs.at(i);
+        if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
+            double rec_z = vtx.z();
+            RecoVsTrueZPositionHistCategorialC3->Fill(rec_z);
+        }
+    }
 
 }
 
