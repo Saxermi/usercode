@@ -4032,11 +4032,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     for (size_t i = 0; i < simEvt.size();i++){
       if(!simEvt[i].is_signal()){
+      if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
+
             unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
             double true_z = simEvt[i].z;
             double rec_z = vtxs.at(rec_index).z();
                 PUhist_reco_vs_true_z_position->Fill(rec_z, true_z);
-
+        }
       }
 
     }
