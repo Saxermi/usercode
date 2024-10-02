@@ -4021,8 +4021,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     hist_reco_vs_true_z_position->Fill(matchedVtx.z(), simEvt[0].z);
     }
 
-     TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
-    addn(h, PUhist_reco_vs_true_z_position);
+
 
     //new histogram 
     TH2F* PUhist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/PUreco_vs_true_z_position"]);
