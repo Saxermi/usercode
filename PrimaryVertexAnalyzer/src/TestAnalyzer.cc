@@ -366,8 +366,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, hist_reco_vs_true_z_position);
     //new histogram
     //definition of 1 H hist
-    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","Reconstructed vs. True Z-Position position difference", 100, -0.01, 0.01);
+    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 100, -0.01, 0.01);
     addn(h, SEHistRecoVsTrueZPositionHist);
+    //set bar width to 0.1
+     SEHistRecoVsTrueZPositionHist->SetBarWidth(0.1);   
+      //new histogram
+    //definition of 1 H hist
+    TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 100, -0.5, 0.5);
+    addn(h, PUHistRecoVsTrueZPositionHist);
     // Return to the base directory to maintain proper organization
     dir->cd();
 
@@ -4019,6 +4025,27 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
       SEHistRecoVsTrueZPositionHist->Fill( simEvt[0].z -matchedVtx.z());
     }
+
+    //new histogram PUHistRecoVsTrueZPositionHist
+  TH1F* PUHistRecoVsTrueZPositionHist = dynamic_cast<TH1F*>(h["efficiency/PU_reco_vs_true_z_position_hist"]);
+    if (!PUHistRecoVsTrueZPositionHist) {
+        std::cerr << "Error: Histogram PU_reco_vs_true_z_position_hist not found!" << std::endl;
+        return;
+    }
+    for (size_t i = 0; i < simEvt.size(); ++i) {
+    if (!simEvt[i].is_signal()) {  // Check if it is a pile-up event
+        if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
+            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
+            double true_z = simEvt[i].z;
+            double rec_z = vtxs.at(rec_index).z();
+            double delta_z = rec_z - true_z;
+
+            // Fill the histogram with delta_z
+           PUHistRecoVsTrueZPositionHist->Fill(delta_z);
+        }
+    }
+}
+
 
 }
 
