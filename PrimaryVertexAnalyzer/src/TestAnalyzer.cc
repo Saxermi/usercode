@@ -368,6 +368,8 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Definition of the 2D histogram
     TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
     addn(h, PUhist_reco_vs_true_z_position);
+    PUhist_reco_vs_true_z_position->Draw("COLZ");
+
     //new histogram
     //definition of 1 H hist
     TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
