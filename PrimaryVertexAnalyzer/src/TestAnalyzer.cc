@@ -4031,7 +4031,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
     for (size_t i = 0; i < simEvt.size();i++){
-      if(!simEvt[i]){
+      if(!simEvt[i].is_signal()){
             unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
             double true_z = simEvt[i].z;
             double rec_z = vtxs.at(rec_index).z();
