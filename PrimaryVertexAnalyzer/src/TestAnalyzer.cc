@@ -4017,7 +4017,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
       if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-      hist_reco_vs_true_z_position->Fill( simEvt[0].z -matchedVtx.z());
+      SEHistRecoVsTrueZPositionHist->Fill( simEvt[0].z -matchedVtx.z());
     }
 
 }
