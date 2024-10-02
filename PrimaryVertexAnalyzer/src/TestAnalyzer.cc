@@ -370,11 +370,10 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUhist_reco_vs_true_z_position);
     PUhist_reco_vs_true_z_position->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
     // for now just manually add in TBrowser
-    
 
 
-// Directly update the current histogram's pad to display everything
-gPad->Update();
+
+
     //new histogram
     //definition of 1 H hist
     TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
