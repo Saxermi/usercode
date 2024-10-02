@@ -20,7 +20,7 @@ We will need different measures to verify how well the reconstruction is working
 
 ## More Analysis Stuff, but for future use
 
-Due to us wanting to shirten time it takes to reconstruct verteces, we will need to add some tools that help us verify how much time it takes to run the DA.
+Due to us wanting to shorten time it takes to reconstruct verteces, we will need to add some tools that help us verify how much time it takes to run the DA.
 By having some graphs which show time versus number uf verteces or time versus number of steps in DA.
 
 Additionally, we should also focus on comparing the "segmented" DA to "original" DA for vertex reconstruction. Here it could be useful to run the same analytics for both and compare them in one plot.
