@@ -366,14 +366,16 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, hist_reco_vs_true_z_position);
     //new histogram
     //definition of 1 H hist
-    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 100, -0.01, 0.01);
+    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
     addn(h, SEHistRecoVsTrueZPositionHist);
     //set bar width to 0.1
      SEHistRecoVsTrueZPositionHist->SetBarWidth(0.1);   
       //new histogram
     //definition of 1 H hist
-    TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 100, -0.5, 0.5);
+    TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
     addn(h, PUHistRecoVsTrueZPositionHist);
+    /set bar width to 0.1
+     PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
     // Return to the base directory to maintain proper organization
     dir->cd();
 
