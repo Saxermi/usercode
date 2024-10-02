@@ -10,7 +10,7 @@ We will need different measures to verify how well the reconstruction is working
   
 - **Identify other pile-up vertices:**
   - **Efficiency:** How many of the simulated vertices are reconstructed?
-  - **Purity:** How many of the reconstructed vertices are incorrect? This controls for false positives and keeps the error rate small.
+  - **Purity:** which fraction of the tracks associated to a reconstructed vertex corresponds to a simulated track from correct/same simulated vertex
   - **Precision:** How close are the positions of the simulated and reconstructed vertices?
   - Where on the z-axis are the reconstructed and simulated vertices? What is the **distribution**?
   
