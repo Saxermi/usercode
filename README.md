@@ -13,6 +13,7 @@ We will need different measures to verify how well the reconstruction is working
   - **Purity:** which fraction of the tracks associated to a reconstructed vertex corresponds to a simulated track from correct/same simulated vertex
   - **Precision:** How close are the positions of the simulated and reconstructed vertices?
   - Where on the z-axis are the reconstructed and simulated vertices? What is the **distribution**?
+  - Fake vertices: Confusion matrix
   
 - **Determine the number of pile-up vertices event-by-event:** How many events are there for each simulation?
 
