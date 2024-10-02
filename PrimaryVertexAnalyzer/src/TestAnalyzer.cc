@@ -362,8 +362,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     hist_reco_matches->SetMaximum(150);
     // new histogramm
     // Definition of the 2D histogram
-    TH2F* hist_reco_vs_true_z_position = new TH2F("reco_vs_true_z_position", "Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    TH2F* hist_reco_vs_true_z_position = new TH2F("reco_vs_true_z_position", "SE Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
     addn(h, hist_reco_vs_true_z_position);
+    // new histogramm
+    // Definition of the 2D histogram
+    TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    addn(h, PUhist_reco_vs_true_z_position);
     //new histogram
     //definition of 1 H hist
     TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
@@ -4016,9 +4020,30 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
     hist_reco_vs_true_z_position->Fill(matchedVtx.z(), simEvt[0].z);
     }
-    //new histogram
-  
-    TH1F* SEHistRecoVsTrueZPositionHist = dynamic_cast<TH1F*>(h["efficiency/SE_reco_vs_true_z_position_hist"]);
+
+     TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    addn(h, PUhist_reco_vs_true_z_position);
+
+    //new histogram 
+    TH2F* PUhist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/PUreco_vs_true_z_position"]);
+      if (!PUhist_reco_vs_true_z_position) {
+        std::cerr << "Error: Histogram PUreco_vs_true_z_position not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < simEvt.size();i++){
+      if(!simEvt[i]){
+            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
+            double true_z = simEvt[i].z;
+            double rec_z = vtxs.at(rec_index).z();
+                PUhist_reco_vs_true_z_position->Fill(rec_z, true_z);
+
+      }
+
+    }
+      // new histogram
+
+      TH1F *SEHistRecoVsTrueZPositionHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_vs_true_z_position_hist"]);
     if (!SEHistRecoVsTrueZPositionHist) {
         std::cerr << "Error: Histogram SE_reco_vs_true_z_position_hist not found!" << std::endl;
         return;
