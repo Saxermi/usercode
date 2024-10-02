@@ -1,0 +1,18 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 35817
+HOSTNAME: t3wn71
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+cat: samples/: Is a directory
+----- Begin Fatal Exception 02-Oct-2024 16:08:52 CEST-----------------------
+An exception of category 'ConfigFileReadError' occurred while
+   [0] Processing the python configuration file named pv_cfg.py
+Exception Message:
+ unknown python problem occurred.
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+At:
+  pv_cfg.py(126): <module>
+
+----- End Fatal Exception -------------------------------------------------
+cp: cannot stat ‘pv.root’: No such file or directory
