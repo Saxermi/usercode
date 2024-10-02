@@ -388,15 +388,15 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
      PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
     //new histogram
     //definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, RecoVsTrueZPositionHistCategorialC1);
       // new histogram
       // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, RecoVsTrueZPositionHistCategorialC2);
       // new histogram
       // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, RecoVsTrueZPositionHistCategorialC3);
 
       // Return to the base directory to maintain proper organization
