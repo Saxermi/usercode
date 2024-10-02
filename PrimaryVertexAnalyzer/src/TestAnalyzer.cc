@@ -389,28 +389,25 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     //new histogram
     //definition of an 2H histogram
       TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
-    addn(h,RecoVsTrueZPositionHistCategorialC1)
-    //new histogram
-    //definition of an 2H histogram
+      addn(h, RecoVsTrueZPositionHistCategorialC1);
+      // new histogram
+      // definition of an 2H histogram
       TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
-    addn(h,RecoVsTrueZPositionHistCategorialC2)
-//new histogram
-    //definition of an 2H histogram
+      addn(h, RecoVsTrueZPositionHistCategorialC2);
+      // new histogram
+      // definition of an 2H histogram
       TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Reconstructed vs. True Z Position;Vertex Z Position;Frequency", 100, -30, 30);
-    addn(h,RecoVsTrueZPositionHistCategorialC3)
+      addn(h, RecoVsTrueZPositionHistCategorialC3);
 
+      // Return to the base directory to maintain proper organization
+      dir->cd();
 
-
-
-    // Return to the base directory to maintain proper organization
-    dir->cd();
-
-    // If you plan to add more histograms or profiles later, follow a similar structure:
-    // - Create or navigate into the appropriate directory using mkdir and cd.
-    // - Use addn to add histograms to the map h.
-    // - Ensure proper cleanup by returning to the base directory using dir->cd().
-    cout << "The bookVertexHistograms method was run sucesssfully ";
-    return h;  // Return the map containing all histograms
+      // If you plan to add more histograms or profiles later, follow a similar structure:
+      // - Create or navigate into the appropriate directory using mkdir and cd.
+      // - Use addn to add histograms to the map h.
+      // - Ensure proper cleanup by returning to the base directory using dir->cd().
+      cout << "The bookVertexHistograms method was run sucesssfully ";
+      return h; // Return the map containing all histograms
 }
 
 
