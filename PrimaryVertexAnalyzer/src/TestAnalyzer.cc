@@ -3986,7 +3986,34 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
 
 
 
+///Helper function for analyzeVertexcollection TP 
+   //first we define a function to do the calculation
+    double distance_point_to_plane(const double point[3], const double plane_point[3], const double normal_vector[3]){
+        // in order to make the formula easier we unpack the values from the vectors
+        double x1 = point[0], y1 = point[1], z1 = point[2];
 
+        double x0 = plane_point[0], y0 = plane_point[1], z0 = plane_point[2];
+        double A = normal_vector[0], B = normal_vector[1], C = normal_vector[2];
+
+
+        // now we calculate D
+        double D = -(A * x0 + B * y0 + C * z0);
+        // and the numerator | Ax1 + By1 + Cz1 + D |
+
+        double numerator = fabs(A * x1 + B * y1 + C * z1 + D);
+        // and denominator  square root ( A * A + B *B + C*C)
+        double denominator = sqrt(A * A + B * B + C * C);
+        if(denominator!= 0){
+          return numerator / denominator;
+        }else{
+          std::cerr << " TrueE3DDistanceToPlane had a divide by zero error" << std::endl;
+
+          return -0; // return unusal value to make
+        }
+
+
+
+    }
 
 
 
@@ -4173,33 +4200,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram True_3D_point_to_plane_distance not found!" << std::endl;
         return;
         }
-    //first we define a function to do the calculation
-    double distance_point_to_plane(const double point[3], const double plane_point[3], const double normal_vector[3]){
-        // in order to make the formula easier we unpack the values from the vectors
-        double x1 = point[0], y1 = point[1], z1 = point[2];
-
-        double x0 = plane_point[0], y0 = plane_point[1], z0 = plane_point[2];
-        double A = normal_vector[0], B = normal_vector[1], C = normal_vector[2];
-
-
-        // now we calculate D
-        double D = -(A * x0 + B * y0 + C * z0);
-        // and the numerator | Ax1 + By1 + Cz1 + D |
-
-        double numerator = fabs(A * x1 + B * y1 + C * z1 + D);
-        // and denominator  square root ( A * A + B *B + C*C)
-        double denominator = sqrt(A * A + B * B + C * C);
-        if(denominator!= 0){
-          return numerator / denominator;
-        }else{
-          std::cerr << " TrueE3DDistanceToPlane had a divide by zero error" << std::endl;
-
-          return -0; // return unusal value to make
-        }
-
-
-
-    }
+ 
     // now we loop over the simulated vertices but first define the plane
      double plane_point[3] = {0.0, 0.0, 0.0};   // Point on the plane
 
@@ -4213,7 +4214,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                              simEvt[i].y,
                              simEvt[i].z};
           double distance = distance_point_to_plane(point, plane_point, normal_vector);
-          TrueE3DDistanceToPlane->fill(distance);
+          TrueE3DDistanceToPlane->Fill(distance);
         }
     }
 }
