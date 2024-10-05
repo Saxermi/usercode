@@ -399,6 +399,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, RecoVsTrueZPositionHistCategorialC3);
 
+     // new histogram
+      // this histogramm shows distance betweeen point in 3 d space and plane
+      // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
+      TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, -30, 30);
+      addn(h, TrueE3DDistanceToPlane);
+
+
+
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -4155,6 +4163,59 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         }
     }
 
+      // new histogram
+      // this histogramm shows distance betweeen point in 3 d space and plane
+      // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
+
+
+       TH1F* TrueE3DDistanceToPlane = dynamic_cast<TH1F*>(h["efficiency/True_3D_point_to_plane_distance"]);
+    if (!TrueE3DDistanceToPlane) {
+        std::cerr << "Error: Histogram True_3D_point_to_plane_distance not found!" << std::endl;
+        return;
+        }
+    //first we define a function to do the calculation
+    double distance_point_to_plane(const double point[3], const double plane_point[3], const double normal_vector[3]){
+        // in order to make the formula easier we unpack the values from the vectors
+        double x1 = point[0], y1 = point[1], z1 = point[2];
+
+        double x0 = plane_point[0], y0 = plane_point[1], z0 = plane_point[2];
+        double A = normal_vector[0], B = normal_vector[1], C = normal_vector[2];
+
+
+        // now we calculate D
+        double D = -(A * x0 + B * y0 + C * z0);
+        // and the numerator | Ax1 + By1 + Cz1 + D |
+
+        double numerator = fabs(A * x1 + B * y1 + C * z1 + D);
+        // and denominator  square root ( A * A + B *B + C*C)
+        double denominator = sqrt(A * A + B * B + C * C);
+        if(denominator!= 0){
+          return numerator / denominator;
+        }else{
+          std::cerr << " TrueE3DDistanceToPlane had a divide by zero error" << std::endl;
+
+          return -0; // return unusal value to make
+        }
+
+
+
+    }
+    // now we loop over the simulated vertices but first define the plane
+     double plane_point[3] = {0.0, 0.0, 0.0};   // Point on the plane
+
+    // Define the normal vector of the plane (45-degree slicing normal)
+    double normal_vector[3] = {1.0 / sqrt(2), 0.0, -1.0 / sqrt(2)};
+
+    for (size_t i = 0; i < simEvt.size(); ++i){
+        if (simEvt[i].is_matched()) {
+
+          double point[3] = {simEvt[i].x,
+                             simEvt[i].y,
+                             simEvt[i].z};
+          double distance = distance_point_to_plane(point, plane_point, normal_vector);
+          TrueE3DDistanceToPlane->fill(distance);
+        }
+    }
 }
 
 /*********************************************************************************************/
