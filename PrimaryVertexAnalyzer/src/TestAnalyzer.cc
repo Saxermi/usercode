@@ -402,7 +402,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
      // new histogram
       // this histogramm shows distance betweeen point in 3 d space and plane
       // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
-      TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, -30, 30);
+      TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
       addn(h, TrueE3DDistanceToPlane);
 
 
