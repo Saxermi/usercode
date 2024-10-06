@@ -371,23 +371,28 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     PUhist_reco_vs_true_z_position->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
     // for now just manually add in TBrowser
 
-
-
+    // New histogramm
+    // SE tracks purity
+    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 100);
+    addn(h, SETracksPurity);
 
     //new histogram
     //definition of 1 H hist
+    // SE Resolution
     TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
     addn(h, SEHistRecoVsTrueZPositionHist);
     //set bar width to 0.1
      SEHistRecoVsTrueZPositionHist->SetBarWidth(0.1);   
       //new histogram
     //definition of 1 H hist
+    // PU Resolution
     TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
     addn(h, PUHistRecoVsTrueZPositionHist);
     //set bar width to 0.1
      PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
     //new histogram
     //definition of an 2H histogram
+    // PU Confusion Matrix
       TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, RecoVsTrueZPositionHistCategorialC1);
       // new histogram
@@ -4153,6 +4158,41 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             double rec_z = vtx.z();
             RecoVsTrueZPositionHistCategorialC3->Fill(rec_z);
         }
+    }
+
+  // histogram for SE track purity
+
+  TH1F *SETracksPurity = dynamic_cast<TH1F *>(h["efficiency/SETracksPurity"]);
+  if (!SETracksPurity) {
+        std::cerr << "Error: Histogram SETracksPurity not found!" << std::endl;
+        return;
+    }
+
+  if (simEvt[0].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+      unsigned int numMatchedTracks = 0;
+      unsigned int numTracks = matchedVtx.tracks.size();
+
+        // Loop through the reconstructed tracks in the matched vertex
+        for (auto tv : matchedVtx.tracks) {
+            // Check if the track is matched to a simulated event
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+            // Check if the track is correctly assigned to the signal vertex
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
+
+        // Calculate the purity as the fraction of correctly matched tracks
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+
+        // Fill the histogram with the calculated purity
+        SETracksPurity->Fill(purity);
+    } else {
+        std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
 
 }
