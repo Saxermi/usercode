@@ -7,6 +7,7 @@
 #include "MagneticField/Engine/interface/MagneticField.h"
 
 // reco track and vertex
+
 #include "DataFormats/TrackReco/interface/Track.h"
 #include "DataFormats/VertexReco/interface/Vertex.h"
 #include "DataFormats/Math/interface/Point3D.h"
@@ -339,88 +340,33 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     std::map<std::string, TH1*> h;  // will be returned
     
     /* Efficiency */
-    dir->mkdir("efficiency")->cd();  // Create the "efficiency" directory and navigate into it
+    dir->mkdir("// efficiency")->cd();  // Create the "efficiency" directory and navigate into it
 
-    // Create the histogram for reconstruction efficiency
-    TH1I* hist_reco_matches = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
+    // // Create the histogram for reconstruction efficiency
+    // TH1I* hist = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
     
-    // Add the histogram to the map using addn
-    addn(h, hist_reco_matches);
-    std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
+    // // Add the histogram to the map using addn
+    // addn(h, hist);
+    // std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
 
-    // Set bin labels for better visualization
-    hist_reco_matches->GetXaxis()->SetBinLabel(1, "Matched vertex");
-    hist_reco_matches->GetXaxis()->SetBinLabel(2, "Unmatched vertex");
+    // // Set bin labels for better visualization
+    // hist->GetXaxis()->SetBinLabel(1, "Yes");
+    // hist->GetXaxis()->SetBinLabel(2, "No")
+      ;
 
     // Set histogram style: fill color and bar width
-    hist_reco_matches->SetFillColor(kOrange + 2);  // Set fill color for the bars
-    hist_reco_matches->SetBarWidth(0.8);           // Adjust the bar width
+    hist->SetFillColor(kOrange + 2);  // Set fill color for the bars
+    hist->SetBarWidth(0.8);           // Adjust the bar width
 
-    //set y axis title
-    hist_reco_matches->GetYaxis()->SetTitle("Count ");
-    hist_reco_matches->SetMinimum(0);
-    hist_reco_matches->SetMaximum(150);
-    // new histogramm 
-    // Definition of the 2D histogram
-    TH2F* hist_reco_vs_true_z_position = new TH2F("reco_vs_true_z_position", "SE Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
-    addn(h, hist_reco_vs_true_z_position);
-    // another new histogramm
-    // Definition of the 2D histogram
-    TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
-    addn(h, PUhist_reco_vs_true_z_position);
-    PUhist_reco_vs_true_z_position->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
-    // for now just manually add in TBrowser
+    // Return to the base directory to maintain proper organization
+    dir->cd();
 
-    // New histogramm
-    // SE tracks purity
-    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 100);
-    addn(h, SETracksPurity);
-
-    //new histogram
-    //definition of 1 H hist
-    // SE Resolution
-    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
-    addn(h, SEHistRecoVsTrueZPositionHist);
-    //set bar width to 0.1
-     SEHistRecoVsTrueZPositionHist->SetBarWidth(0.1);   
-      //new histogram
-    //definition of 1 H hist
-    // PU Resolution
-    TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
-    addn(h, PUHistRecoVsTrueZPositionHist);
-    //set bar width to 0.1
-     PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
-    //new histogram
-    //definition of an 2H histogram
-    // PU Confusion Matrix
-      TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC1);
-      // new histogram
-      // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC2);
-      // new histogram
-      // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC3);
-
-     // new histogram
-      // this histogramm shows distance betweeen point in 3 d space and plane
-      // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
-      TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
-      addn(h, TrueE3DDistanceToPlane);
-
-
-
-      // Return to the base directory to maintain proper organization
-      dir->cd();
-
-      // If you plan to add more histograms or profiles later, follow a similar structure:
-      // - Create or navigate into the appropriate directory using mkdir and cd.
-      // - Use addn to add histograms to the map h.
-      // - Ensure proper cleanup by returning to the base directory using dir->cd().
-      cout << "The bookVertexHistograms method was run sucesssfully ";
-      return h; // Return the map containing all histograms
+    // If you plan to add more histograms or profiles later, follow a similar structure:
+    // - Create or navigate into the appropriate directory using mkdir and cd.
+    // - Use addn to add histograms to the map h.
+    // - Ensure proper cleanup by returning to the base directory using dir->cd().
+    cout << "The bookVertexHistograms method was run sucesssfully ";
+    return h;  // Return the map containing all histograms
 }
 
 
@@ -3991,34 +3937,7 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
 
 
 
-///Helper function for analyzeVertexcollection TP 
-   //first we define a function to do the calculation
-    double distance_point_to_plane(const double point[3], const double plane_point[3], const double normal_vector[3]){
-        // in order to make the formula easier we unpack the values from the vectors
-        double x1 = point[0], y1 = point[1], z1 = point[2];
 
-        double x0 = plane_point[0], y0 = plane_point[1], z0 = plane_point[2];
-        double A = normal_vector[0], B = normal_vector[1], C = normal_vector[2];
-
-
-        // now we calculate D
-        double D = -(A * x0 + B * y0 + C * z0);
-        // and the numerator | Ax1 + By1 + Cz1 + D |
-
-        double numerator = fabs(A * x1 + B * y1 + C * z1 + D);
-        // and denominator  square root ( A * A + B *B + C*C)
-        double denominator = sqrt(A * A + B * B + C * C);
-        if(denominator!= 0){
-          return numerator / denominator;
-        }else{
-          std::cerr << " TrueE3DDistanceToPlane had a divide by zero error" << std::endl;
-
-          return -0; // return unusal value to make
-        }
-
-
-
-    }
 
 
 
@@ -4034,11 +3953,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/Recon_Efficiency"]);
-      if (!hist_reco_matches) {
-        std::cerr << "Error: Histogram Recon_Efficiency not found!" << std::endl;
-        return;
-    }
+    //TH1I* hist = dynamic_cast<TH1I*>(h["Recon_Efficiency"]);
+    
    // if (!hist) {
     //    std::cerr << "Histogram not found!" << std::endl;
     //    return;
@@ -4059,202 +3975,15 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     std::cout << "Real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
 
     // Fill the "Yes" bin (first bin, index 1) with realCounter
-    hist_reco_matches->SetBinContent(1, realCounter);
+    //hist->SetBinContent(1, realCounter);
     
     // Fill the "No" bin (second bin, index 2) with wrongCounter
-    hist_reco_matches->SetBinContent(2, wrongCounter);
+    //hist->SetBinContent(2, wrongCounter); similar to above we shouldnt need that because fill should handle it
 
 
     std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
-    //Fill(h, "efficiency/Recon_Efficiency", realCounter, wrongCounter);
+    Fill(h, "Recon_Efficiency", realCounter, wrongCounter);
 
-
-    // next histogram 
-    TH2F* hist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/reco_vs_true_z_position"]);
-      if (!hist_reco_vs_true_z_position) {
-        std::cerr << "Error: Histogram reco_vs_true_z_position not found!" << std::endl;
-        return;
-    }
-    if (simEvt[0].is_matched()) {
-    MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-    hist_reco_vs_true_z_position->Fill(matchedVtx.z(), simEvt[0].z);
-    }
-
-
-
-    //new histogram 
-    TH2F* PUhist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/PUreco_vs_true_z_position"]);
-      if (!PUhist_reco_vs_true_z_position) {
-        std::cerr << "Error: Histogram PUreco_vs_true_z_position not found!" << std::endl;
-        return;
-    }
-
-    for (size_t i = 0; i < simEvt.size();i++){
-      if(!simEvt[i].is_signal()){
-      if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
-
-            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
-            double true_z = simEvt[i].z;
-            double rec_z = vtxs.at(rec_index).z();
-                PUhist_reco_vs_true_z_position->Fill(rec_z, true_z);
-        }
-      }
-
-    }
-      // new histogram
-
-      TH1F *SEHistRecoVsTrueZPositionHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_vs_true_z_position_hist"]);
-    if (!SEHistRecoVsTrueZPositionHist) {
-        std::cerr << "Error: Histogram SE_reco_vs_true_z_position_hist not found!" << std::endl;
-        return;
-    }
-      if (simEvt[0].is_matched()) {
-      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-      SEHistRecoVsTrueZPositionHist->Fill( simEvt[0].z -matchedVtx.z());
-    }
-
-    //new histogram PUHistRecoVsTrueZPositionHist
-  TH1F* PUHistRecoVsTrueZPositionHist = dynamic_cast<TH1F*>(h["efficiency/PU_reco_vs_true_z_position_hist"]);
-    if (!PUHistRecoVsTrueZPositionHist) {
-        std::cerr << "Error: Histogram PU_reco_vs_true_z_position_hist not found!" << std::endl;
-        return;
-    }
-    for (size_t i = 0; i < simEvt.size(); ++i) {
-    if (!simEvt[i].is_signal()) {  // Check if it is a pile-up event
-        if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
-            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
-            double true_z = simEvt[i].z;
-            double rec_z = vtxs.at(rec_index).z();
-            double delta_z = rec_z - true_z;
-
-            // Fill the histogram with delta_z
-           PUHistRecoVsTrueZPositionHist->Fill(delta_z);
-        }
-    }
-    }
-
-        //definition of an 2H histogram
-
-
-    
-    // Initialize histograms for each category
-    TH1F* RecoVsTrueZPositionHistCategorialC1 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c1"]);
-    if (!RecoVsTrueZPositionHistCategorialC1) {
-        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c1 not found!" << std::endl;
-        return;
-    }
-
-    TH1F* RecoVsTrueZPositionHistCategorialC2 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c2"]);
-    if (!RecoVsTrueZPositionHistCategorialC2) {
-        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c2 not found!" << std::endl;
-        return;
-    }
-
-    TH1F* RecoVsTrueZPositionHistCategorialC3 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c3"]);
-    if (!RecoVsTrueZPositionHistCategorialC3) {
-        std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c3 not found!" << std::endl;
-        return;
-        }
-    // Map to track the count of reconstructed vertices for each simulated vertex
-    std::unordered_map<unsigned int, int> simVertexToRecoCount;
-
-    // Loop over all reconstructed vertices to count how many times each simulated vertex is matched
-    for (unsigned int j = 0; j < vtxs.size(); ++j) {
-        MVertex& vtx = vtxs.at(j);
-        if (!vtx.isRecoFake() && vtx.sim != NOT_MATCHED_VTX_SIM) {
-            simVertexToRecoCount[vtx.sim]++;
-        }
-    }
-
-    // Loop over simulated vertices to categorize and fill histograms
-    for (size_t i = 0; i < simEvt.size(); i++) {
-        if (simEvt[i].is_matched()) {
-            if (simVertexToRecoCount[i] == 1) {
-                // Category 1: Exactly one reconstructed vertex per simulated vertex
-                unsigned int rec_index = simEvt[i].rec;
-                double rec_z = vtxs.at(rec_index).z();
-                RecoVsTrueZPositionHistCategorialC1->Fill(rec_z);
-            } else if (simVertexToRecoCount[i] > 1) {
-                // Category 2: Multiple reconstructed vertices per simulated vertex
-                for (size_t j = 0; j < vtxs.size(); ++j) {
-                    if (vtxs.at(j).sim == i) {
-                        double rec_z = vtxs.at(j).z();
-                        RecoVsTrueZPositionHistCategorialC2->Fill(rec_z);
-                    }
-                }
-            }
-        }
-    }
-
-    // Category 3: Fake vertices (reconstructed vertices not matched to any simulated vertex)
-    for (size_t i = 0; i < vtxs.size(); ++i) {
-        MVertex& vtx = vtxs.at(i);
-        if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
-            double rec_z = vtx.z();
-            RecoVsTrueZPositionHistCategorialC3->Fill(rec_z);
-        }
-    }
-      // new histogram
-      // this histogramm shows distance betweeen point in 3 d space and plane
-      // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
-
-
-       TH1F* TrueE3DDistanceToPlane = dynamic_cast<TH1F*>(h["efficiency/True_3D_point_to_plane_distance"]);
-    if (!TrueE3DDistanceToPlane) {
-        std::cerr << "Error: Histogram True_3D_point_to_plane_distance not found!" << std::endl;
-        return;
-        }
- 
-    // now we loop over the simulated vertices but first define the plane
-     double plane_point[3] = {0.0, 0.0, 0.0};   // Point on the plane
-
-    // Define the normal vector of the plane (45-degree slicing normal)
-    double normal_vector[3] = {1.0 / sqrt(2), 0.0, -1.0 / sqrt(2)};
-
-    for (size_t i = 0; i < simEvt.size(); ++i){
-        if (simEvt[i].is_matched()) {
-
-          double point[3] = {simEvt[i].x,
-                             simEvt[i].y,
-                             simEvt[i].z};
-          double distance = distance_point_to_plane(point, plane_point, normal_vector);
-          TrueE3DDistanceToPlane->Fill(distance);
-        }
-    }
-  // histogram for SE track purity
-
-  TH1F *SETracksPurity = dynamic_cast<TH1F *>(h["efficiency/SETracksPurity"]);
-  if (!SETracksPurity) {
-        std::cerr << "Error: Histogram SETracksPurity not found!" << std::endl;
-        return;
-    }
-
-  if (simEvt[0].is_matched()) {
-      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-      unsigned int numMatchedTracks = 0;
-      unsigned int numTracks = matchedVtx.tracks.size();
-
-        // Loop through the reconstructed tracks in the matched vertex
-        for (auto tv : matchedVtx.tracks) {
-            // Check if the track is matched to a simulated event
-            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
-            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
-
-            // Check if the track is correctly assigned to the signal vertex
-            bool correctly_assigned = (tk_sim == matchedVtx.sim);
-            if (correctly_assigned) {
-                numMatchedTracks++;
-            }
-        }
-
-        // Calculate the purity as the fraction of correctly matched tracks
-        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
-
-        // Fill the histogram with the calculated purity
-        SETracksPurity->Fill(purity);
-    } else {
-        std::cerr << "No matched reconstructed vertex found!" << std::endl;
-    }
 }
 
 /*********************************************************************************************/
@@ -4501,4 +4230,3 @@ void TestAnalyzer::analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
 
 //define this as a plug-in
 DEFINE_FWK_MODULE(TestAnalyzer);
-
