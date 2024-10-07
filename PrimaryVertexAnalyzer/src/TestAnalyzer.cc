@@ -376,6 +376,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 100);
     addn(h, SETracksPurity);
 
+    // New histogramm
+    // SE tracks Efficiency
+    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Tracks Efficiency", 100, 0, 100);
+    addn(h, SETracksEfficiency);
+
     //new histogram
     //definition of 1 H hist
     // SE Resolution
@@ -4255,6 +4260,39 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     } else {
         std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
+
+    // histogram for SE track efficiency
+
+    TH1F *SETracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/SETracksEfficiency"]);
+    if (!SETracksEfficiency) {
+        std::cerr << "Error: Histogram SETracksEfficiency not found!" << std::endl;
+        return;
+    }
+
+    // Ensure we have a signal vertex and it is matched
+    if (simEvt.size() > 0 && simEvt[0].is_matched()) {
+        
+        unsigned int numSimTracks = simEvt[0].rtk.size(); // Number of simulated tracks
+        unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
+
+        // Loop through the simulated tracks for the signal vertex
+        for (auto& simTrack : simEvt[0].rtk) {
+            // Check if this simulated track has a matching reconstructed track
+            if (simTrack.is_matched()) {
+                numMatchedTracks++;
+            }
+        }
+
+        // Calculate the efficiency as the fraction of simulated tracks that are matched
+        float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
+
+        // Fill the histogram with the calculated efficiency
+        SETracksEfficiency->Fill(efficiency);
+
+    } else {
+        std::cerr << "No signal vertex or no matched reconstructed vertex found!" << std::endl;
+    }
+
 }
 
 /*********************************************************************************************/
