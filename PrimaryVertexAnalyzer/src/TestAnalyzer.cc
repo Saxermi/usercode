@@ -381,6 +381,16 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Tracks Efficiency", 100, 0, 100);
     addn(h, SETracksEfficiency);
 
+    // New histogramm
+    // PU tracks purity
+    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity", 100, 0, 100);
+    addn(h, PUTracksPurity);
+
+    // New histogramm
+    // PU tracks Efficiency
+    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency", 100, 0, 100);
+    addn(h, PUTracksEfficiency);
+
     //new histogram
     //definition of 1 H hist
     // SE Resolution
@@ -4292,6 +4302,75 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     } else {
         std::cerr << "No signal vertex or no matched reconstructed vertex found!" << std::endl;
     }
+
+
+    // histogram for PU track purity
+
+    TH1F *PUTracksPurity = dynamic_cast<TH1F *>(h["efficiency/PUTracksPurity"]);
+    if (!PUTracksPurity) {
+          std::cerr << "Error: Histogram PUTracksPurity not found!" << std::endl;
+          return;
+      }
+
+    for (size_t i = 0; i < simEvt.size(); i++) {
+      if (simEvt[i].is_matched()) {
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        unsigned int numMatchedTracks = 0;
+        unsigned int numTracks = matchedVtx.tracks.size();
+
+          // Loop through the reconstructed tracks in the matched vertex
+          for (auto tv : matchedVtx.tracks) {
+              // Check if the track is matched to a simulated event
+              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+              // Check if the track is correctly assigned to the signal vertex
+              bool correctly_assigned = (tk_sim == matchedVtx.sim);
+              if (correctly_assigned) {
+                  numMatchedTracks++;
+              }
+          }
+
+          // Calculate the purity as the fraction of correctly matched tracks
+          float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+
+          // Fill the histogram with the calculated purity
+          SETracksPurity->Fill(purity);
+      } else {
+          std::cerr << "No matched reconstructed vertex found!" << std::endl;
+      }
+    }
+
+    // histogram for PU track efficiency
+
+    TH1F *PUTracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/PUTracksEfficiency"]);
+    if (!PUTracksEfficiency) {
+        std::cerr << "Error: Histogram PUTracksEfficiency not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < simEvt.size(); i++) {
+      if (simEvt[i].is_matched()){
+        unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks
+        unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
+        for (auto& simTrack : simEvt[i].rtk) {
+              // Check if this simulated track has a matching reconstructed track
+              if (simTrack.is_matched()) {
+                  numMatchedTracks++;
+              }
+          }
+
+        // Calculate the efficiency as the fraction of simulated tracks that are matched
+        float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
+
+        // Fill the histogram with the calculated efficiency
+        SETracksEfficiency->Fill(efficiency);
+
+      } else {
+          std::cerr << "No simulated vertex or no matched reconstructed vertex found!" << std::endl;
+      }
+    }
+    
 
 }
 
