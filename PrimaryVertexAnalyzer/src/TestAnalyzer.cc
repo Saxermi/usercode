@@ -4178,7 +4178,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         MVertex& vtx = vtxs.at(j);
         if (!vtx.isRecoFake() && vtx.sim != NOT_MATCHED_VTX_SIM) {
             ++simVertexToRecoCount[vtx.sim];// use a pre increment operator to increment value before returning it
-            cout << simVertexToRecoCount[vtx.sim] << endl;
+           // cout << simVertexToRecoCount[vtx.sim] << endl; 
+           /*
+           be aware that this logic doesent quite work this way we have to look at the wos map (look for split_from
+           in .H file or check teams post from saxermi1 on 9 of oktober)
+           
+           */
         }
     }
 
