@@ -342,11 +342,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     dir->mkdir("efficiency")->cd();  // Create the "efficiency" directory and navigate into it
 
     // Create the histogram for reconstruction efficiency
-    TH1I* hist_reco_matches = new TH1I("Recon_Efficiency", "Reconstruction Efficiency", 2, 0, 2);
+    TH1I* hist_reco_matches = new TH1I("SEEfficiency", " SE Reconstruction Efficiency", 2, 0, 2);
     
     // Add the histogram to the map using addn
     addn(h, hist_reco_matches);
-    std::cout << "Creating histogram: Recon_Efficiency" << std::endl;
+    std::cout << "Creating histogram: SEEfficiency" << std::endl;
 
     // Set bin labels for better visualization
     hist_reco_matches->GetXaxis()->SetBinLabel(1, "Matched vertex");
@@ -360,64 +360,66 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     hist_reco_matches->GetYaxis()->SetTitle("Count ");
     hist_reco_matches->SetMinimum(0);
     hist_reco_matches->SetMaximum(150);
+
     // new histogramm 
-    // Definition of the 2D histogram
-    TH2F* hist_reco_vs_true_z_position = new TH2F("reco_vs_true_z_position", "SE Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
-    addn(h, hist_reco_vs_true_z_position);
+    // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
+    TH2F* SERecoVsSimZPosition = new TH2F("SERecoVsSimZPosition", "SE Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    addn(h, SERecoVsSimZPosition );
+
     // another new histogramm
-    // Definition of the 2D histogram
-    TH2F* PUhist_reco_vs_true_z_position = new TH2F("PUreco_vs_true_z_position", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
-    addn(h, PUhist_reco_vs_true_z_position);
-    PUhist_reco_vs_true_z_position->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
+    // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
+    TH2F* PURecoVsSimZPosition = new TH2F("PURecoVsSimZPosition", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    addn(h, PURecoVsSimZPosition);
+    PURecoVsSimZPosition ->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
     // for now just manually add in TBrowser
 
     // New histogramm
     // SE tracks purity
-    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 100);
+    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 101);
     addn(h, SETracksPurity);
 
     // New histogramm
     // SE tracks Efficiency
-    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Tracks Efficiency", 100, 0, 100);
+    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Tracks Efficiency", 100, 0, 101);
     addn(h, SETracksEfficiency);
 
     // New histogramm
     // PU tracks purity
-    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity", 100, 0, 100);
+    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity", 100, 0, 101);
     addn(h, PUTracksPurity);
 
     // New histogramm
     // PU tracks Efficiency
-    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency", 100, 0, 100);
+    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency", 100, 0, 101);
     addn(h, PUTracksEfficiency);
 
     //new histogram
     //definition of 1 H hist
     // SE Resolution
-    TH1F *SEHistRecoVsTrueZPositionHist = new TH1F("SE_reco_vs_true_z_position_hist","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
-    addn(h, SEHistRecoVsTrueZPositionHist);
+    TH1F *SEResolution = new TH1F("SEResolution","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
+    addn(h, SEResolution);
     //set bar width to 0.1
-     SEHistRecoVsTrueZPositionHist->SetBarWidth(0.1);   
+     SEResolution->SetBarWidth(0.1);   
       //new histogram
     //definition of 1 H hist
     // PU Resolution
-    TH1F *PUHistRecoVsTrueZPositionHist = new TH1F("PU_reco_vs_true_z_position_hist","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
-    addn(h, PUHistRecoVsTrueZPositionHist);
+    TH1F *PUResolution = new TH1F("PUResolution","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
+    addn(h, PUResolution);
     //set bar width to 0.1
-     PUHistRecoVsTrueZPositionHist->SetBarWidth(0.1);
+     PUResolution->SetBarWidth(0.1);
     //new histogram
     //definition of an 2H histogram
     // PU Confusion Matrix
-      TH1F *RecoVsTrueZPositionHistCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC1);
+      TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, PUConfusionMatrixCategorialC1);
       // new histogram
       // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC2);
+      TH1F *PUConfusionMatrixCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, PUConfusionMatrixCategorialC2);
       // new histogram
       // definition of an 2H histogram
-      TH1F *RecoVsTrueZPositionHistCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
-      addn(h, RecoVsTrueZPositionHistCategorialC3);
+      TH1F *PUConfusionMatrixCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
+      addn(h, PUConfusionMatrixCategorialC3);
 
      // new histogram
       // this histogramm shows distance betweeen point in 3 d space and plane
@@ -4049,9 +4051,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 /*********************************************************************************************/
 {
     // Retrieve the histogram from the map
-    TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/Recon_Efficiency"]);
+    TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/SEEfficiency"]);
       if (!hist_reco_matches) {
-        std::cerr << "Error: Histogram Recon_Efficiency not found!" << std::endl;
+        std::cerr << "Error: Histogram SEEfficiency not found!" << std::endl;
         return;
     }
    // if (!hist) {
@@ -4080,27 +4082,27 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     hist_reco_matches->SetBinContent(2, wrongCounter);
 
 
-    std::cout << "Filling histogram: Recon_Efficiency" << std::endl;
-    //Fill(h, "efficiency/Recon_Efficiency", realCounter, wrongCounter);
+    std::cout << "Filling histogram: SEEfficiency" << std::endl;
+    //Fill(h, "efficiency/SEEfficiency", realCounter, wrongCounter);
 
 
     // next histogram 
-    TH2F* hist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/reco_vs_true_z_position"]);
-      if (!hist_reco_vs_true_z_position) {
-        std::cerr << "Error: Histogram reco_vs_true_z_position not found!" << std::endl;
+    TH2F* SERecoVsSimZPosition = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPosition"]);
+      if (!SERecoVsSimZPosition) {
+        std::cerr << "Error: Histogram SERecoVsSimZPosition not found!" << std::endl;
         return;
     }
     if (simEvt[0].is_matched()) {
     MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-    hist_reco_vs_true_z_position->Fill(matchedVtx.z(), simEvt[0].z);
+    SERecoVsSimZPosition->Fill(matchedVtx.z(), simEvt[0].z);
     }
 
 
 
     //new histogram 
-    TH2F* PUhist_reco_vs_true_z_position = dynamic_cast<TH2F*>(h["efficiency/PUreco_vs_true_z_position"]);
-      if (!PUhist_reco_vs_true_z_position) {
-        std::cerr << "Error: Histogram PUreco_vs_true_z_position not found!" << std::endl;
+    TH2F* PURecoVsSimZPosition = dynamic_cast<TH2F*>(h["efficiency/PURecoVsSimZPosition"]);
+      if (!PURecoVsSimZPosition) {
+        std::cerr << "Error: Histogram PURecoVsSimZPosition not found!" << std::endl;
         return;
     }
 
@@ -4111,27 +4113,27 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
             double true_z = simEvt[i].z;
             double rec_z = vtxs.at(rec_index).z();
-                PUhist_reco_vs_true_z_position->Fill(rec_z, true_z);
+                PURecoVsSimZPosition->Fill(rec_z, true_z);
         }
       }
 
     }
-      // new histogram
+      // new histogram, SE resolution
 
-      TH1F *SEHistRecoVsTrueZPositionHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_vs_true_z_position_hist"]);
-    if (!SEHistRecoVsTrueZPositionHist) {
-        std::cerr << "Error: Histogram SE_reco_vs_true_z_position_hist not found!" << std::endl;
+      TH1F *SEResolution = dynamic_cast<TH1F *>(h["efficiency/SEResolution"]);
+    if (!SEResolution) {
+        std::cerr << "Error: Histogram SEResolution not found!" << std::endl;
         return;
     }
       if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-      SEHistRecoVsTrueZPositionHist->Fill( simEvt[0].z -matchedVtx.z());
+      SEResolution->Fill( simEvt[0].z -matchedVtx.z());
     }
 
-    //new histogram PUHistRecoVsTrueZPositionHist
-  TH1F* PUHistRecoVsTrueZPositionHist = dynamic_cast<TH1F*>(h["efficiency/PU_reco_vs_true_z_position_hist"]);
-    if (!PUHistRecoVsTrueZPositionHist) {
-        std::cerr << "Error: Histogram PU_reco_vs_true_z_position_hist not found!" << std::endl;
+    //new histogram PUResolution
+  TH1F* PUResolution = dynamic_cast<TH1F*>(h["efficiency/PUResolution"]);
+    if (!PUResolution) {
+        std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
         return;
     }
     for (size_t i = 0; i < simEvt.size(); ++i) {
@@ -4143,7 +4145,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             double delta_z = rec_z - true_z;
 
             // Fill the histogram with delta_z
-           PUHistRecoVsTrueZPositionHist->Fill(delta_z);
+           PUResolution->Fill(delta_z);
         }
     }
     }
@@ -4153,20 +4155,20 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     
     // Initialize histograms for each category
-    TH1F* RecoVsTrueZPositionHistCategorialC1 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c1"]);
-    if (!RecoVsTrueZPositionHistCategorialC1) {
+    TH1F* PUConfusionMatrixCategorialC1 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c1"]);
+    if (!PUConfusionMatrixCategorialC1) {
         std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c1 not found!" << std::endl;
         return;
     }
 
-    TH1F* RecoVsTrueZPositionHistCategorialC2 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c2"]);
-    if (!RecoVsTrueZPositionHistCategorialC2) {
+    TH1F* PUConfusionMatrixCategorialC2 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c2"]);
+    if (!PUConfusionMatrixCategorialC2) {
         std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c2 not found!" << std::endl;
         return;
     }
 
-    TH1F* RecoVsTrueZPositionHistCategorialC3 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c3"]);
-    if (!RecoVsTrueZPositionHistCategorialC3) {
+    TH1F* PUConfusionMatrixCategorialC3 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c3"]);
+    if (!PUConfusionMatrixCategorialC3) {
         std::cerr << "Error: Histogram reco_vs_true_z_position_hist_categorial_c3 not found!" << std::endl;
         return;
         }
@@ -4188,13 +4190,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                 // Category 1: Exactly one reconstructed vertex per simulated vertex
                 unsigned int rec_index = simEvt[i].rec;
                 double rec_z = vtxs.at(rec_index).z();
-                RecoVsTrueZPositionHistCategorialC1->Fill(rec_z);
+                PUConfusionMatrixCategorialC1->Fill(rec_z);
             } else if (simVertexToRecoCount[i] > 1) {
                 // Category 2: Multiple reconstructed vertices per simulated vertex
                 for (size_t j = 0; j < vtxs.size(); ++j) {
                     if (vtxs.at(j).sim == i) {
                         double rec_z = vtxs.at(j).z();
-                        RecoVsTrueZPositionHistCategorialC2->Fill(rec_z);
+                        PUConfusionMatrixCategorialC2->Fill(rec_z);
                     }
                 }
             }
@@ -4206,7 +4208,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         MVertex& vtx = vtxs.at(i);
         if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
             double rec_z = vtx.z();
-            RecoVsTrueZPositionHistCategorialC3->Fill(rec_z);
+            PUConfusionMatrixCategorialC3->Fill(rec_z);
         }
     }
       // new histogram
