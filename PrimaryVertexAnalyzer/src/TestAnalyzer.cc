@@ -4177,29 +4177,59 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     for (unsigned int j = 0; j < vtxs.size(); ++j) {
         MVertex& vtx = vtxs.at(j);
         if (!vtx.isRecoFake() && vtx.sim != NOT_MATCHED_VTX_SIM) {
-            simVertexToRecoCount[vtx.sim]++;
+            ++simVertexToRecoCount[vtx.sim];// use a pre increment operator to increment value before returning it
+            cout << simVertexToRecoCount[vtx.sim] << endl;
         }
     }
 
-    // Loop over simulated vertices to categorize and fill histograms
-    for (size_t i = 0; i < simEvt.size(); i++) {
-        if (simEvt[i].is_matched()) {
-            if (simVertexToRecoCount[i] == 1) {
-                // Category 1: Exactly one reconstructed vertex per simulated vertex
+  // Loop over simulated vertices to categorize and fill histograms
+for (size_t i = 0; i < simEvt.size(); i++) {
+    // Check if the simulated event is matched to any reconstructed vertex
+    if (simEvt[i].is_matched()) {
+        // Attempt to find the count of reconstructed vertices associated with simulated vertex 'i'
+        auto it = simVertexToRecoCount.find(i);
+        if (it != simVertexToRecoCount.end()) {
+            // Retrieved the count successfully
+            int count = it->second;
+
+            // Check if there is exactly one reconstructed vertex associated (Category 1)
+            if (count == 1) {
+                // Get the index of the associated reconstructed vertex
                 unsigned int rec_index = simEvt[i].rec;
+                // Retrieve the z-position of the reconstructed vertex
                 double rec_z = vtxs.at(rec_index).z();
+                // Fill the Category 1 histogram with the z-position
                 RecoVsTrueZPositionHistCategorialC1->Fill(rec_z);
-            } else if (simVertexToRecoCount[i] > 1) {
-                // Category 2: Multiple reconstructed vertices per simulated vertex
+            }
+
+            // Check if there are multiple reconstructed vertices associated (Category 2)
+            if (count > 1) {
+                // Loop over all reconstructed vertices to find those associated with simulated vertex 'i'
                 for (size_t j = 0; j < vtxs.size(); ++j) {
+                    // Check if reconstructed vertex 'j' is associated with simulated vertex 'i'
                     if (vtxs.at(j).sim == i) {
+                        // Retrieve the z-position of the reconstructed vertex
                         double rec_z = vtxs.at(j).z();
+                        // Fill the Category 2 histogram with the z-position
                         RecoVsTrueZPositionHistCategorialC2->Fill(rec_z);
                     }
                 }
             }
+            // Note: No else case; we use separate if statements for clarity and safety
+        }
+        // Optional: Handle the case where the simulated vertex 'i' is not found in the map
+        // This means there are no reconstructed vertices associated with it
+        else {
+            // For example, you might want to log this event or perform additional processing
+            // std::cout << "Simulated vertex " << i << " is matched but has no associated reconstructed vertices." << std::endl;
         }
     }
+    // Optional: Handle the case where the simulated event is not matched
+    // else {
+    //     // For example, log or count unmatched simulated events
+    // }
+}
+
 
     // Category 3: Fake vertices (reconstructed vertices not matched to any simulated vertex)
     for (size_t i = 0; i < vtxs.size(); ++i) {
