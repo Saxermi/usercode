@@ -4314,7 +4314,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           return;
       }
 
-    for (size_t i = 0; i < simEvt.size(); i++) {
+    for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()) {
         MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
         unsigned int numMatchedTracks = 0;
@@ -4337,7 +4337,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
 
           // Fill the histogram with the calculated purity
-          SETracksPurity->Fill(purity);
+          PUTracksPurity->Fill(purity);
       } else {
           std::cerr << "No matched reconstructed vertex found!" << std::endl;
       }
@@ -4351,7 +4351,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
-    for (size_t i = 0; i < simEvt.size(); i++) {
+    for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()){
         unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
@@ -4366,7 +4366,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
 
         // Fill the histogram with the calculated efficiency
-        SETracksEfficiency->Fill(efficiency);
+        PUTracksEfficiency->Fill(efficiency);
 
       } else {
           std::cerr << "No simulated vertex or no matched reconstructed vertex found!" << std::endl;
