@@ -438,9 +438,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       addn(h, SEResolutionNormalized);
 
       // histogram of PU resolution normalized
-      TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "SE Resolution Normalized", 100, -1, 1);
+      TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution Normalized", 100, -1, 1);
       addn(h, PUResolutionNormalized);
 
+      // Histogram SE ResolutionVsTrack Purity
+      TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity", 100, -1, 1,  100, 0, 100);
+      addn(h, SEResolutionVsTrackPurity);
 
 
       // Return to the base directory to maintain proper organization
@@ -4316,11 +4319,16 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           TrueE3DDistanceToPlane->Fill(distance);
         }
     }
-  // histograms for SE track purity
+  // histograms for SE track purity also one with vs resolution
 
   TH1F *SETracksPurity = dynamic_cast<TH1F *>(h["efficiency/SETracksPurity"]);
   if (!SETracksPurity) {
         std::cerr << "Error: Histogram SETracksPurity not found!" << std::endl;
+        return;
+  }
+  TH2F *SEResolutionVsTrackPurity = dynamic_cast<TH2F *>(h["efficiency/SEResolutionVsTrackPurity"]);
+  if (!SEResolutionVsTrackPurity) {
+        std::cerr << "Error: Histogram SEResolutionVsTrackPurity not found!" << std::endl;
         return;
   }
 
@@ -4341,13 +4349,16 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                 numMatchedTracks++;
             }
         }
-
         // Calculate the purity as the fraction of correctly matched tracks
         float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
         purity = purity * 100;
 
+        // get resolution
+        float resolution = simEvt[0].z - matchedVtx.z();
+
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
+        SEResolutionVsTrackPurity->Fill(resolution, purity);
     } else {
         std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
