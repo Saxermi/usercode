@@ -426,11 +426,20 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       TH1F *PUConfusionMatrixCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
       addn(h, PUConfusionMatrixCategorialC3);
 
-     // new histogram
+      // new histogram
       // this histogramm shows distance betweeen point in 3 d space and plane
       // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
       TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
       addn(h, TrueE3DDistanceToPlane);
+
+      // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
+      // will try this with tprofile and TH1f
+      TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution Normalized", 100, -1, 1);
+      addn(h, SEResolutionNormalized);
+
+      // histogram of PU resolution normalized
+      TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "SE Resolution Normalized", 100, -1, 1);
+      addn(h, PUResolutionNormalized);
 
 
 
@@ -4143,22 +4152,34 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
 
     }
-      // new histogram, SE resolution
+    // new histogram, SE resolution and the same histogram but normalized
 
-      TH1F *SEResolution = dynamic_cast<TH1F *>(h["efficiency/SEResolution"]);
+    TH1F *SEResolution = dynamic_cast<TH1F *>(h["efficiency/SEResolution"]);
     if (!SEResolution) {
         std::cerr << "Error: Histogram SEResolution not found!" << std::endl;
         return;
     }
-      if (simEvt[0].is_matched()) {
-      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
-      SEResolution->Fill( simEvt[0].z -matchedVtx.z());
+    TH1F *SEResolutionNormalized = dynamic_cast<TH1F *>(h["efficiency/SEResolutionNormalized"]);
+    if (!SEResolutionNormalized) {
+        std::cerr << "Error: Histogram SEResolutionNormalized not found!" << std::endl;
+        return;
     }
 
-    //new histogram PUResolution
-  TH1F* PUResolution = dynamic_cast<TH1F*>(h["efficiency/PUResolution"]);
+    if (simEvt[0].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+      SEResolution->Fill( simEvt[0].z -matchedVtx.z());
+      SEResolutionNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
+    }
+
+    //new histogram PUResolution and histogram with normalization
+    TH1F* PUResolution = dynamic_cast<TH1F*>(h["efficiency/PUResolution"]);
     if (!PUResolution) {
         std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
+        return;
+    }
+    TH1F* PUResolutionNormalized = dynamic_cast<TH1F*>(h["efficiency/PUResolutionNormalized"]);
+    if (!PUResolutionNormalized) {
+        std::cerr << "Error: Histogram PUResolutionNormalized not found!" << std::endl;
         return;
     }
     for (size_t i = 0; i < simEvt.size(); ++i) {
@@ -4167,10 +4188,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
             double true_z = simEvt[i].z;
             double rec_z = vtxs.at(rec_index).z();
+            double error_z = vtxs.at(rec_index).zError();
             double delta_z = rec_z - true_z;
 
             // Fill the histogram with delta_z
            PUResolution->Fill(delta_z);
+           PUResolutionNormalized -> Fill(delta_z/error_z);
         }
     }
     }
@@ -4215,47 +4238,47 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
   // Loop over simulated vertices to categorize and fill histograms
-for (size_t i = 0; i < simEvt.size(); i++) {
-    // Check if the simulated event is matched to any reconstructed vertex
-    if (simEvt[i].is_matched()) {
-        // Attempt to find the count of reconstructed vertices associated with simulated vertex 'i'
-        auto it = simVertexToRecoCount.find(i);
-        if (it != simVertexToRecoCount.end()) {
-            // Retrieved the count successfully
-            int count = it->second;
+    for (size_t i = 0; i < simEvt.size(); i++) {
+        // Check if the simulated event is matched to any reconstructed vertex
+        if (simEvt[i].is_matched()) {
+            // Attempt to find the count of reconstructed vertices associated with simulated vertex 'i'
+            auto it = simVertexToRecoCount.find(i);
+            if (it != simVertexToRecoCount.end()) {
+                // Retrieved the count successfully
+                int count = it->second;
 
-            // Check if there is exactly one reconstructed vertex associated (Category 1)
-            if (count == 1) {
-                // Get the index of the associated reconstructed vertex
-                unsigned int rec_index = simEvt[i].rec;
-                // Retrieve the z-position of the reconstructed vertex
-                double rec_z = vtxs.at(rec_index).z();
-                PUConfusionMatrixCategorialC1->Fill(rec_z);
-            } else if (simVertexToRecoCount[i] > 1) {
-                // Category 2: Multiple reconstructed vertices per simulated vertex
-                for (size_t j = 0; j < vtxs.size(); ++j) {
-                    // Check if reconstructed vertex 'j' is associated with simulated vertex 'i'
-                    if (vtxs.at(j).sim == i) {
-                        // Retrieve the z-position of the reconstructed vertex
-                        double rec_z = vtxs.at(j).z();
-                        PUConfusionMatrixCategorialC2->Fill(rec_z);
+                // Check if there is exactly one reconstructed vertex associated (Category 1)
+                if (count == 1) {
+                    // Get the index of the associated reconstructed vertex
+                    unsigned int rec_index = simEvt[i].rec;
+                    // Retrieve the z-position of the reconstructed vertex
+                    double rec_z = vtxs.at(rec_index).z();
+                    PUConfusionMatrixCategorialC1->Fill(rec_z);
+                } else if (simVertexToRecoCount[i] > 1) {
+                    // Category 2: Multiple reconstructed vertices per simulated vertex
+                    for (size_t j = 0; j < vtxs.size(); ++j) {
+                        // Check if reconstructed vertex 'j' is associated with simulated vertex 'i'
+                        if (vtxs.at(j).sim == i) {
+                            // Retrieve the z-position of the reconstructed vertex
+                            double rec_z = vtxs.at(j).z();
+                            PUConfusionMatrixCategorialC2->Fill(rec_z);
+                        }
                     }
                 }
+                // Note: No else case; we use separate if statements for clarity and safety
             }
-            // Note: No else case; we use separate if statements for clarity and safety
+            // Optional: Handle the case where the simulated vertex 'i' is not found in the map
+            // This means there are no reconstructed vertices associated with it
+            else {
+                // For example, you might want to log this event or perform additional processing
+                // std::cout << "Simulated vertex " << i << " is matched but has no associated reconstructed vertices." << std::endl;
+            }
         }
-        // Optional: Handle the case where the simulated vertex 'i' is not found in the map
-        // This means there are no reconstructed vertices associated with it
-        else {
-            // For example, you might want to log this event or perform additional processing
-            // std::cout << "Simulated vertex " << i << " is matched but has no associated reconstructed vertices." << std::endl;
-        }
+        // Optional: Handle the case where the simulated event is not matched
+        // else {
+        //     // For example, log or count unmatched simulated events
+        // }
     }
-    // Optional: Handle the case where the simulated event is not matched
-    // else {
-    //     // For example, log or count unmatched simulated events
-    // }
-}
 
 
     // Category 3: Fake vertices (reconstructed vertices not matched to any simulated vertex)
@@ -4293,13 +4316,13 @@ for (size_t i = 0; i < simEvt.size(); i++) {
           TrueE3DDistanceToPlane->Fill(distance);
         }
     }
-  // histogram for SE track purity
+  // histograms for SE track purity
 
   TH1F *SETracksPurity = dynamic_cast<TH1F *>(h["efficiency/SETracksPurity"]);
   if (!SETracksPurity) {
         std::cerr << "Error: Histogram SETracksPurity not found!" << std::endl;
         return;
-    }
+  }
 
   if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
@@ -4368,7 +4391,7 @@ for (size_t i = 0; i < simEvt.size(); i++) {
     if (!PUTracksPurity) {
           std::cerr << "Error: Histogram PUTracksPurity not found!" << std::endl;
           return;
-      }
+    }
 
     for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()) {
@@ -4431,6 +4454,7 @@ for (size_t i = 0; i < simEvt.size(); i++) {
       }
     }
     
+
 
 }
 
