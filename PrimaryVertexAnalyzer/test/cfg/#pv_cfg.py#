@@ -384,10 +384,8 @@ process.oldVertexAnalysis = cms.EDAnalyzer("TestAnalyzer",
 
 
 process.analyze =  cms.Path( process.theTruth * process.oldVertexAnalysis )
-#process.content = cms.EDAnalyzer("EventContentAnalyzer")
-#process.dump = cms.Path(process.content)
 
-   
+process.content = 
 
 
 print( "=============================================")
@@ -397,7 +395,7 @@ print( "=============================================")
 # Schedule definition
 if DO_VTX_RECO:
     print( "running vertex reco and analysis, last message from pv_cfg")
-    process.schedule = cms.Schedule(process.MPV, process.analyze)#,process.dump) 
+    process.schedule = cms.Schedule(process.MPV, process.analyze) 
 else:
     print( "running analysis only, last message from pv_cfg")
     process.schedule = cms.Schedule(process.analyze)
