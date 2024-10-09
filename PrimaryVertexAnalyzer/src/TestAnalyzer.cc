@@ -306,6 +306,11 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
     cout << endl;
   }
 
+  // extras
+  extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
+  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUTime"));
+  
+
   trkhiptmin_ = 3.0;
   trkloptmax_ = 1.0;
   trkcentraletamax_ = 1.5;
@@ -2083,6 +2088,26 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
 
+
+  edm::Handle<std::vector<float>> extraInfoHandle;
+  iEvent.getByToken(extraInfoToken_, extraInfoHandle);
+  
+  if(extraInfoHandle.isValid()){
+    std::cout << "************************ extra ***************************" << extraInfoHandle->size()<< std::endl;
+    for(auto f : *extraInfoHandle){
+      std::cout << f << std::endl;
+    }
+  }else{
+    std::cout << "************************ no extras ***************************" << std::endl;
+  }
+
+
+  edm::Handle<float> clusteringCPUtimeHandle;
+  iEvent.getByToken(clusteringCPUtimeToken_, clusteringCPUtimeHandle);
+  if (clusteringCPUtimeHandle.isValid()){
+    std::cout << " clustering time is " << *clusteringCPUtimeHandle << std::endl;
+  }
+  
   // in case we wanted to analyze a specific lumi block only
   if ((analyzeLS_ >= 0) && !(luminosityBlock_ == analyzeLS_))
     return;
@@ -4266,6 +4291,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // Calculate the purity as the fraction of correctly matched tracks
         float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
 
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
@@ -4297,7 +4323,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // Calculate the efficiency as the fraction of simulated tracks that are matched
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
-
+        efficiency = efficiency * 100;
         // Fill the histogram with the calculated efficiency
         SETracksEfficiency->Fill(efficiency);
 
@@ -4335,6 +4361,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
           // Calculate the purity as the fraction of correctly matched tracks
           float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+          purity = purity * 100;
 
           // Fill the histogram with the calculated purity
           PUTracksPurity->Fill(purity);
@@ -4364,6 +4391,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // Calculate the efficiency as the fraction of simulated tracks that are matched
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
+        efficiency = efficiency * 100;
 
         // Fill the histogram with the calculated efficiency
         PUTracksEfficiency->Fill(efficiency);
