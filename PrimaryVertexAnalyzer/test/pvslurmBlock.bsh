@@ -1,0 +1,92 @@
+#!/bin/bash
+# batch job control
+#SBATCH -o jobs/pvslurm-%N_%j.out
+#SBATCH --mem=3000
+#SBATCH --account=t3
+#SBATCH --partition=standard
+#
+# submit :
+# sbatch -p short 
+# monitor jobs:
+# squeue -u <username>
+#
+# to cancel : scancel <jobid>
+#
+# list nodes : sinfo
+#
+
+# arguments can be included while submitting the job
+# default values/examples
+NEVENT=-1
+SAMPLE=TTbar_04
+LABEL=pv
+# can be overridden using --n -
+while getopts ":n:l:d:"  opt; do
+  case $opt in
+   d)
+      SAMPLE=$OPTARG
+      ;;
+   n)
+      NEVENT=$OPTARG
+      ;;
+    l)
+      LABEL=$OPTARG
+      ;;
+    \?)
+      echo "t3job: Invalid option: -$OPTARG" >&2
+      ;;
+    :)
+      echo "Option -$OPTARG requires an argument." >&2
+      exit 1
+      ;;
+  esac
+done
+
+# the following information will appear in the job file
+echo HOME: $HOME 
+echo USER: $USER 
+echo SLURM_JOB_ID: $SLURM_JOB_ID
+echo HOSTNAME: $HOSTNAME
+echo "CMSSW RELEASE BASE " $CMSSW_RELEASE_BASE
+
+
+# expects a config file name <LABEL>_cfg.py in the subdirectory "cfg" of the submission directory
+LABEL=pv
+INPUT=`cat samples/${SAMPLE} | sed ':a;N;$!ba;s/\n/,/g'`
+#INPUT=/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
+PARAMETERS="runInBlocks=True"
+
+# slurm stuff ------------------------------------------------------------------------------- 
+
+# each worker node has local /scratch space to be used during job run
+WORKDIR=/scratch/$USER/${SLURM_JOB_ID}
+mkdir -p $WORKDIR
+
+export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch/
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+source /etc/profile.d/grid-env.sh # /usr/libexec/grid-env.sh  # cms_ui_env.sh for slc7
+
+# see https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookXrootdService
+export XRD_NETWORKSTACK=IPv4
+#redirector=cms-xrd-global.cern.ch
+redirector=xrootd-cms.infn.it  # recommended for european sites
+
+
+# running CMSSW --------------------------------------------------------------------------------
+
+
+STARTDIR=`pwd` 
+eval `scram runtime -sh`
+cd $WORKDIR
+# copy the CMSSW config file to the worker node 
+cp $STARTDIR/cfg/${LABEL}_cfg.py  .
+
+touch logfile
+cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
+
+# get the output
+cp logfile /work/frejalom/outputRuns/${LABEL}${SAMPLE}.log.gz
+cp pv.root /work/frejalom/outputRuns/${LABEL}${SAMPLE}.root
+
+# clean up
+rm -rf $WORKDIR
