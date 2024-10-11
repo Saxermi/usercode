@@ -440,7 +440,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       addn(h, SERecIndexHistHR);
 
     // another new histogramm
-    // Definition of the 2D histogram, which shows the purity as a function of the z axis and additonally displays the block borders
+    // Definition of the 2D histogram, which shows the PU purity as a function of the z axis and additonally displays the block borders
       TH2F* PUTracksPurityBlock =
           new TH2F("PUTracksPurityBlock",
                    "PU Purity vs  Z-Position and block borders; Z axis;PU Purity in % (borders displayed as 110%)",
@@ -451,6 +451,32 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    0,
                    110);
       addn(h, PUTracksPurityBlock);
+       // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
+      TH2F* SETracksPurityBlock =
+          new TH2F("SETracksPurityBlock",
+                   "SE Purity vs  Z-Position and block borders; Z axis;SE Purity in % (borders displayed as 110%)",
+                   100,
+                   -30,
+                   30,
+                   100,
+                   0,
+                   110);
+      addn(h, SETracksPurityBlock);
+
+
+          // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+      TH2F* NVertexVSCPUTime  =
+          new TH2F("NVertexVSCPUTime",
+                   " cpu time used vs the number of vertices reconstructed; number of vertices reconstructed;Time used in s ",
+                   100,
+                   0,
+                   300,
+                   100,
+                   0,
+                   10);
+      addn(h, NVertexVSCPUTime);
+
+
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -2122,8 +2148,10 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   iEvent.getByToken(clusteringCPUtimeToken_, clusteringCPUtimeHandle);
   if (clusteringCPUtimeHandle.isValid()){
     std::cout << " clustering time is " << *clusteringCPUtimeHandle << std::endl;
+  }else{
+    cout << " coud not get clustering time";
   }
-  
+
   // in case we wanted to analyze a specific lumi block only
   if ((analyzeLS_ >= 0) && !(luminosityBlock_ == analyzeLS_))
     return;
@@ -2265,7 +2293,7 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
 	timer_stop("tp-matching");
 
         timer_start("analyzeVertexCollectionTP");
-	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt, label);
+	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,5,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
 	timer_stop("analyzeVertexCollectionTP");
 
 	analyzeVertexCollectionZmatching(histos, vertexes, simEvt, label, zwindow_sigmas_);
@@ -4087,7 +4115,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                                              MVertexCollection& vtxs,
                                              Tracks& tracks,
                                              vector<SimEvent>& simEvt,
-                                             const string message)
+                                             const float cputime,
+                                             const string message
+                                             ) // added ievent to access cpu time here 
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
@@ -4505,196 +4535,239 @@ for (size_t i = 0; i < simEvt.size(); i++) {
     } else {
         std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
-}
-
-
-}
-
-/*********************************************************************************************/
-
-
-
-
-
-
-/*********************************************************************************************/
-void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
-								MVertexCollection& vtxs,
-								std::vector<SimEvent>& simEvts,
-								const std::string message,
-								const double zwindow_sigmas
-								)
-{
-  if (verbose_) {
-    cout << "analyzeVertexCollectionZmatching, simEvts= " << simEvts.size() << " vtxs= " << vtxs.size()<<  " window size = " <<zwindow_sigmas  <<  endl;
-  }
-
-  unsigned int nsim = simEvts.size();
-  unsigned int nvtx = vtxs.size();
-  
-  std::vector<unsigned int> nsimmatch(nvtx);  // count sim vertices within <zwindow_sigmas> sigma of the reconstructed position
-  std::vector<unsigned int> nrecmatch(nsim);  // count rec vertices with reconstructed position within  <zwindow_sigmas> sigma 
-  // repeat with the additional requirement of 2 common truth matched tracks
-  std::vector<unsigned int> nsimmatch_tp(nvtx);
-  std::vector<unsigned int> nrecmatch_tp(nsim);
-  // and once more with a modified z-matching
-  std::vector<unsigned int> nsimmatch_c(nvtx);
-  std::vector<unsigned int> nrecmatch_c(nsim);
-
-
-  for(unsigned int k=0; k < nvtx; k++){
-
-    const auto v = vtxs.at(k);
-    if (v.isRecoFake()) continue;
-
-    unsigned int nearest_sim = NOT_MATCHED_VTX_REC;
-
-    for(unsigned int i=0; i < nsim; i++){
-
-      if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
-	//std::cout << "zmatching " << message << "  [" << i << "]" << simEvts.at(i).z << "   " << v.z() << "+/-" << v.zError() << " (" << k << ")" << endl;
-	nrecmatch[i]++;
-	nsimmatch[k]++;
-	//nmatchall++;
-	if(nearest_sim == NOT_MATCHED_VTX_REC){
-	  nearest_sim = i;
-	}else{
-	  if(std::abs(simEvts.at(i).z - v.z()) < std::abs(v.z()-simEvts.at(nearest_sim).z)){
-	    nearest_sim = i;
-	  }
-	}
-      }
-
-      // same but requiring two matched tracks
-      if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.2) > 1)){
-	nrecmatch_tp[i]++;
-	nsimmatch_tp[k]++;
-      }
-
-      // modified z-matching
-      double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
-      if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
-	nrecmatch_c[i]++;
-	nsimmatch_c[k]++;
-      }
-      
-    }// sim events
-  }// rec vtxs
-
-
-
-  // fill histograms
-  // 
-  for(unsigned int i=0; i < nsim; i++){
-    Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
-    Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
-    Fill(h, "zmatchnrecmatch", nrecmatch[i]);
-
-    Fill(h, "zcmatcheffvspu", nsim, nrecmatch_c[i] > 0 ? 1. : 0.);
-    Fill(h, "zcmatchambigvspu", nsim, nrecmatch_c[i] > 1 ? 1. : 0.);
-    Fill(h, "zcmatchnrecmatch", nrecmatch_c[i]);
-
-    Fill(h, "ztpmatcheffvspu", nsim, nrecmatch_tp[i] > 0 ? 1. : 0.);
-    Fill(h, "ztpmatchambigvspu", nsim, nrecmatch_tp[i] > 1 ? 1. : 0.);
-    Fill(h, "ztpmatchnrecmatch", nrecmatch_tp[i]);
-  }
-
-  // fake here means : no sim vertex within <zwindow_sigmas> x sigma_z
-  for(unsigned int k=0; k < nvtx; k++){
-    Fill(h, "zmatchfakevspu", nsim, nsimmatch[k] == 0 ? 1. : 0);
-    Fill(h, "zcmatchfakevspu", nsim, nsimmatch_c[k] == 0 ? 1. : 0);
-    Fill(h, "ztpmatchfakevspu", nsim, nsimmatch_tp[k] == 0 ? 1. : 0);
-  }
-
-  for(unsigned int k=0; k < nvtx; k++){
-    Fill(h, "zmatchnsimmatch", nsimmatch[k]);
-    Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
-    Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
-  }
-
-  
-
-
-    
-  // go one step beyond looking at z-windows :  maximally greedy matching
-  std::vector<std::pair<unsigned int, unsigned int>> recsim;    // based on z-distance only
-  std::vector<std::pair<unsigned int, unsigned int>> recsim_c;    // based on z-distance, truncated
-  std::vector<std::pair<unsigned int, unsigned int>> recsim_tp;  // additionally require at least one truth matched track
-  // and the same for selected vertices
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim;    // based on z-distance only
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim_c;    // based on z-distance, truncated
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim_tp;  // additionally require at least one truth matched track
-
-  unsigned int nvtxrec = 0, nvtxsel = 0;
-  for(unsigned int k = 0; k < nvtx; k++){
-    const auto v = vtxs.at(k);
-    if( v.isRecoFake() ) continue;
-    
-    nvtxrec ++;
-    if(select(v)) nvtxsel++;
-
-
-    for(unsigned int i = 0; i < nsim; i++){
-
-      // z-distance alone
-      if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
-	recsim.emplace_back(k,i);
-	if(select(v)) recselsim.emplace_back(k,i);
-      }
-
-      // truncated z-distance, allow at least 100 um, do not allow more than 1 mm
-      double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
-      if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
-	recsim_c.emplace_back(k,i);
-	if(select(v)) recselsim_c.emplace_back(k,i);
-      }
-
-      // z-distance + at least two tracks with weight > 0.5
-      if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.5) > 1)){
-	recsim_tp.emplace_back(k,i);
-	if(select(v)) recselsim_tp.emplace_back(k,i);
-      }
-    }
-  }
-
-  if( nsim > 0){
-    int max_match = 0, max_match_c = 0,max_match_tp = 0;
-    FFA(nvtxrec, nsim, recsim, max_match);
-    Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
-
-    FFA(nvtxrec, nsim, recsim_c, max_match_c);
-    Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
-
-    FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
-
-    if(nvtxrec > 0){
-      Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
-      Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
-      Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
-      //should the denominator contain only vertices with tp matchted tracks?
     }
 
-    // include selection
-    max_match = 0; 
-    max_match_c = 0;
-    max_match_tp = 0;
-    FFA(nvtxsel, nsim, recselsim, max_match);
-    Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
 
-    FFA(nvtxsel, nsim, recselsim_c, max_match_c);
-    Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
+        // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
+   TH2F *SETracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/SETracksPurityBlock"]);
+    if (!SETracksPurityBlock) {
+        std::cerr << "Error: Histogram SETracksPurityBlock not found!" << std::endl;
+        return;
+    }
+    if (simEvt[0].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+      unsigned int numMatchedTracks = 0;
+      unsigned int numTracks = matchedVtx.tracks.size();
 
-    FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
+        // Loop through the reconstructed tracks in the matched vertex
+        for (auto tv : matchedVtx.tracks) {
+            // Check if the track is matched to a simulated event
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
 
-    if(nvtxsel > 0){
-      Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
-      Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
-      Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
+            // Check if the track is correctly assigned to the signal vertex
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
+            // Retrieve the z-position of the matched vertex
+        float z_position = static_cast<float>(matchedVtx.z());
+
+        // Calculate the purity as the fraction of correctly matched tracks
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
+
+        // Fill the histogram with the calculated purity
+        SETracksPurityBlock->Fill(z_position,purity);
+    }else{
+      cout << "no SE event found in  SETracksPurityBlock";
     }
 
-  }
+                // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+   TH2F *NVertexVSCPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSCPUTime"]);
+    if (!NVertexVSCPUTime) {
+        std::cerr << "Error: Histogram NVertexVSCPUTime not found!" << std::endl;
+        return;
+    }
+    std::cout << "whydoinotshowup" << std::endl;
+    std::cout << simEvt.size() << std::endl;
+        std::cout << cputime << std::endl;
+
+    NVertexVSCPUTime->Fill( simEvt.size(),cputime);
+    }
+
+ 
+
+    /*********************************************************************************************/
+
+    /*********************************************************************************************/
+    void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
+                                                        MVertexCollection& vtxs,
+                                                        std::vector<SimEvent>& simEvts,
+                                                        const std::string message,
+                                                        const double zwindow_sigmas) {
+      if (verbose_) {
+        cout << "analyzeVertexCollectionZmatching, simEvts= " << simEvts.size() << " vtxs= " << vtxs.size()
+             << " window size = " << zwindow_sigmas << endl;
+      }
+
+      unsigned int nsim = simEvts.size();
+      unsigned int nvtx = vtxs.size();
+
+      std::vector<unsigned int> nsimmatch(
+          nvtx);  // count sim vertices within <zwindow_sigmas> sigma of the reconstructed position
+      std::vector<unsigned int> nrecmatch(
+          nsim);  // count rec vertices with reconstructed position within  <zwindow_sigmas> sigma
+      // repeat with the additional requirement of 2 common truth matched tracks
+      std::vector<unsigned int> nsimmatch_tp(nvtx);
+      std::vector<unsigned int> nrecmatch_tp(nsim);
+      // and once more with a modified z-matching
+      std::vector<unsigned int> nsimmatch_c(nvtx);
+      std::vector<unsigned int> nrecmatch_c(nsim);
+
+      for (unsigned int k = 0; k < nvtx; k++) {
+        const auto v = vtxs.at(k);
+        if (v.isRecoFake())
+          continue;
+
+        unsigned int nearest_sim = NOT_MATCHED_VTX_REC;
+
+        for (unsigned int i = 0; i < nsim; i++) {
+          if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) {
+            //std::cout << "zmatching " << message << "  [" << i << "]" << simEvts.at(i).z << "   " << v.z() << "+/-" << v.zError() << " (" << k << ")" << endl;
+            nrecmatch[i]++;
+            nsimmatch[k]++;
+            //nmatchall++;
+            if (nearest_sim == NOT_MATCHED_VTX_REC) {
+              nearest_sim = i;
+            } else {
+              if (std::abs(simEvts.at(i).z - v.z()) < std::abs(v.z() - simEvts.at(nearest_sim).z)) {
+                nearest_sim = i;
+              }
+            }
+          }
+
+          // same but requiring two matched tracks
+          if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) &&
+              (simEvts.at(i).countVertexTracks(v, 0.2) > 1)) {
+            nrecmatch_tp[i]++;
+            nsimmatch_tp[k]++;
+          }
+
+          // modified z-matching
+          double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+          if (std::abs(simEvts.at(i).z - v.z()) < dzmax) {
+            nrecmatch_c[i]++;
+            nsimmatch_c[k]++;
+          }
+
+        }  // sim events
+      }  // rec vtxs
+
+      // fill histograms
+      //
+      for (unsigned int i = 0; i < nsim; i++) {
+        Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
+        Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
+        Fill(h, "zmatchnrecmatch", nrecmatch[i]);
+
+        Fill(h, "zcmatcheffvspu", nsim, nrecmatch_c[i] > 0 ? 1. : 0.);
+        Fill(h, "zcmatchambigvspu", nsim, nrecmatch_c[i] > 1 ? 1. : 0.);
+        Fill(h, "zcmatchnrecmatch", nrecmatch_c[i]);
+
+        Fill(h, "ztpmatcheffvspu", nsim, nrecmatch_tp[i] > 0 ? 1. : 0.);
+        Fill(h, "ztpmatchambigvspu", nsim, nrecmatch_tp[i] > 1 ? 1. : 0.);
+        Fill(h, "ztpmatchnrecmatch", nrecmatch_tp[i]);
+      }
+
+      // fake here means : no sim vertex within <zwindow_sigmas> x sigma_z
+      for (unsigned int k = 0; k < nvtx; k++) {
+        Fill(h, "zmatchfakevspu", nsim, nsimmatch[k] == 0 ? 1. : 0);
+        Fill(h, "zcmatchfakevspu", nsim, nsimmatch_c[k] == 0 ? 1. : 0);
+        Fill(h, "ztpmatchfakevspu", nsim, nsimmatch_tp[k] == 0 ? 1. : 0);
+      }
+
+      for (unsigned int k = 0; k < nvtx; k++) {
+        Fill(h, "zmatchnsimmatch", nsimmatch[k]);
+        Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
+        Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
+      }
+
+      // go one step beyond looking at z-windows :  maximally greedy matching
+      std::vector<std::pair<unsigned int, unsigned int>> recsim;    // based on z-distance only
+      std::vector<std::pair<unsigned int, unsigned int>> recsim_c;  // based on z-distance, truncated
+      std::vector<std::pair<unsigned int, unsigned int>>
+          recsim_tp;  // additionally require at least one truth matched track
+      // and the same for selected vertices
+      std::vector<std::pair<unsigned int, unsigned int>> recselsim;    // based on z-distance only
+      std::vector<std::pair<unsigned int, unsigned int>> recselsim_c;  // based on z-distance, truncated
+      std::vector<std::pair<unsigned int, unsigned int>>
+          recselsim_tp;  // additionally require at least one truth matched track
+
+      unsigned int nvtxrec = 0, nvtxsel = 0;
+      for (unsigned int k = 0; k < nvtx; k++) {
+        const auto v = vtxs.at(k);
+        if (v.isRecoFake())
+          continue;
+
+        nvtxrec++;
+        if (select(v))
+          nvtxsel++;
+
+        for (unsigned int i = 0; i < nsim; i++) {
+          // z-distance alone
+          if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) {
+            recsim.emplace_back(k, i);
+            if (select(v))
+              recselsim.emplace_back(k, i);
+          }
+
+          // truncated z-distance, allow at least 100 um, do not allow more than 1 mm
+          double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+          if (std::abs(simEvts.at(i).z - v.z()) < dzmax) {
+            recsim_c.emplace_back(k, i);
+            if (select(v))
+              recselsim_c.emplace_back(k, i);
+          }
+
+          // z-distance + at least two tracks with weight > 0.5
+          if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) &&
+              (simEvts.at(i).countVertexTracks(v, 0.5) > 1)) {
+            recsim_tp.emplace_back(k, i);
+            if (select(v))
+              recselsim_tp.emplace_back(k, i);
+          }
+        }
+      }
+
+      if (nsim > 0) {
+        int max_match = 0, max_match_c = 0, max_match_tp = 0;
+        FFA(nvtxrec, nsim, recsim, max_match);
+        Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
+
+        FFA(nvtxrec, nsim, recsim_c, max_match_c);
+        Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
+
+        FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
+        Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
+
+        if (nvtxrec > 0) {
+          Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
+          Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
+          Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
+          //should the denominator contain only vertices with tp matchted tracks?
+        }
+
+        // include selection
+        max_match = 0;
+        max_match_c = 0;
+        max_match_tp = 0;
+        FFA(nvtxsel, nsim, recselsim, max_match);
+        Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
+
+        FFA(nvtxsel, nsim, recselsim_c, max_match_c);
+        Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
+
+        FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
+        Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
+
+        if (nvtxsel > 0) {
+          Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
+          Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
+          Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
+        }
+      }
   
 }
 /*****************************analyzeVertexCollectionZmatching**********************************/
