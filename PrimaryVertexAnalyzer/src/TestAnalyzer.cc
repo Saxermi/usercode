@@ -431,9 +431,26 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
       TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
       addn(h, TrueE3DDistanceToPlane);
+       // new histogram
+      // definition of an TH1F histogram
+      TH1F *SERecIndexHist = new TH1F("SE_reco_index_hist", "Reconstructed SE index ;Index position;Frequency", 100, -1, 200);
+      addn(h, SERecIndexHist);
+      // same diagramm as above but in higher resolution meaning (only -1 -20)
+      TH1F *SERecIndexHistHR = new TH1F("SE_reco_index_histHR", "Reconstructed SE index ;Index position;Frequency", 100, -1, 20);
+      addn(h, SERecIndexHistHR);
 
-
-
+    // another new histogramm
+    // Definition of the 2D histogram, which shows the purity as a function of the z axis and additonally displays the block borders
+      TH2F* PUTracksPurityBlock =
+          new TH2F("PUTracksPurityBlock",
+                   "PU Purity vs  Z-Position and block borders; Z axis;PU Purity in % (borders displayed as 110%)",
+                   100,
+                   -30,
+                   30,
+                   100,
+                   0,
+                   110);
+      addn(h, PUTracksPurityBlock);
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -2087,7 +2104,6 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   dumpThisEvent_ = false;
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
-
 
   edm::Handle<std::vector<float>> extraInfoHandle;
   iEvent.getByToken(extraInfoToken_, extraInfoHandle);
@@ -4430,7 +4446,67 @@ for (size_t i = 0; i < simEvt.size(); i++) {
           std::cerr << "No simulated vertex or no matched reconstructed vertex found!" << std::endl;
       }
     }
-    
+    // Histogram to track index of signal event in reconstructed list
+
+    TH1F *SERecIndexHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_index_hist"]);
+    if (!SERecIndexHist) {
+        std::cerr << "Error: Histogram SE_reco_index_hist not found!" << std::endl;
+        return;
+    }
+
+ 
+      // just cheks if the signal event is there and if so saves the index
+     if(simEvt[0].is_matched()){
+       SERecIndexHist->Fill(simEvt[0].rec);
+     }
+    // same diagramm as above but in higher resolution meaning (only -1 -20)
+
+     TH1F *SERecIndexHistHR = dynamic_cast<TH1F *>(h["efficiency/SE_reco_index_histHR"]);
+    if (!SERecIndexHistHR) {
+        std::cerr << "Error: Histogram SE_reco_index_histHR not found!" << std::endl;
+        return;
+    }
+         // just cheks if the signal event is there and if so saves the index
+     if(simEvt[0].is_matched()){
+       SERecIndexHistHR->Fill(simEvt[0].rec);
+     }
+
+    // Definition of the 2D histogram, which shows the purity as a function of the z axis and additonally displays the block borders
+   TH2F *PUTracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/PUTracksPurityBlock"]);
+    if (!PUTracksPurityBlock) {
+        std::cerr << "Error: Histogram PUTracksPurityBlock not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 1; i < simEvt.size(); i++) {
+    if (simEvt[i].is_matched()) {
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        unsigned int numMatchedTracks = 0;
+        unsigned int numTracks = matchedVtx.tracks.size();
+
+        for (auto tv : matchedVtx.tracks) {
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim);
+
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
+
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
+
+        // Retrieve the z-position of the matched vertex
+        float z_position = static_cast<float>(matchedVtx.z());
+
+        // Fill the 2D histogram with z-position and purity
+        PUTracksPurityBlock->Fill(z_position, purity);
+    } else {
+        std::cerr << "No matched reconstructed vertex found!" << std::endl;
+    }
+}
+
 
 }
 
