@@ -476,7 +476,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    10);
       addn(h, NVertexVSCPUTime);
 
+        // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
+    TH2F* SERecoVsSimZPositionBlock  = new TH2F("SERecoVsSimZPositionBlock", "SE Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
+    addn(h, SERecoVsSimZPositionBlock  );
 
+    // another new histogramm
+    // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
+    TH2F* PURecoVsSimZPositionBlock  = new TH2F("PURecoVsSimZPositionBlock", "PU Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
+    addn(h, PURecoVsSimZPositionBlock );
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -4580,11 +4587,45 @@ for (size_t i = 0; i < simEvt.size(); i++) {
         std::cerr << "Error: Histogram NVertexVSCPUTime not found!" << std::endl;
         return;
     }
-    std::cout << "whydoinotshowup" << std::endl;
-    std::cout << simEvt.size() << std::endl;
-        std::cout << cputime << std::endl;
+
 
     NVertexVSCPUTime->Fill( simEvt.size(),cputime);
+
+
+
+
+       // next histogram 
+    TH2F* SERecoVsSimZPositionBlock = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPositionBlock"]);
+      if (!SERecoVsSimZPositionBlock) {
+        std::cerr << "Error: Histogram SERecoVsSimZPositionBlock not found!" << std::endl;
+        return;
+    }
+    if (simEvt[0].is_matched()) {
+    MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+    SERecoVsSimZPositionBlock->Fill(matchedVtx.z(), simEvt[0].z);
+    }
+
+
+
+    //new histogram 
+    TH2F* PURecoVsSimZPositionBlock = dynamic_cast<TH2F*>(h["efficiency/PURecoVsSimZPositionBlock"]);
+      if (!PURecoVsSimZPositionBlock) {
+        std::cerr << "Error: Histogram PURecoVsSimZPositionBlock not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < simEvt.size();i++){
+      if(!simEvt[i].is_signal()){
+      if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
+
+            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
+            double true_z = simEvt[i].z;
+            double rec_z = vtxs.at(rec_index).z();
+                PURecoVsSimZPositionBlock->Fill(rec_z, true_z);
+        }
+      }
+
+    }
     }
 
  
