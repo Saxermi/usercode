@@ -1674,7 +1674,9 @@ void analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
                                  MVertexCollection& recVtxs,
                                  Tracks& tracks,
                                  std::vector<SimEvent>& simEvt,
-                                 const std::string message = "");
+                                  const float cputime = 1.0,
+                                 const std::string message = ""
+                               );
   
   void analyzeVertexCollectionSignalTP(std::map<std::string, TH1*>& h,
                                  MVertexCollection& recVtxs,
