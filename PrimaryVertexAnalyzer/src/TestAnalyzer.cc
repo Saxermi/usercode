@@ -308,7 +308,7 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
 
   // extras
   extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
-  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUTime"));
+  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUtime"));
   
 
   trkhiptmin_ = 3.0;
@@ -473,7 +473,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    300,
                    100,
                    0,
-                   10);
+                   500);
       addn(h, NVertexVSCPUTime);
 
         // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
@@ -2300,7 +2300,7 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
 	timer_stop("tp-matching");
 
         timer_start("analyzeVertexCollectionTP");
-	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,5,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
+	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
 	timer_stop("analyzeVertexCollectionTP");
 
 	analyzeVertexCollectionZmatching(histos, vertexes, simEvt, label, zwindow_sigmas_);
@@ -4122,7 +4122,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                                              MVertexCollection& vtxs,
                                              Tracks& tracks,
                                              vector<SimEvent>& simEvt,
-                                             const float cputime,
+                                             const float CPUtime,
                                              const string message
                                              ) // added ievent to access cpu time here 
 // with track truthmatching (tp)  
@@ -4589,7 +4589,7 @@ for (size_t i = 0; i < simEvt.size(); i++) {
     }
 
 
-    NVertexVSCPUTime->Fill( simEvt.size(),cputime);
+    NVertexVSCPUTime->Fill( simEvt.size(),CPUtime);
 
 
 
