@@ -4359,8 +4359,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
         SEResolutionVsTrackPurity->Fill(resolution, purity);
-    } else {
-        std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
 
     // histogram for SE track efficiency
@@ -4391,8 +4389,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         // Fill the histogram with the calculated efficiency
         SETracksEfficiency->Fill(efficiency);
 
-    } else {
-        std::cerr << "No signal vertex or no matched reconstructed vertex found!" << std::endl;
     }
 
 
@@ -4429,8 +4425,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
           // Fill the histogram with the calculated purity
           PUTracksPurity->Fill(purity);
-      } else {
-          std::cerr << "No matched reconstructed vertex found!" << std::endl;
       }
     }
 
@@ -4460,8 +4454,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         // Fill the histogram with the calculated efficiency
         PUTracksEfficiency->Fill(efficiency);
 
-      } else {
-          std::cerr << "No simulated vertex or no matched reconstructed vertex found!" << std::endl;
       }
     }
     
@@ -4484,176 +4476,176 @@ void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>&
 								const double zwindow_sigmas
 								)
 {
-  if (verbose_) {
-    cout << "analyzeVertexCollectionZmatching, simEvts= " << simEvts.size() << " vtxs= " << vtxs.size()<<  " window size = " <<zwindow_sigmas  <<  endl;
-  }
+  // if (verbose_) {
+  //   cout << "analyzeVertexCollectionZmatching, simEvts= " << simEvts.size() << " vtxs= " << vtxs.size()<<  " window size = " <<zwindow_sigmas  <<  endl;
+  // }
 
-  unsigned int nsim = simEvts.size();
-  unsigned int nvtx = vtxs.size();
+  // unsigned int nsim = simEvts.size();
+  // unsigned int nvtx = vtxs.size();
   
-  std::vector<unsigned int> nsimmatch(nvtx);  // count sim vertices within <zwindow_sigmas> sigma of the reconstructed position
-  std::vector<unsigned int> nrecmatch(nsim);  // count rec vertices with reconstructed position within  <zwindow_sigmas> sigma 
-  // repeat with the additional requirement of 2 common truth matched tracks
-  std::vector<unsigned int> nsimmatch_tp(nvtx);
-  std::vector<unsigned int> nrecmatch_tp(nsim);
-  // and once more with a modified z-matching
-  std::vector<unsigned int> nsimmatch_c(nvtx);
-  std::vector<unsigned int> nrecmatch_c(nsim);
+  // std::vector<unsigned int> nsimmatch(nvtx);  // count sim vertices within <zwindow_sigmas> sigma of the reconstructed position
+  // std::vector<unsigned int> nrecmatch(nsim);  // count rec vertices with reconstructed position within  <zwindow_sigmas> sigma 
+  // // repeat with the additional requirement of 2 common truth matched tracks
+  // std::vector<unsigned int> nsimmatch_tp(nvtx);
+  // std::vector<unsigned int> nrecmatch_tp(nsim);
+  // // and once more with a modified z-matching
+  // std::vector<unsigned int> nsimmatch_c(nvtx);
+  // std::vector<unsigned int> nrecmatch_c(nsim);
 
 
-  for(unsigned int k=0; k < nvtx; k++){
+  // for(unsigned int k=0; k < nvtx; k++){
 
-    const auto v = vtxs.at(k);
-    if (v.isRecoFake()) continue;
+  //   const auto v = vtxs.at(k);
+  //   if (v.isRecoFake()) continue;
 
-    unsigned int nearest_sim = NOT_MATCHED_VTX_REC;
+  //   unsigned int nearest_sim = NOT_MATCHED_VTX_REC;
 
-    for(unsigned int i=0; i < nsim; i++){
+  //   for(unsigned int i=0; i < nsim; i++){
 
-      if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
-	//std::cout << "zmatching " << message << "  [" << i << "]" << simEvts.at(i).z << "   " << v.z() << "+/-" << v.zError() << " (" << k << ")" << endl;
-	nrecmatch[i]++;
-	nsimmatch[k]++;
-	//nmatchall++;
-	if(nearest_sim == NOT_MATCHED_VTX_REC){
-	  nearest_sim = i;
-	}else{
-	  if(std::abs(simEvts.at(i).z - v.z()) < std::abs(v.z()-simEvts.at(nearest_sim).z)){
-	    nearest_sim = i;
-	  }
-	}
-      }
+  //     if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
+	// //std::cout << "zmatching " << message << "  [" << i << "]" << simEvts.at(i).z << "   " << v.z() << "+/-" << v.zError() << " (" << k << ")" << endl;
+	// nrecmatch[i]++;
+	// nsimmatch[k]++;
+	// //nmatchall++;
+	// if(nearest_sim == NOT_MATCHED_VTX_REC){
+	//   nearest_sim = i;
+	// }else{
+	//   if(std::abs(simEvts.at(i).z - v.z()) < std::abs(v.z()-simEvts.at(nearest_sim).z)){
+	//     nearest_sim = i;
+	//   }
+	// }
+  //     }
 
-      // same but requiring two matched tracks
-      if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.2) > 1)){
-	nrecmatch_tp[i]++;
-	nsimmatch_tp[k]++;
-      }
+  //     // same but requiring two matched tracks
+  //     if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.2) > 1)){
+	// nrecmatch_tp[i]++;
+	// nsimmatch_tp[k]++;
+  //     }
 
-      // modified z-matching
-      double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
-      if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
-	nrecmatch_c[i]++;
-	nsimmatch_c[k]++;
-      }
+  //     // modified z-matching
+  //     double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+  //     if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
+	// nrecmatch_c[i]++;
+	// nsimmatch_c[k]++;
+  //     }
       
-    }// sim events
-  }// rec vtxs
+  //   }// sim events
+  // }// rec vtxs
 
 
 
   // fill histograms
   // 
-  for(unsigned int i=0; i < nsim; i++){
-    Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
-    Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
-    Fill(h, "zmatchnrecmatch", nrecmatch[i]);
+  // for(unsigned int i=0; i < nsim; i++){
+  //   Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
+  //   Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
+  //   Fill(h, "zmatchnrecmatch", nrecmatch[i]);
 
-    Fill(h, "zcmatcheffvspu", nsim, nrecmatch_c[i] > 0 ? 1. : 0.);
-    Fill(h, "zcmatchambigvspu", nsim, nrecmatch_c[i] > 1 ? 1. : 0.);
-    Fill(h, "zcmatchnrecmatch", nrecmatch_c[i]);
+  //   Fill(h, "zcmatcheffvspu", nsim, nrecmatch_c[i] > 0 ? 1. : 0.);
+  //   Fill(h, "zcmatchambigvspu", nsim, nrecmatch_c[i] > 1 ? 1. : 0.);
+  //   Fill(h, "zcmatchnrecmatch", nrecmatch_c[i]);
 
-    Fill(h, "ztpmatcheffvspu", nsim, nrecmatch_tp[i] > 0 ? 1. : 0.);
-    Fill(h, "ztpmatchambigvspu", nsim, nrecmatch_tp[i] > 1 ? 1. : 0.);
-    Fill(h, "ztpmatchnrecmatch", nrecmatch_tp[i]);
-  }
+  //   Fill(h, "ztpmatcheffvspu", nsim, nrecmatch_tp[i] > 0 ? 1. : 0.);
+  //   Fill(h, "ztpmatchambigvspu", nsim, nrecmatch_tp[i] > 1 ? 1. : 0.);
+  //   Fill(h, "ztpmatchnrecmatch", nrecmatch_tp[i]);
+  // }
 
   // fake here means : no sim vertex within <zwindow_sigmas> x sigma_z
-  for(unsigned int k=0; k < nvtx; k++){
-    Fill(h, "zmatchfakevspu", nsim, nsimmatch[k] == 0 ? 1. : 0);
-    Fill(h, "zcmatchfakevspu", nsim, nsimmatch_c[k] == 0 ? 1. : 0);
-    Fill(h, "ztpmatchfakevspu", nsim, nsimmatch_tp[k] == 0 ? 1. : 0);
-  }
+  // for(unsigned int k=0; k < nvtx; k++){
+  //   Fill(h, "zmatchfakevspu", nsim, nsimmatch[k] == 0 ? 1. : 0);
+  //   Fill(h, "zcmatchfakevspu", nsim, nsimmatch_c[k] == 0 ? 1. : 0);
+  //   Fill(h, "ztpmatchfakevspu", nsim, nsimmatch_tp[k] == 0 ? 1. : 0);
+  // }
 
-  for(unsigned int k=0; k < nvtx; k++){
-    Fill(h, "zmatchnsimmatch", nsimmatch[k]);
-    Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
-    Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
-  }
+  // for(unsigned int k=0; k < nvtx; k++){
+  //   Fill(h, "zmatchnsimmatch", nsimmatch[k]);
+  //   Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
+  //   Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
+  // }
 
   
 
 
     
   // go one step beyond looking at z-windows :  maximally greedy matching
-  std::vector<std::pair<unsigned int, unsigned int>> recsim;    // based on z-distance only
-  std::vector<std::pair<unsigned int, unsigned int>> recsim_c;    // based on z-distance, truncated
-  std::vector<std::pair<unsigned int, unsigned int>> recsim_tp;  // additionally require at least one truth matched track
-  // and the same for selected vertices
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim;    // based on z-distance only
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim_c;    // based on z-distance, truncated
-  std::vector<std::pair<unsigned int, unsigned int>> recselsim_tp;  // additionally require at least one truth matched track
+  // std::vector<std::pair<unsigned int, unsigned int>> recsim;    // based on z-distance only
+  // std::vector<std::pair<unsigned int, unsigned int>> recsim_c;    // based on z-distance, truncated
+  // std::vector<std::pair<unsigned int, unsigned int>> recsim_tp;  // additionally require at least one truth matched track
+  // // and the same for selected vertices
+  // std::vector<std::pair<unsigned int, unsigned int>> recselsim;    // based on z-distance only
+  // std::vector<std::pair<unsigned int, unsigned int>> recselsim_c;    // based on z-distance, truncated
+  // std::vector<std::pair<unsigned int, unsigned int>> recselsim_tp;  // additionally require at least one truth matched track
 
-  unsigned int nvtxrec = 0, nvtxsel = 0;
-  for(unsigned int k = 0; k < nvtx; k++){
-    const auto v = vtxs.at(k);
-    if( v.isRecoFake() ) continue;
+  // unsigned int nvtxrec = 0, nvtxsel = 0;
+  // for(unsigned int k = 0; k < nvtx; k++){
+  //   const auto v = vtxs.at(k);
+  //   if( v.isRecoFake() ) continue;
     
-    nvtxrec ++;
-    if(select(v)) nvtxsel++;
+  //   nvtxrec ++;
+  //   if(select(v)) nvtxsel++;
 
 
-    for(unsigned int i = 0; i < nsim; i++){
+  //   for(unsigned int i = 0; i < nsim; i++){
 
-      // z-distance alone
-      if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
-	recsim.emplace_back(k,i);
-	if(select(v)) recselsim.emplace_back(k,i);
-      }
+  //     // z-distance alone
+  //     if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())){
+	// recsim.emplace_back(k,i);
+	// if(select(v)) recselsim.emplace_back(k,i);
+  //     }
 
-      // truncated z-distance, allow at least 100 um, do not allow more than 1 mm
-      double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
-      if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
-	recsim_c.emplace_back(k,i);
-	if(select(v)) recselsim_c.emplace_back(k,i);
-      }
+  //     // truncated z-distance, allow at least 100 um, do not allow more than 1 mm
+  //     double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+  //     if (std::abs(simEvts.at(i).z - v.z()) < dzmax){
+	// recsim_c.emplace_back(k,i);
+	// if(select(v)) recselsim_c.emplace_back(k,i);
+  //     }
 
-      // z-distance + at least two tracks with weight > 0.5
-      if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.5) > 1)){
-	recsim_tp.emplace_back(k,i);
-	if(select(v)) recselsim_tp.emplace_back(k,i);
-      }
-    }
-  }
+  //     // z-distance + at least two tracks with weight > 0.5
+  //     if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) && (simEvts.at(i).countVertexTracks(v, 0.5) > 1)){
+	// recsim_tp.emplace_back(k,i);
+	// if(select(v)) recselsim_tp.emplace_back(k,i);
+  //     }
+  //   }
+  // }
 
-  if( nsim > 0){
-    int max_match = 0, max_match_c = 0,max_match_tp = 0;
-    FFA(nvtxrec, nsim, recsim, max_match);
-    Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
+  // if( nsim > 0){
+  //   int max_match = 0, max_match_c = 0,max_match_tp = 0;
+  //   FFA(nvtxrec, nsim, recsim, max_match);
+  //   Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
 
-    FFA(nvtxrec, nsim, recsim_c, max_match_c);
-    Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
+  //   FFA(nvtxrec, nsim, recsim_c, max_match_c);
+  //   Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
 
-    FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
+  //   FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
+  //   Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
 
-    if(nvtxrec > 0){
-      Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
-      Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
-      Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
-      //should the denominator contain only vertices with tp matchted tracks?
-    }
+    // if(nvtxrec > 0){
+    //   Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
+    //   Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
+    //   Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
+    //   //should the denominator contain only vertices with tp matchted tracks?
+    // }
 
     // include selection
-    max_match = 0; 
-    max_match_c = 0;
-    max_match_tp = 0;
-    FFA(nvtxsel, nsim, recselsim, max_match);
-    Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
+    // max_match = 0; 
+    // max_match_c = 0;
+    // max_match_tp = 0;
+    // FFA(nvtxsel, nsim, recselsim, max_match);
+    // Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
 
-    FFA(nvtxsel, nsim, recselsim_c, max_match_c);
-    Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
+    // FFA(nvtxsel, nsim, recselsim_c, max_match_c);
+    // Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
 
-    FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
-    Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
+    // FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
+    // Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
 
-    if(nvtxsel > 0){
-      Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
-      Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
-      Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
-    }
+    // if(nvtxsel > 0){
+    //   Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
+    //   Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
+    //   Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
+    // }
 
-  }
+  // }
   
 }
 /*****************************analyzeVertexCollectionZmatching**********************************/
@@ -4670,38 +4662,38 @@ void TestAnalyzer::analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
                                                         const std::string message)
 /***************************************************************************************/
 {
-  double tclu = 0;
-  double tfit = 0;
-  double ttime = 0;
-  int nsel = 0;
-  bool found_timing_info = false;
+  // double tclu = 0;
+  // double tfit = 0;
+  // double ttime = 0;
+  // int nsel = 0;
+  // bool found_timing_info = false;
 
 
-  for (reco::VertexCollection::const_iterator v = recVtxs->begin(); v != recVtxs->end(); ++v) {
-    if (v->isFake()) {
-      tclu = v->covariance(iX, iX);
-      tfit = v->covariance(iY, iY);
-      ttime = v->covariance(iZ, iZ);
-      found_timing_info = true;
-      //std::cout << "extracted timing info " << message << "  tclu = "  << tclu << " ms   tfit =" << tfit << " ms" << endl;
-    } else {
-      if (select(*v)) {
-        nsel++;
-      }
-    }
-  }
+  // for (reco::VertexCollection::const_iterator v = recVtxs->begin(); v != recVtxs->end(); ++v) {
+  //   if (v->isFake()) {
+  //     tclu = v->covariance(iX, iX);
+  //     tfit = v->covariance(iY, iY);
+  //     ttime = v->covariance(iZ, iZ);
+  //     found_timing_info = true;
+  //     //std::cout << "extracted timing info " << message << "  tclu = "  << tclu << " ms   tfit =" << tfit << " ms" << endl;
+  //   } else {
+  //     if (select(*v)) {
+  //       nsel++;
+  //     }
+  //   }
+  // }
 
-  if (found_timing_info) {
-    Fill(h, "cputime/tcluvsSimPU", simPU_, tclu);
-    Fill(h, "cputime/tfitvsSimPU", simPU_, tfit);
-    Fill(h, "cputime/ttimevsSimPU", simPU_, ttime);
-    Fill(h, "cputime/tcluvsLPU", lumiPU_, tclu);
-    Fill(h, "cputime/tfitvsLPU", lumiPU_, tfit);
-    Fill(h, "cputime/ttimevsLPU", lumiPU_, ttime);
-    Fill(h, "cputime/tcluvsnsel", nsel, tclu);
-    Fill(h, "cputime/tfitvsnsel", nsel, tfit);
-    Fill(h, "cputime/ttimevsnsel", nsel, ttime);
-  }
+  // if (found_timing_info) {
+  //   Fill(h, "cputime/tcluvsSimPU", simPU_, tclu);
+  //   Fill(h, "cputime/tfitvsSimPU", simPU_, tfit);
+  //   Fill(h, "cputime/ttimevsSimPU", simPU_, ttime);
+  //   Fill(h, "cputime/tcluvsLPU", lumiPU_, tclu);
+  //   Fill(h, "cputime/tfitvsLPU", lumiPU_, tfit);
+  //   Fill(h, "cputime/ttimevsLPU", lumiPU_, ttime);
+  //   Fill(h, "cputime/tcluvsnsel", nsel, tclu);
+  //   Fill(h, "cputime/tfitvsnsel", nsel, tfit);
+  //   Fill(h, "cputime/ttimevsnsel", nsel, ttime);
+  // }
 }
 /***************************************************************************************/
 
