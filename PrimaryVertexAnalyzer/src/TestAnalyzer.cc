@@ -2300,7 +2300,7 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
 	timer_stop("tp-matching");
 
         timer_start("analyzeVertexCollectionTP");
-	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
+	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,*extraInfoHandle,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
 	timer_stop("analyzeVertexCollectionTP");
 
 	analyzeVertexCollectionZmatching(histos, vertexes, simEvt, label, zwindow_sigmas_);
@@ -4123,8 +4123,10 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                                              Tracks& tracks,
                                              vector<SimEvent>& simEvt,
                                              const float CPUtime,
+                                             const std::vector<float>& blockborders,
                                              const string message
-                                             ) // added ievent to access cpu time here 
+                                             ) // added cputime to access cpu time here 
+                                             // also addeblockborders to access block borders 
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
@@ -4626,9 +4628,18 @@ for (size_t i = 0; i < simEvt.size(); i++) {
       }
 
     }
-    }
+          std::cout << "blockborders: ";
+      for (const auto& value : blockborders) {
+          std::cout << value << " ";
+      }
+      std::cout << std::endl;
 
- 
+
+
+
+
+
+      }
 
     /*********************************************************************************************/
 
