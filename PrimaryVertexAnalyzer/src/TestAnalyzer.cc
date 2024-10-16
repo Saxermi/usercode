@@ -487,11 +487,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the purity as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -1, 30, 0, 100);
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
 
     addn(h, PUBlockBordersvsPurityprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity ", "Purity vs. PU Block Borders", 100, -1, 30, 100, 0, 100);
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "Purity vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
 
 // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsPurity );
@@ -4136,6 +4136,24 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
 
 
     }
+    // yet another helper function
+    // this function gets the nearest blockborder for each point on z axis and then calculates the distance in between
+    pair<float, float> nearestBlockAndDistance(float point, const vector<float>& block_borders) {
+    float nearest_block = block_borders[0];
+    float min_distance = abs(point - nearest_block);
+
+    // Loop through each block border to find the nearest one
+    for (float block : block_borders) {
+        float distance = abs(point - block);
+        if (distance < min_distance) {
+            nearest_block = block;
+            min_distance = distance;
+        }
+    }
+
+    // Return the nearest block and the corresponding distance
+    return make_pair(nearest_block, min_distance);
+}
 
 
 
@@ -4658,6 +4676,55 @@ for (size_t i = 0; i < simEvt.size(); i++) {
       }
       std::cout << std::endl;
 
+
+   //new histogram 
+    TH2F* PUBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity"]);
+      if (!PUBlockBordersvsPurity) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
+        return;
+    }
+
+       //new histogram 
+    TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
+      if (!PUBlockBordersvsPurityprofile) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
+        return;
+    }
+
+          for (size_t i = 1; i < simEvt.size(); i++) {
+      if (simEvt[i].is_matched()) {
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        unsigned int numMatchedTracks = 0;
+        unsigned int numTracks = matchedVtx.tracks.size();
+
+          // Loop through the reconstructed tracks in the matched vertex
+          for (auto tv : matchedVtx.tracks) {
+              // Check if the track is matched to a simulated event
+              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+              // Check if the track is correctly assigned to the signal vertex
+              bool correctly_assigned = (tk_sim == matchedVtx.sim);
+              if (correctly_assigned) {
+                  numMatchedTracks++;
+              }
+          }
+
+          // Calculate the purity as the fraction of correctly matched tracks
+          float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+          purity = purity * 100;
+
+            // calculate the distance to the nearest block border
+          float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+
+          // Fill the histograms with the calculated purity
+          PUBlockBordersvsPurity->Fill(distance, purity);
+          PUBlockBordersvsPurityprofile->Fill(distance, purity);
+
+      } else {
+        
+      }
+    }
 
 
 
