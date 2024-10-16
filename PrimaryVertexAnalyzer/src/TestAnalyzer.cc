@@ -500,37 +500,45 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     addn(h, PUBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders; Distance to closest Border; Track Efficency", 100, -15, 15, 100, 0, 100);
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders; Distance to closest Border; Track Efficency", 100, -15, 15,100,  0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsEfficency);
 
 
    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile", 100, -15, 15, -0.2, 0.2);
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile; Distance to Closest Block Border; delta z", 100, -15, 15, -0.2, 0.2);
 
     addn(h, PUBlockBordersvsZdeltayprofile);
     // Define a TH2F histogram for PUBlockBordersvsZdelta
-    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders", 100, -15, 15, 100, -0.2, 0.2);
+    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders; delta z; Distance to Closest Block Border", 100, -15, 15, 100, -0.2, 0.2);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsZdelta );
 
 
-      // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
-      // will try this with tprofile and TH1f
-      TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution Normalized", 100, -1, 1);
-      addn(h, SEResolutionNormalized);
+    // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
+    // will try this with tprofile and TH1f
+    TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution Normalized; Resolution Normalized", 100, -1, 1);
+    addn(h, SEResolutionNormalized);
 
-      // histogram of PU resolution normalized
-      TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution Normalized", 100, -1, 1);
-      addn(h, PUResolutionNormalized);
+    // SE Resolution Normalized versus block distance
+    TProfile* SEResolutionNormalizedBlockprofile = new TProfile("SEResolutionNormalizedBlockprofile", "SE Resolution Normalized Resolution Normalized; Distance to Block Border;", 100, -1, 1, -0.2, 0.2);
+    addn(h, SEResolutionNormalizedBlockprofile);
 
-      // Histogram SE ResolutionVsTrack Purity
-      TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity", 100, -1, 1,  100, 0, 100);
-      addn(h, SEResolutionVsTrackPurity);
+    TH2F* SEResolutionNormalizedBlock = new TH2F("SEResolutionNormalizedBlock", "SE Resolution Normalized Resolution Normalized; Distance to Block Border;", 100, -1, 1, 100, -0.2, 0.2);
+    addn(h, SEResolutionNormalizedBlock);
 
-     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
+    // histogram of PU resolution normalized
+    TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution Normalized", 100, -1, 1);
+    addn(h, PUResolutionNormalized);
+
+
+    // Histogram SE ResolutionVsTrack Purity
+    TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity", 100, -1, 1, 100, 0, 100);
+    addn(h, SEResolutionVsTrackPurity);
+
+    // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
     TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "Purity vs. SE Block Borders Profile; Distance to closest Border; Track Purity", 100, -15, 15, 0, 100);
 
     addn(h, SEBlockBordersvsPurityprofile);
@@ -4294,11 +4302,25 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram SEResolutionNormalized not found!" << std::endl;
         return;
     }
+    TProfile* SEResolutionNormalizedBlockprofile = dynamic_cast<TProfile *>(h["efficiency/SEResolutionNormalizedBlockprofile"]);
+    if (!SEResolutionNormalizedBlockprofile) {
+        std::cerr << "Error: Histogram SEResolutionNormalizedBlockprofile not found!" << std::endl;
+        return;
+    }
+
+    TH2F* SEResolutionNormalizedBlock = dynamic_cast<TH2F *>(h["efficiency/SEResolutionNormalizedBlock"]);
+    if (!SEResolutionNormalizedBlock) {
+        std::cerr << "Error: Histogram SEResolutionNormalizedBlock not found!" << std::endl;
+        return;
+    }
 
     if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+      float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
       SEResolution->Fill( simEvt[0].z -matchedVtx.z());
       SEResolutionNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
+      SEResolutionNormalizedBlock -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
+      SEResolutionNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
     }
 
     //new histogram PUResolution and histogram with normalization
@@ -4308,19 +4330,19 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
-      // Retrieve PUBlockBordersvsZdeltayprofile
-      TProfile* PUBlockBordersvsZdeltayprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsZdeltayprofile"]);
-      if (!PUBlockBordersvsZdeltayprofile) {
-          std::cerr << "Error: Histogram PUBlockBordersvsZdeltayprofile not found!" << std::endl;
-          return;
-      }
+    // Retrieve PUBlockBordersvsZdeltayprofile
+    TProfile* PUBlockBordersvsZdeltayprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsZdeltayprofile"]);
+    if (!PUBlockBordersvsZdeltayprofile) {
+        std::cerr << "Error: Histogram PUBlockBordersvsZdeltayprofile not found!" << std::endl;
+        return;
+    }
 
-      // Retrieve PUBlockBordersvsZdelta
-      TH2F* PUBlockBordersvsZdelta = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsZdelta"]);
-      if (!PUBlockBordersvsZdelta) {
-          std::cerr << "Error: Histogram PUBlockBordersvsZdelta not found!" << std::endl;
-          return;
-      }
+    // Retrieve PUBlockBordersvsZdelta
+    TH2F* PUBlockBordersvsZdelta = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsZdelta"]);
+    if (!PUBlockBordersvsZdelta) {
+        std::cerr << "Error: Histogram PUBlockBordersvsZdelta not found!" << std::endl;
+        return;
+    }
 
     TH1F* PUResolutionNormalized = dynamic_cast<TH1F*>(h["efficiency/PUResolutionNormalized"]);
     if (!PUResolutionNormalized) {
@@ -4339,12 +4361,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             // Fill the histogram with delta_z
            PUResolution->Fill(delta_z);
                // calculate the distance to the nearest block border
-        float distance = nearestBlockAndDistance(rec_z, blockborders).second;
-        PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
-        PUBlockBordersvsZdelta->Fill(distance, delta_z);
+            float distance = nearestBlockAndDistance(rec_z, blockborders).second;
+            PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
+            PUBlockBordersvsZdelta->Fill(distance, delta_z);
 
 
-           PUResolutionNormalized -> Fill(delta_z/error_z);
+            PUResolutionNormalized -> Fill(delta_z/error_z);
         }
     }
     }
@@ -4644,9 +4666,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     // Loop through the pile-up events (non-signal vertices, starting from simEvt[1])
     for (size_t i = 1; i < simEvt.size(); i++) {
-      MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
       // Check if the current pile-up event is matched to a reconstructed vertex
       if (simEvt[i].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
           
         unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks in the PU event
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
