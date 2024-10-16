@@ -4587,26 +4587,26 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
-            // Retrieve PUBlockBordersvsEfficencyprofile
-      TProfile* PUBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsEfficencyprofile"]);
-      if (!PUBlockBordersvsEfficencyprofile) {
-          std::cerr << "Error: Histogram PUBlockBordersvsEfficencyprofile not found!" << std::endl;
-          return;
-      }
+    // Retrieve PUBlockBordersvsEfficencyprofile
+    TProfile* PUBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsEfficencyprofile"]);
+    if (!PUBlockBordersvsEfficencyprofile) {
+        std::cerr << "Error: Histogram PUBlockBordersvsEfficencyprofile not found!" << std::endl;
+        return;
+    }
 
-      // Retrieve PUBlockBordersvsEfficency
-      TH2F* PUBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsEfficency"]);
-      if (!PUBlockBordersvsEfficency) {
-          std::cerr << "Error: Histogram PUBlockBordersvsEfficency not found!" << std::endl;
-          return;
-      }
+    // Retrieve PUBlockBordersvsEfficency
+    TH2F* PUBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsEfficency"]);
+    if (!PUBlockBordersvsEfficency) {
+        std::cerr << "Error: Histogram PUBlockBordersvsEfficency not found!" << std::endl;
+        return;
+    }
 
 
     // Loop through the pile-up events (non-signal vertices, starting from simEvt[1])
     for (size_t i = 1; i < simEvt.size(); i++) {
-      MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
       // Check if the current pile-up event is matched to a reconstructed vertex
       if (simEvt[i].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
           
         unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks in the PU event
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
@@ -4622,8 +4622,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             if (recTrackKeys.find(simTrack.key()) != recTrackKeys.end()) {
                 // Track is found in the reconstructed vertex
                 numMatchedTracks++;  // Increment matched track count
-            } else {
-                // Track is not found (optional handling)
             }
         }
 
