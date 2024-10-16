@@ -500,6 +500,28 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
 
+    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "Efficency vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
+
+    addn(h, PUBlockBordersvsEfficencyprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsEfficency);
+
+
+   // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile", 100, -1, 15, -0.2, 0.2);
+
+    addn(h, PUBlockBordersvsZdeltayprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders", 100, -1, 15, 100, -0.2, 0.2);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsZdelta );
+
+
 
 
 
@@ -4258,6 +4280,21 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
         return;
     }
+
+      // Retrieve PUBlockBordersvsZdeltayprofile
+      TProfile* PUBlockBordersvsZdeltayprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsZdeltayprofile"]);
+      if (!PUBlockBordersvsZdeltayprofile) {
+          std::cerr << "Error: Histogram PUBlockBordersvsZdeltayprofile not found!" << std::endl;
+          return;
+      }
+
+      // Retrieve PUBlockBordersvsZdelta
+      TH2F* PUBlockBordersvsZdelta = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsZdelta"]);
+      if (!PUBlockBordersvsZdelta) {
+          std::cerr << "Error: Histogram PUBlockBordersvsZdelta not found!" << std::endl;
+          return;
+      }
+
     for (size_t i = 0; i < simEvt.size(); ++i) {
     if (!simEvt[i].is_signal()) {  // Check if it is a pile-up event
         if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
@@ -4268,6 +4305,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
             // Fill the histogram with delta_z
            PUResolution->Fill(delta_z);
+               // calculate the distance to the nearest block border
+        float distance = nearestBlockAndDistance(rec_z, blockborders).second;
+        PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
+        PUBlockBordersvsZdelta->Fill(distance, delta_z);
+
+
+
         }
     }
     }
@@ -4497,13 +4541,28 @@ for (size_t i = 0; i < simEvt.size(); i++) {
       }
     }
 
-    // histogram for PU track efficiency
+    // histogram for PU track efficiency and PUBlockbordersvsefficency
 
     TH1F *PUTracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/PUTracksEfficiency"]);
     if (!PUTracksEfficiency) {
         std::cerr << "Error: Histogram PUTracksEfficiency not found!" << std::endl;
         return;
     }
+
+            // Retrieve PUBlockBordersvsEfficencyprofile
+      TProfile* PUBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsEfficencyprofile"]);
+      if (!PUBlockBordersvsEfficencyprofile) {
+          std::cerr << "Error: Histogram PUBlockBordersvsEfficencyprofile not found!" << std::endl;
+          return;
+      }
+
+      // Retrieve PUBlockBordersvsEfficency
+      TH2F* PUBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsEfficency"]);
+      if (!PUBlockBordersvsEfficency) {
+          std::cerr << "Error: Histogram PUBlockBordersvsEfficency not found!" << std::endl;
+          return;
+      }
+
 
     for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()){
@@ -4522,6 +4581,13 @@ for (size_t i = 0; i < simEvt.size(); i++) {
 
         // Fill the histogram with the calculated efficiency
         PUTracksEfficiency->Fill(efficiency);
+        // get distance 
+
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        // calculate the distance to the nearest block border
+        float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+        PUBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
+        PUBlockBordersvsEfficency->Fill(distance, efficiency);
 
       } else {
           std::cerr << "No simulated vertex or no matched reconstructed vertex found!" << std::endl;
@@ -4725,6 +4791,18 @@ for (size_t i = 0; i < simEvt.size(); i++) {
         
       }
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
