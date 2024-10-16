@@ -473,7 +473,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    300,
                    100,
                    0,
-                   500);
+                   1000);
       addn(h, NVertexVSCPUTime);
 
         // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
@@ -487,11 +487,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the purity as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -15, 15, 0, 100);
 
     addn(h, PUBlockBordersvsPurityprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "Purity vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "Purity vs. PU Block Borders", 100, -15, 15, 100, 0, 100);
 
 // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsPurity );
@@ -501,22 +501,22 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "Efficency vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
+    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "Efficency vs. PU Block Borders Profile", 100, -15, 15, 0, 100);
 
     addn(h, PUBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders", 100, -15, 15, 100, 0, 100);
 
 // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsEfficency);
 
 
    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile", 100, -1, 15, -0.2, 0.2);
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile", 100, -15, 15, -0.2, 0.2);
 
     addn(h, PUBlockBordersvsZdeltayprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders", 100, -1, 15, 100, -0.2, 0.2);
+    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders", 100, -15, 15, 100, -0.2, 0.2);
 
 // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsZdelta );
@@ -4174,12 +4174,12 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
     // this function gets the nearest blockborder for each point on z axis and then calculates the distance in between
     pair<float, float> nearestBlockAndDistance(float point, const vector<float>& block_borders) {
     float nearest_block = block_borders[0];
-    float min_distance = abs(point - nearest_block);
+    float min_distance = point - nearest_block;
 
     // Loop through each block border to find the nearest one
     for (float block : block_borders) {
-        float distance = abs(point - block);
-        if (distance < min_distance) {
+        float distance = point - block;
+        if (abs(distance) < abs(min_distance)) {
             nearest_block = block;
             min_distance = distance;
         }
