@@ -21,7 +21,7 @@ NEVENT=-1
 SAMPLE=TTbar_04
 LABEL=pv
 # can be overridden using --n -
-while getopts ":n:l:d"  opt; do
+while getopts ":n:l:d:"  opt; do
   case $opt in
    d)
       SAMPLE=$OPTARG

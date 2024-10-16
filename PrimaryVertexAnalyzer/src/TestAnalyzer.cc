@@ -308,7 +308,7 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
 
   // extras
   extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
-  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUTime"));
+  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUtime"));
   
 
   trkhiptmin_ = 3.0;
@@ -431,6 +431,102 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
       TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
       addn(h, TrueE3DDistanceToPlane);
+       // new histogram
+      // definition of an TH1F histogram
+      TH1F *SERecIndexHist = new TH1F("SE_reco_index_hist", "Reconstructed SE index ;Index position;Frequency", 100, -1, 200);
+      addn(h, SERecIndexHist);
+      // same diagramm as above but in higher resolution meaning (only -1 -20)
+      TH1F *SERecIndexHistHR = new TH1F("SE_reco_index_histHR", "Reconstructed SE index ;Index position;Frequency", 100, -1, 20);
+      addn(h, SERecIndexHistHR);
+
+    // another new histogramm
+    // Definition of the 2D histogram, which shows the PU purity as a function of the z axis and additonally displays the block borders
+      TH2F* PUTracksPurityBlock =
+          new TH2F("PUTracksPurityBlock",
+                   "PU Purity vs  Z-Position and block borders; Z axis;PU Purity in % (borders displayed as 110%)",
+                   100,
+                   -30,
+                   30,
+                   100,
+                   0,
+                   110);
+      addn(h, PUTracksPurityBlock);
+       // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
+      TH2F* SETracksPurityBlock =
+          new TH2F("SETracksPurityBlock",
+                   "SE Purity vs  Z-Position and block borders; Z axis;SE Purity in % (borders displayed as 110%)",
+                   100,
+                   -30,
+                   30,
+                   100,
+                   0,
+                   110);
+      addn(h, SETracksPurityBlock);
+
+
+          // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+      TH2F* NVertexVSCPUTime  =
+          new TH2F("NVertexVSCPUTime",
+                   " cpu time used vs the number of vertices reconstructed; number of vertices reconstructed;Time used in s ",
+                   100,
+                   0,
+                   300,
+                   100,
+                   0,
+                   500);
+      addn(h, NVertexVSCPUTime);
+
+        // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
+    TH2F* SERecoVsSimZPositionBlock  = new TH2F("SERecoVsSimZPositionBlock", "SE Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
+    addn(h, SERecoVsSimZPositionBlock  );
+
+    // another new histogramm
+    // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
+    TH2F* PURecoVsSimZPositionBlock  = new TH2F("PURecoVsSimZPositionBlock", "PU Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
+    addn(h, PURecoVsSimZPositionBlock );
+
+
+    // definition of histogramm that shows the purity as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
+
+    addn(h, PUBlockBordersvsPurityprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "Purity vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsPurity );
+
+
+
+
+
+    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "Efficency vs. PU Block Borders Profile", 100, -1, 15, 0, 100);
+
+    addn(h, PUBlockBordersvsEfficencyprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders", 100, -1, 15, 100, 0, 100);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsEfficency);
+
+
+   // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile", 100, -1, 15, -0.2, 0.2);
+
+    addn(h, PUBlockBordersvsZdeltayprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders", 100, -1, 15, 100, -0.2, 0.2);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsZdelta );
+
+
+
+
+
+
+
 
       // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
       // will try this with tprofile and TH1f
@@ -2100,7 +2196,6 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
 
-
   edm::Handle<std::vector<float>> extraInfoHandle;
   iEvent.getByToken(extraInfoToken_, extraInfoHandle);
   
@@ -2118,8 +2213,10 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   iEvent.getByToken(clusteringCPUtimeToken_, clusteringCPUtimeHandle);
   if (clusteringCPUtimeHandle.isValid()){
     std::cout << " clustering time is " << *clusteringCPUtimeHandle << std::endl;
+  }else{
+    cout << " coud not get clustering time";
   }
-  
+
   // in case we wanted to analyze a specific lumi block only
   if ((analyzeLS_ >= 0) && !(luminosityBlock_ == analyzeLS_))
     return;
@@ -2261,7 +2358,7 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
 	timer_stop("tp-matching");
 
         timer_start("analyzeVertexCollectionTP");
-	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt, label);
+	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,*extraInfoHandle,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
 	timer_stop("analyzeVertexCollectionTP");
 
 	analyzeVertexCollectionZmatching(histos, vertexes, simEvt, label, zwindow_sigmas_);
@@ -4073,6 +4170,24 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
 
 
     }
+    // yet another helper function
+    // this function gets the nearest blockborder for each point on z axis and then calculates the distance in between
+    pair<float, float> nearestBlockAndDistance(float point, const vector<float>& block_borders) {
+    float nearest_block = block_borders[0];
+    float min_distance = abs(point - nearest_block);
+
+    // Loop through each block border to find the nearest one
+    for (float block : block_borders) {
+        float distance = abs(point - block);
+        if (distance < min_distance) {
+            nearest_block = block;
+            min_distance = distance;
+        }
+    }
+
+    // Return the nearest block and the corresponding distance
+    return make_pair(nearest_block, min_distance);
+}
 
 
 
@@ -4083,7 +4198,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                                              MVertexCollection& vtxs,
                                              Tracks& tracks,
                                              vector<SimEvent>& simEvt,
-                                             const string message)
+                                             const float CPUtime,
+                                             const std::vector<float>& blockborders,
+                                             const string message
+                                             ) // added cputime to access cpu time here 
+                                             // also addeblockborders to access block borders 
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
@@ -4180,6 +4299,21 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
         return;
     }
+
+      // Retrieve PUBlockBordersvsZdeltayprofile
+      TProfile* PUBlockBordersvsZdeltayprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsZdeltayprofile"]);
+      if (!PUBlockBordersvsZdeltayprofile) {
+          std::cerr << "Error: Histogram PUBlockBordersvsZdeltayprofile not found!" << std::endl;
+          return;
+      }
+
+      // Retrieve PUBlockBordersvsZdelta
+      TH2F* PUBlockBordersvsZdelta = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsZdelta"]);
+      if (!PUBlockBordersvsZdelta) {
+          std::cerr << "Error: Histogram PUBlockBordersvsZdelta not found!" << std::endl;
+          return;
+      }
+
     TH1F* PUResolutionNormalized = dynamic_cast<TH1F*>(h["efficiency/PUResolutionNormalized"]);
     if (!PUResolutionNormalized) {
         std::cerr << "Error: Histogram PUResolutionNormalized not found!" << std::endl;
@@ -4196,6 +4330,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
             // Fill the histogram with delta_z
            PUResolution->Fill(delta_z);
+               // calculate the distance to the nearest block border
+        float distance = nearestBlockAndDistance(rec_z, blockborders).second;
+        PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
+        PUBlockBordersvsZdelta->Fill(distance, delta_z);
+
+
            PUResolutionNormalized -> Fill(delta_z/error_z);
         }
     }
@@ -4428,13 +4568,28 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
     }
 
-    // histogram for PU track efficiency
+    // histogram for PU track efficiency and PUBlockbordersvsefficency
 
     TH1F *PUTracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/PUTracksEfficiency"]);
     if (!PUTracksEfficiency) {
         std::cerr << "Error: Histogram PUTracksEfficiency not found!" << std::endl;
         return;
     }
+
+            // Retrieve PUBlockBordersvsEfficencyprofile
+      TProfile* PUBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsEfficencyprofile"]);
+      if (!PUBlockBordersvsEfficencyprofile) {
+          std::cerr << "Error: Histogram PUBlockBordersvsEfficencyprofile not found!" << std::endl;
+          return;
+      }
+
+      // Retrieve PUBlockBordersvsEfficency
+      TH2F* PUBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsEfficency"]);
+      if (!PUBlockBordersvsEfficency) {
+          std::cerr << "Error: Histogram PUBlockBordersvsEfficency not found!" << std::endl;
+          return;
+      }
+
 
     for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()){
@@ -4453,21 +4608,416 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // Fill the histogram with the calculated efficiency
         PUTracksEfficiency->Fill(efficiency);
+        // get distance 
+
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        // calculate the distance to the nearest block border
+        float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+        PUBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
+        PUBlockBordersvsEfficency->Fill(distance, efficiency);
 
       }
     }
-    
+    // Histogram to track index of signal event in reconstructed list
+
+    TH1F *SERecIndexHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_index_hist"]);
+    if (!SERecIndexHist) {
+        std::cerr << "Error: Histogram SE_reco_index_hist not found!" << std::endl;
+        return;
+    }
+
+} // Comment does this work
+
+ 
+      // just cheks if the signal event is there and if so saves the index
+     if(simEvt[0].is_matched()){
+       SERecIndexHist->Fill(simEvt[0].rec);
+     }
+    // same diagramm as above but in higher resolution meaning (only -1 -20)
+
+     TH1F *SERecIndexHistHR = dynamic_cast<TH1F *>(h["efficiency/SE_reco_index_histHR"]);
+    if (!SERecIndexHistHR) {
+        std::cerr << "Error: Histogram SE_reco_index_histHR not found!" << std::endl;
+        return;
+    }
+         // just cheks if the signal event is there and if so saves the index
+     if(simEvt[0].is_matched()){
+       SERecIndexHistHR->Fill(simEvt[0].rec);
+     }
+
+    // Definition of the 2D histogram, which shows the purity as a function of the z axis and additonally displays the block borders
+   TH2F *PUTracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/PUTracksPurityBlock"]);
+    if (!PUTracksPurityBlock) {
+        std::cerr << "Error: Histogram PUTracksPurityBlock not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 1; i < simEvt.size(); i++) {
+    if (simEvt[i].is_matched()) {
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        unsigned int numMatchedTracks = 0;
+        unsigned int numTracks = matchedVtx.tracks.size();
+
+        for (auto tv : matchedVtx.tracks) {
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim);
+
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
+
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
+
+        // Retrieve the z-position of the matched vertex
+        float z_position = static_cast<float>(matchedVtx.z());
+
+        // Fill the 2D histogram with z-position and purity
+        PUTracksPurityBlock->Fill(z_position, purity);
+    } else {
+        std::cerr << "No matched reconstructed vertex found!" << std::endl;
+    }
+    }
 
 
+        // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
+   TH2F *SETracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/SETracksPurityBlock"]);
+    if (!SETracksPurityBlock) {
+        std::cerr << "Error: Histogram SETracksPurityBlock not found!" << std::endl;
+        return;
+    }
+    if (simEvt[0].is_matched()) {
+      MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+      unsigned int numMatchedTracks = 0;
+      unsigned int numTracks = matchedVtx.tracks.size();
+
+        // Loop through the reconstructed tracks in the matched vertex
+        for (auto tv : matchedVtx.tracks) {
+            // Check if the track is matched to a simulated event
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+            // Check if the track is correctly assigned to the signal vertex
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
+            // Retrieve the z-position of the matched vertex
+        float z_position = static_cast<float>(matchedVtx.z());
+
+        // Calculate the purity as the fraction of correctly matched tracks
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
+
+        // Fill the histogram with the calculated purity
+        SETracksPurityBlock->Fill(z_position,purity);
+    }else{
+      cout << "no SE event found in  SETracksPurityBlock";
+    }
+
+                // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+   TH2F *NVertexVSCPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSCPUTime"]);
+    if (!NVertexVSCPUTime) {
+        std::cerr << "Error: Histogram NVertexVSCPUTime not found!" << std::endl;
+        return;
+    }
+
+
+    NVertexVSCPUTime->Fill( simEvt.size(),CPUtime);
+
+
+
+
+       // next histogram 
+    TH2F* SERecoVsSimZPositionBlock = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPositionBlock"]);
+      if (!SERecoVsSimZPositionBlock) {
+        std::cerr << "Error: Histogram SERecoVsSimZPositionBlock not found!" << std::endl;
+        return;
+    }
+    if (simEvt[0].is_matched()) {
+    MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+    SERecoVsSimZPositionBlock->Fill(matchedVtx.z(), simEvt[0].z);
+    }
+
+
+
+    //new histogram 
+    TH2F* PURecoVsSimZPositionBlock = dynamic_cast<TH2F*>(h["efficiency/PURecoVsSimZPositionBlock"]);
+      if (!PURecoVsSimZPositionBlock) {
+        std::cerr << "Error: Histogram PURecoVsSimZPositionBlock not found!" << std::endl;
+        return;
+    }
+
+    for (size_t i = 0; i < simEvt.size();i++){
+      if(!simEvt[i].is_signal()){
+      if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
+
+            unsigned int rec_index = simEvt[i].rec;  // Get the index of the matched reconstructed vertex
+            double true_z = simEvt[i].z;
+            double rec_z = vtxs.at(rec_index).z();
+                PURecoVsSimZPositionBlock->Fill(rec_z, true_z);
+        }
+      }
+
+    }
+          std::cout << "blockborders: ";
+      for (const auto& value : blockborders) {
+          std::cout << value << " ";
+      }
+      std::cout << std::endl;
+
+
+   //new histogram 
+    TH2F* PUBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity"]);
+      if (!PUBlockBordersvsPurity) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
+        return;
+    }
+
+       //new histogram 
+    TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
+      if (!PUBlockBordersvsPurityprofile) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
+        return;
+    }
+
+          for (size_t i = 1; i < simEvt.size(); i++) {
+      if (simEvt[i].is_matched()) {
+        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+        unsigned int numMatchedTracks = 0;
+        unsigned int numTracks = matchedVtx.tracks.size();
+
+          // Loop through the reconstructed tracks in the matched vertex
+          for (auto tv : matchedVtx.tracks) {
+              // Check if the track is matched to a simulated event
+              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+              // Check if the track is correctly assigned to the signal vertex
+              bool correctly_assigned = (tk_sim == matchedVtx.sim);
+              if (correctly_assigned) {
+                  numMatchedTracks++;
+              }
+          }
+
+          // Calculate the purity as the fraction of correctly matched tracks
+          float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+          purity = purity * 100;
+
+            // calculate the distance to the nearest block border
+          float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+
+          // Fill the histograms with the calculated purity
+          PUBlockBordersvsPurity->Fill(distance, purity);
+          PUBlockBordersvsPurityprofile->Fill(distance, purity);
+
+      } else {
+        
+      }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }
+
+    /*********************************************************************************************/
+
+    /*********************************************************************************************/
+    void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
+                                                        MVertexCollection& vtxs,
+                                                        std::vector<SimEvent>& simEvts,
+                                                        const std::string message,
+                                                        const double zwindow_sigmas) {
+      if (verbose_) {
+        cout << "analyzeVertexCollectionZmatching, simEvts= " << simEvts.size() << " vtxs= " << vtxs.size()
+             << " window size = " << zwindow_sigmas << endl;
+      }
+
+      unsigned int nsim = simEvts.size();
+      unsigned int nvtx = vtxs.size();
+
+      std::vector<unsigned int> nsimmatch(
+          nvtx);  // count sim vertices within <zwindow_sigmas> sigma of the reconstructed position
+      std::vector<unsigned int> nrecmatch(
+          nsim);  // count rec vertices with reconstructed position within  <zwindow_sigmas> sigma
+      // repeat with the additional requirement of 2 common truth matched tracks
+      std::vector<unsigned int> nsimmatch_tp(nvtx);
+      std::vector<unsigned int> nrecmatch_tp(nsim);
+      // and once more with a modified z-matching
+      std::vector<unsigned int> nsimmatch_c(nvtx);
+      std::vector<unsigned int> nrecmatch_c(nsim);
+
+      for (unsigned int k = 0; k < nvtx; k++) {
+        const auto v = vtxs.at(k);
+        if (v.isRecoFake())
+          continue;
+
+        unsigned int nearest_sim = NOT_MATCHED_VTX_REC;
+
+        for (unsigned int i = 0; i < nsim; i++) {
+          if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) {
+            //std::cout << "zmatching " << message << "  [" << i << "]" << simEvts.at(i).z << "   " << v.z() << "+/-" << v.zError() << " (" << k << ")" << endl;
+            nrecmatch[i]++;
+            nsimmatch[k]++;
+            //nmatchall++;
+            if (nearest_sim == NOT_MATCHED_VTX_REC) {
+              nearest_sim = i;
+            } else {
+              if (std::abs(simEvts.at(i).z - v.z()) < std::abs(v.z() - simEvts.at(nearest_sim).z)) {
+                nearest_sim = i;
+              }
+            }
+          }
+
+          // same but requiring two matched tracks
+          if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) &&
+              (simEvts.at(i).countVertexTracks(v, 0.2) > 1)) {
+            nrecmatch_tp[i]++;
+            nsimmatch_tp[k]++;
+          }
+
+          // modified z-matching
+          double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+          if (std::abs(simEvts.at(i).z - v.z()) < dzmax) {
+            nrecmatch_c[i]++;
+            nsimmatch_c[k]++;
+          }
+
+        }  // sim events
+      }  // rec vtxs
+
+      // fill histograms
+      //
+      for (unsigned int i = 0; i < nsim; i++) {
+        Fill(h, "zmatcheffvspu", nsim, nrecmatch[i] > 0 ? 1. : 0.);
+        Fill(h, "zmatchambigvspu", nsim, nrecmatch[i] > 1 ? 1. : 0.);
+        Fill(h, "zmatchnrecmatch", nrecmatch[i]);
+
+        Fill(h, "zcmatcheffvspu", nsim, nrecmatch_c[i] > 0 ? 1. : 0.);
+        Fill(h, "zcmatchambigvspu", nsim, nrecmatch_c[i] > 1 ? 1. : 0.);
+        Fill(h, "zcmatchnrecmatch", nrecmatch_c[i]);
+
+        Fill(h, "ztpmatcheffvspu", nsim, nrecmatch_tp[i] > 0 ? 1. : 0.);
+        Fill(h, "ztpmatchambigvspu", nsim, nrecmatch_tp[i] > 1 ? 1. : 0.);
+        Fill(h, "ztpmatchnrecmatch", nrecmatch_tp[i]);
+      }
+
+      // fake here means : no sim vertex within <zwindow_sigmas> x sigma_z
+      for (unsigned int k = 0; k < nvtx; k++) {
+        Fill(h, "zmatchfakevspu", nsim, nsimmatch[k] == 0 ? 1. : 0);
+        Fill(h, "zcmatchfakevspu", nsim, nsimmatch_c[k] == 0 ? 1. : 0);
+        Fill(h, "ztpmatchfakevspu", nsim, nsimmatch_tp[k] == 0 ? 1. : 0);
+      }
+
+      for (unsigned int k = 0; k < nvtx; k++) {
+        Fill(h, "zmatchnsimmatch", nsimmatch[k]);
+        Fill(h, "zcmatchnsimmatch", nsimmatch_c[k]);
+        Fill(h, "ztpmatchnsimmatch", nsimmatch_tp[k]);
+      }
+
+      // go one step beyond looking at z-windows :  maximally greedy matching
+      std::vector<std::pair<unsigned int, unsigned int>> recsim;    // based on z-distance only
+      std::vector<std::pair<unsigned int, unsigned int>> recsim_c;  // based on z-distance, truncated
+      std::vector<std::pair<unsigned int, unsigned int>>
+          recsim_tp;  // additionally require at least one truth matched track
+      // and the same for selected vertices
+      std::vector<std::pair<unsigned int, unsigned int>> recselsim;    // based on z-distance only
+      std::vector<std::pair<unsigned int, unsigned int>> recselsim_c;  // based on z-distance, truncated
+      std::vector<std::pair<unsigned int, unsigned int>>
+          recselsim_tp;  // additionally require at least one truth matched track
+
+      unsigned int nvtxrec = 0, nvtxsel = 0;
+      for (unsigned int k = 0; k < nvtx; k++) {
+        const auto v = vtxs.at(k);
+        if (v.isRecoFake())
+          continue;
+
+        nvtxrec++;
+        if (select(v))
+          nvtxsel++;
+
+        for (unsigned int i = 0; i < nsim; i++) {
+          // z-distance alone
+          if (std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) {
+            recsim.emplace_back(k, i);
+            if (select(v))
+              recselsim.emplace_back(k, i);
+          }
+
+          // truncated z-distance, allow at least 100 um, do not allow more than 1 mm
+          double dzmax = std::min(0.1, std::max(0.0100, zwindow_sigmas * v.zError()));
+          if (std::abs(simEvts.at(i).z - v.z()) < dzmax) {
+            recsim_c.emplace_back(k, i);
+            if (select(v))
+              recselsim_c.emplace_back(k, i);
+          }
+
+          // z-distance + at least two tracks with weight > 0.5
+          if ((std::abs(simEvts.at(i).z - v.z()) < (zwindow_sigmas * v.zError())) &&
+              (simEvts.at(i).countVertexTracks(v, 0.5) > 1)) {
+            recsim_tp.emplace_back(k, i);
+            if (select(v))
+              recselsim_tp.emplace_back(k, i);
+          }
+        }
+      }
+
+      if (nsim > 0) {
+        int max_match = 0, max_match_c = 0, max_match_tp = 0;
+        FFA(nvtxrec, nsim, recsim, max_match);
+        Fill(h, "FFAzmatcheffvspu", nsim, float(max_match) / nsim);
+
+        FFA(nvtxrec, nsim, recsim_c, max_match_c);
+        Fill(h, "FFAzcmatcheffvspu", nsim, float(max_match_c) / nsim);
+
+        FFA(nvtxrec, nsim, recsim_tp, max_match_tp);
+        Fill(h, "FFAztpmatcheffvspu", nsim, float(max_match_tp) / nsim);
+
+        if (nvtxrec > 0) {
+          Fill(h, "FFAzmatchfakevspu", nsim, float(nvtxrec - max_match) / nvtxrec);
+          Fill(h, "FFAzcmatchfakevspu", nsim, float(nvtxrec - max_match_c) / nvtxrec);
+          Fill(h, "FFAztpmatchfakevspu", nsim, float(nvtxrec - max_match_tp) / nvtxrec);
+          //should the denominator contain only vertices with tp matchted tracks?
+        }
+
+        // include selection
+        max_match = 0;
+        max_match_c = 0;
+        max_match_tp = 0;
+        FFA(nvtxsel, nsim, recselsim, max_match);
+        Fill(h, "FFAzmatchseleffvspu", nsim, float(max_match) / nsim);
+
+        FFA(nvtxsel, nsim, recselsim_c, max_match_c);
+        Fill(h, "FFAzcmatchseleffvspu", nsim, float(max_match_c) / nsim);
+
+        FFA(nvtxsel, nsim, recselsim_tp, max_match_tp);
+        Fill(h, "FFAztpmatchseleffvspu", nsim, float(max_match_tp) / nsim);
+
+        if (nvtxsel > 0) {
+          Fill(h, "FFAzmatchselfakevspu", nsim, float(nvtxsel - max_match) / nvtxsel);
+          Fill(h, "FFAzcmatchselfakevspu", nsim, float(nvtxsel - max_match_c) / nvtxsel);
+          Fill(h, "FFAztpmatchselfakevspu", nsim, float(nvtxsel - max_match_tp) / nvtxsel);
+        }
+      }
+  
 }
-
-/*********************************************************************************************/
-
-
-
-
-
-
 /*********************************************************************************************/
 void TestAnalyzer::analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
 								MVertexCollection& vtxs,
