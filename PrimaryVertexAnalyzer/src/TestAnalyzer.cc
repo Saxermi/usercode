@@ -484,6 +484,30 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
     TH2F* PURecoVsSimZPositionBlock  = new TH2F("PURecoVsSimZPositionBlock", "PU Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
     addn(h, PURecoVsSimZPositionBlock );
+
+
+    // definition of histogramm that shows the purity as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile", 100, -1, 30, 0, 100);
+
+    addn(h, PUBlockBordersvsPurityprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity ", "Purity vs. PU Block Borders", 100, -1, 30, 100, 0, 100);
+
+// Adding the 2D histogram to a collection or for further processing
+    addn(h, PUBlockBordersvsPurity );
+
+
+
+
+
+
+
+
+
+
+
+
+
       // Return to the base directory to maintain proper organization
       dir->cd();
 
