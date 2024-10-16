@@ -4515,20 +4515,31 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         unsigned int numSimTracks = simEvt[0].rtk.size(); // Number of simulated tracks
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
 
-        // Loop through the simulated tracks for the signal vertex
+        // Retrieve the corresponding matched vertex from the reconstructed vertices
+        MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
+
+        // Collect the keys of the tracks in the matched reconstructed vertex
+        std::set<unsigned int> recTrackKeys;
+        for (auto tv : matchedVtx.tracks) {
+            recTrackKeys.insert(tv->key());  // Store the keys of reconstructed tracks
+        }
+
+        // Check if each simulated track has a corresponding reconstructed track
         for (auto& simTrack : simEvt[0].rtk) {
-            // Check if this simulated track has a matching reconstructed track
-            if (simTrack.is_matched()) {
-                numMatchedTracks++;
+            if (recTrackKeys.find(simTrack.key()) != recTrackKeys.end()) {
+                // Track is found in the reconstructed vertex
+                numMatchedTracks++;  // Increment matched track count
+            } else {
+                // Track is not found (optional handling)
             }
         }
 
         // Calculate the efficiency as the fraction of simulated tracks that are matched
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
         efficiency = efficiency * 100;
+
         // Fill the histogram with the calculated efficiency
         SETracksEfficiency->Fill(efficiency);
-
     }
 
 
@@ -4591,16 +4602,30 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
 
 
+    // Loop through the pile-up events (non-signal vertices, starting from simEvt[1])
     for (size_t i = 1; i < simEvt.size(); i++) {
-      if (simEvt[i].is_matched()){
-        unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks
+      MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
+      // Check if the current pile-up event is matched to a reconstructed vertex
+      if (simEvt[i].is_matched()) {
+          
+        unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks in the PU event
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
+
+        // Collect the keys of the tracks in the matched reconstructed vertex
+        std::set<unsigned int> recTrackKeys;
+        for (auto tv : matchedVtx.tracks) {
+            recTrackKeys.insert(tv->key());  // Store the keys of reconstructed tracks
+        }
+
+        // Check if each simulated track has a corresponding reconstructed track
         for (auto& simTrack : simEvt[i].rtk) {
-              // Check if this simulated track has a matching reconstructed track
-              if (simTrack.is_matched()) {
-                  numMatchedTracks++;
-              }
-          }
+            if (recTrackKeys.find(simTrack.key()) != recTrackKeys.end()) {
+                // Track is found in the reconstructed vertex
+                numMatchedTracks++;  // Increment matched track count
+            } else {
+                // Track is not found (optional handling)
+            }
+        }
 
         // Calculate the efficiency as the fraction of simulated tracks that are matched
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
@@ -4610,12 +4635,10 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         PUTracksEfficiency->Fill(efficiency);
         // get distance 
 
-        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
         // calculate the distance to the nearest block border
         float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
         PUBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
         PUBlockBordersvsEfficency->Fill(distance, efficiency);
-
       }
     }
     // Histogram to track index of signal event in reconstructed list
@@ -4676,8 +4699,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // Fill the 2D histogram with z-position and purity
         PUTracksPurityBlock->Fill(z_position, purity);
-    } else {
-        std::cerr << "No matched reconstructed vertex found!" << std::endl;
     }
     }
 
