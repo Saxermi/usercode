@@ -541,7 +541,17 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity", 100, -1, 1,  100, 0, 100);
       addn(h, SEResolutionVsTrackPurity);
 
+      // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+      TProfile* PUBlockBordersvsFakeVertProfi =
+          new TProfile("PUBlockBordersvsFakeVertProfi",
+                       "Freq vs. PU Block Borders Profile; Distance from nearest block; Position on Z Axis",
+                       100,
+                       -15,
+                       15,
+                       -30,
+                        30);
 
+      addn(h, PUBlockBordersvsFakeVertProfi);
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -4834,19 +4844,33 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           PUBlockBordersvsPurityprofile->Fill(distance, purity);
 
       } else {
-        
+        // not defined for now
       }
     }
 
 
+        //new histogram 
+    TProfile* PUBlockBordersvsFakeVertProfi = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsFakeVertProfi"]);
+      if (!PUBlockBordersvsFakeVertProfi) {
+        std::cerr << "Error: Histogram PUBlockBordersvsFakeVertProfi not found!" << std::endl;
+        return;
+    }
+
+ 
 
 
 
 
-
-
-
-
+   //tprofile hist of  Fake vertices (reconstructed vertices not matched to any simulated vertex)
+    for (size_t i = 0; i < vtxs.size(); ++i) {
+        MVertex& vtx = vtxs.at(i);
+        if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
+            double rec_z = vtx.z();
+                  // calculate the distance to the nearest block border
+          float distance = nearestBlockAndDistance(rec_z, blockborders).second;
+            PUBlockBordersvsFakeVertProfi->Fill(distance, rec_z);
+        }
+    }
 
 
 
