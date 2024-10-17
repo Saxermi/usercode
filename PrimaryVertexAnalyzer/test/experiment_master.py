@@ -4,7 +4,7 @@ import itertools
 import time
 
 # Global variable to control test mode
-TEST_MODE = True  # Set to False to submit all jobs
+TEST_MODE = False  # Set to False to submit all jobs
 
 
 def submit_job(sample, overlap, notify=False):
@@ -30,7 +30,7 @@ def submit_job(sample, overlap, notify=False):
         "sbatch",
         bash_script,
         "-n",
-        "1",
+        "100",
         "-d",
         sample,
         "-o",
