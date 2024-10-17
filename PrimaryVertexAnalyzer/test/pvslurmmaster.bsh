@@ -99,18 +99,11 @@ touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
 # get the output
-cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.log.gz
 cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.root
+cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.log.gz
 
-# Merge with existing merged ROOT file if it exists
-cd /work/msaxer/${PATH}
-if [ -f ${LABEL}_merged.root ]; then
-    hadd -f ${LABEL}_new_merged.root ${LABEL}_merged.root ${LABEL}${SAMPLE}.root
-    mv ${LABEL}_new_merged.root ${LABEL}_merged.root
-else
-    # If no merged file exists, this is the first one, so just rename it
-    mv ${LABEL}${SAMPLE}.root ${LABEL}_merged.root
-fi
+
+
 
 # clean up
 rm -rf $WORKDIR
