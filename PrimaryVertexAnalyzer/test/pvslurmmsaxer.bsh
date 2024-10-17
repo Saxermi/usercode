@@ -89,8 +89,8 @@ touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
 # get the output
-cp logfile /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.log.gz
-cp pv.root /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.root
+cp logfile /work/msaxer/${PATH}/${LABEL}${SAMPLE}.log.gz
+cp pv.root /work/msaxer/${PATH}/${LABEL}${SAMPLE}.root
 
 # clean up
 rm -rf $WORKDIR
