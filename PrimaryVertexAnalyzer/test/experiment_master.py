@@ -30,7 +30,7 @@ def submit_job(sample, overlap, notify=False):
         "sbatch",
         bash_script,
         "-n",
-        "10",
+        "1",
         "-d",
         sample,
         "-o",
@@ -38,7 +38,7 @@ def submit_job(sample, overlap, notify=False):
         "-p",
         path,  # Pass the path to store output in the correct directory
         "-l",
-        "pvBlock",
+        "pv",
     ]
 
     # Submit the job using subprocess and capture the output
