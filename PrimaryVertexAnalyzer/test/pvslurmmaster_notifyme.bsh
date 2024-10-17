@@ -111,7 +111,9 @@ cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >
 # fi
 # cp debuglog /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}debug.log
 cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.root
-cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.log.gz
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.log.gz
 
 
 
