@@ -3,6 +3,9 @@ import subprocess
 import itertools
 import time
 
+# Global variable to control test mode
+TEST_MODE = True  # Set to False to submit all jobs
+
 
 def submit_job(sample, overlap, notify=False):
     """
@@ -30,9 +33,11 @@ def submit_job(sample, overlap, notify=False):
         "pvBlock",
     ]
 
-    # Submit the job using subprocess
+    # Submit the job using subprocess and capture the output
     try:
-        subprocess.run(cmd, check=True)
+        result = subprocess.run(cmd, check=True, text=True, capture_output=True)
+        # Print the output from sbatch (which typically includes the job ID)
+        print(result.stdout)
         print(f"Job for {sample} with overlap {overlap} submitted successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Failed to submit job for {sample} with overlap {overlap}. Error: {e}")
@@ -45,15 +50,21 @@ def main():
     # Overlap values from 0.0 to 0.9 in 0.1 increments
     overlaps = [round(x * 0.1, 1) for x in range(10)]
 
-    # Iterate over all combinations of samples and overlap factors
-    for idx, (sample, overlap) in enumerate(itertools.product(samples, overlaps)):
-        # Use notify script every 10th job
-        notify = (idx + 1) % 10 == 0
+    # If in test mode, only submit two jobs, one with notify and one without
+    if TEST_MODE:
+        print("Running in test mode...")
+        submit_job(samples[0], overlaps[0], notify=False)
+        submit_job(samples[0], overlaps[0], notify=True)
+    else:
+        # Iterate over all combinations of samples and overlap factors
+        for idx, (sample, overlap) in enumerate(itertools.product(samples, overlaps)):
+            # Use notify script every 10th job
+            notify = (idx + 1) % 10 == 0
 
-        # Wait for 1 second before submitting each job
-        time.sleep(1)
+            # Wait for 1 second before submitting each job
+            time.sleep(1)
 
-        submit_job(sample, overlap, notify=notify)
+            submit_job(sample, overlap, notify=notify)
 
 
 if __name__ == "__main__":
