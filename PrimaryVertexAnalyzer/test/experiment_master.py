@@ -30,7 +30,7 @@ def submit_job(sample, overlap, notify=False):
         "sbatch",
         bash_script,
         "-n",
-        "1",
+        "100",
         "-d",
         sample,
         "-o",

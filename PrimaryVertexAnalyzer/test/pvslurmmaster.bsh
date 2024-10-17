@@ -56,6 +56,7 @@ done
 
 
 
+
 # the following information will appear in the job file
 echo HOME: $HOME 
 echo USER: $USER 
@@ -98,9 +99,11 @@ cp $STARTDIR/cfg/${LABEL}_cfg.py  .
 touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
-# get the output
-cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.root
-cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.log.gz
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.root
+
+
+cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.log.gz
 
 
 
