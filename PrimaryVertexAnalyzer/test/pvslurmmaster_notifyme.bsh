@@ -110,8 +110,10 @@ cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >
 #    echo "Error: pv.root was not created." >> debuglog
 # fi
 # cp debuglog /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}debug.log
+
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}{TIMESTAMP}.root
+
+cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.root
 
 
 cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.log.gz

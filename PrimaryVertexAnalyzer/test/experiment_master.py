@@ -68,6 +68,8 @@ def main():
     if TEST_MODE:
         print("Running in test mode...")
         submit_job(samples[0], overlaps[0], notify=False)
+        time.sleep(10)
+
         submit_job(samples[0], overlaps[0], notify=True)
     else:
         # Iterate over all combinations of samples and overlap factors

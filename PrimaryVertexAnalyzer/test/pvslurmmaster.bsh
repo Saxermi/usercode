@@ -72,7 +72,7 @@ INPUT=`cat samples/${SAMPLE} | sed ':a;N;$!ba;s/\n/,/g'`
 PARAMETERS="runInBlocks=True block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
 
 # slurm stuff ------------------------------------------------------------------------------- 
-
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 # each worker node has local /scratch space to be used during job run
 WORKDIR=/scratch/$USER/${SLURM_JOB_ID}
 mkdir -p $WORKDIR
@@ -99,7 +99,8 @@ cp $STARTDIR/cfg/${LABEL}_cfg.py  .
 touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
-TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+
+
 cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.root
 
 
