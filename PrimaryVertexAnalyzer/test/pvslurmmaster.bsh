@@ -21,8 +21,10 @@ NEVENT=-1
 SAMPLE=TTbar_04
 LABEL=pv
 PATH=outputroot
+BLOCKSIZE=512
+OVERLAPP=0.5
 # can be overridden using --n -
-while getopts ":n:l:d:p:"  opt; do
+while getopts ":n:l:d:p:b:o:"  opt; do
   case $opt in
    d)
       SAMPLE=$OPTARG
@@ -36,6 +38,12 @@ while getopts ":n:l:d:p:"  opt; do
       p)
       PATH=$OPTARG
       ;;
+      b)
+      BLOCKSIZE=$OPTARG
+      ;;
+      o)
+      OVERLAPP=$OPTARG
+      ;;
     \?)
       echo "t3job: Invalid option: -$OPTARG" >&2
       ;;
@@ -46,6 +54,8 @@ while getopts ":n:l:d:p:"  opt; do
   esac
 done
 
+
+
 # the following information will appear in the job file
 echo HOME: $HOME 
 echo USER: $USER 
@@ -55,10 +65,10 @@ echo "CMSSW RELEASE BASE " $CMSSW_RELEASE_BASE
 
 
 # expects a config file name <LABEL>_cfg.py in the subdirectory "cfg" of the submission directory
-LABEL=pv
+# LABEL=pv
 INPUT=`cat samples/${SAMPLE} | sed ':a;N;$!ba;s/\n/,/g'`
 #INPUT=/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-PARAMETERS="runInBlocks=True"
+PARAMETERS="runInBlocks=True block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
 
 # slurm stuff ------------------------------------------------------------------------------- 
 
@@ -89,8 +99,18 @@ touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
 # get the output
-cp logfile /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.log.gz
-cp pv.root /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.root
+cp logfile /work/msaxer/${PATH}/${LABEL}${SAMPLE}.log.gz
+cp pv.root /work/msaxer/${PATH}/${LABEL}${SAMPLE}.root
+
+# Merge with existing merged ROOT file if it exists
+cd /work/msaxer/${PATH}
+if [ -f ${LABEL}_merged.root ]; then
+    hadd -f ${LABEL}_new_merged.root ${LABEL}_merged.root ${LABEL}${SAMPLE}.root
+    mv ${LABEL}_new_merged.root ${LABEL}_merged.root
+else
+    # If no merged file exists, this is the first one, so just rename it
+    mv ${LABEL}${SAMPLE}.root ${LABEL}_merged.root
+fi
 
 # clean up
 rm -rf $WORKDIR
