@@ -43,7 +43,13 @@ def submit_job(sample, overlap, notify=False):
 
     # Submit the job using subprocess and capture the output
     try:
-        result = subprocess.run(cmd, check=True, text=True, capture_output=True)
+        result = subprocess.run(
+            cmd,
+            check=True,
+            universal_newlines=True,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+        )
         # Print the output from sbatch (which typically includes the job ID)
         print(result.stdout)
         print(f"Job for {sample} with overlap {overlap} submitted successfully.")
