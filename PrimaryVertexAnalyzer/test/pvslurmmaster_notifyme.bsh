@@ -101,12 +101,16 @@ cp $STARTDIR/cfg/${LABEL}_cfg.py  .
 touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
-# get the output
-cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.root
+# Check if pv.root exists and append confirmation message to logfile
+if [ -f pv.root ]; then
+    echo "I wrote the root file pv.root" >> logfile
+    # Copy the output files
+    cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.root
+else
+    echo "Error: pv.root was not created." >> logfile
+fi
+
 cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}.log.gz
-
-
-
 
 
 
