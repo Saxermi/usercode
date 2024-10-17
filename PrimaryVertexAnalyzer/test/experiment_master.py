@@ -19,6 +19,12 @@ def submit_job(sample, overlap, notify=False):
     # Determine which script to use
     bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
 
+    # Calculate the directory name based on overlap (convert to an integer percentage)
+    overlap_dir = (
+        int(overlap * 10) * 10
+    )  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
+    path = f"/work/msaxer/experimental_run_1/{overlap_dir}"
+
     # Define the command to run
     cmd = [
         "sbatch",
@@ -29,6 +35,8 @@ def submit_job(sample, overlap, notify=False):
         sample,
         "-o",
         str(overlap),
+        "-p",
+        path,  # Pass the path to store output in the correct directory
         "-l",
         "pvBlock",
     ]
