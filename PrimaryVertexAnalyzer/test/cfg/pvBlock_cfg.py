@@ -85,7 +85,7 @@ parameters={  # can be overwritten by arguments of the same name
 # vertex selection
   "minNdof": cms.double( 2.0 ),
 # clustering in blocks
-  "runInBlocks" : cms.bool(False),
+  "runInBlocks" : cms.bool(True),
   "block_size" : cms.uint32(512),
   "overlap_frac" : cms.double(0.5)
 }
@@ -358,7 +358,7 @@ process.oldVertexAnalysis = cms.EDAnalyzer("TestAnalyzer",
     selNdofWithBS = parameters["selNdofWithBS"],                                    
     beamSpot = cms.InputTag('offlineBeamSpot'),
     simG4 = cms.InputTag("g4SimHits"),
-    outputFile = cms.untracked.string("pv.root"),
+    outputFile = cms.untracked.string("pvBlock.root"),
     verbose = parameters["verboseAnalyzer"],
     veryverbose = cms.untracked.bool(False),
     recoTrackProducer = cms.untracked.string("generalTracks"),
@@ -384,10 +384,6 @@ process.oldVertexAnalysis = cms.EDAnalyzer("TestAnalyzer",
 
 
 process.analyze =  cms.Path( process.theTruth * process.oldVertexAnalysis )
-#process.content = cms.EDAnalyzer("EventContentAnalyzer")
-#process.dump = cms.Path(process.content)
-
-   
 
 
 print( "=============================================")
@@ -397,7 +393,7 @@ print( "=============================================")
 # Schedule definition
 if DO_VTX_RECO:
     print( "running vertex reco and analysis, last message from pv_cfg")
-    process.schedule = cms.Schedule(process.MPV, process.analyze)#,process.dump) 
+    process.schedule = cms.Schedule(process.MPV, process.analyze) 
 else:
     print( "running analysis only, last message from pv_cfg")
     process.schedule = cms.Schedule(process.analyze)

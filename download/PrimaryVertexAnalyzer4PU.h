@@ -1,9 +1,9 @@
 // -*- C++ -*-
 //
-// Package:    MyTestAnalyzer
-// Class:      MyTestAnalyzer
+// Package:    MyPrimaryVertexAnalyzer4PU
+// Class:      MyPrimaryVertexAnalyzer4PU
 //
-/**\class TestAnalyzer TestAnalyzer.cc Validation/RecoVertex/src/TestAnalyzer.cc
+/**\class PrimaryVertexAnalyzer4PU PrimaryVertexAnalyzer4PU.cc Validation/RecoVertex/src/PrimaryVertexAnalyzer4PU.cc
 
  Description: primary vertex analyzer for events with pile-up
 
@@ -126,7 +126,7 @@ typedef ROOT::Math::PositionVector3D<ROOT::Math::Cartesian3D<float>,ROOT::Math::
 typedef reco::Vertex::trackRef_iterator trackit_t;
 
 // class declaration
-class TestAnalyzer : public edm::one::EDAnalyzer<> {
+class PrimaryVertexAnalyzer4PU : public edm::one::EDAnalyzer<> {
   typedef math::XYZTLorentzVector LorentzVector;
   typedef reco::TrackBase::ParameterVector ParameterVector;
 
@@ -403,7 +403,7 @@ public:
 
 
     unsigned int rec;      // index of matched rec vertex or NOT_MATCHED_VTX_REC
-    std::map<std::string, unsigned int> _recv;  // per collection, better switch to this (not implemented yet)
+    std::map<std::string, unsigned int> _recv;  // per collection, better switch to this
 
     unsigned int matchQuality;
     double zrec;
@@ -1169,7 +1169,7 @@ public:
     double _normalizedChi2;
     reco::TrackBase::TrackAlgorithm _algo;
     
-    // the following variables are filled in TestAnalyzer::get_reco_and_transient_tracks
+    // the following variables are filled in PrimaryVertexAnalyzer4PU::get_reco_and_transient_tracks
     double _timeQuality;
     double _MTD_pathlength, _MTD_time, _MTD_timeerror, _MTD_momentum;
     double th[3];  // track time for particle hypotheses : 0=pion, 1=kaon, 2=proton
@@ -1299,8 +1299,8 @@ public:
   };
 
 
-  explicit TestAnalyzer(const edm::ParameterSet&);
-  ~TestAnalyzer();
+  explicit PrimaryVertexAnalyzer4PU(const edm::ParameterSet&);
+  ~PrimaryVertexAnalyzer4PU();
 
   virtual void analyze(const edm::Event&, const edm::EventSetup&);
   /* EXTRAS
@@ -1314,12 +1314,19 @@ public:
   void report_counted(const std::string msg, const std::string msg2, const int max_count);
   void dumpEventSummary(std::vector<SimEvent>&, Tracks & );
   
+  void analyzeTracksTP(Tracks& tracks, std::vector<SimEvent>& simEvt);
   void testTrackParameters(Tracks& tracks);
 
 private:
 
+  void printPVTrksZT(Tracks & tracks,
+                     MVertexCollection & recVtxs,
+                     std::vector<SimEvent>& simEvt);
+
   void reportEvent(const char*, bool dumpvertex = false);
   void reportVertex(const reco::Vertex&, const char*, bool);
+
+  std::vector<unsigned int> supfT(std::vector<SimPart>& simtrks, const Tracks &);
 
   static bool match(const ParameterVector& a, const ParameterVector& b);
   std::vector<SimPart> getSimTrkParameters(edm::Handle<edm::SimTrackContainer>& simTrks,
@@ -1333,10 +1340,11 @@ private:
   double vertex_aptsum(const reco::Vertex&);
   double vertex_r(const reco::Vertex&);
   double vertex_ptmax2(const reco::Vertex&);
+  //double vertex_yum(const reco::Vertex&);
   double vertex_maxfrac(const reco::Vertex&);
   double vertex_sumpt2(const reco::Vertex&);
   double vertex_sumpt(const reco::Vertex&);
-  /*
+
   class Vertex_time_result {
   public:
     unsigned int status; 
@@ -1372,7 +1380,7 @@ private:
   static Vertex_time_result vertex_time_from_tracks_pid(const reco::Vertex&, Tracks& tracks, double minquality, bool verbose=false);
   static Vertex_time_result vertex_time_from_tracks_pid_newton(const reco::Vertex&, Tracks& tracks, double minquality, bool verbose=false);
 
-  TestAnalyzer::Vertex_time_result vertex_time_from_tracks_analysis(TestAnalyzer::Vertex_time_result time_method(const reco::Vertex&,
+  PrimaryVertexAnalyzer4PU::Vertex_time_result vertex_time_from_tracks_analysis(PrimaryVertexAnalyzer4PU::Vertex_time_result time_method(const reco::Vertex&,
                                                        Tracks& ,
 						       double ,
 						        bool),
@@ -1388,7 +1396,7 @@ private:
 
   void multi_vertex_time_from_tracks_pid(const std::string label, Tracks& tracks, double minquality, bool verbose=false);
   void mass_constrained_multi_vertex_time_from_tracks_pid(const std::string label, Tracks& tracks, double minquality, bool verbose=false);
-  */
+
 
   bool select(const reco::Vertex&, const int level = 0);
   bool select(const MVertex&, const int level = 0);
@@ -1479,7 +1487,7 @@ private:
   
   void Fill(std::map<std::string, TH1*>& h, std::string s, double x) {
     if (h.count(s) == 0) {
-      report_counted("TestAnalyzer::Trying to fill non-existing 1d Histogram",
+      report_counted("PrimaryVertexAnalyzer4PU::Trying to fill non-existing 1d Histogram",
 		     fillmsg(s, x), 1000);
       return;
     }
@@ -1601,6 +1609,7 @@ private:
   void get_particle_data_table(const edm::EventSetup&);
   bool get_beamspot_data(const edm::Event&);
   bool get_reco_and_transient_tracks(const edm::EventSetup&, const edm::Event&, Tracks&);
+  bool get_miniaod_tracks(const edm::EventSetup&, const edm::Event&, const std::string &, Tracks&);
   void add_timing_to_vertex_collection(const std::string & label, Tracks& tracks);
   void refit_recvertices_after_timing(Tracks&, double min_tk_vtx_weight=0.5);
   void fill_track_to_vertex_pointers(Tracks&);
@@ -1617,6 +1626,13 @@ private:
                         Tracks& tracks,
                         const double deltaz = 0,
                         const bool verbose = false);
+
+  void fillVertexHistosNoTracks(std::map<std::string, TH1*>& h,
+                                const std::string& vtype,
+                                const reco::Vertex* v = NULL,
+				const unsigned int index = NO_INDEX, 
+                                const double deltaz = 0,
+                                const bool verbose = false);
   
   void fillRecoVertexHistos(std::map<std::string, TH1*>& h,
                         const std::string& vtype,
@@ -1627,6 +1643,31 @@ private:
                         const bool verbose = false);
   
   
+  void fillVertexHistosMatched(std::map<std::string, TH1*>& h,
+			       const std::string& vtype,
+			       MVertex & v,
+			       Tracks& tracks,
+			       const std::vector<SimEvent>& simEvt,
+			       const double deltaz = 0,
+			       const bool verbose = false);
+  
+  void fillTrackHistos(std::map<std::string, TH1*>& h,
+                       const std::string& ttype,
+                       MTrack& tk,
+                       const reco::Vertex* v = NULL);
+  void fillTrackHistosMatched(std::map<std::string, TH1*>& h,
+                       const std::string& ttype,
+                       MTrack& tk);
+ void fillTransientTrackHistos(std::map<std::string, TH1*>& h,
+                                const std::string& ttype,
+                                const reco::TransientTrack* tt,
+                                const reco::Vertex* v = NULL);
+  void fillRecoTrackHistos(std::map<std::string, TH1*>& h, const std::string& ttype, const reco::Track& t);
+  void fillTrackClusterHistos(std::map<std::string, TH1*>& h,
+                              const std::string& ttype,
+                              const reco::Track& t,
+                              const reco::Vertex* v = NULL);
+  void dumpHitInfo(const reco::Track& t);
   void printRecTrks(const edm::View<reco::Track>& recTrks);
   void printRecVtxs(const reco::VertexCollection* recVtxs, std::string title = "Reconstructed Vertices");
   void printRecVtxs(const MVertexCollection& , std::string title = "Reconstructed Vertices");
@@ -1647,17 +1688,19 @@ private:
                     PileupSummaryInfo& puInfo,
                     std::vector<SimEvent>& simEvt);
 
+  void fill_simvtx_histos(std::vector<SimEvent>& simEvts);
+
   void getSimEvents_pu(PileupSummaryInfo& puInfo, std::vector<SimEvent>& simEvents);
 
-  std::vector<TestAnalyzer::SimEvent> getSimEvents_tp(edm::Handle<TrackingParticleCollection>,
+  std::vector<PrimaryVertexAnalyzer4PU::SimEvent> getSimEvents_tp(edm::Handle<TrackingParticleCollection>,
                                                                Tracks& tracks);
 
-  std::vector<TestAnalyzer::SimEvent> getSimEvents_simtrks(
+  std::vector<PrimaryVertexAnalyzer4PU::SimEvent> getSimEvents_simtrks(
 								    const edm::Handle<edm::SimTrackContainer> simTrks,
 								    const edm::Handle<edm::SimVertexContainer> simVtxs,
 								    Tracks& tracks);
 
-  std::vector<TestAnalyzer::SimEvent> getSimEvents_miniaod(
+  std::vector<PrimaryVertexAnalyzer4PU::SimEvent> getSimEvents_miniaod(
 								       const edm::Event &, 
 								       Tracks&);
 
@@ -1670,23 +1713,55 @@ void analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
   void analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
                                 const reco::VertexCollection* recVtxs,
                                 const std::string message = "");
+  void analyzeVertexCollectionRecoNoTracks(std::map<std::string, TH1*>& h,
+                                           const reco::VertexCollection* recVtxs,
+                                           const std::string message = "");
+
+  void analyzeVertexCollectionReco(std::map<std::string, TH1*>& h,
+                                   MVertexCollection& recVtxs,
+                                   Tracks& tracks,  // do I even need this?
+                                   const std::string message = "");
+
+  void analyzeVertexCollectionSimTracks(std::map<std::string, TH1*>& h,
+					MVertexCollection& vtxs,
+					Tracks& tracks,
+					std::vector<SimEvent>& ,
+					const std::string message = "");
+
+  void analyzeVertexCollectionSimPvNoSimTracks(std::map<std::string, TH1*>& h,
+                                               MVertexCollection& vtxs,
+                                               Tracks& tracks,
+                                               std::vector<SimEvent>& ,
+                                               const std::string message = "");
+
+
+  void analyzeVertexMergeRateTP(std::map<std::string, TH1*>& h,
+                                MVertexCollection& recVtxs,
+				Tracks & tracks, 
+				std::vector<SimEvent>& simEvt,
+                                const std::string message = "");
+
+
   void analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
-                                 MVertexCollection& recVtxs,
-                                 Tracks& tracks,
-                                 std::vector<SimEvent>& simEvt,
-                                  const float cputime = 1.0,
-                                  const std::vector<float>& blockborders = {},
-                                 const std::string message = ""
-                               );
-  
-  void analyzeVertexCollectionSignalTP(std::map<std::string, TH1*>& h,
                                  MVertexCollection& recVtxs,
                                  Tracks& tracks,
                                  std::vector<SimEvent>& simEvt,
                                  const std::string message = "");
 
+  void analyzeVertexCollectionPtvis(std::map<std::string, TH1*>& h,
+				    MVertexCollection & vtxs,
+				    Tracks& tracks,
+				    std::vector<SimEvent>& simEvt,
+				    const std::string message = "");
+
   void analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h, MVertexCollection& vtxs, Tracks& tracks, std::vector<SimEvent> const& simEvt, float const npu);
 
+  void analyzeVertexComposition(std::map<std::string, TH1*>& h,
+                                   MVertex & v,
+			           MVertexCollection & vtxs,
+				   Tracks& tracks,
+                                   std::vector<SimEvent>& simEvt,
+				   float npu);
   void signalvtxmatch(MVertexCollection &, std::vector<SimEvent> &);
 
   void tpmatch(MVertexCollection& vtxs,
@@ -1879,17 +1954,17 @@ void analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
   static constexpr bool dump_fake_vertex_on_top_of_signal_ = false;
   static constexpr bool dump_big_fakes_ = false;
   
-  //bool f4D_;
-  //bool frefit_;
-  //bool fTrackTime_;
+  bool f4D_;
+  bool frefit_;
+  bool fTrackTime_;
 
   bool RECO_;
-  //bool MINIAOD_;
+  bool MINIAOD_;
   double instBXLumi_;
   double avginstBXLumi_;
 
   //const
-  //const TrackerTopology* tTopo_;
+  const TrackerTopology* tTopo_;
 
   double lumiHistoRange_;
   double lumiPUHistoRange_;

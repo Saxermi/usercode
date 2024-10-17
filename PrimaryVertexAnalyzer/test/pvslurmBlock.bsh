@@ -20,9 +20,8 @@
 NEVENT=-1
 SAMPLE=TTbar_04
 LABEL=pv
-PATH=outputroot
 # can be overridden using --n -
-while getopts ":n:l:d:p:"  opt; do
+while getopts ":n:l:d:"  opt; do
   case $opt in
    d)
       SAMPLE=$OPTARG
@@ -32,9 +31,6 @@ while getopts ":n:l:d:p:"  opt; do
       ;;
     l)
       LABEL=$OPTARG
-      ;;
-      p)
-      PATH=$OPTARG
       ;;
     \?)
       echo "t3job: Invalid option: -$OPTARG" >&2
@@ -89,8 +85,8 @@ touch logfile
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
 # get the output
-cp logfile /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.log.gz
-cp pv.root /work/msaxer/${PATH}$/${LABEL}${SAMPLE}.root
+cp logfile /work/frejalom/outputRuns/${LABEL}${SAMPLE}.log.gz
+cp pv.root /work/frejalom/outputRuns/${LABEL}${SAMPLE}.root
 
 # clean up
 rm -rf $WORKDIR
