@@ -1,5 +1,6 @@
 import os
 import ROOT
+import re
 
 # List of ROOT files with full path
 root_files = [
@@ -19,7 +20,14 @@ relevant_hist_names = [
     "PUBlockBordersvsPurityprofile",
     "PUBlockBordersvsEfficencyprofile",
     "PUBlockBordersvsZdeltayprofile",
+    "NVertexVSCPUTime",
 ]
+
+# Dictionary to store statistics for PUBlockBordersvsPurityprofile
+PUBlockBordersvsPurityprofile_stats = []
+
+# Use this pattern to extract overlap values from file paths
+overlap_pattern = re.compile(r"overlap_\d+")
 
 # Colors to use for each file's error bars
 colors = [
@@ -155,6 +163,12 @@ for hist_name, hist_info_list in hist_dict.items():
             hist.SetMarkerColor(info["color"])
             hist.SetLineColor(info["color"])
 
+            # Extract the overlap_* part from the file path
+            match = overlap_pattern.search(info["file"])
+            if match:
+                overlap_value = match.group()
+            else:
+                overlap_value = "unknown"
             # Draw the first histogram and then overlay the rest
             draw_option = "E" if first_hist else "E SAME"
             first_hist = False
@@ -167,22 +181,127 @@ for hist_name, hist_info_list in hist_dict.items():
                     hist.GetYaxis().SetTitle("Purity (%)")
                     hist.GetXaxis().SetTitleSize(0.04)
                     hist.GetYaxis().SetTitleSize(0.04)
+
+                    # Access the number of entries (total number of data points in the histogram)
+                    entries = hist.GetEntries()
+
+                    # Compute the mean y-value manually
+                    total_sum_y = 0
+                    total_entries = 0
+                    for bin in range(1, hist.GetNbinsX() + 1):
+                        bin_entries = hist.GetBinEntries(bin)
+                        bin_content = hist.GetBinContent(bin)
+                        total_sum_y += bin_entries * bin_content
+                        total_entries += bin_entries
+
+                    mean_y = total_sum_y / total_entries if total_entries > 0 else 0
+
+                    # Access the mean of the x-axis
+                    mean_x = hist.GetMean()  # Mean along x-axis
+
+                    # Access the standard deviation of the x-axis
+                    std_dev_x = hist.GetStdDev()  # Std dev along x-axis
+
+                    # Note: Computing std_dev_y is more complex and might not be directly needed
+
+                    # Store the values in a dictionary and append to the list
+                    PUBlockBordersvsPurityprofile_stats.append(
+                        {
+                            "overlap": overlap_value,
+                            "hist_name": hist_name,
+                            "entries": entries,
+                            "mean_x": mean_x,
+                            "mean_y": mean_y,
+                            "std_dev_x": std_dev_x,
+                            # "std_dev_y": std_dev_y,  # Optional
+                        }
+                    )
+                    print(hist)
+                    print(overlap_value)
+                    print(f"Entries: {entries}")
+                    print(f"Mean X: {mean_x}")
+                    print(f"Mean Y: {mean_y}")
+                    print(f"Std Dev X: {std_dev_x}")
+                    # print(f"Std Dev Y: {std_dev_y}")
+
                 elif hist_name == "PUBlockBordersvsEfficencyprofile":
                     print(f"Applying specific logic for {hist_name}")
                     hist.GetXaxis().SetTitle("Distance to nearest block (mm)")
-                    hist.GetYaxis().SetTitle("Efficency (%)")
+                    hist.GetYaxis().SetTitle("Efficiency (%)")
                     hist.GetXaxis().SetTitleSize(0.04)
                     hist.GetYaxis().SetTitleSize(0.04)
-                    # Add specific settings for AnotherHistogram1 if needed
+                    # Add specific settings for this histogram if needed
+
                 elif hist_name == "PUBlockBordersvsZdeltayprofile":
                     print(f"Applying specific logic for {hist_name}")
                     hist.GetXaxis().SetTitle("Distance to nearest block (mm)")
                     hist.GetYaxis().SetTitle("Delta z axis (mm)")
                     hist.GetXaxis().SetTitleSize(0.04)
                     hist.GetYaxis().SetTitleSize(0.04)
+
             elif info["type"] == "TH2":
-                print(f"Processing 2D histogram: {hist_name}")
-                hist.Draw("COLZ")  # Draw 2D histograms with color palette
+                if hist_name == "NVertexVSCPUTime":
+                    print(f"Processing 2D histogram: {hist_name}")
+
+                    # Create a TGraph to store the mean points from all histograms
+                    graph = ROOT.TGraph()
+
+                    # Initialize the legend
+                    legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+
+                    point_index = 0  # To index points in the graph
+                    for info in hist_info_list:
+                        # Get the histogram object
+                        hist = info["histogram"]
+
+                        # Extract the mean X and Y values (cluster center)
+                        mean_x = hist.GetMean(1)  # Mean along X (Number of vertices)
+                        mean_y = hist.GetMean(2)  # Mean along Y (CPU time)
+
+                        print(
+                            f"File: {info['file']} - Mean X: {mean_x}, Mean Y: {mean_y}"
+                        )
+
+                        # Set point in the graph for each file (mean cluster positions)
+                        graph.SetPoint(point_index, mean_x, mean_y)
+
+                        # Set marker color and style for each histogram
+                        graph.SetMarkerColor(
+                            info["color"]
+                        )  # Set the color for each point
+                        graph.SetMarkerStyle(
+                            20 + point_index
+                        )  # Different marker style for each file
+
+                        point_index += 1
+
+                        # Add entry to the legend with the file name (without .root extension)
+                        legend.AddEntry(
+                            graph,
+                            os.path.basename(info["file"]).replace(".root", ""),
+                            "lep",
+                        )
+
+                    # Now, draw the TGraph with the mean points on the canvas
+                    graph.Draw("AP")  # "A" to draw axis, "P" to draw the points
+                    graph.GetXaxis().SetTitle("Number of vertices reconstructed")
+                    graph.GetYaxis().SetTitle("CPU Time used (s)")
+
+                    # Draw the legend with file names corresponding to points
+                    legend.Draw()
+
+                    # Apply the CMS style labels to the canvas
+                    add_cms_labels(canvas)
+
+                    # Extract the run name from one of the file paths
+                    run_name = extract_run_name(hist_info_list[0]["file"])
+
+                    # Save the canvas with a filename indicating the run name
+                    save_canvas(canvas, f"{hist_name}_{run_name}_mean.png")
+
+                    # Clear the canvas for the next plot
+                    canvas.Clear()
+
             else:
                 print(f"Processing 1D histogram: {hist_name}")
                 hist.Draw(draw_option)  # Default draw for 1D histograms
@@ -191,7 +310,6 @@ for hist_name, hist_info_list in hist_dict.items():
             hist.Draw(draw_option)
 
             # Add entry to the legend
-            # Add entry to the legend without the .root extension
             legend.AddEntry(
                 hist, os.path.basename(info["file"]).replace(".root", ""), "lep"
             )
@@ -201,11 +319,52 @@ for hist_name, hist_info_list in hist_dict.items():
 
         # Apply the CMS style labels to the canvas
         add_cms_labels(canvas)
-        # **Extract the run name from one of the file paths**
+
+        # Extract the run name from one of the file paths
         run_name = extract_run_name(hist_info_list[0]["file"])
 
-        # **Include the run name in the filename when saving**
+        # Save the canvas with a filename indicating the run name
         save_canvas(canvas, f"{hist_name}_{run_name}.png")
 
         # Clear the canvas for the next plot
         canvas.Clear()
+
+# Create a TGraph to plot the mean_y values against the overlap values
+graph = ROOT.TGraph()
+
+# Extract the overlap and mean_y values from hist_stats and populate the TGraph
+point_index = 0  # To index points in the graph
+
+for stat in PUBlockBordersvsPurityprofile_stats:
+    # Extract the overlap number (convert overlap string like 'overlap_90' to integer)
+    overlap_value = int(
+        stat["overlap"].split("_")[-1]
+    )  # Get the number after 'overlap_'
+    mean_y = stat["mean_y"]  # Extract the mean_y value
+
+    # Set point in the graph for each file
+    graph.SetPoint(point_index, overlap_value, mean_y)
+
+    point_index += 1
+
+# Create a new canvas for the plot
+canvas = ROOT.TCanvas("canvas_mean_y_vs_overlap", "", 800, 600)
+
+# Draw the TGraph
+graph.Draw("APL")  # "A" for axes, "P" for points, "L" for line
+
+# Set graph title and axis labels
+graph.SetTitle("Mean Purity vs Overlap")
+graph.GetXaxis().SetTitle("Overlap (%)")
+graph.GetYaxis().SetTitle("Mean Purity (%)")
+
+# Optionally, you can style the graph, like marker type and line color
+graph.SetMarkerStyle(20)  # Marker style (full circle)
+graph.SetMarkerColor(ROOT.kBlue)  # Marker color
+graph.SetLineColor(ROOT.kBlue)  # Line color
+
+# Add CMS style labels to the canvas
+add_cms_labels(canvas)
+
+# Save the canvas as an image
+save_canvas(canvas, "MeanPurity_vs_Overlap.png")
