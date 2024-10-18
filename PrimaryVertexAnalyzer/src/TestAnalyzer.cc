@@ -4617,11 +4617,22 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
     // histogram for PU track purity
     // TO DO make sure look the same as SE things
+    // Histogram for track purity versus distance to closest block border
 
     TH1F *PUTracksPurity = dynamic_cast<TH1F *>(h["efficiency/PUTracksPurity"]);
     if (!PUTracksPurity) {
           std::cerr << "Error: Histogram PUTracksPurity not found!" << std::endl;
           return;
+    }
+    TH2F* PUBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity"]);
+      if (!PUBlockBordersvsPurity) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
+        return;
+    }
+    TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
+      if (!PUBlockBordersvsPurityprofile) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
+        return;
     }
 
     for (size_t i = 1; i < simEvt.size(); i++) {
@@ -4649,8 +4660,15 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
           // Fill the histogram with the calculated purity
           PUTracksPurity->Fill(purity);
+          // calculate the distance to the nearest block border
+          float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+
+          // Fill the histograms with the calculated purity
+          PUBlockBordersvsPurity->Fill(distance, purity);
+          PUBlockBordersvsPurityprofile->Fill(distance, purity);
       }
     }
+
 
     // histogram for PU track efficiency and PUBlockbordersvsefficency
     // TO DO match up with SE track efficiency histos
@@ -4858,72 +4876,22 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
       std::cout << std::endl;
 
-
-   // Histogram for track purity versus distance to closest block border
-   // TO DO move up
-    TH2F* PUBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity"]);
-      if (!PUBlockBordersvsPurity) {
-        std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
-        return;
-    }
-    TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
-      if (!PUBlockBordersvsPurityprofile) {
-        std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
-        return;
-    }
-
-    for (size_t i = 1; i < simEvt.size(); i++) {
-      if (simEvt[i].is_matched()) {
-        MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
-        unsigned int numMatchedTracks = 0;
-        unsigned int numTracks = matchedVtx.tracks.size();
-
-          // Loop through the reconstructed tracks in the matched vertex
-          for (auto tv : matchedVtx.tracks) {
-              // Check if the track is matched to a simulated event
-              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
-              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
-
-              // Check if the track is correctly assigned to the signal vertex
-              bool correctly_assigned = (tk_sim == matchedVtx.sim);
-              if (correctly_assigned) {
-                  numMatchedTracks++;
-              }
-          }
-
-          // Calculate the purity as the fraction of correctly matched tracks
-          float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
-          purity = purity * 100;
-
-            // calculate the distance to the nearest block border
-          float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
-
-          // Fill the histograms with the calculated purity
-          PUBlockBordersvsPurity->Fill(distance, purity);
-          PUBlockBordersvsPurityprofile->Fill(distance, purity);
-
-      } else {
-        // not defined for now
-      }
-    }
-
-
     // Nearest border for all fake vertices for PU
     TProfile* PUBlockBordersvsFakeVertProfi = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsFakeVertProfi"]);
-      if (!PUBlockBordersvsFakeVertProfi) {
-        std::cerr << "Error: Histogram PUBlockBordersvsFakeVertProfi not found!" << std::endl;
-        return;
+    if (!PUBlockBordersvsFakeVertProfi) {
+      std::cerr << "Error: Histogram PUBlockBordersvsFakeVertProfi not found!" << std::endl;
+      return;
     }
-   //tprofile hist of  Fake vertices (reconstructed vertices not matched to any simulated vertex)
-    for (size_t i = 0; i < vtxs.size(); ++i) {
-        MVertex& vtx = vtxs.at(i);
-        if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
-            double rec_z = vtx.z();
-                  // calculate the distance to the nearest block border
-          float distance = nearestBlockAndDistance(rec_z, blockborders).second;
-            PUBlockBordersvsFakeVertProfi->Fill(distance, rec_z);
-        }
-    }
+    //tprofile hist of  Fake vertices (reconstructed vertices not matched to any simulated vertex)
+      for (size_t i = 0; i < vtxs.size(); ++i) {
+          MVertex& vtx = vtxs.at(i);
+          if (vtx.isRecoFake() || vtx.sim == NOT_MATCHED_VTX_SIM) {
+              double rec_z = vtx.z();
+                    // calculate the distance to the nearest block border
+            float distance = nearestBlockAndDistance(rec_z, blockborders).second;
+              PUBlockBordersvsFakeVertProfi->Fill(distance, rec_z);
+          }
+      }
 }
 
     /*********************************************************************************************/
