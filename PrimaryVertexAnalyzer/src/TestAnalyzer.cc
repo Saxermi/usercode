@@ -4233,17 +4233,15 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 // with track truthmatching (tp)  
 /*********************************************************************************************/
 {
+    std::cout << "I am in analyzeVertexCollectionTP" << std::endl;
     // Retrieve the histogram from the map
+    // Histogram to shows correct and wrong reconstructed
+    // NO LONGER IN USE
     TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/SEEfficiency"]);
       if (!hist_reco_matches) {
         std::cerr << "Error: Histogram SEEfficiency not found!" << std::endl;
         return;
     }
-   // if (!hist) {
-    //    std::cerr << "Histogram not found!" << std::endl;
-    //    return;
-   // } shouldnt need that since fill should do that on its own
-    std::cout << "I am in Analyzer function" << std::endl;
 
     double realCounter = 0, wrongCounter = 0;
     for(const auto& v : vtxs){
@@ -4256,20 +4254,16 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         }
     }
 
-    std::cout << "Real and wrong reconstructed: " << realCounter << " " << wrongCounter << std::endl;
-
     // Fill the "Yes" bin (first bin, index 1) with realCounter
     hist_reco_matches->SetBinContent(1, realCounter);
     
     // Fill the "No" bin (second bin, index 2) with wrongCounter
     hist_reco_matches->SetBinContent(2, wrongCounter);
 
-
-    std::cout << "Filling histogram: SEEfficiency" << std::endl;
     //Fill(h, "efficiency/SEEfficiency", realCounter, wrongCounter);
 
 
-    // next histogram 
+    // SE reconstructed versus simulated position for matched vertices
     TH2F* SERecoVsSimZPosition = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPosition"]);
       if (!SERecoVsSimZPosition) {
         std::cerr << "Error: Histogram SERecoVsSimZPosition not found!" << std::endl;
@@ -4282,7 +4276,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
 
 
-    //new histogram 
+    //n PU reconstructed versus simulated position for matched vertices
     TH2F* PURecoVsSimZPosition = dynamic_cast<TH2F*>(h["efficiency/PURecoVsSimZPosition"]);
       if (!PURecoVsSimZPosition) {
         std::cerr << "Error: Histogram PURecoVsSimZPosition not found!" << std::endl;
@@ -4301,7 +4295,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
 
     }
-    // new histogram, SE resolution and the same histogram but normalized
+    //SE resolution (Distance between sim and recon) and also normalized and with and without block
+    // TO DO: resolution vs block
 
     TH1F *SEResolution = dynamic_cast<TH1F *>(h["efficiency/SEResolution"]);
     if (!SEResolution) {
@@ -4334,7 +4329,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       SEResolutionNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
     }
 
-    //new histogram PUResolution and histogram with normalization
+    //PU  resolution (Distance between sim and recon) and also normalized and with and without block
+    // TO DO: resolution vs block
     TH1F* PUResolution = dynamic_cast<TH1F*>(h["efficiency/PUResolution"]);
     if (!PUResolution) {
         std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
@@ -4382,10 +4378,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
     }
 
-        //definition of an 2H histogram
 
 
-    
+    // Histogram for reco vs sim position but for true, multiple, and fake reco vertices
     // Initialize histograms for each category
     TH1F* PUConfusionMatrixCategorialC1 = dynamic_cast<TH1F*>(h["efficiency/reco_vs_true_z_position_hist_categorial_c1"]);
     if (!PUConfusionMatrixCategorialC1) {
@@ -4473,16 +4468,17 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             PUConfusionMatrixCategorialC3->Fill(rec_z);
         }
     }
-      // new histogram
-      // this histogramm shows distance betweeen point in 3 d space and plane
-      // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
+    // new histogram
+    // this histogramm shows distance betweeen point in 3 d space and plane
+    // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
+    // CURENTLY NOT USED
 
 
-       TH1F* TrueE3DDistanceToPlane = dynamic_cast<TH1F*>(h["efficiency/True_3D_point_to_plane_distance"]);
+    TH1F* TrueE3DDistanceToPlane = dynamic_cast<TH1F*>(h["efficiency/True_3D_point_to_plane_distance"]);
     if (!TrueE3DDistanceToPlane) {
         std::cerr << "Error: Histogram True_3D_point_to_plane_distance not found!" << std::endl;
         return;
-        }
+    }
  
     // now we loop over the simulated vertices but first define the plane
      double plane_point[3] = {0.0, 0.0, 0.0};   // Point on the plane
@@ -4500,7 +4496,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           TrueE3DDistanceToPlane->Fill(distance);
         }
     }
+
   // histograms for SE track purity also one with vs resolution plus with block distance
+  // TO DO add track purity but with recon z axis position
 
   TH1F *SETracksPurity = dynamic_cast<TH1F *>(h["efficiency/SETracksPurity"]);
   if (!SETracksPurity) {
@@ -4560,6 +4558,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
     // histogram for SE track efficiency
+    // TO DO do all of this so it is the same as for track purity, but for efficiency instead of purity
 
     TH1F *SETracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/SETracksEfficiency"]);
     if (!SETracksEfficiency) {
@@ -4617,6 +4616,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
 
     // histogram for PU track purity
+    // TO DO make sure look the same as SE things
 
     TH1F *PUTracksPurity = dynamic_cast<TH1F *>(h["efficiency/PUTracksPurity"]);
     if (!PUTracksPurity) {
@@ -4653,6 +4653,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
     // histogram for PU track efficiency and PUBlockbordersvsefficency
+    // TO DO match up with SE track efficiency histos
 
     TH1F *PUTracksEfficiency = dynamic_cast<TH1F *>(h["efficiency/PUTracksEfficiency"]);
     if (!PUTracksEfficiency) {
@@ -4712,6 +4713,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         PUBlockBordersvsEfficency->Fill(distance, efficiency);
       }
     }
+
     // Histogram to track index of signal event in reconstructed list
 
     TH1F *SERecIndexHist = dynamic_cast<TH1F *>(h["efficiency/SE_reco_index_hist"]);
@@ -4738,7 +4740,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
      }
 
     // Definition of the 2D histogram, which shows the purity as a function of the z axis and additonally displays the block borders
-   TH2F *PUTracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/PUTracksPurityBlock"]);
+    TH2F *PUTracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/PUTracksPurityBlock"]);
     if (!PUTracksPurityBlock) {
         std::cerr << "Error: Histogram PUTracksPurityBlock not found!" << std::endl;
         return;
@@ -4772,8 +4774,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
 
-        // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
-   TH2F *SETracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/SETracksPurityBlock"]);
+    // Definition of the 2D histogram, which shows the SE purity as a function of the DIstance to the closest block border
+    // TO DO; miove to right place
+    TH2F *SETracksPurityBlock = dynamic_cast<TH2F *>(h["efficiency/SETracksPurityBlock"]);
     if (!SETracksPurityBlock) {
         std::cerr << "Error: Histogram SETracksPurityBlock not found!" << std::endl;
         return;
@@ -4808,20 +4811,16 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       cout << "no SE event found in  SETracksPurityBlock";
     }
 
-                // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
-   TH2F *NVertexVSCPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSCPUTime"]);
+    // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+    TH2F *NVertexVSCPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSCPUTime"]);
     if (!NVertexVSCPUTime) {
         std::cerr << "Error: Histogram NVertexVSCPUTime not found!" << std::endl;
         return;
     }
-
-
     NVertexVSCPUTime->Fill( simEvt.size(),CPUtime);
 
-
-
-
-       // next histogram 
+    // next histogram
+    // not needed! this does nothing new,
     TH2F* SERecoVsSimZPositionBlock = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPositionBlock"]);
       if (!SERecoVsSimZPositionBlock) {
         std::cerr << "Error: Histogram SERecoVsSimZPositionBlock not found!" << std::endl;
@@ -4860,21 +4859,20 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       std::cout << std::endl;
 
 
-   //new histogram 
+   // Histogram for track purity versus distance to closest block border
+   // TO DO move up
     TH2F* PUBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity"]);
       if (!PUBlockBordersvsPurity) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
         return;
     }
-
-       //new histogram 
     TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
       if (!PUBlockBordersvsPurityprofile) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
         return;
     }
 
-          for (size_t i = 1; i < simEvt.size(); i++) {
+    for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()) {
         MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
         unsigned int numMatchedTracks = 0;
@@ -4910,18 +4908,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
 
-        //new histogram 
+    // Nearest border for all fake vertices for PU
     TProfile* PUBlockBordersvsFakeVertProfi = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsFakeVertProfi"]);
       if (!PUBlockBordersvsFakeVertProfi) {
         std::cerr << "Error: Histogram PUBlockBordersvsFakeVertProfi not found!" << std::endl;
         return;
     }
-
- 
-
-
-
-
    //tprofile hist of  Fake vertices (reconstructed vertices not matched to any simulated vertex)
     for (size_t i = 0; i < vtxs.size(); ++i) {
         MVertex& vtx = vtxs.at(i);
@@ -4932,14 +4924,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             PUBlockBordersvsFakeVertProfi->Fill(distance, rec_z);
         }
     }
-
-
-
-
-
-
-
-      }
+}
 
     /*********************************************************************************************/
 
