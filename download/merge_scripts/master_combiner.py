@@ -18,7 +18,7 @@ root_files = [
 relevant_hist_names = [
     "PUBlockBordersvsPurityprofile",
     "PUBlockBordersvsEfficencyprofile",
-    "AnotherHistogram2",
+    "PUBlockBordersvsZdeltayprofile",
 ]
 
 # Colors to use for each file's error bars
@@ -174,9 +174,12 @@ for hist_name, hist_info_list in hist_dict.items():
                     hist.GetXaxis().SetTitleSize(0.04)
                     hist.GetYaxis().SetTitleSize(0.04)
                     # Add specific settings for AnotherHistogram1 if needed
-                elif hist_name == "AnotherHistogram2":
+                elif hist_name == "PUBlockBordersvsZdeltayprofile":
                     print(f"Applying specific logic for {hist_name}")
-                    # Add specific settings for AnotherHistogram2 if needed
+                    hist.GetXaxis().SetTitle("Distance to nearest block (mm)")
+                    hist.GetYaxis().SetTitle("Delta z axis (mm)")
+                    hist.GetXaxis().SetTitleSize(0.04)
+                    hist.GetYaxis().SetTitleSize(0.04)
             elif info["type"] == "TH2":
                 print(f"Processing 2D histogram: {hist_name}")
                 hist.Draw("COLZ")  # Draw 2D histograms with color palette
