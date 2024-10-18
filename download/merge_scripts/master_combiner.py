@@ -17,7 +17,7 @@ root_files = [
 # List of relevant histogram names to be processed
 relevant_hist_names = [
     "PUBlockBordersvsPurityprofile",
-    "AnotherHistogram1",
+    "PUBlockBordersvsEfficencyprofile",
     "AnotherHistogram2",
 ]
 
@@ -69,6 +69,17 @@ def save_canvas(canvas, file_name):
     output_path = os.path.join(images_dir, file_name)
     print(f"Saving canvas as {output_path}")
     canvas.SaveAs(output_path)
+
+
+def extract_run_name(file_path):
+    # Normalize the path to ensure consistent separators
+    path_parts = os.path.normpath(file_path).split(os.sep)
+    # Look for the part of the path that contains 'experimental_run_'
+    for part in path_parts:
+        if "experimental_run_" in part:
+            return part
+    # Return a default value if not found
+    return "run_unknown"
 
 
 # Loop over each ROOT file and store histograms into a dictionary
@@ -156,8 +167,12 @@ for hist_name, hist_info_list in hist_dict.items():
                     hist.GetYaxis().SetTitle("Purity (%)")
                     hist.GetXaxis().SetTitleSize(0.04)
                     hist.GetYaxis().SetTitleSize(0.04)
-                elif hist_name == "AnotherHistogram1":
+                elif hist_name == "PUBlockBordersvsEfficencyprofile":
                     print(f"Applying specific logic for {hist_name}")
+                    hist.GetXaxis().SetTitle("Distance to nearest block (mm)")
+                    hist.GetYaxis().SetTitle("Efficency (%)")
+                    hist.GetXaxis().SetTitleSize(0.04)
+                    hist.GetYaxis().SetTitleSize(0.04)
                     # Add specific settings for AnotherHistogram1 if needed
                 elif hist_name == "AnotherHistogram2":
                     print(f"Applying specific logic for {hist_name}")
@@ -183,9 +198,11 @@ for hist_name, hist_info_list in hist_dict.items():
 
         # Apply the CMS style labels to the canvas
         add_cms_labels(canvas)
+        # **Extract the run name from one of the file paths**
+        run_name = extract_run_name(hist_info_list[0]["file"])
 
-        # Save the canvas as a PNG file
-        save_canvas(canvas, f"{hist_name}.png")
+        # **Include the run name in the filename when saving**
+        save_canvas(canvas, f"{hist_name}_{run_name}.png")
 
         # Clear the canvas for the next plot
         canvas.Clear()
