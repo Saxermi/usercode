@@ -1,0 +1,124 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 276838
+HOSTNAME: t3wn71
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 17-Oct-2024 23:48:35 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+17-Oct-2024 23:49:46 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/822a294d-79ed-46f1-b8e5-7fe51b316557.root
+17-Oct-2024 23:50:16 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/822a294d-79ed-46f1-b8e5-7fe51b316557.root
+Begin processing the 1st record. Run 1, Event 4501, LumiSection 46 on stream 0 at 17-Oct-2024 23:50:35.385 CEST
+17-Oct-2024 23:50:58 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/822a294d-79ed-46f1-b8e5-7fe51b316557.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 250.509 seconds
+ Time Summary: 
+ - Min event:   22.861
+ - Max event:   22.861
+ - Avg event:   22.861
+ - Total loop:  23.8006
+ - Total init:  226.629
+ - Total job:   250.509
+ - Total EventSetup: 19.3836
+ - Total non-module: 0.125102
+ Event Throughput: 0.0420157 ev/s
+ CPU Summary: 
+ - Total loop:     19.8748
+ - Total init:     62.7094
+ - Total extra:    0
+ - Total children: 0.132527
+ - Total job:      82.658
+ Processing Summary: 
+ - Number of Events:  1
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 MPV
+TrigReport     1    1          1          1          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 tpClusterProducer
+TrigReport     1    1          1          1          0          0 quickTrackAssociatorByHits
+TrigReport     1    2          1          1          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3          1          1          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport          1          1          1          0          0 MPV
+TrigReport          1          1          1          0          0 TriggerResults
+TrigReport          1          1          1          0          0 analyze
+TrigReport          1          1          1          0          0 oldVertexAnalysis
+TrigReport          1          1          1          0          0 quickTrackAssociatorByHits
+TrigReport          1          1          1          0          0 testVertices
+TrigReport          1          1          1          0          0 tpClusterProducer
+TrigReport          1          1          1          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 19.881398
+TimeReport      event loop Real/event = 23.807243
+TimeReport     sum Streams Real/event = 23.278810
+TimeReport efficiency CPU/Real/thread = 0.835099
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport  22.720284    22.720284  MPV
+TimeReport  22.860897    22.860897  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.285288     0.285288  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.982227     0.982227  tpClusterProducer
+TimeReport   0.000220     0.000220  quickTrackAssociatorByHits
+TimeReport   0.246549     0.246549  trackingParticleRecoTrackAsssociation
+TimeReport   0.134277     0.134277  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000006     0.000006     0.000006  MPV
+TimeReport   0.000003     0.000003     0.000003  TriggerResults
+TimeReport   0.000014     0.000014     0.000014  analyze
+TimeReport   0.134277     0.134277     0.134277  oldVertexAnalysis
+TimeReport   0.000220     0.000220     0.000220  quickTrackAssociatorByHits
+TimeReport   0.285288     0.285288     0.285288  testVertices
+TimeReport   0.982227     0.982227     0.982227  tpClusterProducer
+TimeReport   0.246549     0.246549     0.246549  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+

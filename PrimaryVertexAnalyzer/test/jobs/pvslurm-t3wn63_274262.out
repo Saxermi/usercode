@@ -1,0 +1,24 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 274262
+HOSTNAME: t3wn63
+CMSSW RELEASE BASE 
+/var/spool/slurmd/job274262/slurm_script: Zeile 59: sed: Kommando nicht gefunden.
+/var/spool/slurmd/job274262/slurm_script: Zeile 59: cat: Kommando nicht gefunden.
+/var/spool/slurmd/job274262/slurm_script: Zeile 67: mkdir: Kommando nicht gefunden.
+/cvmfs/cms.cern.ch/cmsset_default.sh: Zeile 24: grep: Kommando nicht gefunden.
+/cvmfs/cms.cern.ch/cmsset_default.sh: Zeile 24: grep: Kommando nicht gefunden.
+/var/spool/slurmd/job274262/slurm_script: line 84: cd: /scratch/msaxer/274262: No such file or directory
+----- Begin Fatal Exception 17-Oct-2024 21:51:16 CEST-----------------------
+An exception of category 'ConfigFileReadError' occurred while
+   [0] Processing the python configuration file named pv_cfg.py
+Exception Message:
+ unknown python problem occurred.
+FileNotFoundError: [Errno 2] No such file or directory: ''
+
+At:
+  pv_cfg.py(126): <module>
+
+----- End Fatal Exception -------------------------------------------------
+cp: cannot create regular file '/work/msaxer//cvmfs/cms.cern.ch/share/overrides/bin:/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/bin/slc7_amd64_gcc12:/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/external/slc7_amd64_gcc12/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7/bin/slc7_amd64_gcc12:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7/external/slc7_amd64_gcc12/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/external/llvm/17.0.3-ba4f8d1359ce0633961586a6141e92fe/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/external/gcc/12.3.1-40d504be6370b5a30e3947a6e575ca28/bin:/bin:/cvmfs/cms.cern.ch/common:outputroot$/pvTTbar_03.log.gz': No such file or directory
+cp: cannot create regular file '/work/msaxer//cvmfs/cms.cern.ch/share/overrides/bin:/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/bin/slc7_amd64_gcc12:/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/external/slc7_amd64_gcc12/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7/bin/slc7_amd64_gcc12:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7/external/slc7_amd64_gcc12/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/external/llvm/17.0.3-ba4f8d1359ce0633961586a6141e92fe/bin:/cvmfs/cms.cern.ch/slc7_amd64_gcc12/external/gcc/12.3.1-40d504be6370b5a30e3947a6e575ca28/bin:/bin:/cvmfs/cms.cern.ch/common:outputroot$/pvTTbar_03.root': No such file or directory
