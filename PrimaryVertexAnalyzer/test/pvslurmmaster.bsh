@@ -101,10 +101,10 @@ cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >
 
 
 
-cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.root
+cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${BLOCKSIZE}_${TIMESTAMP}.root
 
 
-cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${TIMESTAMP}.log.gz
+cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${BLOCKSIZE}_${TIMESTAMP}.log.gz
 
 
 
