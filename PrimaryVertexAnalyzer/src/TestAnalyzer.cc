@@ -516,6 +516,36 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsZdelta );
 
+    // definition of histogramm that shows the purity as a function of z axis position
+    TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+
+    addn(h, PUPurityVsZaxisprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, PUPurityVsZaxis );
+
+    // definition of histogramm that shows the purity as a function of z axis position
+    TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+
+    addn(h, SEEfficiencyVsZaxisProfile);
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* SEEfficiencyVsZaxis  = new TH2F("SEEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, SEEfficiencyVsZaxis );
+
+    // definition of histogramm that shows the purity as a function of z axis position
+    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+
+    addn(h, PUEfficiencyVsZaxisProfile);
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, PUEfficiencyVsZaxis );
+
 
     // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
     // will try this with tprofile and TH1f
@@ -547,6 +577,16 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsPurity );
+
+    // definition of histogramm that shows the purity as a function of z axis position
+    TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+
+    addn(h, SEPurityVsZaxisProfile);
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* SEPurityVsZaxis  = new TH2F("SSEPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, SEPurityVsZaxis );
 
     // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
     TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "Efficency vs. SE Block Borders Profile; Distance to closest Border; Track Efficency", 100, -15, 15, 0, 100);
@@ -4525,6 +4565,20 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       return;
   }
 
+  // Retrieve SEPurityVsZaxisProfile
+  TProfile* SEPurityVsZaxisProfile = dynamic_cast<TProfile*>(h["efficiency/SEPurityVsZaxisProfile"]);
+  if (!SEPurityVsZaxisProfile) {
+      std::cerr << "Error: Histogram SEPurityVsZaxisProfile not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEPurityVsZaxis
+  TH2F* SEPurityVsZaxis = dynamic_cast<TH2F*>(h["efficiency/SEPurityVsZaxis"]);
+  if (!SEPurityVsZaxis) {
+      std::cerr << "Error: Histogram SEPurityVsZaxis not found!" << std::endl;
+      return;
+  }
+
 
   if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
@@ -4549,12 +4603,15 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         // get resolution
         float resolution = simEvt[0].z - matchedVtx.z();
+        float posZaxisReco = matchedVtx.z();
         float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
         SEResolutionVsTrackPurity->Fill(resolution, purity);
         SEBlockBordersvsPurityprofile->Fill(distance, purity);
         SEBlockBordersvsPurity->Fill(distance, purity);
+        SEPurityVsZaxis->Fill(posZaxisReco, purity);
+        SEPurityVsZaxisProfile->Fill(posZaxisReco, purity);
     }
 
     // histogram for SE track efficiency
@@ -4576,6 +4633,19 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     TH2F* SEBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/SEBlockBordersvsEfficency"]);
     if (!SEBlockBordersvsEfficency) {
         std::cerr << "Error: Histogram SEBlockBordersvsEfficency not found!" << std::endl;
+        return;
+    }
+    // Retrieve SEEfficiencyVsZaxisProfile
+    TProfile* SEEfficiencyVsZaxisProfile = dynamic_cast<TProfile*>(h["efficiency/SEEfficiencyVsZaxisProfile"]);
+    if (!SEEfficiencyVsZaxisProfile) {
+        std::cerr << "Error: Histogram SEEfficiencyVsZaxisProfile not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve SEEfficiencyVsZaxis
+    TH2F* SEEfficiencyVsZaxis = dynamic_cast<TH2F*>(h["efficiency/SEEfficiencyVsZaxis"]);
+    if (!SEEfficiencyVsZaxis) {
+        std::cerr << "Error: Histogram SEEfficiencyVsZaxis not found!" << std::endl;
         return;
     }
 
@@ -4612,6 +4682,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         SETracksEfficiency->Fill(efficiency);
         SEBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
         SEBlockBordersvsEfficency->Fill(distance, efficiency);
+        SEEfficiencyVsZaxis->Fill(simEvt[0].z, efficiency);
+        SEEfficiencyVsZaxisProfile->Fill(simEvt[0].z, efficiency);
     }
 
 
@@ -4632,6 +4704,16 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
       if (!PUBlockBordersvsPurityprofile) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
+        return;
+    }
+    TH2F* PUPurityVsZaxis = dynamic_cast<TH2F*>(h["efficiency/PUPurityVsZaxis"]);
+      if (!PUPurityVsZaxis) {
+        std::cerr << "Error: Histogram PUPurityVsZaxis not found!" << std::endl;
+        return;
+    }
+    TProfile* PUPurityVsZaxisprofile = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsZaxisprofile"]);
+      if (!PUPurityVsZaxisprofile) {
+        std::cerr << "Error: Histogram PUPurityVsZaxisprofile not found!" << std::endl;
         return;
     }
 
@@ -4666,6 +4748,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           // Fill the histograms with the calculated purity
           PUBlockBordersvsPurity->Fill(distance, purity);
           PUBlockBordersvsPurityprofile->Fill(distance, purity);
+          PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
+          PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
       }
     }
 
@@ -4690,6 +4774,19 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     TH2F* PUBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsEfficency"]);
     if (!PUBlockBordersvsEfficency) {
         std::cerr << "Error: Histogram PUBlockBordersvsEfficency not found!" << std::endl;
+        return;
+    }
+    // Retrieve PUEfficiencyVsZaxisProfile
+    TProfile* PUEfficiencyVsZaxisProfile = dynamic_cast<TProfile*>(h["efficiency/PUEfficiencyVsZaxisProfile"]);
+    if (!PUEfficiencyVsZaxisProfile) {
+        std::cerr << "Error: Histogram PUEfficiencyVsZaxisProfile not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve PUEfficiencyVsZaxis
+    TH2F* PUEfficiencyVsZaxis = dynamic_cast<TH2F*>(h["efficiency/PUEfficiencyVsZaxis"]);
+    if (!PUEfficiencyVsZaxis) {
+        std::cerr << "Error: Histogram PUEfficiencyVsZaxis not found!" << std::endl;
         return;
     }
 
@@ -4729,6 +4826,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
         PUBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
         PUBlockBordersvsEfficency->Fill(distance, efficiency);
+        PUEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
+        PUEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
       }
     }
 
