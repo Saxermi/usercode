@@ -4682,8 +4682,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         SETracksEfficiency->Fill(efficiency);
         SEBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
         SEBlockBordersvsEfficency->Fill(distance, efficiency);
-        SEEfficiencyVsZaxis->Fill(simEvt[0].z, efficiency);
-        SEEfficiencyVsZaxisProfile->Fill(simEvt[0].z, efficiency);
+        SEEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
+        SEEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
     }
 
 
