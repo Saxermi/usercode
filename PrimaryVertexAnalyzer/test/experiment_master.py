@@ -24,6 +24,8 @@ def submit_job(sample, overlap, blocksize, notify=False):
     overlap_dir = int(overlap * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
 
     # Check if there is more than one block size in the list
+    if isinstance(blocksize, int):
+        blocksize = [blocksize]
     # Add blocksize to the path if blocksizes list has more than one unique value
     if len(set(blocksize)) > 1:
         path = f"experimental_run_2/{overlap_dir}/{blocksize}"
