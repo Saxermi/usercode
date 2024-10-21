@@ -26,9 +26,9 @@ def submit_job(sample, overlap, blocksize, notify=False):
     # Check if there is more than one block size in the list
     # Add blocksize to the path if blocksizes list has more than one unique value
     if len(set(blocksizes)) > 1:
-        path = f"experimental_run_1/{overlap_dir}/{blocksize}"
+        path = f"experimental_run_2/{overlap_dir}/{blocksize}"
     else:
-        path = f"experimental_run_1/{overlap_dir}"
+        path = f"experimental_run_2/{overlap_dir}"
 
     # Define the command to run
     cmd = [
