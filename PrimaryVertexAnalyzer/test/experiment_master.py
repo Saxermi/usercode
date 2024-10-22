@@ -34,7 +34,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
         "sbatch",
         bash_script,
         "-n",
-        "1",
+        "100",
         "-d",
         sample,
         "-o",
