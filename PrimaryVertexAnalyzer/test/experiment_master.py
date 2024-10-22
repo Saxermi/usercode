@@ -76,10 +76,10 @@ def main():
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
         print("Running in test mode...")
-        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0], notify=False)
+        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0],iterating_blocksize =True, notify=False)
         time.sleep(10)
 
-        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0], notify=True)
+        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0],iterating_blocksize = True , notify=True)
     else:
         # Iterate over all combinations of samples, overlaps, and block sizes
         for idx, (sample, overlap, blocksize) in enumerate(itertools.product(samples, overlaps, blocksizes)):
