@@ -4,7 +4,7 @@ import itertools
 import time
 
 # Global variable to control test mode
-TEST_MODE = True  # Set to False to submit all jobs
+TEST_MODE = False  # Set to False to submit all jobs
 
 
 def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=False):
