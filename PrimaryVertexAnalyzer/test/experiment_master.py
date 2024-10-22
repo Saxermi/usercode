@@ -25,9 +25,9 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
     # Add blocksize to the path if iterating_blocksize is True
     if iterating_blocksize:
-        path = f"experimental_run_2/{overlap_dir}/{blocksize}"
+        path = f"experimental_run_3/{overlap_dir}/{blocksize}"
     else:
-        path = f"experimental_run_2/{overlap_dir}"
+        path = f"experimental_run_3/{overlap_dir}"
 
     # Define the command to run
     cmd = [
