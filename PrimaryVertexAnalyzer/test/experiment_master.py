@@ -4,10 +4,10 @@ import itertools
 import time
 
 # Global variable to control test mode
-TEST_MODE = False  # Set to False to submit all jobs
+TEST_MODE = True  # Set to False to submit all jobs
 
 
-def submit_job(sample, overlap, blocksize, notify=False):
+def submit_job(sample, overlap, blocksize,iterating_blocksize=False, notify=False):
     """
     Function to submit the slurm job using the corresponding bash script.
 
@@ -24,20 +24,20 @@ def submit_job(sample, overlap, blocksize, notify=False):
     overlap_dir = int(overlap * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
 
     # Check if there is more than one block size in the list
-    if isinstance(blocksize, int):
-        blocksize = [blocksize]
+  
     # Add blocksize to the path if blocksizes list has more than one unique value
-    if len(set(blocksize)) > 1:
+    if iterating_blocksize:
         path = f"experimental_run_2/{overlap_dir}/{blocksize}"
     else:
-        path = f"experimental_run_2/{overlap_dir}"
+	 path = f"experimental_run_2/{overlap_dir}"
+    
 
     # Define the command to run
     cmd = [
         "sbatch",
         bash_script,
         "-n",
-        "100",
+        "1",
         "-d",
         sample,
         "-o",
@@ -71,10 +71,10 @@ def main():
     samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
 
     # Overlap values from 0.0 to 0.9 in 0.1 increments
-    overlaps = [round(x * 0.1, 1) for x in range(10)]
-
+    #overlaps = [round(x * 0.1, 1) for x in range(10)]
+    overlaps = [0.3,0.4,0.5]
     # Block sizes to iterate over
-    blocksizes = [ 512]
+    blocksizes = [ 128, 256,512,1024,2048]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
@@ -85,14 +85,14 @@ def main():
         submit_job(samples[0], overlaps[0], blocksize=blocksizes[0], notify=True)
     else:
         # Iterate over all combinations of samples, overlaps, and block sizes
-        for idx, (sample, overlap, blocksize) in enumerate(itertools.product(samples, overlaps, blocksizes)):
+        for idx, (sample, overlap, blocksize) in enumerate(itertools.product(samples, overlaps, blocksizes, iterating_blocksize = True)):
             # Use notify script every 10th job
             notify = (idx + 1) % 10 == 0
 
             # Wait for 1 second before submitting each job
             time.sleep(1)
 
-            submit_job(sample, overlap, blocksize, notify=notify)
+            submit_job(sample, overlap, blocksize,iterating_blocksize=True, notify=notify)
 
 
 if __name__ == "__main__":
