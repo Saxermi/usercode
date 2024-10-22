@@ -537,7 +537,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, SEEfficiencyVsZaxis );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
 
     addn(h, PUEfficiencyVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
@@ -583,7 +583,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     addn(h, SEPurityVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEPurityVsZaxis  = new TH2F("SSEPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* SEPurityVsZaxis  = new TH2F("SEPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEPurityVsZaxis );
