@@ -1,0 +1,128 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 485986
+HOSTNAME: t3wn51
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 23-Oct-2024 12:58:45 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+23-Oct-2024 12:58:56 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7629b858-9911-4be5-9f05-f2f164c748dc.root
+23-Oct-2024 12:59:34 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7629b858-9911-4be5-9f05-f2f164c748dc.root
+Begin processing the 1st record. Run 1, Event 1101, LumiSection 12 on stream 0 at 23-Oct-2024 12:59:53.935 CEST
+%MSG-w XrdAdaptorLvl3:  source 23-Oct-2024 13:00:47 CEST PreSource
+Deactivating st-096-ii2019bd.cern.ch from active sources because its quality (279) is higher than 260 and 4 times larger than the other active server st-096-100gb-ip304-27a7f.cern.ch (48) 
+%MSG
+[2024-10-23 13:06:49.208661 +0200][Error  ][PostMaster        ][15323] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+23-Oct-2024 13:10:51 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7629b858-9911-4be5-9f05-f2f164c748dc.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 762.952 seconds
+ Time Summary: 
+ - Min event:   3.79175
+ - Max event:   39.377
+ - Avg event:   6.32115
+ - Total loop:  658.872
+ - Total init:  103.902
+ - Total job:   762.952
+ - Total EventSetup: 33.1209
+ - Total non-module: 7.06991
+ Event Throughput: 0.151775 ev/s
+ CPU Summary: 
+ - Total loop:     625.951
+ - Total init:     90.1948
+ - Total extra:    0
+ - Total children: 0.196344
+ - Total job:      716.285
+ Processing Summary: 
+ - Number of Events:  100
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 100 passed = 100 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 MPV
+TrigReport     1    1        100        100          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 tpClusterProducer
+TrigReport     1    1        100        100          0          0 quickTrackAssociatorByHits
+TrigReport     1    2        100        100          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3        100        100          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport        100        100        100          0          0 MPV
+TrigReport        100        100        100          0          0 TriggerResults
+TrigReport        100        100        100          0          0 analyze
+TrigReport        100        100        100          0          0 oldVertexAnalysis
+TrigReport        100        100        100          0          0 quickTrackAssociatorByHits
+TrigReport        100        100        100          0          0 testVertices
+TrigReport        100        100        100          0          0 tpClusterProducer
+TrigReport        100        100        100          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 6.259597
+TimeReport      event loop Real/event = 6.588810
+TimeReport     sum Streams Real/event = 6.512962
+TimeReport efficiency CPU/Real/thread = 0.950035
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   6.318948     6.318948  MPV
+TimeReport   6.321108     6.321108  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.528976     0.528976  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   2.134872     2.134872  tpClusterProducer
+TimeReport   0.000022     0.000022  quickTrackAssociatorByHits
+TimeReport   0.409043     0.409043  trackingParticleRecoTrackAsssociation
+TimeReport   0.266923     0.266923  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000004     0.000004     0.000004  TriggerResults
+TimeReport   0.000016     0.000016     0.000016  analyze
+TimeReport   0.266923     0.266923     0.266923  oldVertexAnalysis
+TimeReport   0.000022     0.000022     0.000022  quickTrackAssociatorByHits
+TimeReport   0.528976     0.528976     0.528976  testVertices
+TimeReport   2.134872     2.134872     2.134872  tpClusterProducer
+TimeReport   0.409043     0.409043     0.409043  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
