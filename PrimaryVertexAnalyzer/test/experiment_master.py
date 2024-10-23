@@ -13,7 +13,7 @@ def create_directory(path):
     Args:
         path (str): The path of the directory to create.
     """
-    path = os.path.join("/work/msaxer",path)
+    path = os.path.join("/work/msaxer", path)
     if not os.path.exists(path):
         os.makedirs(path)
         print(f"Directory created: {path}")
@@ -31,7 +31,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
         notify (bool): Whether to use the notification bash script.
     """
     # Strip the '.txt' extension from the sample to create the directory name
-    sample_name = os.path.splitext(sample)[0]
+    # sample_name = os.path.splitext(sample)[0]
 
     # Determine which script to use
     bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
@@ -48,9 +48,9 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
     # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
-        path = os.path.join(base_path, sample_name, overlap_dir_name, str(blocksize))
+        path = os.path.join(base_path, sample, overlap_dir_name, str(blocksize))
     else:
-        path = os.path.join(base_path, sample_name, overlap_dir_name)
+        path = os.path.join(base_path, sample, overlap_dir_name)
 
     # Create the directory if it doesn't exist
     create_directory(path)
@@ -59,8 +59,8 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     cmd = [
         "sbatch",
         bash_script,
-        "-n",
-        "-1",
+      #  "-n",
+      #  "-1",
         "-d",
         sample,
         "-o",
@@ -88,25 +88,21 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     except subprocess.CalledProcessError as e:
         print(f"Failed to submit job for {sample} with overlap {overlap} and blocksize {blocksize}. Error: {e}")
 
-
-
 def main():
     # Samples to be used (from TTbar_01 to TTbar_15)
-    #samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
+    # samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
     
     subsets = [
-    "Subset_SToMuMu_01.txt", "Subset_ZMM_03.txt", "Subset_SToMuMu_02.txt", 
-    "Subset_TTbar_01.txt", "Subset_TTbar_02.txt", "Subset_HiggsGluonFusion_01.txt", 
-    "Subset_HiggsGluonFusion_02.txt", "Subset_ZMM_01.txt", "Subset_ZMM_02.txt"
+        "Subset_SToMuMu_01", "Subset_ZMM_03", "Subset_SToMuMu_02", 
+        "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
+        "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
     ]
     
-    #subsets = ["MasterTTbar.txt"]
-
-
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0.3,0.4,0.5]  # Add negative overlaps here
+    overlaps = [0.3, 0.4, 0.5]  # Add negative overlaps here
+
     # Block sizes to iterate over
-    blocksizes = [256,512,1024]
+    blocksizes = [256, 512, 1024]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
@@ -118,13 +114,11 @@ def main():
         # Iterate over all combinations of samples, overlaps, and block sizes
         for idx, (sample, overlap, blocksize) in enumerate(itertools.product(subsets, overlaps, blocksizes)):
             # Use notify script every 10th job
-            #notify = (idx + 1) % 10 == 0
-            #notifiy = True
+            # notify = (idx + 1) % 10 == 0
+            # notify = True
             # Wait for 1 second before submitting each job
             time.sleep(1)
-
             submit_job(sample, overlap, blocksize, iterating_blocksize=True, notify=True)
-
 
 if __name__ == "__main__":
     main()
