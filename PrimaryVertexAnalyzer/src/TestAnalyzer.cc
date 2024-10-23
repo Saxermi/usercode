@@ -346,83 +346,48 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     /* Efficiency */
     dir->mkdir("efficiency")->cd();  // Create the "efficiency" directory and navigate into it
 
-    // Create the histogram for reconstruction efficiency
-    TH1I* hist_reco_matches = new TH1I("SEEfficiency", " SE Reconstruction Efficiency", 2, 0, 2);
-    
-    // Add the histogram to the map using addn
-    addn(h, hist_reco_matches);
-
-    // Set bin labels for better visualization
-    hist_reco_matches->GetXaxis()->SetBinLabel(1, "Matched vertex");
-    hist_reco_matches->GetXaxis()->SetBinLabel(2, "Unmatched vertex");
-
-    // Set histogram style: fill color and bar width
-    hist_reco_matches->SetFillColor(kOrange + 2);  // Set fill color for the bars
-    hist_reco_matches->SetBarWidth(0.8);           // Adjust the bar width
-
-    //set y axis title
-    hist_reco_matches->GetYaxis()->SetTitle("Count ");
-    hist_reco_matches->SetMinimum(0);
-    hist_reco_matches->SetMaximum(150);
-
-    // new histogramm 
     // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
-    TH2F* SERecoVsSimZPosition = new TH2F("SERecoVsSimZPosition", "SE Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    TH2F* SERecoVsSimZPosition = new TH2F("SERecoVsSimZPosition", "SE Reconstructed vs. Simulated Vertex Z-Position; Reconstructed Vertex Position [cm]; Simulated Vertex Position [cm]", 200, -15, 15, 200, -15, 15);
     addn(h, SERecoVsSimZPosition );
 
-    // another new histogramm
     // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
-    TH2F* PURecoVsSimZPosition = new TH2F("PURecoVsSimZPosition", "PU Reconstructed vs. True Z-Position", 100, -10, 10, 100, -10, 10);
+    TH2F* PURecoVsSimZPosition = new TH2F("PURecoVsSimZPosition", "PU Reconstructed vs. Simulated Vertex Z-Position; Reconstructed Vertex Position [cm]; Simulated Vertex Position [cm]", 200, -15, 15, 200, -15, 15);
     addn(h, PURecoVsSimZPosition);
-    PURecoVsSimZPosition ->Draw("COLonl"); // should add a legend, doesent work tough might remove or find alternative. t pallet axis should work but dont have time for this now
-    // for now just manually add in TBrowser
-
-    // New histogramm
+   
     // SE tracks purity
-    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Tracks Purity", 100, 0, 101);
+    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Track Purity; Track Purity [%];Count", 200, 0, 101);
     addn(h, SETracksPurity);
 
-    // New histogramm
     // SE tracks Efficiency
-    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Tracks Efficiency", 100, 0, 101);
+    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Track Efficiency; Track Efficiency [%];Count", 200, 0, 101);
     addn(h, SETracksEfficiency);
 
-    // New histogramm
     // PU tracks purity
-    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity", 100, 0, 101);
+    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity; Track Purity [%];Count", 200, 0, 101);
     addn(h, PUTracksPurity);
 
-    // New histogramm
     // PU tracks Efficiency
-    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency", 100, 0, 101);
+    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency, Track Efficiency [%];Count", 200, 0, 101);
     addn(h, PUTracksEfficiency);
 
-    //new histogram
-    //definition of 1 H hist
     // SE Resolution
-    TH1F *SEResolution = new TH1F("SEResolution","SE Reconstructed vs. True Z-Position position difference", 200, -0.01, 0.01);
+    TH1F *SEResolution = new TH1F("SEResolution","SE Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 200, -0.2, 0.2);
     addn(h, SEResolution);
-    //set bar width to 0.1
-     SEResolution->SetBarWidth(0.1);   
-      //new histogram
-    //definition of 1 H hist
+
     // PU Resolution
-    TH1F *PUResolution = new TH1F("PUResolution","PU Reconstructed vs. True Z-Position position difference", 200, -0.2, 0.2);
+    TH1F *PUResolution = new TH1F("PUResolution","PU Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 200, -0.3, 0.3);
     addn(h, PUResolution);
-    //set bar width to 0.1
-     PUResolution->SetBarWidth(0.1);
-    //new histogram
-    //definition of an 2H histogram
+
     // PU Confusion Matrix
-      TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Freq. one reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Count of Simulated Vertex Reconstructed as 1 Vertex vs. Position; Reconstructed Vertex Z-Position; Count", 200, -30, 30);
       addn(h, PUConfusionMatrixCategorialC1);
       // new histogram
       // definition of an 2H histogram
-      TH1F *PUConfusionMatrixCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Freq. mult reconstructed per simulated vertex;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *PUConfusionMatrixCategorialC2 = new TH1F("reco_vs_true_z_position_hist_categorial_c2", "Count of Simulated Vertex Reconstructed as Multiple Vertices vs. Position; Reconstructed Vertex Z-Position; Count", 200, -30, 30);
       addn(h, PUConfusionMatrixCategorialC2);
       // new histogram
       // definition of an 2H histogram
-      TH1F *PUConfusionMatrixCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Freq. fake vertices;Vertex Z Position;Frequency", 100, -30, 30);
+      TH1F *PUConfusionMatrixCategorialC3 = new TH1F("reco_vs_true_z_position_hist_categorial_c3", "Count of Fake Vertices vs. Position; Reconstructed Vertex Z-Position; Count", 200, -30, 30);
       addn(h, PUConfusionMatrixCategorialC3);
 
       // new histogram
@@ -430,19 +395,18 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // we can later adapt this histogram to for example only show the distance between the border of the subspace and the fake vertices etc
       TH1F *TrueE3DDistanceToPlane = new TH1F("True_3D_point_to_plane_distance", "Distance between 3d point to plane ", 100, 0, 30);
       addn(h, TrueE3DDistanceToPlane);
-       // new histogram
+
       // definition of an TH1F histogram
-      TH1F *SERecIndexHist = new TH1F("SE_reco_index_hist", "Reconstructed SE index ;Index position;Frequency", 100, -1, 200);
+      TH1F *SERecIndexHist = new TH1F("SE_reco_index_hist", "Index of Reconstruted SE;Index position;Count", 100, -1, 200);
       addn(h, SERecIndexHist);
       // same diagramm as above but in higher resolution meaning (only -1 -20)
-      TH1F *SERecIndexHistHR = new TH1F("SE_reco_index_histHR", "Reconstructed SE index ;Index position;Frequency", 100, -1, 20);
+      TH1F *SERecIndexHistHR = new TH1F("SE_reco_index_histHR", "Index of Reconstruted SE;Index position;Count", 100, -1, 20);
       addn(h, SERecIndexHistHR);
 
-    // another new histogramm
     // Definition of the 2D histogram, which shows the PU purity as a function of the z axis and additonally displays the block borders
       TH2F* PUTracksPurityBlock =
           new TH2F("PUTracksPurityBlock",
-                   "PU Purity vs  Z-Position and block borders; Z axis;PU Purity in % (borders displayed as 110%)",
+                   "PU Purity vs  Z-Position and block borders; Z-Position of Reconstructed Vertex; Track Purity [%]",
                    100,
                    -30,
                    30,
@@ -450,10 +414,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    0,
                    110);
       addn(h, PUTracksPurityBlock);
-       // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
+
+      // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
       TH2F* SETracksPurityBlock =
           new TH2F("SETracksPurityBlock",
-                   "SE Purity vs  Z-Position and block borders; Z axis;SE Purity in % (borders displayed as 110%)",
+                   "SE Purity vs  Z-Position and block borders; Z-Position of Reconstructed Vertex; Track Purity [%]",
                    100,
                    -30,
                    30,
@@ -462,86 +427,83 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    110);
       addn(h, SETracksPurityBlock);
 
-
-          // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+      // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
       TH2F* NVertexVSCPUTime  =
           new TH2F("NVertexVSCPUTime",
-                   " cpu time used vs the number of vertices reconstructed; number of vertices reconstructed;Time used in s ",
+                   " CPU Time vs Number of Reconstructed Vertices; Count of Reconstructed Tertices;Time [ms] ",
                    100,
                    0,
                    300,
                    100,
                    0,
-                   1000);
+                   3000);
       addn(h, NVertexVSCPUTime);
 
-        // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
-    TH2F* SERecoVsSimZPositionBlock  = new TH2F("SERecoVsSimZPositionBlock", "SE Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
-    addn(h, SERecoVsSimZPositionBlock  );
+    // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
+    TH2F* SERecoVsSimZPositionBlock  = new TH2F("SERecoVsSimZPositionBlock", "SE Reconstructed vs. Simulated Vertex Z-Position; Reconstructed Vertex Position [cm]; Simulated Vertex Position [cm]", 200, -15, 15, 200, -15, 15);
+    addn(h, SERecoVsSimZPositionBlock);
 
     // another new histogramm
     // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for PU
-    TH2F* PURecoVsSimZPositionBlock  = new TH2F("PURecoVsSimZPositionBlock", "PU Reconstructed vs. True Z-Position with block boundaries", 100, -10, 10, 100, -10, 10);
+    TH2F* PURecoVsSimZPositionBlock  = new TH2F("PURecoVsSimZPositionBlock", "PU Reconstructed vs. Simulated Vertex Z-Position; Reconstructed Vertex Position [cm]; Simulated Vertex Position [cm]", 200, -15, 15, 200, -15, 15);
     addn(h, PURecoVsSimZPositionBlock );
 
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block
-    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "Purity vs. PU Block Borders Profile; Distance to closest Border; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "PU Track Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 200, -20, 20, 0, 100);
 
     addn(h, PUBlockBordersvsPurityprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "Purity vs. PU Block Borders; Distance to closest Border; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 200, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsPurity );
 
     // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "Efficency vs. PU Block Borders Profile; Distance to closest Border; Track Efficency", 100, -15, 15, 0, 100);
-
+    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "PU Track Efficency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 200, -20, 20, 0, 100);
     addn(h, PUBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "Efficency vs. PU Block Borders; Distance to closest Border; Track Efficency", 100, -15, 15,100,  0, 100);
-
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "PU Track Efficency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 200, -20, 20,100,  0, 100);
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsEfficency);
 
 
    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "z delta vs. PU Block Borders Profile; Distance to Closest Block Border; delta z", 100, -15, 15, -0.2, 0.2);
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "PU Vertex Position Difference vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 100, -15, 15, -0.2, 0.2);
 
     addn(h, PUBlockBordersvsZdeltayprofile);
     // Define a TH2F histogram for PUBlockBordersvsZdelta
-    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "z delta vs. PU Block Borders; delta z; Distance to Closest Block Border", 100, -15, 15, 100, -0.2, 0.2);
+    TH2F* PUBlockBordersvsZdelta    = new TH2F("PUBlockBordersvsZdelta", "PU Vertex Position Difference vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 100, -15, 15, 100, -0.2, 0.2);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsZdelta );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "PU Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 100, -20, 20, 0, 100);
 
     addn(h, PUPurityVsZaxisprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "PU Track Purity vs. Z-Position; Z-Position [cm]; Track Purity [%]", 100, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUPurityVsZaxis );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "SE Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 0, 100);
 
     addn(h, SEEfficiencyVsZaxisProfile);
-    // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEEfficiencyVsZaxis  = new TH2F("SEEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+    // Define a TH2F histogram for SEEfficiencyVsZaxis
+    TH2F* SEEfficiencyVsZaxis  = new TH2F("SEEfficiencyVsZaxis", "SE Track Efficiency vs. Z-Position; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEEfficiencyVsZaxis );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "PU Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 0, 100);
 
     addn(h, PUEfficiencyVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "Efficiency vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "PU Track Efficiency vs. Z-Position; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUEfficiencyVsZaxis );
@@ -549,80 +511,80 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
     // will try this with tprofile and TH1f
-    TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution Normalized; Resolution Normalized", 100, -1, 1);
+    TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
     addn(h, SEResolutionNormalized);
 
     // SE Resolution Normalized versus block distance
-    TProfile* SEResolutionNormalizedBlockprofile = new TProfile("SEResolutionNormalizedBlockprofile", "SE Resolution Normalized Resolution Normalized; Distance to Block Border;", 100, -1, 1, -0.2, 0.2);
+    TProfile* SEResolutionNormalizedBlockprofile = new TProfile("SEResolutionNormalizedBlockprofile", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, -10, 10);
     addn(h, SEResolutionNormalizedBlockprofile);
 
-    TH2F* SEResolutionNormalizedBlock = new TH2F("SEResolutionNormalizedBlock", "SE Resolution Normalized Resolution Normalized; Distance to Block Border;", 100, -1, 1, 100, -0.2, 0.2);
+    TH2F* SEResolutionNormalizedBlock = new TH2F("SEResolutionNormalizedBlock", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, 100, -10, 10);
     addn(h, SEResolutionNormalizedBlock);
 
     // histogram of PU resolution normalized
-    TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution Normalized", 100, -1, 1);
+    TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
     addn(h, PUResolutionNormalized);
 
 
     // Histogram SE ResolutionVsTrack Purity
-    TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity", 100, -1, 1, 100, 0, 100);
+    TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 100, 0, 101);
     addn(h, SEResolutionVsTrackPurity);
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "Purity vs. SE Block Borders Profile; Distance to closest Border; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Resolution vs. Track Purity Profile; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 0, 101);
 
     addn(h, SEBlockBordersvsPurityprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "Purity vs. SE Block Borders; Distance to closest Border; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsPurity );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 0, 100);
+    TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "SE Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 100, -15, 15, 0, 100);
 
     addn(h, SEPurityVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEPurityVsZaxis  = new TH2F("SEPurityVsZaxis", "Purity vs. Z-axis position; Z-axis; Track Purity", 100, -15, 15, 100, 0, 100);
+    TH2F* SEPurityVsZaxis  = new TH2F("SEPurityVsZaxis", "SE Track Purity vs. Z-Position; Z-Position [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEPurityVsZaxis );
 
     // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "Efficency vs. SE Block Borders Profile; Distance to closest Border; Track Efficency", 100, -15, 15, 0, 100);
+    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
 
     addn(h, SEBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "Efficency vs. SE Block Borders; Distance to closest Border; Track Efficency", 100, -15, 15, 100, 0, 100);
+    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsEfficency);
 
-      // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
       TProfile* PUBlockBordersvsFakeVertProfi =
           new TProfile("PUBlockBordersvsFakeVertProfi",
-                       "Freq vs. PU Block Borders Profile; Distance from nearest block; Position on Z Axis",
+                       "PU Fake Vertices Distance Closest Blockborder vs. Z-Position; Distance to Closest Blockborder [cm]; Z-Position",
                        100,
                        -15,
                        15,
-                       -30,
-                        30);
+                       -20,
+                        20);
 
       addn(h, PUBlockBordersvsFakeVertProfi);
 
     // Define a TH1F histogram for PUBlockBorder
-    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Distance to Closest Block Border; Distance to Closest Block Border in cm", 100, 0, 5);
+    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]", 100, 0, 10);
     addn(h, PUBlockBorder);
     // Define a TH1F histogram for SEBlockBorder
-    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Distance to Closest Block Border; Distance to Closest Block Border in cm", 100, 0, 5);
+    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]", 100, 0, 10);
     addn(h, SEBlockBorder);
 
     // Define a TH1F histogram for BlockSizes
-    TH1F* BlockSizes    = new TH1F("BlockSizes", "Blocksize; Blocksize in cm", 100, 0, 10);
+    TH1F* BlockSizes    = new TH1F("BlockSizes", "Blocksize; Blocksize [cm]; Count", 200, 0, 10);
     addn(h, BlockSizes);
 
     // Define a TH1F histogram for BlockNumber
-    TH1F* BlockNumber    = new TH1F("BlockNumber", "Blocknumber; Number of Blocks", 100, 0, 100);
+    TH1F* BlockNumber    = new TH1F("BlockNumber", "Blocknumber; Number of Blocks; Count", 200, 0, 100);
     addn(h, BlockNumber);
     
 
@@ -4292,33 +4254,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 {
     std::cout << "I am in analyzeVertexCollectionTP" << std::endl;
     // Retrieve the histogram from the map
-    // Histogram to shows correct and wrong reconstructed
-    // NO LONGER IN USE
-    TH1I* hist_reco_matches = dynamic_cast<TH1I*>(h["efficiency/SEEfficiency"]);
-      if (!hist_reco_matches) {
-        std::cerr << "Error: Histogram SEEfficiency not found!" << std::endl;
-        return;
-    }
-
-    double realCounter = 0, wrongCounter = 0;
-    for(const auto& v : vtxs){
-        if (!v.isRecoFake()) { // Check if the vertex is not a reconstruction fake
-            if (v.is_real()) { // Check if the vertex is real
-                realCounter++;
-            } else {
-                wrongCounter++;
-            }
-        }
-    }
-
-    // Fill the "Yes" bin (first bin, index 1) with realCounter
-    hist_reco_matches->SetBinContent(1, realCounter);
-    
-    // Fill the "No" bin (second bin, index 2) with wrongCounter
-    hist_reco_matches->SetBinContent(2, wrongCounter);
-
-    //Fill(h, "efficiency/SEEfficiency", realCounter, wrongCounter);
-
 
     // SE reconstructed versus simulated position for matched vertices
     TH2F* SERecoVsSimZPosition = dynamic_cast<TH2F*>(h["efficiency/SERecoVsSimZPosition"]);
