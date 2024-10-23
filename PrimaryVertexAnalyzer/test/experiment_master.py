@@ -6,6 +6,18 @@ import time
 # Global variable to control test mode
 TEST_MODE = False  # Set to False to submit all jobs
 
+def create_directory(path):
+    """
+    Function to create a directory if it doesn't exist.
+    
+    Args:
+        path (str): The path of the directory to create.
+    """
+    if not os.path.exists(path):
+        os.makedirs(path)
+        print(f"Directory created: {path}")
+    else:
+        print(f"Directory already exists: {path}")
 
 def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=False):
     """
@@ -21,20 +33,29 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
 
     # Calculate the directory name based on overlap (convert to an integer percentage)
-    overlap_dir = int(overlap * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
+    overlap_dir = int(abs(overlap) * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
 
-    # Add blocksize to the path if iterating_blocksize is True
+    # Add "n" if overlap is negative
+    overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
+
+    # Hardcoded base path for experimental runs
+    #base_path = "experimental_run_3"
+    base_path = "experimental_run_4"
+    # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
-        path = f"experimental_run_3/{overlap_dir}/{blocksize}"
+        path = os.path.join(base_path, sample, overlap_dir_name, str(blocksize))
     else:
-        path = f"experimental_run_3/{overlap_dir}"
+        path = os.path.join(base_path, sample, overlap_dir_name)
+
+    # Create the directory if it doesn't exist
+    create_directory(path)
 
     # Define the command to run
     cmd = [
         "sbatch",
         bash_script,
         "-n",
-        "100",
+        "9000",
         "-d",
         sample,
         "-o",
@@ -65,27 +86,34 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
 def main():
     # Samples to be used (from TTbar_01 to TTbar_15)
-    samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
-
-    # Overlap values from 0.0 to 0.9 in 0.1 increments
-    overlaps = [0.3, 0.4, 0.5]
+    #samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
     
+    subsets = [
+    "Subset_SToMuMu_01.txt", "Subset_ZMM_03.txt", "Subset_SToMuMu_02.txt", 
+    "Subset_TTbar_01.txt", "Subset_TTbar_02.txt", "Subset_HiggsGluonFusion_01.txt", 
+    "Subset_HiggsGluonFusion_02.txt", "Subset_ZMM_01.txt", "Subset_ZMM_02.txt"
+    ]
+    
+    #subsets = ["MasterTTbar.txt"]
+
+
+    # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
+    overlaps = [0,0.1,0.2,0.3,0.4,0.5]  # Add negative overlaps here
     # Block sizes to iterate over
-    blocksizes = [128, 256, 512, 1024, 2048]
+    blocksizes = [512]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
         print("Running in test mode...")
-        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0],iterating_blocksize =True, notify=False)
+        submit_job(subsets[0], overlaps[0], blocksize=blocksizes[0], iterating_blocksize=True, notify=False)
         time.sleep(10)
-
-        submit_job(samples[0], overlaps[0], blocksize=blocksizes[0],iterating_blocksize = True , notify=True)
+        submit_job(subsets[0], overlaps[0], blocksize=blocksizes[0], iterating_blocksize=True, notify=True)
     else:
         # Iterate over all combinations of samples, overlaps, and block sizes
-        for idx, (sample, overlap, blocksize) in enumerate(itertools.product(samples, overlaps, blocksizes)):
+        for idx, (sample, overlap, blocksize) in enumerate(itertools.product(subsets, overlaps, blocksizes)):
             # Use notify script every 10th job
-            notify = (idx + 1) % 10 == 0
-
+            #notify = (idx + 1) % 10 == 0
+            notifiy = True
             # Wait for 1 second before submitting each job
             time.sleep(1)
 
