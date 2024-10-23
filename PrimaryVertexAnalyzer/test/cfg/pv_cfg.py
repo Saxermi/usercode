@@ -86,11 +86,12 @@ parameters={  # can be overwritten by arguments of the same name
   "minNdof": cms.double( 2.0 ),
 # clustering in blocks
   "runInBlocks" : cms.bool(False),
-  "block_size" : cms.uint32(512),
+  "block_size" : cms.uint32(1024),
   "overlap_frac" : cms.double(0.5)
 }
 
-print(">>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py   <<<<<<<<<<<<<<<<<<<<<<<<<")
+print(">>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py  <<<<<<<<<<<<<<<<<<<<<<<<<")
+print('this is a test')
 
 # temporary fix, should not be needed
 args=[]
@@ -173,8 +174,13 @@ for a in args:
             parameters[key] = cms.untracked.double( float(value) )
         elif typename == "int32":
             parameters[key] = cms.int32( int(value) )
+            print('int found', value)
+        elif typename == "uint32":
+            parameters[key] = cms.uint32( int(value) )
+            print('uint found', value)
         elif typename == "untracked int32":
             parameters[key] = cms.untracked.int32( int(value) )
+            print('uint found', value)
         elif typename == "bool":
             parameters[key] = cms.bool( value == "True")
         elif typename == "untracked bool":
