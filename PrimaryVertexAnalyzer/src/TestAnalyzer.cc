@@ -573,10 +573,10 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       addn(h, PUBlockBordersvsFakeVertProfi);
 
     // Define a TH1F histogram for PUBlockBorder
-    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]", 100, 0, 10);
+    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 100, 0, 10);
     addn(h, PUBlockBorder);
     // Define a TH1F histogram for SEBlockBorder
-    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]", 100, 0, 10);
+    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 100, 0, 10);
     addn(h, SEBlockBorder);
 
     // Define a TH1F histogram for BlockSizes
