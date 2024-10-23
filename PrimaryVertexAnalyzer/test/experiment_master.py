@@ -40,7 +40,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
     # Hardcoded base path for experimental runs
     #base_path = "experimental_run_3"
-    base_path = "experimental_run_4"
+    base_path = "experimental_run_5"
     # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
         path = os.path.join(base_path, sample, overlap_dir_name, str(blocksize))
@@ -55,7 +55,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
         "sbatch",
         bash_script,
         "-n",
-        "9000",
+        "-1",
         "-d",
         sample,
         "-o",
@@ -98,9 +98,9 @@ def main():
 
 
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0,0.1,0.2,0.3,0.4,0.5]  # Add negative overlaps here
+    overlaps = [0.3,0.4,0.5]  # Add negative overlaps here
     # Block sizes to iterate over
-    blocksizes = [512]
+    blocksizes = [256,512,1024]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
@@ -113,11 +113,11 @@ def main():
         for idx, (sample, overlap, blocksize) in enumerate(itertools.product(subsets, overlaps, blocksizes)):
             # Use notify script every 10th job
             #notify = (idx + 1) % 10 == 0
-            notifiy = True
+            #notifiy = True
             # Wait for 1 second before submitting each job
             time.sleep(1)
 
-            submit_job(sample, overlap, blocksize, iterating_blocksize=True, notify=notify)
+            submit_job(sample, overlap, blocksize, iterating_blocksize=True, notify=True)
 
 
 if __name__ == "__main__":

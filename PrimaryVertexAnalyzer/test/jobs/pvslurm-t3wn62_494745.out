@@ -1,0 +1,22 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 494745
+HOSTNAME: t3wn62
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 23-Oct-2024 17:56:22 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+%MSG
+23-Oct-2024 17:56:27 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e342e6fe-fade-4708-9cfa-7f7344b902e4.root
+23-Oct-2024 17:56:50 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e342e6fe-fade-4708-9cfa-7f7344b902e4.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 23-Oct-2024 17:56:55 CEST pre-events
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because its quality (1512) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (260) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 23-Oct-2024 17:57:11 CEST pre-events
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because its quality (2351) is higher than 260 and 4 times larger than the other active server ceph-gw11.gridpp.rl.ac.uk (260) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 23-Oct-2024 17:57:13 CEST pre-events
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (892) is higher than 260 and 4 times larger than the other active server st-096-dd90788c.cern.ch (13) 
+%MSG
+Begin processing the 1st record. Run 1, Event 7802, LumiSection 157 on stream 0 at 23-Oct-2024 17:57:24.655 CEST
