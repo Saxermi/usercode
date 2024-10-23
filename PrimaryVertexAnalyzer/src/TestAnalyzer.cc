@@ -609,6 +609,23 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                         30);
 
       addn(h, PUBlockBordersvsFakeVertProfi);
+
+    // Define a TH1F histogram for PUBlockBorder
+    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Distance to Closest Block Border; Distance to Closest Block Border in cm", 100, 0, 5);
+    addn(h, PUBlockBorder);
+    // Define a TH1F histogram for SEBlockBorder
+    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Distance to Closest Block Border; Distance to Closest Block Border in cm", 100, 0, 5);
+    addn(h, SEBlockBorder);
+
+    // Define a TH1F histogram for BlockSizes
+    TH1F* BlockSizes    = new TH1F("BlockSizes", "Blocksize; Blocksize in cm", 100, 0, 10);
+    addn(h, BlockSizes);
+
+    // Define a TH1F histogram for BlockNumber
+    TH1F* BlockNumber    = new TH1F("BlockNumber", "Blocknumber; Number of Blocks", 100, 0, 100);
+    addn(h, BlockNumber);
+    
+
       // Return to the base directory to maintain proper organization
       dir->cd();
 
@@ -4359,6 +4376,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram SEResolutionNormalizedBlock not found!" << std::endl;
         return;
     }
+    // Initialize histograms SE blockborder distance
+    TH1F* SEBlockBorder = dynamic_cast<TH1F*>(h["efficiency/SEBlockBorder"]);
+    if (!SEBlockBorder) {
+        std::cerr << "Error: Histogram SEBlockBorder not found!" << std::endl;
+        return;
+    }
 
     if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
@@ -4367,6 +4390,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       SEResolutionNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
       SEResolutionNormalizedBlock -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
       SEResolutionNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
+      SEBlockBorder->Fill(abs(distance));
     }
 
     //PU  resolution (Distance between sim and recon) and also normalized and with and without block
@@ -4396,6 +4420,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUResolutionNormalized not found!" << std::endl;
         return;
     }
+    // Initialize histograms for PU blockborder distance
+    TH1F* PUBlockBorder = dynamic_cast<TH1F*>(h["efficiency/PUBlockBorder"]);
+    if (!PUBlockBorder) {
+        std::cerr << "Error: Histogram PUBlockBorder not found!" << std::endl;
+        return;
+    }
+
     for (size_t i = 0; i < simEvt.size(); ++i) {
     if (!simEvt[i].is_signal()) {  // Check if it is a pile-up event
         if (simEvt[i].is_matched()) {  // Check if the simulated vertex is matched, if not we cannot take the distance
@@ -4411,12 +4442,31 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             float distance = nearestBlockAndDistance(rec_z, blockborders).second;
             PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
             PUBlockBordersvsZdelta->Fill(distance, delta_z);
-
+            PUBlockBorder->Fill(abs(distance));
 
             PUResolutionNormalized -> Fill(delta_z/error_z);
         }
     }
     }
+
+    // Initialize histograms blocksize
+    TH1F* BlockSizes = dynamic_cast<TH1F*>(h["efficiency/BlockSizes"]);
+    if (!BlockSizes) {
+        std::cerr << "Error: Histogram BlockSizes not found!" << std::endl;
+        return;
+    }
+
+    // Initialize histograms for each blocknumber
+    TH1F* BlockNumber = dynamic_cast<TH1F*>(h["efficiency/BlockNumber"]);
+    if (!BlockNumber) {
+        std::cerr << "Error: Histogram BlockNumber not found!" << std::endl;
+        return;
+    }
+    for (size_t i = 0; i < blockborders.size();i += 2){
+      float a = abs(blockborders[i]- blockborders[i + 1]);
+                BlockSizes->Fill(a);
+    }
+    BlockNumber->Fill(blockborders.size());
 
 
 
