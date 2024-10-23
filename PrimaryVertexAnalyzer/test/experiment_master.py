@@ -13,6 +13,7 @@ def create_directory(path):
     Args:
         path (str): The path of the directory to create.
     """
+    path = os.path.join("/work/msaxer",path)
     if not os.path.exists(path):
         os.makedirs(path)
         print(f"Directory created: {path}")
@@ -43,6 +44,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
     # Hardcoded base path for experimental runs
     base_path = "experimental_run_5"
+    dir_create_path = "/work/msaxer/"
 
     # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
