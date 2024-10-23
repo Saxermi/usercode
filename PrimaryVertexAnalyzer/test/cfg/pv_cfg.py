@@ -91,7 +91,6 @@ parameters={  # can be overwritten by arguments of the same name
 }
 
 print(">>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py  <<<<<<<<<<<<<<<<<<<<<<<<<")
-print('this is a test')
 
 # temporary fix, should not be needed
 args=[]
@@ -177,10 +176,8 @@ for a in args:
             print('int found', value)
         elif typename == "uint32":
             parameters[key] = cms.uint32( int(value) )
-            print('uint found', value)
         elif typename == "untracked int32":
             parameters[key] = cms.untracked.int32( int(value) )
-            print('uint found', value)
         elif typename == "bool":
             parameters[key] = cms.bool( value == "True")
         elif typename == "untracked bool":
