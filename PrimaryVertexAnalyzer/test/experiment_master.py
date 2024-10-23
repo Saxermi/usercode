@@ -24,11 +24,14 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     Function to submit the slurm job using the corresponding bash script.
 
     Args:
-        sample (str): The sample name, e.g., TTbar_01.
+        sample (str): The sample name, e.g., Subset_SToMuMu_01.txt.
         overlap (float): The overlap factor, e.g., 0.5.
         blocksize (int): The block size, e.g., 256.
         notify (bool): Whether to use the notification bash script.
     """
+    # Strip the '.txt' extension from the sample to create the directory name
+    sample_name = os.path.splitext(sample)[0]
+
     # Determine which script to use
     bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
 
@@ -39,13 +42,13 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    #base_path = "experimental_run_3"
     base_path = "experimental_run_5"
+
     # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
-        path = os.path.join(base_path, sample, overlap_dir_name, str(blocksize))
+        path = os.path.join(base_path, sample_name, overlap_dir_name, str(blocksize))
     else:
-        path = os.path.join(base_path, sample, overlap_dir_name)
+        path = os.path.join(base_path, sample_name, overlap_dir_name)
 
     # Create the directory if it doesn't exist
     create_directory(path)
@@ -82,6 +85,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
         print(f"Job for {sample} with overlap {overlap} and blocksize {blocksize} submitted successfully.")
     except subprocess.CalledProcessError as e:
         print(f"Failed to submit job for {sample} with overlap {overlap} and blocksize {blocksize}. Error: {e}")
+
 
 
 def main():
