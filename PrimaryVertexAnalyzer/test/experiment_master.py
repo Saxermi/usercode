@@ -102,7 +102,7 @@ def main():
     overlaps = [0.3, 0.4, 0.5]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [256, 512, 1024]
+    blocksizes = [ 256,512, 1024]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
