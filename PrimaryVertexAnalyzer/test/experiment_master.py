@@ -92,12 +92,15 @@ def main():
     # Samples to be used (from TTbar_01 to TTbar_15)
     # samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
     
-    subsets = [
-        "Subset_SToMuMu_01", "Subset_ZMM_03", "Subset_SToMuMu_02", 
-        "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
-        "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
+    # subsets = [
+    #     "Subset_SToMuMu_01", "Subset_ZMM_03", "Subset_SToMuMu_02", 
+    #     "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
+    #     "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
+    # ]
+        subsets = [
+        "Subset_SToMuMu_01", "Subset_SToMuMu_02", 
+        
     ]
-    
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
     overlaps = [0.3, 0.4, 0.5]  # Add negative overlaps here
 
