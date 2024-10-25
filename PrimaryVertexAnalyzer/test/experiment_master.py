@@ -2,9 +2,27 @@ import os
 import subprocess
 import itertools
 import time
+import logging
+from datetime import datetime
 
 # Global variable to control test mode
 TEST_MODE = False  # Set to False to submit all jobs
+
+# Get the current timestamp for the log filename
+timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+base_path = "experimental_run_5"
+log_filename = f"{base_path}_{timestamp}.log"
+log_path = os.path.join("/work/msaxer", log_filename)
+
+# Set up logging to file and console
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler(log_path),
+        logging.StreamHandler()
+    ]
+)
 
 def create_directory(path):
     """
@@ -16,8 +34,10 @@ def create_directory(path):
     path = os.path.join("/work/msaxer", path)
     if not os.path.exists(path):
         os.makedirs(path)
+        logging.info(f"Directory created: {path}")
         print(f"Directory created: {path}")
     else:
+        logging.info(f"Directory already exists: {path}")
         print(f"Directory already exists: {path}")
 
 def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=False):
@@ -43,7 +63,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    base_path = "experimental_run_5"
+    base_path = "experimental_run_6"
     dir_create_path = "/work/msaxer/"
 
     # Create the full path based on the sample, overlap, and blocksize
@@ -82,10 +102,13 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
         )
-        # Print the output from sbatch (which typically includes the job ID)
+        # Print and log the output from sbatch (which typically includes the job ID)
+        logging.info(result.stdout)
+        logging.info(f"Job for {sample} with overlap {overlap} and blocksize {blocksize} submitted successfully.")
         print(result.stdout)
         print(f"Job for {sample} with overlap {overlap} and blocksize {blocksize} submitted successfully.")
     except subprocess.CalledProcessError as e:
+        logging.error(f"Failed to submit job for {sample} with overlap {overlap} and blocksize {blocksize}. Error: {e}")
         print(f"Failed to submit job for {sample} with overlap {overlap} and blocksize {blocksize}. Error: {e}")
 
 def main():
@@ -97,18 +120,21 @@ def main():
     #     "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
     #     "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
     # ]
-        subsets = [
-        "Subset_SToMuMu_01", "Subset_SToMuMu_02", 
+    subsets = [
         
+        "Subset_TTbar_01", "Subset_HiggsGluonFusion_01", 
+         "Subset_ZMM_01"
     ]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0.3, 0.4, 0.5]  # Add negative overlaps here
+    overlaps = [-0.4]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [ 256,512, 1024]
+    #blocksizes = [ 256,512, 1024]
+    blocksizes = [ 512]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:
+        logging.info("Running in test mode...")
         print("Running in test mode...")
         submit_job(subsets[0], overlaps[0], blocksize=blocksizes[0], iterating_blocksize=True, notify=False)
         time.sleep(10)
