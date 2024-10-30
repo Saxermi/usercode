@@ -4,16 +4,16 @@ import os
 
 # List of histograms to retrieve and plot
 histogram_names = [
-    # "PUBlockBordersvsZdeltayprofile",
+    "PUBlockBordersvsZdeltayprofile",
     "PUBlockBordersvsEfficencyprofile",
-    #   "PUPurityVsZaxisprofile",
-    #   "SEEfficiencyVsZaxisProfile",
+    "PUPurityVsZaxisprofile",
+    "SEEfficiencyVsZaxisProfile",
     "PUEfficiencyVsZaxisProfile",
-    #  "SEResolutionNormalizedBlockprofile",
-    #  "SEBlockBordersvsPurityprofile",
-    #  "SEBlockBordersvsEfficencyprofile",
-    #  "PUBlockBordersvsFakeVertProfi",
-    # "SEPurityVsZaxisProfile",
+    "SEResolutionNormalizedBlockprofile",
+    "SEBlockBordersvsPurityprofile",
+    "SEBlockBordersvsEfficencyprofile",
+    "PUBlockBordersvsFakeVertProfi",
+    "SEPurityVsZaxisProfile",
 ]
 
 # List of ROOT files with full path
@@ -23,7 +23,7 @@ root_files = [
     "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_n512_20241025_180817.root",
     # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_n512_20241025_181727.root",
     # Add other ROOT files as needed
-    "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_512_20241024_052146.root",
+    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_512_20241024_052146.root",
     # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_ZMM_01_512_20241024_064931.root",
 ]
 
@@ -98,8 +98,6 @@ def find_histogram_in_directory(directory, hist_name):
     return None
 
 
-histograms_with_legend = []
-
 # Loop through each histogram name
 for hist_name in histogram_names:
     # Prepare a legend and list for each histogram type
@@ -107,6 +105,7 @@ for hist_name in histogram_names:
 
     # Track line style usage within each subset
     subset_line_style_index = {}
+    histograms_with_legend = []
 
     # Clear the canvas before drawing new histograms
     canvas.Clear()
@@ -217,7 +216,7 @@ for hist_name in histogram_names:
             # print(f"Drawing histogram '{unique_hist_name}' with option '{draw_option}'")
             # cloned_hist.Draw(draw_option)
             canvas.Update()
-            ROOT.gSystem.Sleep(5000)
+            # ROOT.gSystem.Sleep(5000)
 
             first_histogram = False
         else:
