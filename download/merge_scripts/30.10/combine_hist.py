@@ -19,10 +19,11 @@ histogram_names = [
 # List of ROOT files with full path
 root_files = [
     "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_512_20241024_063454.root",
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_n512_20241025_180817.root",
-    # k"/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_n512_20241025_181727.root",
+    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_512_20241024_063454A.root",
+    "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_n512_20241025_180817.root",
+    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_n512_20241025_181727.root",
     # Add other ROOT files as needed
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_512_20241024_052146.root",
+    "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_512_20241024_052146.root",
     # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_ZMM_01_512_20241024_064931.root",
 ]
 
@@ -80,6 +81,7 @@ group_by_dataset = False  # Set to False to use distinct colors for each dataset
 
 # Function to find histogram recursively
 def find_histogram_in_directory(directory, hist_name):
+
     for key in directory.GetListOfKeys():
         obj = key.ReadObj()
         if (
@@ -119,6 +121,8 @@ for hist_name in histogram_names:
         # Open ROOT file
         root_file = ROOT.TFile.Open(file_path)
 
+        root_file.cd("testVertices_test/efficiency")
+
         # Check if the file opened successfully
         if root_file and not root_file.IsZombie():
             print(f"Successfully opened: {file_path}")
@@ -146,7 +150,11 @@ for hist_name in histogram_names:
             )
 
         # Retrieve the histogram for the current name
-        hist = find_histogram_in_directory(root_file, hist_name)
+        # hist = find_histogram_in_directory(root_file, hist_name)
+        # Retrieve the histogram for the current name
+        hist = find_histogram_in_directory(
+            root_file.GetDirectory("testVertices_test/efficiency"), hist_name
+        )
         print(f"Retrieved histogram for {hist_name}: {hist}")
 
         if hist:
@@ -156,6 +164,7 @@ for hist_name in histogram_names:
             unique_hist_name = f"{hist.GetName()}_{os.path.basename(file_path)}"
             cloned_hist = hist.Clone(unique_hist_name)
             cloned_hist.SetDirectory(0)
+            root_file.Close()
 
             # Check if cloning was successful
             if not cloned_hist:
@@ -229,7 +238,7 @@ for hist_name in histogram_names:
 
     # Update and save canvas
     canvas.Update()
-    output_file = f"/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/git reps/usercode/download/merge_scripts/30.10/imgout/combined_{hist_name}_overlap_histograms.png"
+    output_file = f"/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/git reps/usercode/download/merge_scripts/30.10/imgout/combined_{hist_name}_overlap_histograms.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
 
