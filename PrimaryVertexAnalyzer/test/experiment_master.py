@@ -22,7 +22,7 @@ logging.basicConfig(
         logging.FileHandler(log_path),
         logging.StreamHandler()
     ]
-)test
+)
 
 def create_directory(path):
     """
@@ -57,7 +57,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
 
     # Calculate the directory name based on overlap (convert to an integer percentage)
-    overlap_dir = int(abs(overlap) * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
+    overlap_dir = int(abs(overlap) * 10) *10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
 
     # Add "n" if overlap is negative
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
