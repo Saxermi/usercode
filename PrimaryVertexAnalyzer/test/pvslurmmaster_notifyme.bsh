@@ -113,10 +113,10 @@ cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >
 
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
-cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${BLOCKSIZE}_${TIMESTAMP}.root
+cp pv.root /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_OL${OVERLAPP}_BS${BLOCKSIZE}_${TIMESTAMP}.root
 
 
-cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_${BLOCKSIZE}_${TIMESTAMP}.log.gz
+cp logfile /work/msaxer/${OUTPUTPATH}/${LABEL}${SAMPLE}_OL${OVERLAPP}_BS${BLOCKSIZE}_${TIMESTAMP}.log.gz
 
 
 
