@@ -152,7 +152,7 @@ def main():
             # notify = True
             # Wait for 1 second before submitting each job
             time.sleep(1)
-            submit_job(sample, overlap, blocksize, iterating_blocksize=True, notify=True, queue="standard")
+            submit_job(sample, overlap, blocksize, iterating_blocksize=True, notify=True, queue="long")
 
 if __name__ == "__main__":
     main()
