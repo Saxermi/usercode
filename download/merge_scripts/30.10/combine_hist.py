@@ -4,27 +4,107 @@ import os
 
 # List of histograms to retrieve and plot
 histogram_names = [
-    "PUBlockBordersvsZdeltayprofile",
+    "SERecoVsSimZPosition",
+    "PURecoVsSimZPosition",
+    "SETracksPurity",
+    "SETracksEfficiency",
+    "PUTracksPurity",
+    "PUTracksEfficiency",
+    "SEResolution",
+    "PUResolution",
+    "reco_vs_true_z_position_hist_categorial_c1",
+    "reco_vs_true_z_position_hist_categorial_c2",
+    "reco_vs_true_z_position_hist_categorial_c3",
+    "True_3D_point_to_plane_distance",
+    "SE_reco_index_hist",
+    "SE_reco_index_histHR",
+    "PUTracksPurityBlock",
+    "SETracksPurityBlock",
+    "NVertexVSCPUTime",
+    "SERecoVsSimZPositionBlock",
+    "PURecoVsSimZPositionBlock",
+    "PUBlockBordersvsPurityprofile",
+    "PUBlockBordersvsPurity",
     "PUBlockBordersvsEfficencyprofile",
+    "PUBlockBordersvsEfficency",
+    "PUBlockBordersvsZdeltayprofile",
+    "PUBlockBordersvsZdelta",
     "PUPurityVsZaxisprofile",
+    "PUPurityVsZaxis",
     "SEEfficiencyVsZaxisProfile",
+    "SEEfficiencyVsZaxis",
     "PUEfficiencyVsZaxisProfile",
+    "PUEfficiencyVsZaxis",
+    "SEResolutionNormalized",
     "SEResolutionNormalizedBlockprofile",
+    "SEResolutionNormalizedBlock",
+    "PUResolutionNormalized",
+    "SEResolutionVsTrackPurity",
     "SEBlockBordersvsPurityprofile",
-    "SEBlockBordersvsEfficencyprofile",
-    "PUBlockBordersvsFakeVertProfi",
+    "SEBlockBordersvsPurity",
     "SEPurityVsZaxisProfile",
+    "SEPurityVsZaxis",
+    "SEBlockBordersvsEfficencyprofile",
+    "SEBlockBordersvsEfficency",
+    "PUBlockBordersvsFakeVertProfi",
+    "PUBlockBorder",
+    "SEBlockBorder",
+    "BlockSizes",
+    "BlockNumber",
+    "SESimulatedVertices",
+    "PUSimulatedVertices",
+    "SEReconVertices",
+    "PUReconVertices",
+    "FakeVertices"
 ]
 
 # List of ROOT files with full path
 root_files = [
-    "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_512_20241024_063454.root",
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_512_20241024_063454A.root",
-    "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_TTbar_01_n512_20241025_180817.root",
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_n512_20241025_181727.root",
-    # Add other ROOT files as needed
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_HiggsGluonFusion_01_512_20241024_052146.root",
-    # "/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/Root_archiv/30.10/experimental_run_6/pvSubset_ZMM_01_512_20241024_064931.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_256.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_1024.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/HiggsGluonFusion_overlap_n40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/SToMuMu_overlap_n40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/TTbar_overlap_n40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/ZMM_overlap_n40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/HiggsGluonFusion_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/ZMM_overlap_40_blocksize_512.root"
+
 ]
 
 # Colors assigned to each subset if grouping by dataset
@@ -32,8 +112,10 @@ subset_colors = {
     "HiggsGluonFusion": ROOT.kRed,
     "TTbar": ROOT.kBlue,
     "ZMM": ROOT.kGreen + 2,
+    "SToMuMu": ROOT.kOrange,
+    "experimental_run_7": ROOT.kGray  # Set experimental_run_7 files to gray color
 }
-
+savefolder = "comparisonSE"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -78,10 +160,8 @@ axis_labels = {
 # Flag to toggle grouping by dataset
 group_by_dataset = False  # Set to False to use distinct colors for each dataset
 
-
 # Function to find histogram recursively
 def find_histogram_in_directory(directory, hist_name):
-
     for key in directory.GetListOfKeys():
         obj = key.ReadObj()
         if (
@@ -96,7 +176,6 @@ def find_histogram_in_directory(directory, hist_name):
             if found_hist:
                 return found_hist
     return None
-
 
 # Loop through each histogram name
 for hist_name in histogram_names:
@@ -142,14 +221,14 @@ for hist_name in histogram_names:
                 blocksize = -blocksize
             legend_entry = f"{subset_type} {subset_num} blocksize {blocksize}"
             print(f"Generated legend entry: {legend_entry}")
+        elif "experimental_run_7" in file_path:
+            legend_entry = f"{filename.split('_')[0]} no blocks"
         else:
             legend_entry = filename
             print(
                 f"Filename {filename} does not match pattern. Using filename as legend entry."
             )
 
-        # Retrieve the histogram for the current name
-        # hist = find_histogram_in_directory(root_file, hist_name)
         # Retrieve the histogram for the current name
         hist = find_histogram_in_directory(
             root_file.GetDirectory("testVertices_test/efficiency"), hist_name
@@ -172,7 +251,10 @@ for hist_name in histogram_names:
                 continue
 
             # Check flag and set color/line style accordingly
-            if group_by_dataset:
+            if "experimental_run_7" in file_path:
+                color = ROOT.kGray
+                line_style = 1
+            elif group_by_dataset:
                 color = subset_colors.get(subset_type, ROOT.kBlack)
                 subset_line_style_index.setdefault(subset_type, 0)
                 line_style = line_styles[
@@ -191,33 +273,19 @@ for hist_name in histogram_names:
             )
 
             # Apply axis labels from dictionary if available
-            # if hist_name in axis_labels:
-            #     x_label, y_label = axis_labels[hist_name]
-            #     cloned_hist.GetXaxis().SetTitle(x_label)
-            #     cloned_hist.GetYaxis().SetTitle(y_label)
-            #     print(
-            #         f"Set axis labels for '{hist_name}': X='{x_label}', Y='{y_label}'"
-            #     )
-
             cloned_hist.GetXaxis().SetTitleSize(0.04)
             cloned_hist.GetYaxis().SetTitleSize(0.04)
 
             # Add to list of histograms for legend
             histograms_with_legend.append((cloned_hist, legend_entry))
 
-            # Draw histogr    ROOT.gSystem.Sleep(5000)
-
-            # draw_option = "E SAME" if not first_histogram else "E"
+            # Draw histogram
             if first_histogram:
                 cloned_hist.Draw("E")
             else:
                 cloned_hist.Draw("SAME E")
 
-            # print(f"Drawing histogram '{unique_hist_name}' with option '{draw_option}'")
-            # cloned_hist.Draw(draw_option)
             canvas.Update()
-            # ROOT.gSystem.Sleep(5000)
-
             first_histogram = False
         else:
             error_log[file_path].append(f"Histogram '{hist_name}' not found in file")
@@ -237,9 +305,78 @@ for hist_name in histogram_names:
 
     # Update and save canvas
     canvas.Update()
-    output_file = f"/home/sam/ownCloud - Michael Saxer (zhaw.ch)@drive.switch.ch/PA/git reps/usercode/download/merge_scripts/30.10/imgout/combined_{hist_name}_overlap_histograms.pdf"
+    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/TTbarBlocksize/combined_{hist_name}_blocksizes_histograms.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
+
+# Additional section to divide SESimulatedVertices by SEReconVertices, and by (SEReconVertices + FakeVertices)
+# and also for PUSimulatedVertices by PUReconVertices and (PUReconVertices + FakeVertices)
+for file_path in root_files:
+    root_file = ROOT.TFile.Open(file_path)
+    if root_file and not root_file.IsZombie():
+        directory = root_file.GetDirectory("testVertices_test/efficiency")
+        if directory:
+            # SE Histograms
+            simulated_hist = find_histogram_in_directory(directory, "SESimulatedVertices")
+            recon_hist = find_histogram_in_directory(directory, "SEReconVertices")
+            fake_hist = find_histogram_in_directory(directory, "FakeVertices")
+
+            if simulated_hist and recon_hist:
+                ratio_hist_1 = simulated_hist.Clone(f"ratio_SESimulated_vs_SERecon_{os.path.basename(file_path)}")
+                ratio_hist_1.Divide(recon_hist)
+                ratio_hist_1.SetDirectory(0)
+                ratio_hist_1.SetTitle("SESimulatedVertices / SEReconVertices")
+                ratio_hist_1.Draw("E")
+
+                # Create legend
+                se_legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+                se_legend.AddEntry(ratio_hist_1, "SESimulatedVertices / SEReconVertices", "lep")
+                se_legend.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_SESimulated_vs_SERecon_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
+
+
+            # PU Histograms
+            pu_simulated_hist = find_histogram_in_directory(directory, "PUSimulatedVertices")
+            pu_recon_hist = find_histogram_in_directory(directory, "PUReconVertices")
+
+            if pu_simulated_hist and pu_recon_hist:
+                ratio_hist_3 = pu_simulated_hist.Clone(f"ratio_PUSimulated_vs_PURecon_{os.path.basename(file_path)}")
+                ratio_hist_3.Divide(pu_recon_hist)
+                ratio_hist_3.SetDirectory(0)
+                ratio_hist_3.SetTitle("PUSimulatedVertices / PUReconVertices")
+                ratio_hist_3.Draw("E")
+
+                # Create legend
+                pu_legend_3 = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+                pu_legend_3.AddEntry(ratio_hist_3, "PUSimulatedVertices / PUReconVertices", "lep")
+                pu_legend_3.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_PUSimulated_vs_PURecon_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
+
+            if pu_simulated_hist and pu_recon_hist and fake_hist:
+                ratio_hist_4 = pu_simulated_hist.Clone(f"ratio_PUSimulated_vs_PUReconPlusFake_{os.path.basename(file_path)}")
+                pu_recon_plus_fake_hist = pu_recon_hist.Clone("pu_recon_plus_fake_hist")
+                pu_recon_plus_fake_hist.Add(fake_hist)
+                ratio_hist_4.Divide(pu_recon_plus_fake_hist)
+                ratio_hist_4.SetDirectory(0)
+                ratio_hist_4.SetTitle("PUSimulatedVertices / (PUReconVertices + FakeVertices)")
+                ratio_hist_4.Draw("E")
+
+                # Create legend
+                pu_legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+                pu_legend.AddEntry(ratio_hist_4, "PUSimulatedVertices / (PUReconVertices + FakeVertices)", "lep")
+                pu_legend.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_PUSimulated_vs_PUReconPlusFake_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
+
+        root_file.Close()
 
 # Print formatted error report at the end
 print("\nError Summary:")
