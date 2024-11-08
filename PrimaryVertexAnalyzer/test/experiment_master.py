@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_5"
+base_path = "experimental_run_7"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer", log_filename)
 
@@ -64,7 +64,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    base_path = "experimental_run_5"
+    base_path = "experimental_run_7"
     dir_create_path = "/work/msaxer/"
 
     # Create the full path based on the sample, overlap, and blocksize
@@ -121,20 +121,20 @@ def main():
     # Samples to be used (from TTbar_01 to TTbar_15)
     # samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
     
-    #subsets = [
-    #    "Subset_SToMuMu_01", "Subset_ZMM_03", "Subset_SToMuMu_02", 
-    #    "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
-    #    "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
-    #]
     subsets = [
-        "Subset_ZMM_02"
+        "Subset_SToMuMu_01", "Subset_ZMM_03", "Subset_SToMuMu_02", 
+        "Subset_TTbar_01", "Subset_TTbar_02", "Subset_HiggsGluonFusion_01", 
+        "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
     ]
+    #subsets = [
+     #   "Subset_ZMM_02"
+    #]
     #subsets = ["Subset_SToMuMu_01"]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0.3]  # Add negative overlaps here
+    overlaps = [0.4]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [256,512, 1024]
+    blocksizes = [512]
     #blocksizes = [ 512]
 
     # If in test mode, only submit two jobs, one with notify and one without
