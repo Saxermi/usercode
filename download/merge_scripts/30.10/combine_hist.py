@@ -100,10 +100,10 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/SToMuMu_overlap_n40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/TTbar_overlap_n40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/ZMM_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/HiggsGluonFusion_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/ZMM_overlap_40_blocksize_512.root"
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/HiggsGluonFusion_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/ZMM_overlap_40_blocksize_512.root"
 
 ]
 
@@ -305,7 +305,7 @@ for hist_name in histogram_names:
 
     # Update and save canvas
     canvas.Update()
-    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/TTbarBlocksize/combined_{hist_name}_blocksizes_histograms.pdf"
+    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/combined_{hist_name}_blocksizes_histograms.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
 
@@ -322,16 +322,39 @@ for file_path in root_files:
             fake_hist = find_histogram_in_directory(directory, "FakeVertices")
 
             if simulated_hist and recon_hist:
-                ratio_hist_1 = simulated_hist.Clone(f"ratio_SESimulated_vs_SERecon_{os.path.basename(file_path)}")
-                ratio_hist_1.Divide(recon_hist)
-                ratio_hist_1.SetDirectory(0)
-                ratio_hist_1.SetTitle("SESimulatedVertices / SEReconVertices")
-                ratio_hist_1.Draw("E")
+                # SEReconVertices / SESimulatedVertices
+                ratio_hist_6 = recon_hist.Clone(f"ratio_SERecon_vs_SESimulated_{os.path.basename(file_path)}")
+                ratio_hist_6.Divide(simulated_hist)
+                ratio_hist_6.SetDirectory(0)
+                ratio_hist_6.SetTitle("SEReconVertices / SESimulatedVertices")
+                ratio_hist_6.SetLineColor(ROOT.kGray)
+                ratio_hist_6.Draw("E")
 
-                # Create legend
-                se_legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
-                se_legend.AddEntry(ratio_hist_1, "SESimulatedVertices / SEReconVertices", "lep")
-                se_legend.Draw()
+                # Create legend for SERecon / SESimulated
+                se_legend_recon = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+                se_legend_recon.AddEntry(ratio_hist_6, "SEReconVertices / SESimulatedVertices", "lep")
+                se_legend_recon.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_SERecon_vs_SESimulated_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
+
+                # FakeVertices / SESimulatedVertices
+                ratio_hist_7 = fake_hist.Clone(f"ratio_Fake_vs_SESimulated_{os.path.basename(file_path)}")
+                ratio_hist_7.Divide(simulated_hist)
+                ratio_hist_7.SetDirectory(0)
+                ratio_hist_7.SetTitle("FakeVertices / SESimulatedVertices")
+                ratio_hist_7.SetLineColor(ROOT.kRed)
+                ratio_hist_7.Draw("E SAME")
+
+                # Create legend for FakeVertices ratio
+                fake_legend_se = ROOT.TLegend(0.7, 0.5, 0.9, 0.7)
+                fake_legend_se.AddEntry(ratio_hist_7, "FakeVertices / SESimulatedVertices", "lep")
+                fake_legend_se.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_Fake_vs_SESimulated_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
                 canvas.Update()
                 output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_SESimulated_vs_SERecon_{os.path.basename(file_path)}.pdf"
                 canvas.SaveAs(output_file)
@@ -359,13 +382,39 @@ for file_path in root_files:
                 print(f"Saved ratio histogram as '{output_file}'")
 
             if pu_simulated_hist and pu_recon_hist and fake_hist:
-                ratio_hist_4 = pu_simulated_hist.Clone(f"ratio_PUSimulated_vs_PUReconPlusFake_{os.path.basename(file_path)}")
-                pu_recon_plus_fake_hist = pu_recon_hist.Clone("pu_recon_plus_fake_hist")
-                pu_recon_plus_fake_hist.Add(fake_hist)
-                ratio_hist_4.Divide(pu_recon_plus_fake_hist)
+                # PUReconVertices / PUSimulatedVertices
+                ratio_hist_4 = pu_recon_hist.Clone(f"ratio_PURecon_vs_PUSimulated_{os.path.basename(file_path)}")
+                ratio_hist_4.Divide(pu_simulated_hist)
                 ratio_hist_4.SetDirectory(0)
-                ratio_hist_4.SetTitle("PUSimulatedVertices / (PUReconVertices + FakeVertices)")
+                ratio_hist_4.SetTitle("PUReconVertices / PUSimulatedVertices")
+                ratio_hist_4.SetLineColor(ROOT.kGray)
                 ratio_hist_4.Draw("E")
+
+                # Create legend
+                pu_legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+                pu_legend.AddEntry(ratio_hist_4, "PUReconVertices / PUSimulatedVertices", "lep")
+                pu_legend.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_PURecon_vs_PUSimulated_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
+
+                # FakeVertices / PUSimulatedVertices
+                ratio_hist_5 = fake_hist.Clone(f"ratio_Fake_vs_PUSimulated_{os.path.basename(file_path)}")
+                ratio_hist_5.Divide(pu_simulated_hist)
+                ratio_hist_5.SetDirectory(0)
+                ratio_hist_5.SetTitle("FakeVertices / PUSimulatedVertices")
+                ratio_hist_5.SetLineColor(ROOT.kRed)
+                ratio_hist_5.Draw("E SAME")
+
+                # Create legend for FakeVertices ratio
+                fake_legend = ROOT.TLegend(0.7, 0.5, 0.9, 0.7)
+                fake_legend.AddEntry(ratio_hist_5, "FakeVertices / PUSimulatedVertices", "lep")
+                fake_legend.Draw()
+                canvas.Update()
+                output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/ratio_Fake_vs_PUSimulated_{os.path.basename(file_path)}.pdf"
+                canvas.SaveAs(output_file)
+                print(f"Saved ratio histogram as '{output_file}'")
 
                 # Create legend
                 pu_legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
