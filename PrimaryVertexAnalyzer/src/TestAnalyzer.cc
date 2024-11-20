@@ -679,10 +679,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
         addn(h, PUBlockBordersvsFakeVertProfi5);
 
     // Define a TH1F histogram for PUBlockBorder
-    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 100, 0, 10);
+    TH1F* PUBlockBorder    = new TH1F("PUBlockBorder", "PU Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 1000, -10, 10);
     addn(h, PUBlockBorder);
+
+      // Zoom in
+      TH1F* PUBlockBorder1    = new TH1F("PUBlockBorder1", "PU Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 200, -1, 1);
+      addn(h, PUBlockBorder1);
     // Define a TH1F histogram for SEBlockBorder
-    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Absolute Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 100, 0, 10);
+    TH1F* SEBlockBorder    = new TH1F("SEBlockBorder", "SE Distance to Closest Block Border; Distance to Closest Blockborder [cm]; Count", 200, -1, 1);
     addn(h, SEBlockBorder);
 
     // Define a TH1F histogram for BlockSizes
@@ -4448,7 +4452,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       SEResolutionNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
       SEResolutionNormalizedBlock -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
       SEResolutionNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
-      SEBlockBorder->Fill(abs(distance));
+      SEBlockBorder->Fill(distance);
     }
 
     //PU  resolution (Distance between sim and recon) and also normalized and with and without block
@@ -4484,6 +4488,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUBlockBorder not found!" << std::endl;
         return;
     }
+    TH1F* PUBlockBorder1 = dynamic_cast<TH1F*>(h["efficiency/PUBlockBorder1"]);
+    if (!PUBlockBorder1) {
+        std::cerr << "Error: Histogram PUBlockBorder1 not found!" << std::endl;
+        return;
+    }
 
     for (size_t i = 0; i < simEvt.size(); ++i) {
     if (!simEvt[i].is_signal()) {  // Check if it is a pile-up event
@@ -4500,8 +4509,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             float distance = nearestBlockAndDistance(rec_z, blockborders).second;
             PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
             PUBlockBordersvsZdelta->Fill(distance, delta_z);
-            PUBlockBorder->Fill(abs(distance));
-
+            PUBlockBorder->Fill(distance);
+            PUBlockBorder1->Fill(distance);
             PUResolutionNormalized -> Fill(delta_z/error_z);
         }
     }
@@ -4572,11 +4581,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     for (size_t i = 0; i < vtxs.size(); i++) {
       MVertex& v = vtxs.at(i);
       if (v.is_real()) {
+        unsigned int j = v.sim;
         if (v.is_signal()) {
-          SEReconVertices->Fill(v.z());
+          SEReconVertices->Fill(simEvt[j].z);
         }
         else{
-          PUReconVertices->Fill(v.z());
+          PUReconVertices->Fill(simEvt[j].z);
         }
       }
       else {
