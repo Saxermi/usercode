@@ -1,0 +1,644 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 366795
+HOSTNAME: t3wn31
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 20-Nov-2024 00:40:46 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
+%MSG
+20-Nov-2024 00:40:55 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+20-Nov-2024 00:41:29 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+Begin processing the 1st record. Run 1, Event 9403, LumiSection 95 on stream 0 at 20-Nov-2024 00:41:53.760 CET
+[2024-11-20 00:46:12.393212 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 00:46:44.393245 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 00:52:58 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+20-Nov-2024 00:52:58 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/64330105-899f-4369-90f8-3a882ee3f70d.root
+20-Nov-2024 00:53:01 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/64330105-899f-4369-90f8-3a882ee3f70d.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 00:53:12 CET  Run: 1 Event: 14701
+Deactivating st-096-ee8565c4.cern.ch from active sources because its quality (273) is higher than 260 and 4 times larger than the other active server st-096-gg5614ly.cern.ch (47) 
+%MSG
+[2024-11-20 00:57:59.101174 +0100][Error  ][PostMaster        ][126578] [st-096-hh151745.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 00:57:59.101717 +0100][Error  ][PostMaster        ][126578] [p06636710w35136.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 00:58:21.362062 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:02:29.326084 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 01:05:08 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/64330105-899f-4369-90f8-3a882ee3f70d.root
+20-Nov-2024 01:05:08 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/bb192485-06ec-4e47-be6e-b891e6d78d59.root
+20-Nov-2024 01:05:11 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/bb192485-06ec-4e47-be6e-b891e6d78d59.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 01:05:22 CET PreSource
+Deactivating st-096-hh151745.cern.ch from active sources because its quality (1434) is higher than 260 and 4 times larger than the other active server st-096-gg50030i.cern.ch (280) 
+%MSG
+[2024-11-20 01:10:23.892154 +0100][Error  ][PostMaster        ][126578] [st-096-ee8565c4.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:10:23.892804 +0100][Error  ][PostMaster        ][126578] [st-096-gg5614ly.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:10:37.172105 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:14:40.174075 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 01:18:27 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/bb192485-06ec-4e47-be6e-b891e6d78d59.root
+20-Nov-2024 01:18:27 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/8d914a70-daca-4574-a36d-5021ac190784.root
+20-Nov-2024 01:18:29 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/8d914a70-daca-4574-a36d-5021ac190784.root
+[2024-11-20 01:20:46.327124 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:23:38.115101 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:23:42.337066 +0100][Error  ][PostMaster        ][126578] [st-096-gg50030i.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:23:42.337215 +0100][Error  ][PostMaster        ][126578] [st-096-hh151745.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 01:29:59 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/8d914a70-daca-4574-a36d-5021ac190784.root
+20-Nov-2024 01:29:59 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f2d569a9-b789-4f62-aa04-e284f20e3f27.root
+20-Nov-2024 01:30:01 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f2d569a9-b789-4f62-aa04-e284f20e3f27.root
+[2024-11-20 01:35:14.595079 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016fb.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:35:14.595982 +0100][Error  ][PostMaster        ][126578] [st-048-bbcc9ba3.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:35:25.601154 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 01:39:48 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f2d569a9-b789-4f62-aa04-e284f20e3f27.root
+20-Nov-2024 01:39:48 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4386d85-b6b0-44be-9346-c73768ae98d8.root
+20-Nov-2024 01:39:50 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4386d85-b6b0-44be-9346-c73768ae98d8.root
+[2024-11-20 01:44:49.132123 +0100][Error  ][PostMaster        ][126578] [st-096-gg50030g.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:44:50.046064 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:44:55.258063 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:45:03.868064 +0100][Error  ][PostMaster        ][126578] [st-096-gg5003qo.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 01:50:24 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4386d85-b6b0-44be-9346-c73768ae98d8.root
+20-Nov-2024 01:50:24 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/97e7bf33-24f8-4725-bb15-fb09a7f2425d.root
+20-Nov-2024 01:50:26 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/97e7bf33-24f8-4725-bb15-fb09a7f2425d.root
+[2024-11-20 01:55:25.129026 +0100][Error  ][PostMaster        ][126578] [st-096-gg500o4v.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:55:35.150119 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:55:39.375644 +0100][Error  ][PostMaster        ][126578] [st-096-ii201c4e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 01:55:40.424049 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 02:00:38 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/97e7bf33-24f8-4725-bb15-fb09a7f2425d.root
+20-Nov-2024 02:00:38 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0392531e-10cb-43a5-bea0-9e28c34bf942.root
+20-Nov-2024 02:00:40 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0392531e-10cb-43a5-bea0-9e28c34bf942.root
+[2024-11-20 02:05:53.476062 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip310-722bd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:05:53.476891 +0100][Error  ][PostMaster        ][126578] [p06636710k91941.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:06:00.393072 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 02:11:18 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0392531e-10cb-43a5-bea0-9e28c34bf942.root
+20-Nov-2024 02:11:18 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da3a43d3-c318-48a8-a3db-dec03c4fd057.root
+20-Nov-2024 02:11:21 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da3a43d3-c318-48a8-a3db-dec03c4fd057.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 02:11:34 CET  Run: 1 Event: 5801
+Deactivating p06636710c97232.cern.ch from active sources because its quality (288) is higher than 260 and 4 times larger than the other active server p06636710n60578.cern.ch (59) 
+%MSG
+[2024-11-20 02:16:33.228108 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip313-4d084.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:16:33.813112 +0100][Error  ][PostMaster        ][126578] [st-096-gg500rrf.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:18:41.960075 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 02:23:42 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da3a43d3-c318-48a8-a3db-dec03c4fd057.root
+20-Nov-2024 02:23:42 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/67ad0999-e3e2-4822-ab4b-fab481a1a622.root
+20-Nov-2024 02:23:44 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/67ad0999-e3e2-4822-ab4b-fab481a1a622.root
+[2024-11-20 02:28:50.589102 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:28:57.894062 +0100][Error  ][PostMaster        ][126578] [p06636710c97232.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:28:57.894185 +0100][Error  ][PostMaster        ][126578] [p06636710n60578.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:29:06.575065 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 02:34:41 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/67ad0999-e3e2-4822-ab4b-fab481a1a622.root
+20-Nov-2024 02:34:41 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/31660b60-7ea6-4662-b315-e9cb51ac3470.root
+20-Nov-2024 02:34:44 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/31660b60-7ea6-4662-b315-e9cb51ac3470.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 02:34:55 CET  Run: 1 Event: 9702
+Deactivating st-096-ii2019bd.cern.ch from active sources because its quality (285) is higher than 260 and 4 times larger than the other active server st-096-gg500f11.cern.ch (32) 
+%MSG
+[2024-11-20 02:39:42.022112 +0100][Error  ][PostMaster        ][126578] [st-096-ff809e4a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:39:42.023186 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip304-27a7f.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:41:52.202039 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 02:47:42 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/31660b60-7ea6-4662-b315-e9cb51ac3470.root
+20-Nov-2024 02:47:42 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/407cdf7c-ad3d-4af8-9dba-9f21640045b8.root
+20-Nov-2024 02:47:44 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/407cdf7c-ad3d-4af8-9dba-9f21640045b8.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 02:47:57 CET  Run: 1 Event: 6202
+Deactivating st-096-ii2016fb.cern.ch from active sources because its quality (1466) is higher than 260 and 4 times larger than the other active server st-096-ii201eee.cern.ch (233) 
+%MSG
+[2024-11-20 02:52:57.506064 +0100][Error  ][PostMaster        ][126578] [st-096-ii2019bd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:52:57.517022 +0100][Error  ][PostMaster        ][126578] [st-096-gg500f11.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 02:57:21.759162 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 1001st record. Run 1, Event 6281, LumiSection 63 on stream 0 at 20-Nov-2024 02:58:07.365 CET
+20-Nov-2024 03:00:56 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/407cdf7c-ad3d-4af8-9dba-9f21640045b8.root
+20-Nov-2024 03:00:56 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e1db41e5-caa0-402c-a28c-6da2ad65e71a.root
+20-Nov-2024 03:00:58 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e1db41e5-caa0-402c-a28c-6da2ad65e71a.root
+[2024-11-20 03:05:15.169052 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:06:11.733111 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016fb.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:06:11.733639 +0100][Error  ][PostMaster        ][126578] [st-096-ii201eee.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:06:23.920067 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 03:12:12 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e1db41e5-caa0-402c-a28c-6da2ad65e71a.root
+20-Nov-2024 03:12:12 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5520024c-1884-4dd2-a4bc-44e40be53a7c.root
+20-Nov-2024 03:12:14 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5520024c-1884-4dd2-a4bc-44e40be53a7c.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 03:12:28 CET  Run: 1 Event: 7601
+Deactivating st-096-gg50030i.cern.ch from active sources because its quality (2047) is higher than 260 and 4 times larger than the other active server st-096-hh151eaf.cern.ch (294) 
+%MSG
+[2024-11-20 03:17:27.333187 +0100][Error  ][PostMaster        ][126578] [st-096-dd904d00.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:17:27.333839 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip309-275aa.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:21:51.953120 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 03:26:40 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5520024c-1884-4dd2-a4bc-44e40be53a7c.root
+20-Nov-2024 03:26:40 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/55acfb59-bdf8-42c5-8d0c-59d559d7daed.root
+20-Nov-2024 03:26:42 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/55acfb59-bdf8-42c5-8d0c-59d559d7daed.root
+[2024-11-20 03:31:41.167063 +0100][Error  ][PostMaster        ][126578] [st-096-hh151eaf.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:31:53.168059 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:31:55.842083 +0100][Error  ][PostMaster        ][126578] [st-096-gg50030i.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:31:56.842077 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 03:39:15 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/55acfb59-bdf8-42c5-8d0c-59d559d7daed.root
+20-Nov-2024 03:39:15 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/a0b64fa9-ca4e-46bd-bc30-e72b9221acc7.root
+20-Nov-2024 03:39:18 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/a0b64fa9-ca4e-46bd-bc30-e72b9221acc7.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 03:39:33 CET  Run: 1 Event: 10601
+Deactivating st-096-100gb-ip307-f6363.cern.ch from active sources because its quality (318) is higher than 260 and 4 times larger than the other active server st-096-100gb-ip313-4d084.cern.ch (17) 
+%MSG
+[2024-11-20 03:44:16.096062 +0100][Error  ][PostMaster        ][126578] [st-096-ff809b26.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:44:16.096783 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016b0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:44:49.776053 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 03:53:22 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/a0b64fa9-ca4e-46bd-bc30-e72b9221acc7.root
+20-Nov-2024 03:53:22 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4cbce9e-43d5-494a-9aad-9560b8cf3322.root
+20-Nov-2024 03:53:24 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4cbce9e-43d5-494a-9aad-9560b8cf3322.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 03:57:48 CET  Run: 1 Event: 9238
+Deactivating p06636710d54379.cern.ch from active sources because the quality (7449) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 03:57:48 CET  Run: 1 Event: 9238
+Deactivating p06636710d54379.cern.ch from active sources because its quality (7449) is higher than 260 and 4 times larger than the other active server st-096-gg5005ps.cern.ch (1839) 
+%MSG
+[2024-11-20 03:58:37.839166 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip307-f6363.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:58:37.839834 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip313-4d084.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:58:38.870087 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 03:58:49.782066 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 04:04:22 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4cbce9e-43d5-494a-9aad-9560b8cf3322.root
+20-Nov-2024 04:04:22 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/fc1de337-c962-4c2c-a435-7a13fc3e38eb.root
+20-Nov-2024 04:04:27 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/fc1de337-c962-4c2c-a435-7a13fc3e38eb.root
+[2024-11-20 04:08:45.015973 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:09:37.408198 +0100][Error  ][PostMaster        ][126578] [p06636710d54379.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:09:37.711124 +0100][Error  ][PostMaster        ][126578] [st-096-gg5005ps.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:09:46.417166 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 04:10:08 CET  Run: 1 Event: 12542
+Deactivating st-096-gg561cnv.cern.ch from active sources because the quality (23024) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 04:10:08 CET  Run: 1 Event: 12542
+Deactivating st-096-gg561cnv.cern.ch from active sources because its quality (23024) is higher than 260 and 4 times larger than the other active server st-096-ee857a70.cern.ch (1678) 
+%MSG
+20-Nov-2024 04:17:39 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/fc1de337-c962-4c2c-a435-7a13fc3e38eb.root
+20-Nov-2024 04:17:39 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/81964840-9771-4054-9ce9-4cde60935bd1.root
+20-Nov-2024 04:17:41 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/81964840-9771-4054-9ce9-4cde60935bd1.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 04:17:56 CET  Run: 1 Event: 16402
+Deactivating st-096-ii201d18.cern.ch from active sources because its quality (300) is higher than 260 and 4 times larger than the other active server st-096-dd904234.cern.ch (23) 
+%MSG
+[2024-11-20 04:22:54.870075 +0100][Error  ][PostMaster        ][126578] [st-096-gg561cnv.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:22:54.870539 +0100][Error  ][PostMaster        ][126578] [st-096-ee857a70.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:23:13.593150 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 04:30:42 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/81964840-9771-4054-9ce9-4cde60935bd1.root
+20-Nov-2024 04:30:42 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7e64910a-8384-48e6-a2f8-0c497e2a7079.root
+20-Nov-2024 04:30:44 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7e64910a-8384-48e6-a2f8-0c497e2a7079.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 04:30:58 CET  Run: 1 Event: 14103
+Deactivating st-096-100gb-ip308-66e5f.cern.ch from active sources because its quality (276) is higher than 260 and 4 times larger than the other active server st-096-dd9065cd.cern.ch (14) 
+%MSG
+[2024-11-20 04:35:57.723098 +0100][Error  ][PostMaster        ][126578] [st-096-dd904234.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:35:57.865222 +0100][Error  ][PostMaster        ][126578] [st-096-ii201d18.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:40:16.152062 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 04:42:33 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/7e64910a-8384-48e6-a2f8-0c497e2a7079.root
+20-Nov-2024 04:42:33 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f77fedc5-fd0d-4660-8600-2610b1cf5660.root
+20-Nov-2024 04:42:35 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f77fedc5-fd0d-4660-8600-2610b1cf5660.root
+[2024-11-20 04:44:18.363057 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:47:46.200109 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:47:48.658049 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip308-66e5f.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:47:48.658159 +0100][Error  ][PostMaster        ][126578] [st-096-dd9065cd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 04:53:35 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f77fedc5-fd0d-4660-8600-2610b1cf5660.root
+20-Nov-2024 04:53:35 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf13f9f9-410c-4fdd-8d92-26c234c60de0.root
+20-Nov-2024 04:53:37 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf13f9f9-410c-4fdd-8d92-26c234c60de0.root
+[2024-11-20 04:58:50.563062 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip306-28341.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:58:50.563912 +0100][Error  ][PostMaster        ][126578] [st-048-cc819925.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:58:51.612060 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 04:59:02.742162 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 05:05:20 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf13f9f9-410c-4fdd-8d92-26c234c60de0.root
+20-Nov-2024 05:05:20 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4ffb4ba-5f16-4757-8588-cf747b9e8c4a.root
+20-Nov-2024 05:05:22 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4ffb4ba-5f16-4757-8588-cf747b9e8c4a.root
+%MSG-w XrdAdaptorLvl3:   TrackAssociatorEDProducer:trackingParticleRecoTrackAsssociation  20-Nov-2024 05:05:42 CET Run: 1 Event: 1001
+Deactivating p06636710j72586.cern.ch from active sources because its quality (350) is higher than 260 and 4 times larger than the other active server p06636710u09390.cern.ch (82) 
+%MSG
+[2024-11-20 05:10:34.227062 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:10:35.307079 +0100][Error  ][PostMaster        ][126578] [st-096-hh15170e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:10:35.771051 +0100][Error  ][PostMaster        ][126578] [st-096-ff80923e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 05:17:46 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d4ffb4ba-5f16-4757-8588-cf747b9e8c4a.root
+20-Nov-2024 05:17:46 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c55443b0-c79c-46b1-9ee4-7e246f138b1c.root
+20-Nov-2024 05:17:48 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c55443b0-c79c-46b1-9ee4-7e246f138b1c.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 05:18:03 CET  Run: 1 Event: 2403
+Deactivating st-048-cc819fd7.cern.ch from active sources because its quality (289) is higher than 260 and 4 times larger than the other active server st-096-ee85708d.cern.ch (13) 
+%MSG
+[2024-11-20 05:22:47.259050 +0100][Error  ][PostMaster        ][126578] [p06636710j72586.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:23:01.582118 +0100][Error  ][PostMaster        ][126578] [p06636710u09390.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:25:04.118122 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 2001st record. Run 1, Event 2467, LumiSection 25 on stream 0 at 20-Nov-2024 05:26:14.999 CET
+20-Nov-2024 05:31:07 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c55443b0-c79c-46b1-9ee4-7e246f138b1c.root
+20-Nov-2024 05:31:07 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/1fc10c68-6621-4cb1-9fc9-86d4d81c776c.root
+20-Nov-2024 05:31:09 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/1fc10c68-6621-4cb1-9fc9-86d4d81c776c.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 05:31:23 CET  Run: 1 Event: 15204
+Deactivating st-096-gg5003qo.cern.ch from active sources because its quality (277) is higher than 260 and 4 times larger than the other active server p06636710j45805.cern.ch (28) 
+%MSG
+[2024-11-20 05:36:22.837046 +0100][Error  ][PostMaster        ][126578] [st-096-ee85708d.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:36:22.837431 +0100][Error  ][PostMaster        ][126578] [st-048-cc819fd7.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:36:39.601171 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 05:43:51 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/1fc10c68-6621-4cb1-9fc9-86d4d81c776c.root
+20-Nov-2024 05:43:51 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e6fc58bc-e906-4e8b-bb69-6a52f49be98f.root
+20-Nov-2024 05:43:53 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e6fc58bc-e906-4e8b-bb69-6a52f49be98f.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 05:44:06 CET  Run: 1 Event: 13403
+Deactivating st-096-gg500o4v.cern.ch from active sources because its quality (1368) is higher than 260 and 4 times larger than the other active server st-096-gg5614ly.cern.ch (238) 
+%MSG
+[2024-11-20 05:48:52.228064 +0100][Error  ][PostMaster        ][126578] [p06636710j45805.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:49:06.666044 +0100][Error  ][PostMaster        ][126578] [st-096-gg5003qo.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 05:49:07.182060 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 05:56:37 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e6fc58bc-e906-4e8b-bb69-6a52f49be98f.root
+20-Nov-2024 05:56:37 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f03fe837-a311-46c0-98b4-a77cd6dc681b.root
+20-Nov-2024 05:56:39 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f03fe837-a311-46c0-98b4-a77cd6dc681b.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 05:56:48 CET PreSource
+Deactivating st-096-ii2016b0.cern.ch from active sources because its quality (1918) is higher than 260 and 4 times larger than the other active server st-096-ii2016fb.cern.ch (213) 
+%MSG
+[2024-11-20 06:01:52.319071 +0100][Error  ][PostMaster        ][126578] [st-096-gg5614ly.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:01:52.762114 +0100][Error  ][PostMaster        ][126578] [st-096-gg500o4v.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:06:11.569956 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 06:09:31 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f03fe837-a311-46c0-98b4-a77cd6dc681b.root
+20-Nov-2024 06:09:31 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c4402e3e-d071-47ac-935a-2149d04c2365.root
+20-Nov-2024 06:09:33 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c4402e3e-d071-47ac-935a-2149d04c2365.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 06:09:44 CET PreSource
+Deactivating st-096-hh15170e.cern.ch from active sources because its quality (1425) is higher than 260 and 4 times larger than the other active server st-096-ff8094f7.cern.ch (306) 
+%MSG
+[2024-11-20 06:14:46.389083 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016b0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:14:46.390025 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016fb.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:17:04.720062 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:21:11.967035 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 06:22:55 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/c4402e3e-d071-47ac-935a-2149d04c2365.root
+20-Nov-2024 06:22:55 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/933d74f6-8161-4224-803d-dd4d190e4041.root
+20-Nov-2024 06:22:58 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/933d74f6-8161-4224-803d-dd4d190e4041.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 06:23:09 CET  Run: 1 Event: 2704
+Deactivating st-096-gg50030g.cern.ch from active sources because its quality (295) is higher than 260 and 4 times larger than the other active server p06636710n30768.cern.ch (17) 
+%MSG
+[2024-11-20 06:27:56.242049 +0100][Error  ][PostMaster        ][126578] [st-096-ff8094f7.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:28:11.616085 +0100][Error  ][PostMaster        ][126578] [st-096-hh15170e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:30:19.703047 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 06:34:42 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/933d74f6-8161-4224-803d-dd4d190e4041.root
+20-Nov-2024 06:34:42 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5f02f45b-dbc0-4124-b050-d225a6f3e1a7.root
+20-Nov-2024 06:34:44 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5f02f45b-dbc0-4124-b050-d225a6f3e1a7.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 06:34:58 CET  Run: 1 Event: 11702
+Deactivating st-096-ii2019d1.cern.ch from active sources because its quality (273) is higher than 260 and 4 times larger than the other active server st-096-gg5618jy.cern.ch (21) 
+%MSG
+[2024-11-20 06:39:57.525065 +0100][Error  ][PostMaster        ][126578] [st-096-gg50030g.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:39:57.525767 +0100][Error  ][PostMaster        ][126578] [p06636710n30768.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 06:47:38 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5f02f45b-dbc0-4124-b050-d225a6f3e1a7.root
+20-Nov-2024 06:47:38 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf12df3f-5f36-4255-b42f-0e068ad43ae5.root
+20-Nov-2024 06:47:40 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf12df3f-5f36-4255-b42f-0e068ad43ae5.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 06:47:58 CET  Run: 1 Event: 7203
+Deactivating st-096-gg5003qo.cern.ch from active sources because its quality (3971) is higher than 260 and 4 times larger than the other active server st-096-dd904234.cern.ch (288) 
+%MSG
+[2024-11-20 06:52:53.446077 +0100][Error  ][PostMaster        ][126578] [st-096-ii2019d1.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:52:53.446847 +0100][Error  ][PostMaster        ][126578] [st-096-gg5618jy.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:55:15.455073 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 06:59:24.114091 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 07:00:50 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/cf12df3f-5f36-4255-b42f-0e068ad43ae5.root
+20-Nov-2024 07:00:50 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4c5dcb57-755c-4f3b-a54e-5297a6c947f7.root
+20-Nov-2024 07:00:53 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4c5dcb57-755c-4f3b-a54e-5297a6c947f7.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 07:01:05 CET PreSource
+Deactivating st-096-ii2016b0.cern.ch from active sources because its quality (1918) is higher than 260 and 4 times larger than the other active server st-096-dd904234.cern.ch (323) 
+%MSG
+[2024-11-20 07:05:51.060091 +0100][Error  ][PostMaster        ][126578] [st-096-gg5003qo.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:06:20.169142 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 07:13:16 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4c5dcb57-755c-4f3b-a54e-5297a6c947f7.root
+20-Nov-2024 07:13:16 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/de1a932b-9f15-4079-9c5e-97e51c29c2a5.root
+20-Nov-2024 07:13:19 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/de1a932b-9f15-4079-9c5e-97e51c29c2a5.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 07:13:33 CET  Run: 1 Event: 4601
+Deactivating st-096-gg500rrf.cern.ch from active sources because its quality (1240) is higher than 260 and 4 times larger than the other active server p06636710d54379.cern.ch (286) 
+%MSG
+[2024-11-20 07:18:17.243053 +0100][Error  ][PostMaster        ][126578] [st-096-dd904234.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:18:17.243607 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016b0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:18:35.271147 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:22:37.098261 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 07:27:06 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/de1a932b-9f15-4079-9c5e-97e51c29c2a5.root
+20-Nov-2024 07:27:06 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da8e5ff5-6b46-414a-948d-5335ff0d190a.root
+20-Nov-2024 07:27:08 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da8e5ff5-6b46-414a-948d-5335ff0d190a.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 07:27:20 CET  Run: 1 Event: 17901
+Deactivating st-096-ii2019bd.cern.ch from active sources because its quality (302) is higher than 260 and 4 times larger than the other active server p06636710r76378.cern.ch (36) 
+%MSG
+[2024-11-20 07:32:21.788041 +0100][Error  ][PostMaster        ][126578] [p06636710d54379.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:32:21.927048 +0100][Error  ][PostMaster        ][126578] [st-096-gg500rrf.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:32:28.318105 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:38:36.564060 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 07:40:17 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/da8e5ff5-6b46-414a-948d-5335ff0d190a.root
+20-Nov-2024 07:40:17 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3d199fcf-29f1-4705-925a-add2caa722ac.root
+20-Nov-2024 07:40:20 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3d199fcf-29f1-4705-925a-add2caa722ac.root
+[2024-11-20 07:45:18.129225 +0100][Error  ][PostMaster        ][126578] [st-096-ii2019bd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:45:18.130283 +0100][Error  ][PostMaster        ][126578] [p06636710r76378.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:45:33.365052 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:45:43.377035 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 07:52:23 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3d199fcf-29f1-4705-925a-add2caa722ac.root
+20-Nov-2024 07:52:23 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4fbebed0-d85f-4da6-8e4a-fedb368d20e7.root
+20-Nov-2024 07:52:25 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4fbebed0-d85f-4da6-8e4a-fedb368d20e7.root
+[2024-11-20 07:57:24.098059 +0100][Error  ][PostMaster        ][126578] [st-096-dd9065cd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:57:38.426050 +0100][Error  ][PostMaster        ][126578] [p06636710s48830.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 07:57:50.412173 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 3001st record. Run 1, Event 12348, LumiSection 124 on stream 0 at 20-Nov-2024 07:58:20.806 CET
+20-Nov-2024 08:04:49 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/4fbebed0-d85f-4da6-8e4a-fedb368d20e7.root
+20-Nov-2024 08:04:49 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/02859aa5-07bc-46c3-9f11-7045445f021f.root
+20-Nov-2024 08:04:52 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/02859aa5-07bc-46c3-9f11-7045445f021f.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 08:05:06 CET  Run: 1 Event: 3602
+Deactivating st-096-gg5618jy.cern.ch from active sources because its quality (2034) is higher than 260 and 4 times larger than the other active server st-096-gg500b5c.cern.ch (276) 
+%MSG
+[2024-11-20 08:10:04.785120 +0100][Error  ][PostMaster        ][126578] [st-096-gg561crd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:10:04.786689 +0100][Error  ][PostMaster        ][126578] [st-096-hh151911.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:14:24.590097 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 08:18:09 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/02859aa5-07bc-46c3-9f11-7045445f021f.root
+20-Nov-2024 08:18:09 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/687362d1-2909-4cec-9327-2f8cd92db8e3.root
+20-Nov-2024 08:18:12 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/687362d1-2909-4cec-9327-2f8cd92db8e3.root
+[2024-11-20 08:20:26.711051 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:23:24.608149 +0100][Error  ][PostMaster        ][126578] [st-096-gg500b5c.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:23:24.775085 +0100][Error  ][PostMaster        ][126578] [st-096-gg5618jy.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:23:37.469215 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 08:28:31 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/687362d1-2909-4cec-9327-2f8cd92db8e3.root
+20-Nov-2024 08:28:31 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/505d972d-6f3a-48d0-a5fc-f046482c4ccb.root
+20-Nov-2024 08:28:33 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/505d972d-6f3a-48d0-a5fc-f046482c4ccb.root
+[2024-11-20 08:33:46.509169 +0100][Error  ][PostMaster        ][126578] [st-096-dd905ace.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:33:46.713153 +0100][Error  ][PostMaster        ][126578] [st-096-gg500tbp.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:33:58.725103 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 08:39:28 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/505d972d-6f3a-48d0-a5fc-f046482c4ccb.root
+20-Nov-2024 08:39:28 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/36704ba3-f8a4-4e6f-be8a-3a3d85324a13.root
+20-Nov-2024 08:39:30 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/36704ba3-f8a4-4e6f-be8a-3a3d85324a13.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 08:39:44 CET  Run: 1 Event: 15501
+Deactivating st-096-gg5618jy.cern.ch from active sources because its quality (2034) is higher than 260 and 4 times larger than the other active server st-096-ii201bfc.cern.ch (289) 
+%MSG
+[2024-11-20 08:44:43.497136 +0100][Error  ][PostMaster        ][126578] [st-096-hh15170e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:44:43.497788 +0100][Error  ][PostMaster        ][126578] [st-048-cc820d48.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:47:04.575111 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 08:52:52 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/36704ba3-f8a4-4e6f-be8a-3a3d85324a13.root
+20-Nov-2024 08:52:52 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/12ed944b-25dd-4013-b088-3adfffa8b3a5.root
+20-Nov-2024 08:52:54 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/12ed944b-25dd-4013-b088-3adfffa8b3a5.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 08:53:10 CET  Run: 1 Event: 1803
+Deactivating st-048-cc819925.cern.ch from active sources because its quality (1611) is higher than 260 and 4 times larger than the other active server st-096-dd9065cd.cern.ch (328) 
+%MSG
+[2024-11-20 08:57:53.034165 +0100][Error  ][PostMaster        ][126578] [st-096-gg5618jy.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:57:53.035001 +0100][Error  ][PostMaster        ][126578] [st-096-ii201bfc.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 08:58:27.140102 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:02:39.392630 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 09:05:58 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/12ed944b-25dd-4013-b088-3adfffa8b3a5.root
+20-Nov-2024 09:05:58 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0a12a314-201d-4419-8bd2-393967544e6e.root
+20-Nov-2024 09:06:00 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0a12a314-201d-4419-8bd2-393967544e6e.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 09:06:15 CET  Run: 1 Event: 5402
+Deactivating p06636710r76378.cern.ch from active sources because its quality (2487) is higher than 260 and 4 times larger than the other active server st-096-gg50030g.cern.ch (309) 
+%MSG
+[2024-11-20 09:11:13.599058 +0100][Error  ][PostMaster        ][126578] [st-096-dd9065cd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:11:13.731042 +0100][Error  ][PostMaster        ][126578] [st-048-cc819925.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:11:32.917127 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:15:37.979070 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:19:46.443048 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 09:19:47 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0a12a314-201d-4419-8bd2-393967544e6e.root
+20-Nov-2024 09:19:47 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0768c002-c2f3-46ff-9248-6193e194ab16.root
+20-Nov-2024 09:19:49 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0768c002-c2f3-46ff-9248-6193e194ab16.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 09:20:04 CET  Run: 1 Event: 14802
+Deactivating st-096-hh151911.cern.ch from active sources because its quality (317) is higher than 260 and 4 times larger than the other active server p06636710v96864.cern.ch (26) 
+%MSG
+[2024-11-20 09:24:48.076211 +0100][Error  ][PostMaster        ][126578] [p06636710r76378.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:24:48.076621 +0100][Error  ][PostMaster        ][126578] [st-096-gg50030g.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:25:15.484076 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 09:32:34 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0768c002-c2f3-46ff-9248-6193e194ab16.root
+20-Nov-2024 09:32:34 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/69830aa9-0a8a-4ac8-9e13-6ea64bcddcee.root
+20-Nov-2024 09:32:36 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/69830aa9-0a8a-4ac8-9e13-6ea64bcddcee.root
+[2024-11-20 09:37:35.068068 +0100][Error  ][PostMaster        ][126578] [p06636710v96864.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:37:35.256124 +0100][Error  ][PostMaster        ][126578] [st-096-hh151911.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:37:40.282042 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:38:03.305287 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 09:44:16 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/69830aa9-0a8a-4ac8-9e13-6ea64bcddcee.root
+20-Nov-2024 09:44:16 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e509686d-d952-4ff6-8f27-35606907eaf4.root
+20-Nov-2024 09:44:19 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e509686d-d952-4ff6-8f27-35606907eaf4.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 09:44:33 CET  Run: 1 Event: 6701
+Deactivating st-096-ii201a6a.cern.ch from active sources because its quality (319) is higher than 260 and 4 times larger than the other active server st-048-90b07efe.cern.ch (19) 
+%MSG
+[2024-11-20 09:49:17.243087 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016b0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:49:17.243667 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip306-40da9.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:49:18.287052 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 09:53:45.454091 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 09:56:56 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e509686d-d952-4ff6-8f27-35606907eaf4.root
+20-Nov-2024 09:56:56 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5c4f5043-1d56-4f72-81d7-f8019d730d5a.root
+20-Nov-2024 09:56:58 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5c4f5043-1d56-4f72-81d7-f8019d730d5a.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 09:57:09 CET  Run: 1 Event: 3101
+Deactivating st-096-100gb-ip306-40da9.cern.ch from active sources because its quality (268) is higher than 260 and 4 times larger than the other active server st-096-gg500ie0.cern.ch (48) 
+%MSG
+[2024-11-20 10:01:57.137056 +0100][Error  ][PostMaster        ][126578] [st-096-ii201a6a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:01:57.137642 +0100][Error  ][PostMaster        ][126578] [st-048-90b07efe.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:02:03.243093 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:06:07.202092 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 10:10:14 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5c4f5043-1d56-4f72-81d7-f8019d730d5a.root
+20-Nov-2024 10:10:14 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/502db0ca-8986-403d-978d-2381f6a47093.root
+20-Nov-2024 10:10:17 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/502db0ca-8986-403d-978d-2381f6a47093.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 10:10:30 CET PreSource
+Deactivating p06636710c97232.cern.ch from active sources because its quality (3351) is higher than 260 and 4 times larger than the other active server st-096-ii2016fb.cern.ch (196) 
+%MSG
+[2024-11-20 10:15:29.819050 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip306-40da9.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:15:29.832985 +0100][Error  ][PostMaster        ][126578] [st-096-gg500ie0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:15:31.197063 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:19:33.058080 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 10:24:35 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/502db0ca-8986-403d-978d-2381f6a47093.root
+20-Nov-2024 10:24:35 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2bd19a36-0484-474e-9b82-224dcc03cff5.root
+20-Nov-2024 10:24:37 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2bd19a36-0484-474e-9b82-224dcc03cff5.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 10:24:53 CET  Run: 1 Event: 11402
+Deactivating st-096-ee8565c4.cern.ch from active sources because its quality (364) is higher than 260 and 4 times larger than the other active server st-096-100gb-ip303-972ee.cern.ch (29) 
+%MSG
+[2024-11-20 10:25:57.681193 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 4001st record. Run 1, Event 11423, LumiSection 115 on stream 0 at 20-Nov-2024 10:27:51.165 CET
+[2024-11-20 10:29:50.822118 +0100][Error  ][PostMaster        ][126578] [p06636710c97232.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:29:50.822586 +0100][Error  ][PostMaster        ][126578] [st-096-ii2016fb.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:29:55.182051 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:33:56.152055 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 10:37:36 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2bd19a36-0484-474e-9b82-224dcc03cff5.root
+20-Nov-2024 10:37:36 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f4969ec9-e822-4c99-9b33-09685ec17c43.root
+20-Nov-2024 10:37:42 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f4969ec9-e822-4c99-9b33-09685ec17c43.root
+[2024-11-20 10:42:51.468241 +0100][Error  ][PostMaster        ][126578] [st-096-ee8565c4.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:42:51.804121 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip303-972ee.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:42:52.513106 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:43:01.814071 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 10:48:19 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f4969ec9-e822-4c99-9b33-09685ec17c43.root
+20-Nov-2024 10:48:19 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3ca9bae1-08e6-42db-9778-80675be04c04.root
+20-Nov-2024 10:48:21 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3ca9bae1-08e6-42db-9778-80675be04c04.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 10:48:32 CET  Run: 1 Event: 13003
+Deactivating p06636710k42552.cern.ch from active sources because its quality (295) is higher than 260 and 4 times larger than the other active server st-096-gg500p2d.cern.ch (45) 
+%MSG
+[2024-11-20 10:53:34.985515 +0100][Error  ][PostMaster        ][126578] [st-096-ii2019bd.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 10:53:34.986027 +0100][Error  ][PostMaster        ][126578] [st-096-gg5616jk.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 11:01:02 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/3ca9bae1-08e6-42db-9778-80675be04c04.root
+20-Nov-2024 11:01:02 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/39740234-7c27-425e-8ff4-747468290ea1.root
+20-Nov-2024 11:01:05 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/39740234-7c27-425e-8ff4-747468290ea1.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 11:01:19 CET  Run: 1 Event: 5502
+Deactivating p06636710g40375.cern.ch from active sources because its quality (270) is higher than 260 and 4 times larger than the other active server st-096-cc5547c1.cern.ch (26) 
+%MSG
+[2024-11-20 11:06:17.514068 +0100][Error  ][PostMaster        ][126578] [p06636710k42552.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:06:17.514652 +0100][Error  ][PostMaster        ][126578] [st-096-gg500p2d.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:08:26.119210 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:12:45.910068 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 11:13:19 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/39740234-7c27-425e-8ff4-747468290ea1.root
+20-Nov-2024 11:13:19 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e7e89bde-db80-4841-a15a-19ae59bf8563.root
+20-Nov-2024 11:13:21 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e7e89bde-db80-4841-a15a-19ae59bf8563.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 11:13:36 CET  Run: 1 Event: 502
+Deactivating st-096-dd9063a0.cern.ch from active sources because its quality (284) is higher than 260 and 4 times larger than the other active server p06636710g92576.cern.ch (24) 
+%MSG
+[2024-11-20 11:18:34.726134 +0100][Error  ][PostMaster        ][126578] [st-096-cc5547c1.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:18:34.777078 +0100][Error  ][PostMaster        ][126578] [p06636710g40375.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:23:03.197082 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 11:25:15 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/e7e89bde-db80-4841-a15a-19ae59bf8563.root
+20-Nov-2024 11:25:15 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/16d0d497-9fe0-486a-b8a0-acb4b20c3cca.root
+20-Nov-2024 11:25:17 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/16d0d497-9fe0-486a-b8a0-acb4b20c3cca.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 11:25:32 CET  Run: 1 Event: 15302
+Deactivating st-096-gg5004v4.cern.ch from active sources because its quality (324) is higher than 260 and 4 times larger than the other active server st-096-ii201a6a.cern.ch (16) 
+%MSG
+[2024-11-20 11:30:16.036057 +0100][Error  ][PostMaster        ][126578] [st-096-dd9063a0.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:30:16.037510 +0100][Error  ][PostMaster        ][126578] [p06636710g92576.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:30:17.094056 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 11:38:33 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/16d0d497-9fe0-486a-b8a0-acb4b20c3cca.root
+20-Nov-2024 11:38:33 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/ca114b7f-6405-4c61-abfe-1765cec24c49.root
+20-Nov-2024 11:38:35 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/ca114b7f-6405-4c61-abfe-1765cec24c49.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 11:38:50 CET  Run: 1 Event: 6802
+Deactivating st-096-ff809b26.cern.ch from active sources because its quality (1965) is higher than 260 and 4 times larger than the other active server st-096-gg500hxn.cern.ch (282) 
+%MSG
+[2024-11-20 11:43:48.695054 +0100][Error  ][PostMaster        ][126578] [st-096-gg5004v4.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:43:48.695424 +0100][Error  ][PostMaster        ][126578] [st-096-ii201a6a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:46:12.739078 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 11:51:54 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/ca114b7f-6405-4c61-abfe-1765cec24c49.root
+20-Nov-2024 11:51:54 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d40f12ca-ae4a-4bce-a444-287edb6b001c.root
+20-Nov-2024 11:51:56 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d40f12ca-ae4a-4bce-a444-287edb6b001c.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 11:52:11 CET  Run: 1 Event: 14001
+Deactivating st-096-gg5616jk.cern.ch from active sources because its quality (296) is higher than 260 and 4 times larger than the other active server st-096-ii201d18.cern.ch (26) 
+%MSG
+[2024-11-20 11:56:55.089118 +0100][Error  ][PostMaster        ][126578] [st-096-ff809b26.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:56:55.137995 +0100][Error  ][PostMaster        ][126578] [st-096-gg500hxn.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 11:56:56.122962 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 12:04:08 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d40f12ca-ae4a-4bce-a444-287edb6b001c.root
+20-Nov-2024 12:04:08 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/005024c2-0e30-4685-9f43-f746a3bdf1e1.root
+20-Nov-2024 12:04:11 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/005024c2-0e30-4685-9f43-f746a3bdf1e1.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 12:04:25 CET  Run: 1 Event: 903
+Deactivating st-096-gg561cnv.cern.ch from active sources because its quality (289) is higher than 260 and 4 times larger than the other active server st-096-hh151758.cern.ch (27) 
+%MSG
+[2024-11-20 12:09:09.239129 +0100][Error  ][PostMaster        ][126578] [st-096-gg5616jk.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:09:09.240161 +0100][Error  ][PostMaster        ][126578] [st-096-ii201d18.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:09:42.703041 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 12:16:37 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/005024c2-0e30-4685-9f43-f746a3bdf1e1.root
+20-Nov-2024 12:16:37 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c08151-4c14-490a-8561-1bfa72c58719.root
+20-Nov-2024 12:16:39 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c08151-4c14-490a-8561-1bfa72c58719.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 12:16:52 CET  Run: 1 Event: 15402
+Deactivating st-096-100gb-ip309-275aa.cern.ch from active sources because its quality (1733) is higher than 260 and 4 times larger than the other active server st-096-100gb-ip313-4d084.cern.ch (271) 
+%MSG
+[2024-11-20 12:21:38.122985 +0100][Error  ][PostMaster        ][126578] [st-096-gg561cnv.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:21:38.127574 +0100][Error  ][PostMaster        ][126578] [st-096-hh151758.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:24:16.348114 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 12:29:08 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c08151-4c14-490a-8561-1bfa72c58719.root
+20-Nov-2024 12:29:08 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0e5a3d91-3af0-468b-a2e1-b3110ba6229c.root
+20-Nov-2024 12:29:10 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0e5a3d91-3af0-468b-a2e1-b3110ba6229c.root
+%MSG-w XrdAdaptorLvl3:  PreProcPath MPV 20-Nov-2024 12:29:25 CET  Run: 1 Event: 12201
+Deactivating st-096-ii201eee.cern.ch from active sources because its quality (2250) is higher than 260 and 4 times larger than the other active server st-096-dd904x34.cern.ch (308) 
+%MSG
+[2024-11-20 12:34:23.213158 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip309-275aa.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:34:23.510107 +0100][Error  ][PostMaster        ][126578] [st-096-100gb-ip313-4d084.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:38:43.230074 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 12:43:29 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/0e5a3d91-3af0-468b-a2e1-b3110ba6229c.root
+20-Nov-2024 12:43:29 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d2d4f621-8bd6-4001-93c5-6ffd24173916.root
+20-Nov-2024 12:43:31 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d2d4f621-8bd6-4001-93c5-6ffd24173916.root
+[2024-11-20 12:44:55.394084 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:48:44.842074 +0100][Error  ][PostMaster        ][126578] [st-096-dd904x34.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:48:44.935044 +0100][Error  ][PostMaster        ][126578] [st-096-ii201eee.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 12:48:57.625260 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 5001st record. Run 1, Event 6081, LumiSection 61 on stream 0 at 20-Nov-2024 12:53:00.144 CET
+20-Nov-2024 12:55:32 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d2d4f621-8bd6-4001-93c5-6ffd24173916.root
+20-Nov-2024 12:55:32 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d150f96b-de74-4160-a296-610ca64e7369.root
+20-Nov-2024 12:55:34 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d150f96b-de74-4160-a296-610ca64e7369.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 12:55:46 CET PreSource
+Deactivating st-096-gg5003qo.cern.ch from active sources because its quality (2354) is higher than 260 and 4 times larger than the other active server st-096-dd905ace.cern.ch (333) 
+%MSG
+[2024-11-20 13:00:33.017102 +0100][Error  ][PostMaster        ][126578] [st-096-gg500ma7.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:00:33.017878 +0100][Error  ][PostMaster        ][126578] [st-096-ii201d5b.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:05:08.732114 +0100][Error  ][PostMaster        ][126578] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 13:07:30 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d150f96b-de74-4160-a296-610ca64e7369.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 44834.9 seconds
+ Time Summary: 
+ - Min event:   4.19715
+ - Max event:   24.7594
+ - Avg event:   6.26789
+ - Total loop:  44743.3
+ - Total init:  91.0959
+ - Total job:   44834.9
+ - Total EventSetup: 19.211
+ - Total non-module: 623.812
+ Event Throughput: 0.113894 ev/s
+ CPU Summary: 
+ - Total loop:     21257.6
+ - Total init:     77.6892
+ - Total extra:    0
+ - Total children: 0.150226
+ - Total job:      21335.8
+ Processing Summary: 
+ - Number of Events:  5096
+ - Number of Global Begin Lumi Calls:  60
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 5096 passed = 5096 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0       5096       5096          0          0 MPV
+TrigReport     1    1       5096       5096          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0       5096       5096          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0       5096       5096          0          0 tpClusterProducer
+TrigReport     1    1       5096       5096          0          0 quickTrackAssociatorByHits
+TrigReport     1    2       5096       5096          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3       5096       5096          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport       5096       5096       5096          0          0 MPV
+TrigReport       5096       5096       5096          0          0 TriggerResults
+TrigReport       5096       5096       5096          0          0 analyze
+TrigReport       5096       5096       5096          0          0 oldVertexAnalysis
+TrigReport       5096       5096       5096          0          0 quickTrackAssociatorByHits
+TrigReport       5096       5096       5096          0          0 testVertices
+TrigReport       5096       5096       5096          0          0 tpClusterProducer
+TrigReport       5096       5096       5096          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 4.171439
+TimeReport      event loop Real/event = 8.780085
+TimeReport     sum Streams Real/event = 8.658165
+TimeReport efficiency CPU/Real/thread = 0.475102
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   6.267731     6.267731  MPV
+TimeReport   6.267849     6.267849  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.445267     0.445267  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.425052     1.425052  tpClusterProducer
+TimeReport   0.000014     0.000014  quickTrackAssociatorByHits
+TimeReport   0.281603     0.281603  trackingParticleRecoTrackAsssociation
+TimeReport   0.188351     0.188351  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000004     0.000004     0.000004  TriggerResults
+TimeReport   0.000015     0.000015     0.000015  analyze
+TimeReport   0.188351     0.188351     0.188351  oldVertexAnalysis
+TimeReport   0.000014     0.000014     0.000014  quickTrackAssociatorByHits
+TimeReport   0.445267     0.445267     0.445267  testVertices
+TimeReport   1.425052     1.425052     1.425052  tpClusterProducer
+TimeReport   0.281603     0.281603     0.281603  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+

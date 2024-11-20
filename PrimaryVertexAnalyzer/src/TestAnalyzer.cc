@@ -370,13 +370,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency, Track Efficiency [%];Count", 1000, 0, 101);
     addn(h, PUTracksEfficiency);
 
-    // SE Resolution
-    TH1F *SEResolution = new TH1F("SEResolution","SE Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 1000, -0.2, 0.2);
-    addn(h, SEResolution);
-
-    // PU Resolution
-    TH1F *PUResolution = new TH1F("PUResolution","PU Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 1000, -0.3, 0.3);
-    addn(h, PUResolution);
+    // SE residual
+    TH1F *SEResidual = new TH1F("SEResidual","SE Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 1000, -0.2, 0.2);
+    addn(h, SEResidual);
+    // PU residual
+    TH1F *PUResidual = new TH1F("PUResidual","PU Reconstructed vs. Simulated Z-Position Position Difference; Distance between Recon. and Sim. Vertex Z-Position [cm]", 1000, -0.3, 0.3);
+    addn(h, PUResidual);
 
     // PU Confusion Matrix
       TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Count of Simulated  PU Vertex Reconstructed as 1 Vertex vs. Position; Reconstructed Vertex Z-Position; Count", 1000, -30, 30);
@@ -546,30 +545,30 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUEfficiencyVsZaxis );
 
 
-    // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
+    // SE Residual Normalized by dividing the difference in z position of sim and recon by its estimated error
     // will try this with tprofile and TH1f
-    TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
-    addn(h, SEResolutionNormalized);
-
+    TH1F *SEResidualNormalized = new TH1F("SEResidualNormalized", "SE Residual (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
+    addn(h, SEResidualNormalized);
     // SE Resolution Normalized versus block distance
-    TProfile* SEResolutionNormalizedBlockprofile = new TProfile("SEResolutionNormalizedBlockprofile", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, -10, 10);
-    addn(h, SEResolutionNormalizedBlockprofile);
+    TProfile* SEResidualNormalizedBlockprofile = new TProfile("SEResidualNormalizedBlockprofile", "SE Residual (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, -10, 10);
+    addn(h, SEResidualNormalizedBlockprofile);
 
-    TH2F* SEResolutionNormalizedBlock = new TH2F("SEResolutionNormalizedBlock", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, 100, -10, 10);
-    addn(h, SEResolutionNormalizedBlock);
+    TH2F* SEResidualNormalizedBlock = new TH2F("SEResidualNormalizedBlock", "SE Residual (Distance between Sim. & Recon. Vertex) Normalized vs Distance to Blockborder Profile; Distance between Sim. & Recon. Vertex; Distance to Closest Blockborder;", 100, -1, 1, 100, -10, 10);
+    addn(h, SEResidualNormalizedBlock);
 
     // histogram of PU resolution normalized
-    TH1F *PUResolutionNormalized = new TH1F("PUResolutionNormalized", "PU Resolution (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
-    addn(h, PUResolutionNormalized);
+    TH1F *PUResidualNormalized = new TH1F("PUResidualNormalized", "PU Residual (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
+    addn(h, PUResidualNormalized);
 
     // Histogram SE ResolutionVsTrack Purity
-    TH2F *SEResolutionVsTrackPurity = new TH2F("SEResolutionVsTrackPurity", "SE Resolution vs. Track Purity; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 100, 0, 101);
-    addn(h, SEResolutionVsTrackPurity);
+    TH2F *SEResidualVsTrackPurity = new TH2F("SEResidualVsTrackPurity", "SE Residual vs. Track Purity; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 100, 0, 101);
+    addn(h, SEResidualVsTrackPurity);
+
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEResolutionVsTrackPurityprofile = new TProfile("SEResolutionVsTrackPurityprofile", "SE Resolution vs. Track Purity; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 0, 101);
+    TProfile* SEResidualVsTrackPurityprofile = new TProfile("SEResidualVsTrackPurityprofile", "SE Residual vs. Track Purity; Residual [cm]; Track Purity [%]", 100, -0.2, 0.2, 0, 101);
 
-    addn(h, SEResolutionVsTrackPurityprofile);
+    addn(h, SEResidualVsTrackPurityprofile);
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
     TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
@@ -4413,25 +4412,25 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     //SE resolution (Distance between sim and recon) and also normalized and with and without block
     // TO DO: resolution vs block
 
-    TH1F *SEResolution = dynamic_cast<TH1F *>(h["efficiency/SEResolution"]);
-    if (!SEResolution) {
-        std::cerr << "Error: Histogram SEResolution not found!" << std::endl;
+    TH1F *SEResidual = dynamic_cast<TH1F *>(h["efficiency/SEResidual"]);
+    if (!SEResidual) {
+        std::cerr << "Error: Histogram SEResidual not found!" << std::endl;
         return;
     }
-    TH1F *SEResolutionNormalized = dynamic_cast<TH1F *>(h["efficiency/SEResolutionNormalized"]);
-    if (!SEResolutionNormalized) {
-        std::cerr << "Error: Histogram SEResolutionNormalized not found!" << std::endl;
+    TH1F *SEResidualNormalized = dynamic_cast<TH1F *>(h["efficiency/SEResidualNormalized"]);
+    if (!SEResidualNormalized) {
+        std::cerr << "Error: Histogram SEResidualNormalized not found!" << std::endl;
         return;
     }
-    TProfile* SEResolutionNormalizedBlockprofile = dynamic_cast<TProfile *>(h["efficiency/SEResolutionNormalizedBlockprofile"]);
-    if (!SEResolutionNormalizedBlockprofile) {
-        std::cerr << "Error: Histogram SEResolutionNormalizedBlockprofile not found!" << std::endl;
+    TProfile* SEResidualNormalizedBlockprofile = dynamic_cast<TProfile *>(h["efficiency/SEResidualNormalizedBlockprofile"]);
+    if (!SEResidualNormalizedBlockprofile) {
+        std::cerr << "Error: Histogram SEResidualNormalizedBlockprofile not found!" << std::endl;
         return;
     }
 
-    TH2F* SEResolutionNormalizedBlock = dynamic_cast<TH2F *>(h["efficiency/SEResolutionNormalizedBlock"]);
-    if (!SEResolutionNormalizedBlock) {
-        std::cerr << "Error: Histogram SEResolutionNormalizedBlock not found!" << std::endl;
+    TH2F* SEResidualNormalizedBlock = dynamic_cast<TH2F *>(h["efficiency/SEResidualNormalizedBlock"]);
+    if (!SEResidualNormalizedBlock) {
+        std::cerr << "Error: Histogram SEResidualNormalizedBlock not found!" << std::endl;
         return;
     }
     // Initialize histograms SE blockborder distance
@@ -4444,18 +4443,18 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     if (simEvt[0].is_matched()) {
       MVertex& matchedVtx = vtxs.at(simEvt[0].rec);
       float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
-      SEResolution->Fill( simEvt[0].z -matchedVtx.z());
-      SEResolutionNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
-      SEResolutionNormalizedBlock -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
-      SEResolutionNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
+      SEResidual->Fill( simEvt[0].z -matchedVtx.z());
+      SEResidualNormalized -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError());
+      SEResidualNormalizedBlock -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
+      SEResidualNormalizedBlockprofile -> Fill((simEvt[0].z -matchedVtx.z()) / matchedVtx.zError(), distance);
       SEBlockBorder->Fill(abs(distance));
     }
 
     //PU  resolution (Distance between sim and recon) and also normalized and with and without block
     // TO DO: resolution vs block
-    TH1F* PUResolution = dynamic_cast<TH1F*>(h["efficiency/PUResolution"]);
-    if (!PUResolution) {
-        std::cerr << "Error: Histogram PUResolution not found!" << std::endl;
+    TH1F* PUResidual = dynamic_cast<TH1F*>(h["efficiency/PUResidual"]);
+    if (!PUResidual) {
+        std::cerr << "Error: Histogram PUResidual not found!" << std::endl;
         return;
     }
 
@@ -4473,9 +4472,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
-    TH1F* PUResolutionNormalized = dynamic_cast<TH1F*>(h["efficiency/PUResolutionNormalized"]);
-    if (!PUResolutionNormalized) {
-        std::cerr << "Error: Histogram PUResolutionNormalized not found!" << std::endl;
+    TH1F* PUResidualNormalized = dynamic_cast<TH1F*>(h["efficiency/PUResidualNormalized"]);
+    if (!PUResidualNormalized) {
+        std::cerr << "Error: Histogram PUResidualNormalized not found!" << std::endl;
         return;
     }
     // Initialize histograms for PU blockborder distance
@@ -4495,14 +4494,14 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
             double delta_z = rec_z - true_z;
 
             // Fill the histogram with delta_z
-           PUResolution->Fill(delta_z);
+           PUResidual->Fill(delta_z);
                // calculate the distance to the nearest block border
             float distance = nearestBlockAndDistance(rec_z, blockborders).second;
             PUBlockBordersvsZdeltayprofile->Fill(distance, delta_z);
             PUBlockBordersvsZdelta->Fill(distance, delta_z);
             PUBlockBorder->Fill(abs(distance));
 
-            PUResolutionNormalized -> Fill(delta_z/error_z);
+            PUResidualNormalized -> Fill(delta_z/error_z);
         }
     }
     }
@@ -4710,14 +4709,14 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram SETracksPurity not found!" << std::endl;
         return;
   }
-  TH2F *SEResolutionVsTrackPurity = dynamic_cast<TH2F *>(h["efficiency/SEResolutionVsTrackPurity"]);
-  if (!SEResolutionVsTrackPurity) {
-        std::cerr << "Error: Histogram SEResolutionVsTrackPurity not found!" << std::endl;
+  TH2F *SEResidualVsTrackPurity = dynamic_cast<TH2F *>(h["efficiency/SEResidualVsTrackPurity"]);
+  if (!SEResidualVsTrackPurity) {
+        std::cerr << "Error: Histogram SEResidualVsTrackPurity not found!" << std::endl;
         return;
   }
-  TProfile* SEResolutionVsTrackPurityprofile = dynamic_cast<TProfile*>(h["efficiency/SEResolutionVsTrackPurityprofile"]);
-  if (!SEResolutionVsTrackPurityprofile) {
-      std::cerr << "Error: Histogram SEResolutionVsTrackPurityprofile not found!" << std::endl;
+  TProfile* SEResidualVsTrackPurityprofile = dynamic_cast<TProfile*>(h["efficiency/SEResidualVsTrackPurityprofile"]);
+  if (!SEResidualVsTrackPurityprofile) {
+      std::cerr << "Error: Histogram SEResidualVsTrackPurityprofile not found!" << std::endl;
       return;
   }
 
@@ -4805,8 +4804,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
-        SEResolutionVsTrackPurity->Fill(resolution, purity);
-        SEResolutionVsTrackPurityprofile->Fill(resolution, purity);
+        SEResidualVsTrackPurity->Fill(resolution, purity);
+        SEResidualVsTrackPurityprofile->Fill(resolution, purity);
         SEBlockBordersvsPurityprofile->Fill(distance, purity);
         SEBlockBordersvsPurity->Fill(distance, purity);
 

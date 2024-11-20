@@ -1,0 +1,192 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 367035
+HOSTNAME: t3wn51
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 20-Nov-2024 13:20:18 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+20-Nov-2024 13:20:29 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+20-Nov-2024 13:21:06 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 13:21:27 CET PreSource
+Deactivating st-096-ee857a70.cern.ch from active sources because its quality (317) is higher than 260 and 4 times larger than the other active server st-096-gg5003qo.cern.ch (53) 
+%MSG
+Begin processing the 1st record. Run 1, Event 4802, LumiSection 97 on stream 0 at 20-Nov-2024 13:21:27.327 CET
+20-Nov-2024 13:28:16 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+20-Nov-2024 13:28:16 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+20-Nov-2024 13:28:18 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+%MSG-w XrdAdaptorLvl3:  PostModuleEvent 20-Nov-2024 13:28:40 CET  PostProcessEvent
+Deactivating st-096-100gb-ip306-28341.cern.ch from active sources because its quality (419) is higher than 260 and 4 times larger than the other active server st-096-ff809e4a.cern.ch (33) 
+%MSG
+[2024-11-20 13:28:41.444407 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:33:31.666338 +0100][Error  ][PostMaster        ][47359] [st-096-ee857a70.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:33:31.666774 +0100][Error  ][PostMaster        ][47359] [st-096-gg5003qo.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:33:38.801345 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 13:34:49 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+20-Nov-2024 13:34:49 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root
+[2024-11-20 13:35:35.372497 +0100][Error  ][AsyncSock         ][47359] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:35:35.372864 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:36:20.414843 +0100][Error  ][AsyncSock         ][47359] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:36:20.415277 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:36:20.415313 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] Unable to recover: [ERROR] Socket timeout.
+[2024-11-20 13:36:20.415340 +0100][Error  ][XRootD            ][47359] [p06636710m46495.cern.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaM/1ybTAVGBsf1YhSY1Z7xjbG6iJxmD30P1PuMGW0sSGaN27n7mp3Xja40kbwn1OoKKHphVjLvEAF+lCc4LSWd+KyHGAQXX0I5N9AazGK2sxYbSGA0Va+kQhdaRb5OvKXvao2sn7WA8xy16fX/hCCbBx/yCwfWuJWpfiEZXgr2//X1Mim6gqrVU0CGZ3nvSYBcpplqjeZlySLvUo9e0GQI3WbkV57mnuY2vv1T37TDPl2FzkZgpYSpO6ChdFsK2nZjTYtk1RyzREbzdXBf18sn/hwxwf9kD39HvMMB/cOVxqRRwsF1U43lFrpc958x1G9BaSVrJ3jkAF05pev9c5icic4WbJeq6w4KcsxogJxGrHciQbzm2UClu0D8Fr3pQAU541D8T+7R6EX2AyYzOEyJu&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0AplkC4UdpnSiUCrLiG5f/vveq42Lk06gUE+5uv2hXOLQ5RMHgsH+Nqb9jpGFwxhNcqXAcbuPPvrfWdh3aoA446rhNGjsojxLUT45DXb5AMgHI6E=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=d5cafd06-a73b-11ef-8a23-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+20-Nov-2024 13:36:21 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root
+[2024-11-20 13:39:22.576507 +0100][Error  ][XRootD            ][47359] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaM/1ybTAVGBsf1YhSY1Z7xjbG6iJxmD30P1PuMGW0sSGaN27n7mp3Xja40kbwn1OoKKHphVjLvEAF+lCc4LSWd+KyHGAQXX0I5N9AazGK2sxYbSGA0Va+kQhdaRb5OvKXvao2sn7WA8xy16fX/hCCbBx/yCwfWuJWpfiEZXgr2//X1Mim6gqrVU0CGZ3nvSYBcpplqjeZlySLvUo9e0GQI3WbkV57mnuY2vv1T37TDPl2FzkZgpYSpO6ChdFsK2nZjTYtk1RyzREbzdXBf18sn/hwxwf9kD39HvMMB/cOVxqRRwsF1U43lFYsPIDTqsNbLEdB/aECpJ8fL8/buegPfgswRFK/qBMAJ6hsznknkqdIp98WroqzoC6Zzaf2gvt1dkiOSJgxNu5FxNHvSibvQqpD5BtyOm12I=&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0AplUisIOUzpRKJVlRLev/fvea52q54GgrJtK8/uDpSbRFTJFBOF4O+F+p0RMUUbn0jBS2u5jSP+7MIWBHYyZjdVwLmZxqwrEVYXsNbj1A8toI6o=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=0f6c1ab8-a73c-11ef-bf72-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,st-096-gg5005ps.cern.ch,eoscms-ns-ip563.cern.ch,eoscms-ns-ip700.cern.ch&triedrc=resel,srverr,srverr, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2024-11-20 13:40:04.616317 +0100][Error  ][PostMaster        ][47359] [st-096-ff809e4a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:40:04.616812 +0100][Error  ][PostMaster        ][47359] [st-096-100gb-ip306-28341.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:41:42.322374 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:42:07.569259 +0100][Error  ][AsyncSock         ][47359] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:42:07.569637 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:42:52.614258 +0100][Error  ][AsyncSock         ][47359] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:42:52.614622 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:42:52.614640 +0100][Error  ][PostMaster        ][47359] [p06636710m46495.cern.ch:1095] Unable to recover: [ERROR] Socket timeout.
+[2024-11-20 13:42:52.614674 +0100][Error  ][XRootD            ][47359] [p06636710m46495.cern.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaM/1ybTAVGBsf1YhSY1Z7xjbG6iJxmD30P1PuMGW0sSGaN27n7mp3Xja40kbwn1OoKKHphVjLvEAF+lCc4LSWd+KyHGAQXX0I5N9AazGK2sxYbSGA0Va+kQhdaRb5OvKXvao2sn7WA8xy16fX/hCCbBx/yCwfWuJWpfiEZXgr2//X1Mim6gqrVU0CGZ3nvSYBcpplqjeZlySLvUo9e0GQI3WbkV57mnuY2vv1T37TDPl2FzkZgpYSpO6ChdFsK2nZjTYtk1RyzREbzdXBf18sn/hwxwf9kD39HvMMB/cOVxqRRwsF1U43lFYsPIDTqsNbLEdB/aECpJ8fL8/buegPfgswRFK/qBMAJ6hsznknkqdIp98WroqzoC6Zzaf2gvt1dkiOSJgxNu5FxNHvSibvQq1zjX+2edZH4=&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0AllUi4QdJnWSUCpLiW5f+/e9VypnK43AIA6pWPdQylF1+4MDgbK9lcn1GFk46KiSCgWOez+b9r+TsG9UAXHCdYRrxnlbjGfJxh92hG35AMnnI6Y=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=bf72aeae-a73c-11ef-8625-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=st-096-gg5005ps.cern.ch&triedrc=resel, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+20-Nov-2024 13:43:08 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root
+20-Nov-2024 13:43:08 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/60adca79-a662-4924-ac19-4638e2a0be63.root
+20-Nov-2024 13:43:10 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/60adca79-a662-4924-ac19-4638e2a0be63.root
+[2024-11-20 13:44:17.606300 +0100][Error  ][XRootD            ][47359] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaM/1ybTAVGBsf1YhSY1Z7xjbG6iJxmD30P1PuMGW0sSGaN27n7mp3Xja40kbwn1OoKKHphVjLvEAF+lCc4LSWd+KyHGAQXX0I5N9AazGK2sxYbSGA0Va+kQhdaRb5OvKXvao2sn7WA8xy16fX/hCCbBx/yCwfWuJWpfiEZXgr2//X1Mim6gqrVU0CGZ3nvSYBcpplqjeZlySLvUo9e0GQI3WbkV57mnuY2vv1T37TDPl2FzkZgpYSpO6ChdFsK2nZjTYtk1RyzREbzdXBf18sn/hwxwf9kD39HvMMB/cOVxqRRwsF1U43lFYsPIDTqsNbLEdB/aECpJ8fL8/buegPfgswRFK/qBMAJ6hsznknkqdIp98WroqzoC6Zzaf2gvt1dkiOSJgxNu5FxNHvSibvQqNBwCPotrRHk=&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0ApmUq4QdJnWSUCrLiG5f/vveK5WzlUagcBlSse6hlGPX5XcOBJ3trUzujpGFQx9VUqHAcbuP1vvfSdg3qoA44qzhnHBajfIsWfndaljNB8qnI6g=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=f544d390-a73c-11ef-a8d1-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,st-096-gg5005ps.cern.ch,eoscms-ns-ip700.cern.ch,eoscms-ns-ip563.cern.ch&triedrc=resel,srverr,srverr, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2024-11-20 13:48:07.969362 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:48:23.769333 +0100][Error  ][PostMaster        ][47359] [st-096-gg5005ps.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:48:30.001425 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 13:49:24 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/60adca79-a662-4924-ac19-4638e2a0be63.root
+20-Nov-2024 13:49:24 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b2f8bb0-708e-4c8d-b6a1-8dc44bfccdd2.root
+20-Nov-2024 13:49:26 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b2f8bb0-708e-4c8d-b6a1-8dc44bfccdd2.root
+[2024-11-20 13:54:25.015331 +0100][Error  ][PostMaster        ][47359] [p06636710j45805.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:54:25.244317 +0100][Error  ][PostMaster        ][47359] [st-096-ii201684.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:54:32.251348 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 13:55:37 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b2f8bb0-708e-4c8d-b6a1-8dc44bfccdd2.root
+20-Nov-2024 13:55:37 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/045f84b2-3129-4cdc-a38d-dd5d90419c6b.root
+20-Nov-2024 13:55:39 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/045f84b2-3129-4cdc-a38d-dd5d90419c6b.root
+[2024-11-20 14:00:52.481315 +0100][Error  ][PostMaster        ][47359] [st-096-gg500sda.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:00:52.653345 +0100][Error  ][PostMaster        ][47359] [st-096-ii201a6a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:00:53.519273 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:00:59.663320 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 14:01:51 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/045f84b2-3129-4cdc-a38d-dd5d90419c6b.root
+20-Nov-2024 14:01:51 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f7284f2c-9496-4763-a524-9e9905049d50.root
+20-Nov-2024 14:01:53 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f7284f2c-9496-4763-a524-9e9905049d50.root
+[2024-11-20 14:02:58.644328 +0100][Error  ][PostMaster        ][47359] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:02:58.732316 +0100][Error  ][PostMaster        ][47359] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:04:32.702375 +0100][Error  ][PostMaster        ][47359] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:06:53.023450 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:07:06.966425 +0100][Error  ][PostMaster        ][47359] [st-096-100gb-ip313-4d084.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:07:06.967007 +0100][Error  ][PostMaster        ][47359] [st-096-100gb-ip309-275aa.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:07:14.333312 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 14:08:02 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f7284f2c-9496-4763-a524-9e9905049d50.root
+20-Nov-2024 14:08:02 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/9997f594-130c-4251-a3f1-c07bc15be697.root
+20-Nov-2024 14:08:06 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/9997f594-130c-4251-a3f1-c07bc15be697.root
+[2024-11-20 14:13:17.550336 +0100][Error  ][PostMaster        ][47359] [st-096-hh15170e.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:13:17.550753 +0100][Error  ][PostMaster        ][47359] [st-096-dd905bc9.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:13:18.792376 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:13:28.802336 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 14:14:24 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/9997f594-130c-4251-a3f1-c07bc15be697.root
+20-Nov-2024 14:14:24 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c84d5e-7f8a-4779-ac15-bedd2a0730ad.root
+20-Nov-2024 14:14:26 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c84d5e-7f8a-4779-ac15-bedd2a0730ad.root
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+[2024-11-20 14:19:25.018465 +0100][Error  ][PostMaster        ][47359] [st-096-100gb-ip308-69665.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:19:25.018626 +0100][Error  ][PostMaster        ][47359] [p06636710y02072.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 14:19:26.056295 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+[2024-11-20 14:19:47.809371 +0100][Error  ][PostMaster        ][47359] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+20-Nov-2024 14:20:38 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/90c84d5e-7f8a-4779-ac15-bedd2a0730ad.root
+20-Nov-2024 14:20:38 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/460ce99a-b887-4c6b-84c8-b4f254a5af3d.root
+20-Nov-2024 14:20:40 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/460ce99a-b887-4c6b-84c8-b4f254a5af3d.root
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!
+Error: Histogram SEResidual not found!

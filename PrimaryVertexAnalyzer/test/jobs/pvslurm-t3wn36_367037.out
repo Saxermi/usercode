@@ -1,0 +1,166 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 367037
+HOSTNAME: t3wn36
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 20-Nov-2024 13:20:32 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2670 0 @ 2.60GHz
+%MSG
+20-Nov-2024 13:20:41 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+20-Nov-2024 13:21:11 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 13:21:29 CET PreSource
+Deactivating st-096-ee857a70.cern.ch from active sources because its quality (1471) is higher than 260 and 4 times larger than the other active server st-096-gg5003qo.cern.ch (119) 
+%MSG
+Begin processing the 1st record. Run 1, Event 4802, LumiSection 97 on stream 0 at 20-Nov-2024 13:21:29.136 CET
+20-Nov-2024 13:28:33 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/77aa0c63-30da-41bc-bd45-682e205dddea.root
+20-Nov-2024 13:28:33 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+20-Nov-2024 13:28:36 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+[2024-11-20 13:32:41.676119 +0100][Error  ][PostMaster        ][54695] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:33:34.170008 +0100][Error  ][PostMaster        ][54695] [st-096-ee857a70.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:33:34.170402 +0100][Error  ][PostMaster        ][54695] [st-096-gg5003qo.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:34:00.743022 +0100][Error  ][PostMaster        ][54695] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 13:34:52 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/19c16d6c-8f66-4c03-8130-5075c8e6752a.root
+20-Nov-2024 13:34:52 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root
+[2024-11-20 13:35:38.317272 +0100][Error  ][AsyncSock         ][54695] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:35:38.317803 +0100][Error  ][PostMaster        ][54695] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:36:23.332069 +0100][Error  ][AsyncSock         ][54695] [p06636710m46495.cern.ch:1095.0] Socket error while handshaking: [ERROR] Socket timeout
+[2024-11-20 13:36:23.332455 +0100][Error  ][PostMaster        ][54695] [p06636710m46495.cern.ch:1095] elapsed = 45, pConnectionWindow = 31 seconds.
+[2024-11-20 13:36:23.332502 +0100][Error  ][PostMaster        ][54695] [p06636710m46495.cern.ch:1095] Unable to recover: [ERROR] Socket timeout.
+[2024-11-20 13:36:23.332528 +0100][Error  ][XRootD            ][54695] [p06636710m46495.cern.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaP5B6lvJzOVeCdlFap4tmTI7N584W9WkZ02+zVT+JLeUvNZupZZD6l6LXbvgnCJzLfLK2qz7C1Ow2lW6oSOvF6WIbV2obnlW5DYpU4q1/wxhjG2+SFiGwdo5TSO9kV1otKQFjcHFsp3gqN6Qc2xTlMy/SM8wETkKQiwTV2hDEYgFp8C2Vkeq5Y9B3vO2XCfpl7XWoSX5OZGqt0niVasN/gZSjOnFkfT0NGeEHA/JJOjoOou4mQ87cZshRuIm1kkDppTf5FbzkZdHU+Vhf1bCTLEdZqB/Rpwcwftkq3HuBVpZ9F5D4YQ7WnJMB6q0c2D5PH7K0HFpKZ5jtSXsluwWvN6jiF/GyGZC+CMGbr4XQqkNd++gB9U8oRJeK24vrALWycBk7dW2bFdHvg3XzsX+SSc&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0AplUlsIOU7qhUCrLiG5f/vveK5Wyk4agVjuk4vYHU+auy0cKCJ3trYT7zUxCoY8qqWAg3u6j9f53EvINKxgzmkXDOZnJzsqTZOWj02DnD8vJI6s=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=d787b382-a73b-11ef-8180-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2024-11-20 13:37:48.162661 +0100][Error  ][XRootD            ][54695] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaP5B6lvJzOVeCdlFap4tmTI7N584W9WkZ02+zVT+JLeUvNZupZZD6l6LXbvgnCJzLfLK2qz7C1Ow2lW6oSOvF6WIbV2obnlW5DYpU4q1/wxhjG2+SFiGwdo5TSO9kV1otKQFjcHFsp3gqN6Qc2xTlMy/SM8wETkKQiwTV2hDEYgFp8C2Vkeq5Y9B3vO2XCfpl7XWoSX5OZGqt0niVasN/gZSjOnFkfT0NGeEHA/JJOjoOou4mQ87cZshRuIm1kkDppTf5FbzkZdHU+Vhf1bCTLEdZqB/Rpwcwftkq3HuBVpZ9F5D4YQ7WnJMB6q0c2D5PH7K0HFpKZ5jtSXsluwWvN6jiF/GyGZC+CMGbr4XQqkNd++gB9U8oRJeK24vrALWycBk7dW2bFdHmv1zvKN0r3T&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0ApmUq4QdJnWSUCrLiG5f/vveK5WzlUagcBlSse6hlGPX5XcOBJ3trUzujpGFQx9VUqHAcbuP1vvfSdg3qoA44qzhnHBajfIsWfndaljNB8qnI6g=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=0d3e198a-a73c-11ef-a4b6-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,eoscms-ns-ip563.cern.ch,eoscms-ns-ip700.cern.ch&triedrc=srverr,srverr, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorInternal:  file_open 20-Nov-2024 13:37:48 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaP5B6lvJzOVeCdlFap4tmTI7N584W9WkZ02+zVT+JLeUvNZupZZD6l6LXbvgnCJzLfLK2qz7C1Ow2lW6oSOvF6WIbV2obnlW5DYpU4q1/wxhjG2+SFiGwdo5TSO9kV1otKQFjcHFsp3gqN6Qc2xTlMy/SM8wETkKQiwTV2hDEYgFp8C2Vkeq5Y9B3vO2XCfpl7XWoSX5OZGqt0niVasN/gZSjOnFkfT0NGeEHA/JJOjoOou4mQ87cZshRuIm1kkDppTf5FbzkZdHU+Vhf1bCTLEdZqB/Rpwcwftkq3HuBVpZ9F5D4YQ7WnJMB6q0c2D5PH7K0HFpKZ5jtSXsluwWvN6jiF/GyGZC+CMGbr4XQqkNd++gB9U8oRJeK24vrALWycBk7dW2bFdHmv1zvKN0r3T&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0ApmUq4QdJnWSUCrLiG5f/vveK5WzlUagcBlSse6hlGPX5XcOBJ3trUzujpGFQx9VUqHAcbuP1vvfSdg3qoA44qzhnHBajfIsWfndaljNB8qnI6g=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=0d3e198a-a73c-11ef-a4b6-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,eoscms-ns-ip563.cern.ch,eoscms-ns-ip700.cern.ch&xrdcl.requuid=526e32de-9948-47aa-94e1-aab9154f10cc.
+%MSG
+[2024-11-20 13:40:07.465063 +0100][Error  ][PostMaster        ][54695] [st-096-ff809e4a.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 13:40:07.465697 +0100][Error  ][PostMaster        ][54695] [st-096-100gb-ip306-28341.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+%MSG-w XrdAdaptorInternal:  file_open 20-Nov-2024 13:40:08 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaP5B6lvJzOVeCdlFap4tmTI7N584W9WkZ02+zVT+JLeUvNZupZZD6l6LXbvgnCJzLfLK2qz7C1Ow2lW6oSOvF6WIbV2obnlW5DYpU4q1/wxhjG2+SFiGwdo5TSO9kV1otKQFjcHFsp3gqN6Qc2xTlMy/SM8wETkKQiwTV2hDEYgFp8C2Vkeq5Y9B3vO2XCfpl7XWoSX5OZGqt0niVasN/gZSjOnFkfT0NGeEHA/JJOjoOou4mQ87cZshRuIm1kkDppTf5FbzkZdHU+Vhf1bCTLEdZqB/Rpwcwftkq3HuBVpZ9F5D4YQ7WnJMB6q0c2D5PH7K0HFpKZ5jtSXsluwWvN6jiF/GyGZC+CMGbr4XQqkNd++gB9U8oRJeK24vrALWycBk7dW2bFdHsri60vhFU/x&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0Almki4QdpnSiUCpLiW5f/vveK5WzlUag0Eyp2OOhlMPQ7SJ7gsH2Vqajh8DCfowqqZDnsPezjf53EnaNKiAuuM5wadSbUY4lKxftDJv5AMmHI6U=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=3fd0bc7c-a73c-11ef-9007-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,eoscms-ns-ip563.cern.ch,eoscms-ns-ip700.cern.ch&xrdcl.requuid=2dcd23bf-3635-49fa-9b4a-8e2e2098d2b5.
+%MSG
+----- Begin Fatal Exception 20-Nov-2024 13:40:08 CET-----------------------
+An exception of category 'FileOpenError' occurred while
+   [0] Calling InputSource::readFile_
+   [1] Calling RootInputFileSequence::initTheFile()
+   [2] Calling StorageFactory::open()
+   [3] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root'
+   Additional Info:
+      [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root could not be opened.
+      [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
+' (errno=3011, code=400). No additional data servers were found.
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValH125GGgluonfusion_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/6b37bea3-45b4-4462-a1b0-e2cebe672c09.root?cap.msg=OUa4e0gRnqu+/yFq6MEKNy0kcEjy9ux7kPKCuinqpogtFuvB+NDLOGNi4cJdtqxFo3ZZY+UTlJuNt3ahJnKw3x4Drm5OuErcLDt7QbsV3eFwHpkKUc/8/yMLxtdNPo9ql3RL4kvz6vmKkyho+fi0mHHjJ1lb1g8jRu4Ae4imLVtDRKKa0DwPKxEK5goADqK1ciYpR3qsgZ9BrsHwtBHONI0OzskO58SzMqLRWAZ9jn7WXzcHCmmqYAMUvR88u1ZsRTj3GQivbnt0mS075QxTL//gef/FpRTR22F37WXSlCdxi7wDcu8kBK5JUl1tu6fVCxA654sgsevbLQvXjiYuoqvs+KdEjhmkSQfwG1+gNoIdQ5rvEXhn0stq8kjvjhP1vo7Nk1YQf0/qm7Jldj79hDSguv27VK9IfSIRjYiWwxTP/8gyYxB5/2IMRaWwowsYpsmJjQyf8Ix/LYnldMjQwaT0iNuWv/Ll+riuf1AqhaP5B6lvJzOVeCdlFap4tmTI7N584W9WkZ02+zVT+JLeUvNZupZZD6l6LXbvgnCJzLfLK2qz7C1Ow2lW6oSOvF6WIbV2obnlW5DYpU4q1/wxhjG2+SFiGwdo5TSO9kV1otKQFjcHFsp3gqN6Qc2xTlMy/SM8wETkKQiwTV2hDEYgFp8C2Vkeq5Y9B3vO2XCfpl7XWoSX5OZGqt0niVasN/gZSjOnFkfT0NGeEHA/JJOjoOou4mQ87cZshRuIm1kkDppTf5FbzkZdHU+Vhf1bCTLEdZqB/Rpwcwftkq3HuBVpZ9F5D4YQ7WnJMB6q0c2D5PH7K0HFpKZ5jtSXsluwWvN6jiF/GyGZC+CMGbr4XQqkNd++gB9U8oRJeK24vrALWycBk7dW2bFdHsri60vhFU/x&cap.sym=LoNjPjkNIX+qwWZwlmYzqFWzK3s=&eos.clientinfo=zbase64:MDAwMDAwNmJ4nBXIYQqAIAxA4at0Almki4QdpnSiUCpLiW5f/vveK5WzlUag0Eyp2OOhlMPQ7SJ7gsH2Vqajh8DCfowqqZDnsPezjf53EnaNKiAuuM5wadSbUY4lKxftDJv5AMmHI6U=&mgm.blockchecksum=ignore&mgm.id=1196f4439&mgm.logid=3fd0bc7c-a73c-11ef-9007-a4bf0179624c&mgm.mtime=1725374805&mgm.replicahead=0&mgm.replicaindex=0&tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,eoscms-ns-ip563.cern.ch,eoscms-ns-ip700.cern.ch&xrdcl.requuid=2dcd23bf-3635-49fa-9b4a-8e2e2098d2b5
+      [d] Problematic data server: cms-xrd-global.cern.ch:1094
+      [e] Disabled source: cms-xrd-global.cern.ch:1094
+----- End Fatal Exception -------------------------------------------------
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 1200.02 seconds
+ Time Summary: 
+ - Min event:   4.62898
+ - Max event:   25.3999
+ - Avg event:   6.25498
+ - Total loop:  1123.21
+ - Total init:  76.4569
+ - Total job:   1200.02
+ - Total EventSetup: 19.6859
+ - Total non-module: 326.979
+ Event Throughput: 0.0890304 ev/s
+ CPU Summary: 
+ - Total loop:     457.285
+ - Total init:     69.3983
+ - Total extra:    0
+ - Total children: 0.136398
+ - Total job:      526.984
+ Processing Summary: 
+ - Number of Events:  100
+ - Number of Global Begin Lumi Calls:  2
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 100 passed = 100 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 MPV
+TrigReport     1    1        100        100          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        100        100          0          0 tpClusterProducer
+TrigReport     1    1        100        100          0          0 quickTrackAssociatorByHits
+TrigReport     1    2        100        100          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3        100        100          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport        100        100        100          0          0 MPV
+TrigReport        100        100        100          0          0 TriggerResults
+TrigReport        100        100        100          0          0 analyze
+TrigReport        100        100        100          0          0 oldVertexAnalysis
+TrigReport        100        100        100          0          0 quickTrackAssociatorByHits
+TrigReport        100        100        100          0          0 testVertices
+TrigReport        100        100        100          0          0 tpClusterProducer
+TrigReport        100        100        100          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 4.572917
+TimeReport      event loop Real/event = 11.232185
+TimeReport     sum Streams Real/event = 7.951549
+TimeReport efficiency CPU/Real/thread = 0.407126
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   6.253133     6.253133  MPV
+TimeReport   6.254946     6.254946  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.551603     0.551603  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.482596     1.482596  tpClusterProducer
+TimeReport   0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport   0.290141     0.290141  trackingParticleRecoTrackAsssociation
+TimeReport   0.207576     0.207576  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000004     0.000004     0.000004  TriggerResults
+TimeReport   0.000014     0.000014     0.000014  analyze
+TimeReport   0.207576     0.207576     0.207576  oldVertexAnalysis
+TimeReport   0.000016     0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport   0.551603     0.551603     0.551603  testVertices
+TimeReport   1.482596     1.482596     1.482596  tpClusterProducer
+TimeReport   0.290141     0.290141     0.290141  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
