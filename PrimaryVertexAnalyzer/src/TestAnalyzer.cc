@@ -545,7 +545,6 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUEfficiencyVsZaxis );
 
-
     // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
     // will try this with tprofile and TH1f
     TH1F *SEResolutionNormalized = new TH1F("SEResolutionNormalized", "SE Resolution (Distance between Sim. & Recon. Vertex) Normalized; Distance between Sim. & Recon. Vertex Normalized; Count", 100, -1, 1);
@@ -714,6 +713,43 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     TH1F* FakeVertices = new TH1F("FakeVertices", "Position of Reconstructed Fake Vertices; Z-Position [cm]; Count", 1000, -30, 30);
     addn(h, FakeVertices);
+
+    // Number of tracks histograms
+      // 1D histogram of distribution of number of associated tracks in normal and log scale for PU simulated vertices
+      TH1F*  PUSimVertexTrackDist = new TH1F("PUSimVertexTrackDist", "PU: Number of Associated Tracks to Simulated Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      addn(h, PUSimVertexTrackDist);
+
+      TH1F*  PUSimVertexTrackDistLog = new TH1F("PUSimVertexTrackDistLog", "PU: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      addn(h, PUSimVertexTrackDistLog);
+
+      // 1D histogram of distribution of number of associated tracks in normal and log scale for PU reconstructed vertices
+      TH1F*  PUReconVertexTrackDist = new TH1F("PUReconVertexTrackDist", "PU: Number of Associated Tracks to Recon. Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      addn(h, PUReconVertexTrackDist);
+
+      TH1F*  PUReconVertexTrackDistLog = new TH1F("PUReconVertexTrackDistLog", "PU: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      addn(h, PUReconVertexTrackDistLog);
+
+      // 1D histogram of distribution of number of associated tracks in normal and log scale for PU fake vertices
+      TH1F*  PUFakeVertexTrackDist = new TH1F("PUFakeVertexTrackDist", "PU: Number of Associated Tracks to Fake Vertices; Number of Vertices; Count", 1000, 0, 500);
+      addn(h, PUFakeVertexTrackDist);
+
+      TH1F*  PUFakeVertexTrackDistLog = new TH1F("PUFakeVertexTrackDistLog", "PU: Number of Associated Tracks to Fake Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      addn(h, PUFakeVertexTrackDistLog);
+
+      // 1D histogram of distribution of number of associated tracks in normal and log scale for PU simulated vertices
+      TH1F*  SESimVertexTrackDist = new TH1F("SESimVertexTrackDist", "SE: Number of Associated Tracks to Simulated Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      addn(h, SESimVertexTrackDist);
+
+      TH1F*  SESimVertexTrackDistLog = new TH1F("SESimVertexTrackDistLog", "SE: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      addn(h, SESimVertexTrackDistLog);
+
+      // 1D histogram of distribution of number of associated tracks in normal and log scale for PU reconstructed vertices
+      TH1F*  SEReconVertexTrackDist = new TH1F("SEReconVertexTrackDist", "SE: Number of Associated Tracks to Recon. Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      addn(h, SEReconVertexTrackDist);
+
+      TH1F*  SEReconVertexTrackDistLog = new TH1F("SEReconVertexTrackDistLog", "SE: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      addn(h, SEReconVertexTrackDistLog);
+
 
       // Return to the base directory to maintain proper organization
       dir->cd();
@@ -5321,6 +5357,90 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
               PUBlockBordersvsFakeVertProfi5->Fill(distance, rec_z);
           }
       }
+
+    // Associated track histograms
+
+    TH1F* PUSimVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/PUSimVertexTrackDist"]);
+      if (!PUSimVertexTrackDist) {
+        std::cerr << "Error: Histogram PUSimVertexTrackDist not found!" << std::endl;
+        return;
+    }
+    TH1F* PUSimVertexTrackDistLog = dynamic_cast<TH1F*>(h["efficiency/PUSimVertexTrackDistLog"]);
+      if (!PUSimVertexTrackDistLog) {
+        std::cerr << "Error: Histogram PUSimVertexTrackDistLog not found!" << std::endl;
+        return;
+    }
+    TH1F* PUReconVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/PUReconVertexTrackDist"]);
+      if (!PUReconVertexTrackDist) {
+        std::cerr << "Error: Histogram PUReconVertexTrackDist not found!" << std::endl;
+        return;
+    }
+    TH1F* PUReconVertexTrackDistLog = dynamic_cast<TH1F*>(h["efficiency/PUReconVertexTrackDistLog"]);
+      if (!PUReconVertexTrackDistLog) {
+        std::cerr << "Error: Histogram PUReconVertexTrackDistLog not found!" << std::endl;
+        return;
+    }
+    TH1F* PUFakeVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/PUFakeVertexTrackDist"]);
+      if (!PUFakeVertexTrackDist) {
+        std::cerr << "Error: Histogram PUFakeVertexTrackDist not found!" << std::endl;
+        return;
+    }
+    TH1F* PUFakeVertexTrackDistLog = dynamic_cast<TH1F*>(h["efficiency/PUFakeVertexTrackDistLog"]);
+      if (!PUFakeVertexTrackDistLog) {
+        std::cerr << "Error: Histogram PUFakeVertexTrackDistLog not found!" << std::endl;
+        return;
+    }
+    TH1F* SESimVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/SESimVertexTrackDist"]);
+      if (!SESimVertexTrackDist) {
+        std::cerr << "Error: Histogram SESimVertexTrackDist not found!" << std::endl;
+        return;
+    }
+    TH1F* SESimVertexTrackDistLog = dynamic_cast<TH1F*>(h["efficiency/SESimVertexTrackDistLog"]);
+      if (!SESimVertexTrackDistLog) {
+        std::cerr << "Error: Histogram SESimVertexTrackDistLog not found!" << std::endl;
+        return;
+    }
+    TH1F* SEReconVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/SEReconVertexTrackDist"]);
+      if (!SEReconVertexTrackDist) {
+        std::cerr << "Error: Histogram SEReconVertexTrackDist not found!" << std::endl;
+        return;
+    }
+    TH1F* SEReconVertexTrackDistLog = dynamic_cast<TH1F*>(h["efficiency/SEReconVertexTrackDistLog"]);
+      if (!SEReconVertexTrackDistLog) {
+        std::cerr << "Error: Histogram SEReconVertexTrackDistLog not found!" << std::endl;
+        return;
+    }
+      
+    for (size_t i = 0; i < simEvt.size(); i++) {
+      if (simEvt[i].is_signal()) {
+        SESimVertexTrackDist->Fill(simEvt[i].rtk.size());
+        SESimVertexTrackDistLog->Fill(log10(simEvt[i].rtk.size()));
+      }
+      else {
+        PUSimVertexTrackDist->Fill(simEvt[i].rtk.size());
+        PUSimVertexTrackDistLog->Fill(log10(simEvt[i].rtk.size()));
+      }
+    }
+    
+    for (size_t i = 0; i < vtxs.size(); i++) {
+      MVertex& vtx = vtxs.at(i);
+      if (vtx.is_real()) {
+        if (vtx.is_signal()) {
+          SEReconVertexTrackDist->Fill(vtx.tracks.size());
+          SEReconVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+        }
+        else {
+          PUReconVertexTrackDist->Fill(vtx.tracks.size());
+          PUReconVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+        }
+      }
+      else {
+        PUFakeVertexTrackDist->Fill(vtx.tracks.size());
+        PUFakeVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+      }
+    }
+
+
 }
 
     /*********************************************************************************************/
