@@ -1,0 +1,24 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 367098
+HOSTNAME: t3wn51
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
+%MSG-i AlpakaService:  (NoModuleName) 20-Nov-2024 16:51:46 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+20-Nov-2024 16:52:05 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+20-Nov-2024 16:52:47 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+Begin processing the 1st record. Run 1, Event 9403, LumiSection 95 on stream 0 at 20-Nov-2024 16:53:18.591 CET
+%MSG-w XrdAdaptorLvl3:  source 20-Nov-2024 16:54:06 CET PreSource
+Deactivating p06636710w35136.cern.ch from active sources because its quality (412) is higher than 260 and 4 times larger than the other active server st-096-hh151745.cern.ch (78) 
+%MSG
+[2024-11-20 17:04:42.819441 +0100][Error  ][PostMaster        ][35007] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+20-Nov-2024 17:04:54 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/5db7129f-cb28-4bb4-be7f-30577605474e.root
+20-Nov-2024 17:04:54 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/64330105-899f-4369-90f8-3a882ee3f70d.root
+20-Nov-2024 17:04:56 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValZMM_14/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/64330105-899f-4369-90f8-3a882ee3f70d.root
+[2024-11-20 17:10:04.042331 +0100][Error  ][PostMaster        ][35007] [eoscms-ns-ip563.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 17:10:09.459337 +0100][Error  ][PostMaster        ][35007] [p06636710w35136.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 17:10:09.459459 +0100][Error  ][PostMaster        ][35007] [st-096-hh151745.cern.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2024-11-20 17:10:10.502344 +0100][Error  ][PostMaster        ][35007] [eoscms-ns-ip700.cern.ch:1098] Forcing error on disconnect: [ERROR] Operation interrupted.

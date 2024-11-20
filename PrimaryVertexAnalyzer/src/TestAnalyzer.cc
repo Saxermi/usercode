@@ -478,6 +478,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsPurity1 );
 
+        // Define a TH2F histogram for PURandomBlockBordersvsPurity1
+      TH2F* PURandomBlockBordersvsPurity1  = new TH2F("PURandomBlockBordersvsPurity1", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 1000, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, PURandomBlockBordersvsPurity1 );
+
       // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
       TProfile* PUBlockBordersvsEfficencyprofile1  = new TProfile("PUBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 0, 100);
       addn(h, PUBlockBordersvsEfficencyprofile1);
@@ -4356,7 +4362,34 @@ void TestAnalyzer::analyzeVertexTrackAssociation(std::map<std::string, TH1*>& h,
     // Return the nearest block and the corresponding distance
     return make_pair(nearest_block, min_distance);
 }
+// generate a list of random indices to assign random block borders 
+/*std::vector<int> getRandomBlockborders(const Tracks& inputList, UInt_t seed) {
+    TRandom rndGen;
+    rndGen.SetSeed(seed);  // setting seed to debugg 
 
+    // Anzahl der Indizes
+    int n = inputList.size();
+ 
+
+    // Erstelle eine Liste von Indizes (0 bis n-1)
+    std::vector<int> indices(n);
+    for (int i = 0; i < n; ++i) {
+        indices[i] = i;
+    }
+
+    // Shuffle the indices randomly using TRandom and a lambda function
+    std::shuffle(indices.begin(), indices.end(), [&](int max) {
+    // std::shuffle calls the lambda function with the current maximum index
+    // 'max' is provided by std::shuffle and decreases as shuffling progresses
+    return static_cast<int>(rndGen.Uniform(0, max)); // Generate a random index in [0, max)
+    });
+
+    // Wähle die ersten 20 Indizes aus
+    std::vector<int> randomIndices(indices.begin(), indices.begin() + 20);
+
+    return randomIndices;
+}
+*/
 
 
 
@@ -4953,6 +4986,14 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUBlockBordersvsPurity1 not found!" << std::endl;
         return;
     }
+
+   TH2F* PURandomBlockBordersvsPurity1 = dynamic_cast<TH2F*>(h["efficiency/PURandomBlockBordersvsPurity1"]);
+      if (!PURandomBlockBordersvsPurity1) {
+        std::cerr << "Error: Histogram PURandomBlockBordersvsPurity1 not found!" << std::endl;
+        return;
+    }
+
+    
     TProfile* PUBlockBordersvsPurityprofile1 = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile1"]);
       if (!PUBlockBordersvsPurityprofile1) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile1 not found!" << std::endl;
@@ -4978,6 +5019,41 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       if (!PUPurityVsZaxisprofile) {
         std::cerr << "Error: Histogram PUPurityVsZaxisprofile not found!" << std::endl;
         return;
+    }
+
+    //get the list of randomblockborders
+    // Anzahl der Indizes
+    int n = tracks.size();
+ 
+
+    // Erstelle eine Liste von Indizes (0 bis n-1)
+    std::vector<int> indices(n);
+    for (int i = 0; i < n; ++i) {
+        indices[i] = i;
+    }
+
+
+  // Set a seed for reproducibility
+    std::srand(12345); // Seed the random number generator
+   
+//this random_shuffle has been removed in c++17 but its alternative does not work in this enviroment
+    std::random_shuffle(indices.begin(), indices.end(), [](int max) {
+        return std::rand() % (max + 1);
+    });
+    // Wähle die ersten 20 Indizes aus
+    std::vector<int> randomIndices(indices.begin(), indices.begin() + 20);
+
+    std::cout << "This is the first entry of getRandomBlockborders: " << randomIndices[0] << std::endl;
+
+    std::vector<float> randomblockborders;
+    // get z position for every random index
+    for(int index : randomIndices){
+    const MTrack& track = tracks[index];
+    float ZPosition = track.z();
+    randomblockborders.push_back(ZPosition);
+    }
+    for (float result : randomblockborders) {
+        std::cout << result << " ";
     }
 
     for (size_t i = 1; i < simEvt.size(); i++) {
@@ -5007,6 +5083,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           PUTracksPurity->Fill(purity);
           // calculate the distance to the nearest block border
           float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+          //calculate the distance to the nearest random blockborder
+
+
+
+
 
           // Fill the histograms with the calculated purity
           PUBlockBordersvsPurity->Fill(distance, purity);
@@ -5021,7 +5102,6 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
       }
     }
-
 
     // histogram for PU track efficiency and PUBlockbordersvsefficency
     // TO DO match up with SE track efficiency histos
