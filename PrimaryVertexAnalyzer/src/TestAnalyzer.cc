@@ -452,6 +452,13 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "PU Track Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 0, 100);
 
     addn(h, PUBlockBordersvsPurityprofile);
+
+  // definition of histogramm that shows the purity as a function of the distance to the nearest block
+    TProfile* PURandomBlockBordersvsPurityprofile = new TProfile("PURandomBlockBordersvsPurityprofile", "PU Track Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 0, 100);
+
+    addn(h, PURandomBlockBordersvsPurityprofile);
+
+
     // Define a TH2F histogram for PUBlockBordersvsPurity
     TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 1000, 0, 100);
 
@@ -479,10 +486,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       addn(h, PUBlockBordersvsPurity1 );
 
         // Define a TH2F histogram for PURandomBlockBordersvsPurity1
-      TH2F* PURandomBlockBordersvsPurity1  = new TH2F("PURandomBlockBordersvsPurity1", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 1000, 0, 100);
+      TH2F* PURandomBlockBordersvsPurity1  = new TH2F("PURandomBlockBordersvsPurity1", "PU Track Purity vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 1000, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PURandomBlockBordersvsPurity1 );
+           // definition of histogramm that shows the purity as a function of the distance to the nearest block zoom to -1 to 1
+      TProfile* PURandomBlockBordersvsPurityprofile1 = new TProfile("PURandomBlockBordersvsPurityprofile1", "PU Track Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 0, 100);
+
+      addn(h, PURandomBlockBordersvsPurityprofile1);
 
       // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
       TProfile* PUBlockBordersvsEfficencyprofile1  = new TProfile("PUBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 0, 100);
@@ -4975,12 +4986,20 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUBlockBordersvsPurity not found!" << std::endl;
         return;
     }
+
+
+    
     TProfile* PUBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile"]);
       if (!PUBlockBordersvsPurityprofile) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile not found!" << std::endl;
         return;
     }
-
+      TProfile* PURandomBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PURandomBlockBordersvsPurityprofile"]);
+      if (!PURandomBlockBordersvsPurityprofile) {
+        std::cerr << "Error: Histogram PURandomBlockBordersvsPurityprofile not found!" << std::endl;
+        return;
+    }
+ 
     TH2F* PUBlockBordersvsPurity1 = dynamic_cast<TH2F*>(h["efficiency/PUBlockBordersvsPurity1"]);
       if (!PUBlockBordersvsPurity1) {
         std::cerr << "Error: Histogram PUBlockBordersvsPurity1 not found!" << std::endl;
@@ -4990,6 +5009,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
    TH2F* PURandomBlockBordersvsPurity1 = dynamic_cast<TH2F*>(h["efficiency/PURandomBlockBordersvsPurity1"]);
       if (!PURandomBlockBordersvsPurity1) {
         std::cerr << "Error: Histogram PURandomBlockBordersvsPurity1 not found!" << std::endl;
+        return;
+    }
+      TProfile* PURandomBlockBordersvsPurityprofile1 = dynamic_cast<TProfile*>(h["efficiency/PURandomBlockBordersvsPurityprofile1"]);
+      if (!PURandomBlockBordersvsPurityprofile1) {
+        std::cerr << "Error: Histogram PURandomBlockBordersvsPurityprofile1 not found!" << std::endl;
         return;
     }
 
@@ -5043,7 +5067,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     // Wähle die ersten 20 Indizes aus
     std::vector<int> randomIndices(indices.begin(), indices.begin() + 20);
 
-    std::cout << "This is the first entry of getRandomBlockborders: " << randomIndices[0] << std::endl;
+    //std::cout << "This is the first entry of getRandomBlockborders: " << randomIndices[0] << std::endl;
 
     std::vector<float> randomblockborders;
     // get z position for every random index
@@ -5052,9 +5076,9 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     float ZPosition = track.z();
     randomblockborders.push_back(ZPosition);
     }
-    for (float result : randomblockborders) {
-        std::cout << result << " ";
-    }
+    //for (float result : randomblockborders) {
+    //    std::cout << result << " ";
+    //}
 
     for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()) {
@@ -5084,15 +5108,14 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           // calculate the distance to the nearest block border
           float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
           //calculate the distance to the nearest random blockborder
-
-
-
-
+          float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
+          //cout << "nearestrandomdistance :" << randomdistance << std::endl;
 
           // Fill the histograms with the calculated purity
           PUBlockBordersvsPurity->Fill(distance, purity);
           PUBlockBordersvsPurityprofile->Fill(distance, purity);
-          
+          PURandomBlockBordersvsPurityprofile->Fill(randomdistance, purity);
+          PURandomBlockBordersvsPurity1->Fill(randomdistance, purity);
           PUBlockBordersvsPurity1->Fill(distance, purity);
           PUBlockBordersvsPurityprofile1->Fill(distance, purity);
           
