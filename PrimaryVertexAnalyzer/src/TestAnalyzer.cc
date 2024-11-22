@@ -406,7 +406,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Definition of the 2D histogram, which shows the PU purity as a function of the z axis and additonally displays the block borders
       TH2F* PUTracksPurityBlock =
           new TH2F("PUTracksPurityBlock",
-                   "PU Purity vs  Z-Position and block borders; Z-Position of Reconstructed Vertex; Track Purity [%]",
+                   "PU Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Purity [%]",
                    1000,
                    -30,
                    30,
@@ -418,7 +418,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
       TH2F* SETracksPurityBlock =
           new TH2F("SETracksPurityBlock",
-                   "SE Purity vs  Z-Position and block borders; Z-Position of Reconstructed Vertex; Track Purity [%]",
+                   "SE Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Purity [%]",
                    1000,
                    -30,
                    30,
@@ -506,7 +506,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       addn(h, PUBlockBordersvsEfficency5);
 
    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "PU Vertex Position Difference vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 100, -10, 10, -0.2, 0.2);
+    TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "PU Vertex Position Difference vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 1000, -10, 10, -0.2, 0.2);
 
     addn(h, PUBlockBordersvsZdeltayprofile);
     // Define a TH2F histogram for PUBlockBordersvsZdelta
@@ -519,7 +519,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "PU Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 1000, -20, 20, 0, 100);
 
     addn(h, PUPurityVsZaxisprofile);
-    // Define a TH2F histogram for PUBlockBordersvsPurity
+    // Define a TH2F histogram for PUPurityVsZaxis
     TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "PU Track Purity vs. Z-Position; Z-Position [cm]; Track Purity [%]", 1000, -20, 20, 1000, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
@@ -585,11 +585,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, SEResolutionVsTrackPurityprofile);
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -15, 15, 0, 101);
 
     addn(h, SEBlockBordersvsPurityprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsPurity );
