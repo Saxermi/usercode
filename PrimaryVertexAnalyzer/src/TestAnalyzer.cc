@@ -477,6 +477,32 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PURandomBlockBordersvsEfficency);
 
+
+
+
+
+
+     // definition of histogramm that shows the purity as a function of the distance to the nearest block for PU
+    TProfile* PUDeterBlockBordersvsPurityprofile = new TProfile("PUDeterBlockBordersvsPurityprofile", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+
+    addn(h, PUDeterBlockBordersvsPurityprofile);
+
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* PUDeterBlockBordersvsPurity  = new TH2F("PUDeterBlockBordersvsPurity", "PU Track Purity vs. Distance to Closest Blockborders; Distance to Closest Deterministic Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, PUDeterBlockBordersvsPurity );
+
+    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+    TProfile* PUDeterBlockBordersvsEfficencyprofile  = new TProfile("PUDeterBlockBordersvsEfficencyprofile", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+
+    addn(h, PUDeterBlockBordersvsEfficencyprofile);
+    // Define a TH2F histogram for SEDeterBlockBordersvsEfficency
+    TH2F* PUDeterBlockBordersvsEfficency   = new TH2F("PUDeterBlockBordersvsEfficency", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, PUDeterBlockBordersvsEfficency);
+
     // ZOOM IN FOR distance to closest block border for PU
 
       // definition of histogramm that shows the purity as a function of the distance to the nearest block zoom to -1 to 1
@@ -551,6 +577,46 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       TH2F* PUBlockBordersvsEfficency5   = new TH2F("PUBlockBordersvsEfficency5", "PU Track Efficency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -5, 5, 1000,  0, 100);
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsEfficency5);
+
+      //beginn deterministic
+      TProfile* PUDeterBlockBordersvsPurityprofile1 = new TProfile("PUDeterBlockBordersvsPurityprofile1", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+
+      addn(h, PUDeterBlockBordersvsPurityprofile1);
+      // Define a TH2F histogram for PUBlockBordersvsPurity
+      TH2F* PUDeterBlockBordersvsPurity1  = new TH2F("PUDeterBlockBordersvsPurity1", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, PUDeterBlockBordersvsPurity1 );
+
+           // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
+      TProfile* PUDeterBlockBordersvsPurityprofile5 = new TProfile("PUDeterBlockBordersvsPurityprofile5", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+
+      addn(h, PUDeterBlockBordersvsPurityprofile5);
+      // Define a TH2F histogram for PUBlockBordersvsPurity
+      TH2F* PUDeterBlockBordersvsPurity5  = new TH2F("PUDeterBlockBordersvsPurity5", "PU Track Purity vs. Distance to Closest  Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, PUDeterBlockBordersvsPurity5 );
+
+      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+      TProfile* PUDeterBlockBordersvsEfficencyprofile1  = new TProfile("PUDeterBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+
+      addn(h, PUDeterBlockBordersvsEfficencyprofile1);
+      // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+      TH2F* PUDeterBlockBordersvsEfficency1   = new TH2F("PUDeterBlockBordersvsEfficency1", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest  Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, PUDeterBlockBordersvsEfficency1);
+
+      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+      TProfile* PUDeterBlockBordersvsEfficencyprofile5  = new TProfile("PUDeterBlockBordersvsEfficencyprofile5", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+
+      addn(h, PUDeterBlockBordersvsEfficencyprofile5);
+      // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+      TH2F* PUDeterBlockBordersvsEfficency5   = new TH2F("PUDeterBlockBordersvsEfficency5", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, PUDeterBlockBordersvsEfficency5);
 
    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
     TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "PU Vertex Position Difference vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 100, -10, 10, -0.2, 0.2);
@@ -5487,6 +5553,51 @@ std::vector<float> DeterBlockBorders = {
         std::cerr << "Error: Histogram PUBlockBordersvsPurityprofil5e not found!" << std::endl;
         return;
     }
+
+
+  // Retrieve PUDeterBlockBordersvsPurityprofile5
+  TProfile* PUDeterBlockBordersvsPurityprofile5 = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsPurityprofile5"]);
+  if (!PUDeterBlockBordersvsPurityprofile5) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurityprofile5 not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve PUDeterBlockBordersvsPurity5
+  TH2F* PUDeterBlockBordersvsPurity5 = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsPurity5"]);
+  if (!PUDeterBlockBordersvsPurity5) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurity5 not found!" << std::endl;
+      return;
+  }
+  // Retrieve PUDeterBlockBordersvsPurityprofile1
+  TProfile* PUDeterBlockBordersvsPurityprofile1 = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsPurityprofile1"]);
+  if (!PUDeterBlockBordersvsPurityprofile1) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurityprofile1 not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve PUDeterBlockBordersvsPurity1
+  TH2F* PUDeterBlockBordersvsPurity1 = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsPurity1"]);
+  if (!PUDeterBlockBordersvsPurity1) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurity1 not found!" << std::endl;
+      return;
+  }
+
+
+ // Retrieve PUDeterBlockBordersvsPurityprofile
+  TProfile* PUDeterBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsPurityprofile"]);
+  if (!PUDeterBlockBordersvsPurityprofile) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurityprofile not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve PUDeterBlockBordersvsPurity
+  TH2F* PUDeterBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsPurity"]);
+  if (!PUDeterBlockBordersvsPurity) {
+      std::cerr << "Error: Histogram PUDeterBlockBordersvsPurity not found!" << std::endl;
+      return;
+  }
+
+
     TH2F* PUPurityVsZaxis = dynamic_cast<TH2F*>(h["efficiency/PUPurityVsZaxis"]);
       if (!PUPurityVsZaxis) {
         std::cerr << "Error: Histogram PUPurityVsZaxis not found!" << std::endl;
@@ -5533,6 +5644,8 @@ std::vector<float> DeterBlockBorders = {
           //calculate the distance to the nearest random blockborder
           float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
           //cout << "nearestrandomdistance :" << randomdistance << std::endl;
+          float deterministicdistance = nearestBlockAndDistance(matchedVtx.z(), DeterBlockBorders).second;
+
 
           // Fill the histograms with the calculated purity
           PUBlockBordersvsPurity->Fill(distance, purity);
@@ -5549,6 +5662,19 @@ std::vector<float> DeterBlockBorders = {
           PUBlockBordersvsPurityprofile5->Fill(distance, purity);
           PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
           PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
+
+        PUDeterBlockBordersvsPurityprofile->Fill(deterministicdistance, purity);
+        PUDeterBlockBordersvsPurity->Fill(deterministicdistance, purity);
+
+        
+        PUDeterBlockBordersvsPurity1->Fill(deterministicdistance, purity);
+        PUDeterBlockBordersvsPurityprofile1->Fill(deterministicdistance, purity);
+
+
+        PUDeterBlockBordersvsPurity5->Fill(deterministicdistance, purity);
+        PUDeterBlockBordersvsPurityprofile5->Fill(deterministicdistance, purity);
+
+        
       }
     }
 
@@ -5630,6 +5756,50 @@ std::vector<float> DeterBlockBorders = {
         std::cerr << "Error: Histogram PURandomBlockBordersvsEfficency5 not found!" << std::endl;
         return;
     }
+ // Retrieve PUDeterBlockBordersvsEfficencyprofile1
+    TProfile* PUDeterBlockBordersvsEfficencyprofile1 = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsEfficencyprofile1"]);
+    if (!PUDeterBlockBordersvsEfficencyprofile1) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficencyprofile1 not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve PUDeterBlockBordersvsEfficency5
+    TH2F* PUDeterBlockBordersvsEfficency5 = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsEfficency5"]);
+    if (!PUDeterBlockBordersvsEfficency5) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficency5 not found!" << std::endl;
+        return;
+    }
+
+   // Retrieve PUDeterBlockBordersvsEfficencyprofile5
+    TProfile* PUDeterBlockBordersvsEfficencyprofile5 = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsEfficencyprofile5"]);
+    if (!PUDeterBlockBordersvsEfficencyprofile5) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficencyprofile5 not found!" << std::endl;
+        return;
+    }
+
+
+
+     // Retrieve PUDeterBlockBordersvsEfficencyprofile
+    TProfile* PUDeterBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/PUDeterBlockBordersvsEfficencyprofile"]);
+    if (!PUDeterBlockBordersvsEfficencyprofile) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficencyprofile not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve PUDeterBlockBordersvsEfficency
+    TH2F* PUDeterBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsEfficency"]);
+    if (!PUDeterBlockBordersvsEfficency) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficency not found!" << std::endl;
+        return;
+    }
+
+  // Retrieve SEBlockBordersvsEfficency5
+    TH2F* PUDeterBlockBordersvsEfficency1 = dynamic_cast<TH2F*>(h["efficiency/PUDeterBlockBordersvsEfficency1"]);
+    if (!PUDeterBlockBordersvsEfficency1) {
+        std::cerr << "Error: Histogram PUDeterBlockBordersvsEfficency1 not found!" << std::endl;
+        return;
+    }
+
 
 
 
@@ -5698,6 +5868,7 @@ std::vector<float> DeterBlockBorders = {
         float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
         //calculate distance to nearest random blockborder
         float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
+        float deterministicdistance = nearestBlockAndDistance(matchedVtx.z(), DeterBlockBorders).second;
 
         PUBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
         PUBlockBordersvsEfficency->Fill(distance, efficiency);
@@ -5717,6 +5888,14 @@ std::vector<float> DeterBlockBorders = {
 
         PUEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
         PUEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
+
+
+        PUDeterBlockBordersvsEfficencyprofile5->Fill(deterministicdistance, efficiency);
+        PUDeterBlockBordersvsEfficency1->Fill(deterministicdistance, efficiency);
+        PUDeterBlockBordersvsEfficencyprofile1->Fill(deterministicdistance, efficiency);
+        PUDeterBlockBordersvsEfficency5->Fill(deterministicdistance, efficiency);
+        PUDeterBlockBordersvsEfficency->Fill(deterministicdistance, efficiency);
+        PUDeterBlockBordersvsEfficencyprofile->Fill(deterministicdistance, efficiency);
       }
     }
 
