@@ -525,6 +525,10 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUPurityVsZaxis );
 
+    TProfile* PUPurityVsNumTracks = new TProfile("PUPurityVsNumTracks", "PU Track Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+
+    addn(h, PUPurityVsNumTracks);
+
     // definition of histogramm that shows the purity as a function of z axis position
     TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "SE Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 1000, -20, 20, 0, 100);
 
@@ -535,6 +539,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEEfficiencyVsZaxis );
 
+    // SE track efficiency vs number of tracks
+    TProfile* SEEfficiencyVsNumTracks = new TProfile("SEEfficiencyVsNumTracks", "SE Track Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+
+    addn(h, SEEfficiencyVsNumTracks);
+
     // definition of histogramm that shows the purity as a function of z axis position
     TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "PU Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 0, 100);
 
@@ -544,6 +553,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUEfficiencyVsZaxis );
+
+    // PU track efficiency vs number of tracks
+    TProfile* PUEfficiencyVsNumTracks = new TProfile("PUEfficiencyVsNumTracks", "PU Track Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+
+    addn(h, PUEfficiencyVsNumTracks);
 
     // SE Resolution Normalized by dividing the difference in z position of sim and recon by its estimated error
     // will try this with tprofile and TH1f
@@ -589,6 +603,10 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEPurityVsZaxis );
+
+    // SE track purity versus number of tracks
+    TProfile* SEPurityVsNumTracks = new TProfile("SEPurityVsNumTracks", "SE Track Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+    addn(h,SEPurityVsNumTracks);
 
     // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
     TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
@@ -719,36 +737,87 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       TH1F*  PUSimVertexTrackDist = new TH1F("PUSimVertexTrackDist", "PU: Number of Associated Tracks to Simulated Vertices; Number of Vertices; Count", 1000, 0, 1500);
       addn(h, PUSimVertexTrackDist);
 
-      TH1F*  PUSimVertexTrackDistLog = new TH1F("PUSimVertexTrackDistLog", "PU: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      TH1F*  PUSimVertexTrackDistLog = new TH1F("PUSimVertexTrackDistLog", "PU: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Tracks); Count", 1000, 0, 4);
       addn(h, PUSimVertexTrackDistLog);
 
       // 1D histogram of distribution of number of associated tracks in normal and log scale for PU reconstructed vertices
-      TH1F*  PUReconVertexTrackDist = new TH1F("PUReconVertexTrackDist", "PU: Number of Associated Tracks to Recon. Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      TH1F*  PUReconVertexTrackDist = new TH1F("PUReconVertexTrackDist", "PU: Number of Associated Tracks to Recon. Vertices; Number of Tracks; Count", 1000, 0, 1500);
       addn(h, PUReconVertexTrackDist);
 
-      TH1F*  PUReconVertexTrackDistLog = new TH1F("PUReconVertexTrackDistLog", "PU: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      TH1F*  PUReconVertexTrackDistLog = new TH1F("PUReconVertexTrackDistLog", "PU: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Tracks); Count", 1000, 0, 4);
       addn(h, PUReconVertexTrackDistLog);
 
       // 1D histogram of distribution of number of associated tracks in normal and log scale for PU fake vertices
-      TH1F*  PUFakeVertexTrackDist = new TH1F("PUFakeVertexTrackDist", "PU: Number of Associated Tracks to Fake Vertices; Number of Vertices; Count", 1000, 0, 500);
+      TH1F*  PUFakeVertexTrackDist = new TH1F("PUFakeVertexTrackDist", "PU: Number of Associated Tracks to Fake Vertices; Number of Tracks; Count", 1000, 0, 500);
       addn(h, PUFakeVertexTrackDist);
 
-      TH1F*  PUFakeVertexTrackDistLog = new TH1F("PUFakeVertexTrackDistLog", "PU: Number of Associated Tracks to Fake Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      TH1F*  PUFakeVertexTrackDistLog = new TH1F("PUFakeVertexTrackDistLog", "PU: Number of Associated Tracks to Fake Vertices in Log-Scale; Log(Number of Tracks); Count", 1000, 0, 4);
       addn(h, PUFakeVertexTrackDistLog);
 
       // 1D histogram of distribution of number of associated tracks in normal and log scale for PU simulated vertices
-      TH1F*  SESimVertexTrackDist = new TH1F("SESimVertexTrackDist", "SE: Number of Associated Tracks to Simulated Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      TH1F*  SESimVertexTrackDist = new TH1F("SESimVertexTrackDist", "SE: Number of Associated Tracks to Simulated Vertices; Number of Tracks; Count", 1000, 0, 1500);
       addn(h, SESimVertexTrackDist);
 
-      TH1F*  SESimVertexTrackDistLog = new TH1F("SESimVertexTrackDistLog", "SE: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      TH1F*  SESimVertexTrackDistLog = new TH1F("SESimVertexTrackDistLog", "SE: Number of Associated Tracks to Simulated Vertices in Log-Scale; Log(Number of Tracks); Count", 1000, 0, 4);
       addn(h, SESimVertexTrackDistLog);
 
       // 1D histogram of distribution of number of associated tracks in normal and log scale for PU reconstructed vertices
-      TH1F*  SEReconVertexTrackDist = new TH1F("SEReconVertexTrackDist", "SE: Number of Associated Tracks to Recon. Vertices; Number of Vertices; Count", 1000, 0, 1500);
+      TH1F*  SEReconVertexTrackDist = new TH1F("SEReconVertexTrackDist", "SE: Number of Associated Tracks to Recon. Vertices; Number of Tracks; Count", 1000, 0, 1500);
       addn(h, SEReconVertexTrackDist);
 
-      TH1F*  SEReconVertexTrackDistLog = new TH1F("SEReconVertexTrackDistLog", "SE: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Vertices); Count", 1000, 0, 4);
+      TH1F*  SEReconVertexTrackDistLog = new TH1F("SEReconVertexTrackDistLog", "SE: Number of Associated Tracks to Recon. Vertices in Log-Scale; Log(Number of Tracks); Count", 1000, 0, 4);
       addn(h, SEReconVertexTrackDistLog);
+      
+
+      // Number of tracks versus z-Position
+
+      TProfile*  PUSimNumTracksZPos = new TProfile("PUSimNumTracksZPos", "PU: Log of Associated Tracks to Simulated Vertices versus Z-Position; Z-Position [cm]; Log10(Number of Tracks)", 1000, -10, 10 ,0, 4);
+      addn(h, PUSimNumTracksZPos);
+
+      TProfile*  PUReconNumTracksZPos = new TProfile("PUReconNumTracksZPos", "PU: Log of Associated Tracks to Recon Vertices versus Z-Position; Z-Position [cm]; Log10(Number of Tracks)", 1000, -10, 10 ,0, 4);
+      addn(h, PUReconNumTracksZPos);
+
+      TProfile*  PUFakeNumTracksZPos = new TProfile("PUFakeNumTracksZPos", "PU: Log of Associated Tracks to Fake Vertices versus Z-Position; Z-Position [cm]; Log10(Number of Tracks)", 1000, -10, 10 ,0, 4);
+      addn(h, PUFakeNumTracksZPos);
+
+      TProfile*  SESimNumTracksZPos = new TProfile("SESimNumTracksZPos", "SE: Log of Associated Tracks to Simulated Vertices versus Z-Position; Z-Position [cm]; Log10(Number of Tracks)", 1000, -10, 10 ,0, 4);
+      addn(h, SESimNumTracksZPos);
+
+      TProfile*  SEReconNumTracksZPos = new TProfile("SEReconNumTracksZPos", "SE: Log of Associated Tracks to Recon. Vertices versus Z-Position; Z-Position [cm]; Log10(Number of Tracks)", 1000, -10, 10 ,0, 4);
+      addn(h, SEReconNumTracksZPos);
+
+      // Number of tracks versus Distance to block border with and without zoom, so from-5 to 5 and -1 to 1
+
+      TProfile*  PUSimNumTracksBlock = new TProfile("PUSimNumTracksBlock", "PU: Log of Associated Tracks to Simulated Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -5, 5 ,0, 4);
+      addn(h, PUSimNumTracksBlock);
+
+      TProfile*  PUReconNumTracksBlock = new TProfile("PUReconNumTracksBlock", "PU: Log of Associated Tracks to Recon Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -5, 5 ,0, 4);
+      addn(h, PUReconNumTracksBlock);
+
+      TProfile*  PUFakeNumTracksBlock = new TProfile("PUFakeNumTracksBlock", "PU: Log of Associated Tracks to Fake Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -5, 5 ,0, 4);
+      addn(h, PUFakeNumTracksBlock);
+
+      TProfile*  SESimNumTracksBlock = new TProfile("SESimNumTracksBlock", "SE: Log of Associated Tracks to Simulated Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -5, 5 ,0, 4);
+      addn(h, SESimNumTracksBlock);
+
+      TProfile*  SEReconNumTracksBlock = new TProfile("SEReconNumTracksBlock", "SE: Log of Associated Tracks to Recon. Vertices versus Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -5, 5 ,0, 4);
+      addn(h, SEReconNumTracksBlock);
+
+      TProfile*  PUSimNumTracksBlock1 = new TProfile("PUSimNumTracksBlock1", "PU: Log of Associated Tracks to Simulated Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
+      addn(h, PUSimNumTracksBlock1);
+
+      TProfile*  PUReconNumTracksBlock1 = new TProfile("PUReconNumTracksBlock1", "PU: Log of Associated Tracks to Recon Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
+      addn(h, PUReconNumTracksBlock1);
+
+      TProfile*  PUFakeNumTracksBlock1 = new TProfile("PUFakeNumTracksBlock1", "PU: Log of Associated Tracks to Fake Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
+      addn(h, PUFakeNumTracksBlock1);
+
+      TProfile*  SESimNumTracksBlock1 = new TProfile("SESimNumTracksBlock1", "SE: Log of Associated Tracks to Simulated Vertices versus  Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
+      addn(h, SESimNumTracksBlock1);
+
+      TProfile*  SEReconNumTracksBlock1 = new TProfile("SEReconNumTracksBlock1", "SE: Log of Associated Tracks to Recon. Vertices versus Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
+      addn(h, SEReconNumTracksBlock1);
+
 
 
       // Return to the base directory to maintain proper organization
@@ -4816,6 +4885,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       return;
   }
 
+
+  TProfile* SEPurityVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/SEPurityVsNumTracks"]);
+    if (!SEPurityVsNumTracks) {
+        std::cerr << "Error: Histogram SEPurityVsNumTracks not found!" << std::endl;
+        return;
+    }
+
   // Retrieve SEPurityVsZaxis
   TH2F* SEPurityVsZaxis = dynamic_cast<TH2F*>(h["efficiency/SEPurityVsZaxis"]);
   if (!SEPurityVsZaxis) {
@@ -4864,6 +4940,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         SEPurityVsZaxis->Fill(posZaxisReco, purity);
         SEPurityVsZaxisProfile->Fill(posZaxisReco, purity);
+        SEPurityVsNumTracks->Fill(log10(numTracks), purity);
+
     }
 
     // histogram for SE track efficiency
@@ -4923,6 +5001,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
+    TProfile* SEEfficiencyVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/SEEfficiencyVsNumTracks"]);
+    if (!SEEfficiencyVsNumTracks) {
+        std::cerr << "Error: Histogram SEEfficiencyVsNumTracks not found!" << std::endl;
+        return;
+    }
+
     // Retrieve SEEfficiencyVsZaxis
     TH2F* SEEfficiencyVsZaxis = dynamic_cast<TH2F*>(h["efficiency/SEEfficiencyVsZaxis"]);
     if (!SEEfficiencyVsZaxis) {
@@ -4972,6 +5056,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         SEEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
         SEEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
+        SEEfficiencyVsNumTracks->Fill(log10(matchedVtx.tracks.size()), efficiency);
     }
 
 
@@ -5027,6 +5112,12 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
+    TProfile* PUPurityVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsNumTracks"]);
+      if (!PUPurityVsNumTracks) {
+        std::cerr << "Error: Histogram PUPurityVsNumTracks not found!" << std::endl;
+        return;
+    }
+
     for (size_t i = 1; i < simEvt.size(); i++) {
       if (simEvt[i].is_matched()) {
         MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
@@ -5066,6 +5157,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
           PUBlockBordersvsPurityprofile5->Fill(distance, purity);
           PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
           PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
+          PUPurityVsNumTracks->Fill(log10(numTracks), purity);
       }
     }
 
@@ -5134,6 +5226,11 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram PUEfficiencyVsZaxis not found!" << std::endl;
         return;
     }
+    TProfile* PUEfficiencyVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/PUEfficiencyVsNumTracks"]);
+    if (!PUEfficiencyVsNumTracks) {
+        std::cerr << "Error: Histogram PUEfficiencyVsNumTracks not found!" << std::endl;
+        return;
+    }
 
 
     // Loop through the pile-up events (non-signal vertices, starting from simEvt[1])
@@ -5180,6 +5277,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         PUEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
         PUEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
+        PUEfficiencyVsNumTracks->Fill(log10(matchedVtx.tracks.size()), efficiency);
       }
     }
 
@@ -5359,6 +5457,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       }
 
     // Associated track histograms
+    // Distribution of number of track
 
     TH1F* PUSimVertexTrackDist = dynamic_cast<TH1F*>(h["efficiency/PUSimVertexTrackDist"]);
       if (!PUSimVertexTrackDist) {
@@ -5410,33 +5509,133 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         std::cerr << "Error: Histogram SEReconVertexTrackDistLog not found!" << std::endl;
         return;
     }
-      
+
+    // Number of tracks versus z-position
+    TProfile* PUSimNumTracksZPos = dynamic_cast<TProfile*>(h["efficiency/PUSimNumTracksZPos"]);
+      if (!PUSimNumTracksZPos) {
+        std::cerr << "Error: Histogram PUSimNumTracksZPos not found!" << std::endl;
+        return;
+    }
+    TProfile* PUReconNumTracksZPos = dynamic_cast<TProfile*>(h["efficiency/PUReconNumTracksZPos"]);
+      if (!PUReconNumTracksZPos) {
+        std::cerr << "Error: Histogram PUReconNumTracksZPos not found!" << std::endl;
+        return;
+    }
+    TProfile* PUFakeNumTracksZPos = dynamic_cast<TProfile*>(h["efficiency/PUFakeNumTracksZPos"]);
+      if (!PUFakeNumTracksZPos) {
+        std::cerr << "Error: Histogram PUFakeNumTracksZPos not found!" << std::endl;
+        return;
+    }
+    TProfile* SESimNumTracksZPos = dynamic_cast<TProfile*>(h["efficiency/SESimNumTracksZPos"]);
+      if (!SESimNumTracksZPos) {
+        std::cerr << "Error: Histogram SESimNumTracksZPos not found!" << std::endl;
+        return;
+    }
+    TProfile* SEReconNumTracksZPos = dynamic_cast<TProfile*>(h["efficiency/SEReconNumTracksZPos"]);
+      if (!SEReconNumTracksZPos) {
+        std::cerr << "Error: Histogram SEReconNumTracksZPos not found!" << std::endl;
+        return;
+    }
+
+    // numberof tracks versus block distance
+    TProfile* PUSimNumTracksBlock = dynamic_cast<TProfile*>(h["efficiency/PUSimNumTracksBlock"]);
+      if (!PUSimNumTracksBlock) {
+        std::cerr << "Error: Histogram PUSimNumTracksBlock not found!" << std::endl;
+        return;
+    }
+    TProfile* PUReconNumTracksBlock = dynamic_cast<TProfile*>(h["efficiency/PUReconNumTracksBlock"]);
+      if (!PUReconNumTracksBlock) {
+        std::cerr << "Error: Histogram PUReconNumTracksBlock not found!" << std::endl;
+        return;
+    }
+    TProfile* PUFakeNumTracksBlock = dynamic_cast<TProfile*>(h["efficiency/PUFakeNumTracksBlock"]);
+      if (!PUFakeNumTracksBlock) {
+        std::cerr << "Error: Histogram PUFakeNumTracksBlock not found!" << std::endl;
+        return;
+    }
+    TProfile* SESimNumTracksBlock = dynamic_cast<TProfile*>(h["efficiency/SESimNumTracksBlock"]);
+      if (!SESimNumTracksBlock) {
+        std::cerr << "Error: Histogram SESimNumTracksBlock not found!" << std::endl;
+        return;
+    }
+    TProfile* SEReconNumTracksBlock = dynamic_cast<TProfile*>(h["efficiency/SEReconNumTracksBlock"]);
+      if (!SEReconNumTracksBlock) {
+        std::cerr << "Error: Histogram SEReconNumTracksBlock not found!" << std::endl;
+        return;
+    }
+    TProfile* PUSimNumTracksBlock1 = dynamic_cast<TProfile*>(h["efficiency/PUSimNumTracksBlock1"]);
+      if (!PUSimNumTracksBlock1) {
+        std::cerr << "Error: Histogram PUSimNumTracksBlock1 not found!" << std::endl;
+        return;
+    }
+    TProfile* PUReconNumTracksBlock1 = dynamic_cast<TProfile*>(h["efficiency/PUReconNumTracksBlock1"]);
+      if (!PUReconNumTracksBlock1) {
+        std::cerr << "Error: Histogram PUReconNumTracksBlock1 not found!" << std::endl;
+        return;
+    }
+    TProfile* PUFakeNumTracksBlock1 = dynamic_cast<TProfile*>(h["efficiency/PUFakeNumTracksBlock1"]);
+      if (!PUFakeNumTracksBlock1) {
+        std::cerr << "Error: Histogram PUFakeNumTracksBlock1 not found!" << std::endl;
+        return;
+    }
+    TProfile* SESimNumTracksBlock1 = dynamic_cast<TProfile*>(h["efficiency/SESimNumTracksBlock1"]);
+      if (!SESimNumTracksBlock1) {
+        std::cerr << "Error: Histogram SESimNumTracksBlock1 not found!" << std::endl;
+        return;
+    }
+    TProfile* SEReconNumTracksBlock1 = dynamic_cast<TProfile*>(h["efficiency/SEReconNumTracksBlock1"]);
+      if (!SEReconNumTracksBlock1) {
+        std::cerr << "Error: Histogram SEReconNumTracksBlock1 not found!" << std::endl;
+        return;
+    }
+
+
+
     for (size_t i = 0; i < simEvt.size(); i++) {
+      float distance = nearestBlockAndDistance(simEvt[i].z, blockborders).second;
       if (simEvt[i].is_signal()) {
         SESimVertexTrackDist->Fill(simEvt[i].rtk.size());
         SESimVertexTrackDistLog->Fill(log10(simEvt[i].rtk.size()));
+        SESimNumTracksZPos->Fill(simEvt[i].z,log10(simEvt[i].rtk.size()));
+        SESimNumTracksBlock->Fill(distance,log10(simEvt[i].rtk.size()));
+        SESimNumTracksBlock1->Fill(distance,log10(simEvt[i].rtk.size()));
       }
       else {
         PUSimVertexTrackDist->Fill(simEvt[i].rtk.size());
         PUSimVertexTrackDistLog->Fill(log10(simEvt[i].rtk.size()));
+        PUSimNumTracksZPos->Fill(simEvt[i].z,log10(simEvt[i].rtk.size()));
+        PUSimNumTracksBlock->Fill(distance,log10(simEvt[i].rtk.size()));
+        PUSimNumTracksBlock1->Fill(distance,log10(simEvt[i].rtk.size()));
+
       }
     }
     
     for (size_t i = 0; i < vtxs.size(); i++) {
       MVertex& vtx = vtxs.at(i);
+      // calculate the distance to the nearest block border
+      float distance = nearestBlockAndDistance(vtx.z(), blockborders).second;
       if (vtx.is_real()) {
         if (vtx.is_signal()) {
           SEReconVertexTrackDist->Fill(vtx.tracks.size());
           SEReconVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+          SEReconNumTracksZPos->Fill(vtx.z(), log10(vtx.tracks.size()));
+          SEReconNumTracksBlock->Fill(distance, log10(vtx.tracks.size()));
+          SEReconNumTracksBlock1->Fill(distance, log10(vtx.tracks.size()));
         }
         else {
           PUReconVertexTrackDist->Fill(vtx.tracks.size());
           PUReconVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+          PUReconNumTracksZPos->Fill(vtx.z(), log10(vtx.tracks.size()));
+          PUReconNumTracksBlock->Fill(distance, log10(vtx.tracks.size()));
+          PUReconNumTracksBlock1->Fill(distance, log10(vtx.tracks.size()));
         }
       }
       else {
         PUFakeVertexTrackDist->Fill(vtx.tracks.size());
         PUFakeVertexTrackDistLog->Fill(log10(vtx.tracks.size()));
+        PUFakeNumTracksZPos->Fill(vtx.z(), log10(vtx.tracks.size()));
+        PUFakeNumTracksBlock->Fill(distance, log10(vtx.tracks.size()));
+        PUFakeNumTracksBlock1->Fill(distance, log10(vtx.tracks.size()));
       }
     }
 
