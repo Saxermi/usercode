@@ -618,15 +618,55 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     addn(h, SEResidualVsTrackPurityprofile);
 
+
+
+
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
     TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
 
     addn(h, SEBlockBordersvsPurityprofile);
+
     // Define a TH2F histogram for PUBlockBordersvsPurity
     TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsPurity );
+
+    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+
+    addn(h, SEBlockBordersvsEfficencyprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, SEBlockBordersvsEfficency);
+
+    // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
+    TProfile* SERandomBlockBordersvsPurityprofile = new TProfile("SERandomBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+
+    addn(h, SERandomBlockBordersvsPurityprofile);
+
+    // Define a TH2F histogram for PUBlockBordersvsPurity
+    TH2F* SERandomBlockBordersvsPurity  = new TH2F("SERandomBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, SERandomBlockBordersvsPurity );
+
+    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+    TProfile* SERandomBlockBordersvsEfficencyprofile  = new TProfile("SERandomBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+
+    addn(h, SERandomBlockBordersvsEfficencyprofile);
+    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+    TH2F* SERandomBlockBordersvsEfficency   = new TH2F("SERandomBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+
+    // Adding the 2D histogram to a collection or for further processing
+    addn(h, SERandomBlockBordersvsEfficency);
+
+    
+
+
+
 
     // definition of histogramm that shows the purity as a function of z axis position
     TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "SE Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 100, -15, 15, 0, 100);
@@ -638,15 +678,6 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEPurityVsZaxis );
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
-
-    addn(h, SEBlockBordersvsEfficencyprofile);
-    // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
-
-    // Adding the 2D histogram to a collection or for further processing
-    addn(h, SEBlockBordersvsEfficency);
 
     // ZOOM IN for SE Track purity/efficiency
       // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
@@ -688,6 +719,54 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEBlockBordersvsEfficency5);
+      //random blockborders
+      TProfile* SERandomBlockBordersvsPurityprofile1 = new TProfile("SERandomBlockBordersvsPurityprofile1", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+
+      addn(h, SERandomBlockBordersvsPurityprofile1);
+      // Define a TH2F histogram for PUBlockBordersvsPurity
+      TH2F* SERandomBlockBordersvsPurity1  = new TH2F("SERandomBlockBordersvsPurity1", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, SERandomBlockBordersvsPurity1 );
+
+
+
+
+           // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
+      TProfile* SERandomBlockBordersvsPurityprofile5 = new TProfile("SERandomBlockBordersvsPurityprofile5", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+
+      addn(h, SERandomBlockBordersvsPurityprofile5);
+      // Define a TH2F histogram for PUBlockBordersvsPurity
+      TH2F* SERandomBlockBordersvsPurity5  = new TH2F("SERandomBlockBordersvsPurity5", "SE Track Purity vs. Distance to Closest  Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, SERandomBlockBordersvsPurity5 );
+
+      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+      TProfile* SERandomBlockBordersvsEfficencyprofile1  = new TProfile("SERandomBlockBordersvsEfficencyprofile1", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+
+      addn(h, SERandomBlockBordersvsEfficencyprofile1);
+      // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+      TH2F* SERandomBlockBordersvsEfficency1   = new TH2F("SERandomBlockBordersvsEfficency1", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest  Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, SERandomBlockBordersvsEfficency1);
+
+      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
+      TProfile* SERandomBlockBordersvsEfficencyprofile5  = new TProfile("SERandomBlockBordersvsEfficencyprofile5", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+
+      addn(h, SERandomBlockBordersvsEfficencyprofile5);
+      // Define a TH2F histogram for PUBlockBordersvsPurityprofile
+      TH2F* SERandomBlockBordersvsEfficency5   = new TH2F("SERandomBlockBordersvsEfficency5", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+
+      // Adding the 2D histogram to a collection or for further processing
+      addn(h, SERandomBlockBordersvsEfficency5);
+
+
+
+
+
+
 
     // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
       TProfile* PUBlockBordersvsFakeVertProfi =
@@ -4777,7 +4856,37 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
     }
 
 //calculation of random blockborders
+    //get the list of randomblockborders
+    // Anzahl der Indizes
+    int n = tracks.size();
+ 
 
+    // Erstelle eine Liste von Indizes (0 bis n-1)
+    std::vector<int> indices(n);
+    for (int i = 0; i < n; ++i) {
+        indices[i] = i;
+    }
+
+
+  // Set a seed for reproducibility
+    std::srand(12345); // Seed the random number generator
+   
+//this random_shuffle has been removed in c++17 but its alternative does not work in this enviroment
+    std::random_shuffle(indices.begin(), indices.end(), [](int max) {
+        return std::rand() % (max + 1);
+    });
+    // Wähle die ersten 20 Indizes aus
+    std::vector<int> randomIndices(indices.begin(), indices.begin() + 20);
+
+    //std::cout << "This is the first entry of getRandomBlockborders: " << randomIndices[0] << std::endl;
+
+    std::vector<float> randomblockborders;
+    // get z position for every random index
+    for(int index : randomIndices){
+    const MTrack& track = tracks[index];
+    float ZPosition = track.z();
+    randomblockborders.push_back(ZPosition);
+    }
 
 
   // histograms for SE track purity also one with vs resolution plus with block distance
@@ -4841,6 +4950,58 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
       return;
   }
 
+  // now the same but this time for random blockborders
+
+  // Retrieve SEBlockBordersvsPurityprofile
+  TProfile* SERandomBlockBordersvsPurityprofile = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsPurityprofile"]);
+  if (!SERandomBlockBordersvsPurityprofile) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurityprofile not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEBlockBordersvsPurity
+  TH2F* SERandomBlockBordersvsPurity = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsPurity"]);
+  if (!SERandomBlockBordersvsPurity) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurity not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEBlockBordersvsPurityprofile1
+  TProfile* SERandomBlockBordersvsPurityprofile1 = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsPurityprofile1"]);
+  if (!SERandomBlockBordersvsPurityprofile1) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurityprofile1 not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEBlockBordersvsPurity1
+  TH2F* SERandomBlockBordersvsPurity1 = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsPurity1"]);
+  if (!SERandomBlockBordersvsPurity1) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurity1 not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEBlockBordersvsPurityprofile5
+  TProfile* SERandomBlockBordersvsPurityprofile5 = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsPurityprofile5"]);
+  if (!SERandomBlockBordersvsPurityprofile5) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurityprofile5 not found!" << std::endl;
+      return;
+  }
+
+  // Retrieve SEBlockBordersvsPurity5
+  TH2F* SERandomBlockBordersvsPurity5 = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsPurity5"]);
+  if (!SERandomBlockBordersvsPurity5) {
+      std::cerr << "Error: Histogram SERandomBlockBordersvsPurity5 not found!" << std::endl;
+      return;
+  }
+
+
+
+
+
+
+
+  //till here
+
   // Retrieve SEPurityVsZaxisProfile
   TProfile* SEPurityVsZaxisProfile = dynamic_cast<TProfile*>(h["efficiency/SEPurityVsZaxisProfile"]);
   if (!SEPurityVsZaxisProfile) {
@@ -4881,18 +5042,29 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         float resolution = simEvt[0].z - matchedVtx.z();
         float posZaxisReco = matchedVtx.z();
         float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
+        float randomdistance = nearestBlockAndDistance(simEvt[0].z, randomblockborders).second;
+
+
+
         // Fill the histogram with the calculated purity
         SETracksPurity->Fill(purity);
         SEResidualVsTrackPurity->Fill(resolution, purity);
         SEResidualVsTrackPurityprofile->Fill(resolution, purity);
         SEBlockBordersvsPurityprofile->Fill(distance, purity);
         SEBlockBordersvsPurity->Fill(distance, purity);
+        SERandomBlockBordersvsPurityprofile->Fill(randomdistance, purity);
+        SERandomBlockBordersvsPurity->Fill(randomdistance, purity);
+
 
         SEBlockBordersvsPurityprofile1->Fill(distance, purity);
         SEBlockBordersvsPurity1->Fill(distance, purity);
+        SERandomBlockBordersvsPurityprofile1->Fill(randomdistance, purity);
+        SERandomBlockBordersvsPurity1->Fill(randomdistance, purity);
 
         SEBlockBordersvsPurityprofile5->Fill(distance, purity);
         SEBlockBordersvsPurity5->Fill(distance, purity);
+        SERandomBlockBordersvsPurityprofile5->Fill(randomdistance, purity);
+        SERandomBlockBordersvsPurity5->Fill(randomdistance, purity);
 
         SEPurityVsZaxis->Fill(posZaxisReco, purity);
         SEPurityVsZaxisProfile->Fill(posZaxisReco, purity);
@@ -4948,6 +5120,66 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
+
+
+
+
+
+
+
+
+    // Retrieve SEBlockBordersvsEfficencyprofile5
+    TProfile* SERandomBlockBordersvsEfficencyprofile1 = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsEfficencyprofile1"]);
+    if (!SERandomBlockBordersvsEfficencyprofile1) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficencyprofile1 not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve SEBlockBordersvsEfficency5
+    TH2F* SERandomBlockBordersvsEfficency1 = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsEfficency1"]);
+    if (!SERandomBlockBordersvsEfficency1) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficency1 not found!" << std::endl;
+        return;
+    }
+
+   // Retrieve SEBlockBordersvsEfficencyprofile5
+    TProfile* SERandomBlockBordersvsEfficencyprofile5 = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsEfficencyprofile5"]);
+    if (!SERandomBlockBordersvsEfficencyprofile5) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficencyprofile5 not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve SEBlockBordersvsEfficency5
+    TH2F* SERandomBlockBordersvsEfficency5 = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsEfficency5"]);
+    if (!SERandomBlockBordersvsEfficency5) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficency5 not found!" << std::endl;
+        return;
+    }
+
+     // Retrieve SEBlockBordersvsEfficencyprofile5
+    TProfile* SERandomBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/SERandomBlockBordersvsEfficencyprofile"]);
+    if (!SERandomBlockBordersvsEfficencyprofile) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficencyprofile not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve SEBlockBordersvsEfficency5
+    TH2F* SERandomBlockBordersvsEfficency = dynamic_cast<TH2F*>(h["efficiency/SERandomBlockBordersvsEfficency"]);
+    if (!SERandomBlockBordersvsEfficency) {
+        std::cerr << "Error: Histogram SERandomBlockBordersvsEfficency not found!" << std::endl;
+        return;
+    }
+
+
+    ///hier
+
+  
+
+
+
+
+    //
+
     // Retrieve SEEfficiencyVsZaxisProfile
     TProfile* SEEfficiencyVsZaxisProfile = dynamic_cast<TProfile*>(h["efficiency/SEEfficiencyVsZaxisProfile"]);
     if (!SEEfficiencyVsZaxisProfile) {
@@ -4991,6 +5223,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
         efficiency = efficiency * 100;
         float distance = nearestBlockAndDistance(simEvt[0].z, blockborders).second;
+         //calculate the distance to the nearest random blockborder
+          float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
         // Fill the histogram with the calculated efficiency
         SETracksEfficiency->Fill(efficiency);
         SEBlockBordersvsEfficencyprofile->Fill(distance, efficiency);
@@ -5004,6 +5238,13 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
 
         SEEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
         SEEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
+
+        SERandomBlockBordersvsEfficencyprofile1->Fill(randomdistance, efficiency);
+        SERandomBlockBordersvsEfficency1->Fill(randomdistance, efficiency);
+         SERandomBlockBordersvsEfficencyprofile5->Fill(randomdistance, efficiency); 
+        SERandomBlockBordersvsEfficency5->Fill(randomdistance, efficiency);
+        SERandomBlockBordersvsEfficencyprofile->Fill(randomdistance, efficiency); 
+        SERandomBlockBordersvsEfficency->Fill(randomdistance, efficiency);
     }
 
 
@@ -5091,37 +5332,7 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
         return;
     }
 
-    //get the list of randomblockborders
-    // Anzahl der Indizes
-    int n = tracks.size();
- 
 
-    // Erstelle eine Liste von Indizes (0 bis n-1)
-    std::vector<int> indices(n);
-    for (int i = 0; i < n; ++i) {
-        indices[i] = i;
-    }
-
-
-  // Set a seed for reproducibility
-    std::srand(12345); // Seed the random number generator
-   
-//this random_shuffle has been removed in c++17 but its alternative does not work in this enviroment
-    std::random_shuffle(indices.begin(), indices.end(), [](int max) {
-        return std::rand() % (max + 1);
-    });
-    // Wähle die ersten 20 Indizes aus
-    std::vector<int> randomIndices(indices.begin(), indices.begin() + 20);
-
-    //std::cout << "This is the first entry of getRandomBlockborders: " << randomIndices[0] << std::endl;
-
-    std::vector<float> randomblockborders;
-    // get z position for every random index
-    for(int index : randomIndices){
-    const MTrack& track = tracks[index];
-    float ZPosition = track.z();
-    randomblockborders.push_back(ZPosition);
-    }
     //for (float result : randomblockborders) {
     //    std::cout << result << " ";
     //}
