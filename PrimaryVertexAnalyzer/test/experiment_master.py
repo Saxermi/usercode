@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_13" 
+base_path = "experimental_run_13"  stop
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer", log_filename)
 
