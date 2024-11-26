@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_13"  stop
+base_path = "experimental_run_14"  stop
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer", log_filename)
 
@@ -59,12 +59,13 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
 
     # Calculate the directory name based on overlap (convert to an integer percentage)
     overlap_dir = int(abs(overlap) * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
+    #overlap_dir = int(abs(overlap) * 100)  # for higher precision
 
     # Add "n" if overlap is negative
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    base_path = "experimental_run_13"
+    base_path = "experimental_run_14"
     dir_create_path = "/work/msaxer/"
 
     # Create the full path based on the sample, overlap, and blocksize
@@ -136,10 +137,10 @@ def main():
     #]
     #subsets = ["Subset_SToMuMu_01"]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [-0,-0.4,0,0.4]  # Add negative overlaps here
+    overlaps = [0.3,0.31,0.32,0.33,0.34,0.35,0.36, 0.37,0.38,0.39,0.4]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [512,1024]
+    blocksizes = [512]
     #blocksizes = [ 512]
 
     # If in test mode, only submit two jobs, one with notify and one without
