@@ -37,7 +37,6 @@ def find_histogram_in_directory(directory, hist_name):
                 return found_hist
     return None
 
-
 # Process each ROOT file
 for file_path in root_files:
     print(f"Processing file: {file_path}")
@@ -61,14 +60,9 @@ for file_path in root_files:
     legend.SetBorderSize(0)
     legend.SetFillStyle(0)
 
-    first_histogram = None
+    first_histogram = True
     histograms_with_legend = []
 
-    # Determine the global Y-axis range
-    y_min_global = 0
-    y_max_global = 100
-
-    # Process each histogram
     for i, hist_name in enumerate(list_histos):
         hist = find_histogram_in_directory(directory, hist_name)
         if hist:
@@ -88,12 +82,10 @@ for file_path in root_files:
             # Add to legend
             legend.AddEntry(cloned_hist, hist_name, "l")
 
-            # Apply the global Y-axis range
-            cloned_hist.SetMinimum(y_min_global)
-            cloned_hist.SetMaximum(y_max_global)
-
             # Draw the histogram
-            if first_histogram is None:
+            if first_histogram:
+                cloned_hist.SetMinimum(0)
+                cloned_hist.SetMaximum(100)
                 cloned_hist.Draw("E")
                 first_histogram = False
             else:
@@ -102,3 +94,14 @@ for file_path in root_files:
             histograms_with_legend.append(cloned_hist)
         else:
             print(f"Histogram '{hist_name}' not found in file: {file_path}")
+
+    # Draw legend
+    legend.Draw()
+
+    # Save the canvas
+    base_filename = os.path.basename(file_path).replace(".root", "")
+    output_file = f"{output_path}/{base_filename}_combined_histograms.pdf"
+    canvas.SaveAs(output_file)
+    print(f"Saved combined histogram as: {output_file}")
+
+    root_file.Close()
