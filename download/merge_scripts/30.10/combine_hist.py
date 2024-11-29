@@ -10,8 +10,8 @@ histogram_names = [
     # "SETracksEfficiency",
     # "PUTracksPurity",
     # "PUTracksEfficiency",
-    # "SEResolution",
-    # "PUResolution",
+    "SEResidual",
+    "PUResidual",
     # "reco_vs_true_z_position_hist_categorial_c1",
     # "reco_vs_true_z_position_hist_categorial_c2",
     # "reco_vs_true_z_position_hist_categorial_c3",
@@ -24,69 +24,134 @@ histogram_names = [
     # "SERecoVsSimZPositionBlock",
     # "PURecoVsSimZPositionBlock",
     # "PUBlockBordersvsPurityprofile",
+    # "PURandomBlockBordersvsPurityprofile",
     # "PUBlockBordersvsPurity",
     # "PUBlockBordersvsEfficencyprofile",
     # "PUBlockBordersvsEfficency",
+    # "PURandomBlockBordersvsEfficency",
+    # "PUDeterBlockBordersvsPurityprofile",
+    # "PUDeterBlockBordersvsPurity",
+    # "PUDeterBlockBordersvsEfficencyprofile",
+    # "PUDeterBlockBordersvsEfficency",
+    "PUBlockBordersvsPurityprofile1",
+    # "PUBlockBordersvsPurity1",
+    # "PURandomBlockBordersvsPurity1",
+    "PURandomBlockBordersvsPurityprofile1",
+    # "PURandomBlockBordersvsPurity5",
+    "PURandomBlockBordersvsPurityprofile5",
+    "PUBlockBordersvsEfficencyprofile1",
+    # "PURandomBlockBordersvsEfficency1",
+    "PURandomBlockBordersvsEfficencyprofile1",
+    # "PURandomBlockBordersvsEfficency5",
+    # "PUBlockBordersvsEfficency5",
+    "PUBlockBordersvsPurityprofile5",
+    # "PUBlockBordersvsPurity5",
+    "PUBlockBordersvsEfficencyprofile5",
+    "PUDeterBlockBordersvsPurityprofile1",
+    # "PUDeterBlockBordersvsPurity1",
+    "PUDeterBlockBordersvsPurityprofile5",
+    # "PUDeterBlockBordersvsPurity5",
+    "PUDeterBlockBordersvsEfficencyprofile1",
+    # "PUDeterBlockBordersvsEfficency1",
+    "PUDeterBlockBordersvsEfficencyprofile5",
+    # "PUDeterBlockBordersvsEfficency5",
     # "PUBlockBordersvsZdeltayprofile",
     # "PUBlockBordersvsZdelta",
     # "PUPurityVsZaxisprofile",
     # "PUPurityVsZaxis",
+    # "PUPurityVsNumTracks",
     # "SEEfficiencyVsZaxisProfile",
     # "SEEfficiencyVsZaxis",
+    # "SEEfficiencyVsNumTracks",
     # "PUEfficiencyVsZaxisProfile",
     # "PUEfficiencyVsZaxis",
-    # "SEResolutionNormalized",
-    # "SEResolutionNormalizedBlockprofile",
-    # "SEResolutionNormalizedBlock",
-    # "PUResolutionNormalized",
-    # "SEResolutionVsTrackPurity",
+    # "PUEfficiencyVsNumTracks",
+    # "SEResidualNormalized",
+    # "SEResidualNormalizedBlockprofile",
+    # "SEResidualNormalizedBlock",
+    # "PUResidualNormalized",
+    # "SEResidualVsTrackPurity",
+    # "SEResidualVsTrackPurityprofile",
     # "SEBlockBordersvsPurityprofile",
     # "SEBlockBordersvsPurity",
-    # "SEPurityVsZaxisProfile",
-    # "SEPurityVsZaxis",
     # "SEBlockBordersvsEfficencyprofile",
     # "SEBlockBordersvsEfficency",
+    # "SERandomBlockBordersvsPurityprofile",
+    # "SERandomBlockBordersvsPurity",
+    # "SEPurityVsNumTracks",
+    # "SERandomBlockBordersvsEfficencyprofile",
+    # "SERandomBlockBordersvsEfficency",
+    # "SEDeterBlockBordersvsPurityprofile",
+    # "SEDeterBlockBordersvsPurity",
+    # "SEDeterBlockBordersvsEfficencyprofile",
+    # "SEDeterBlockBordersvsEfficency",
+    # "SEPurityVsZaxisProfile",
+    # "SEPurityVsZaxis",
+    "SEBlockBordersvsPurityprofile1",
+    # "SEBlockBordersvsPurity1",
+    "SEBlockBordersvsPurityprofile5",
+    # "SEBlockBordersvsPurity5",
+    "SEBlockBordersvsEfficencyprofile1",
+    # "SEBlockBordersvsEfficency1",
+    "SEBlockBordersvsEfficencyprofile5",
+    # "SEBlockBordersvsEfficency5",
+    "SERandomBlockBordersvsPurityprofile1",
+    # "SERandomBlockBordersvsPurity1",
+    "SERandomBlockBordersvsPurityprofile5",
+    # "SERandomBlockBordersvsPurity5",
+    "SERandomBlockBordersvsEfficencyprofile1",
+    # "SERandomBlockBordersvsEfficency1",
+    "SERandomBlockBordersvsEfficencyprofile5",
+    # "SERandomBlockBordersvsEfficency5",
+    "SEDeterBlockBordersvsPurityprofile1",
+    # "SEDeterBlockBordersvsPurity1",
+    "SEDeterBlockBordersvsPurityprofile5",
+    # "SEDeterBlockBordersvsPurity5",
+    "SEDeterBlockBordersvsEfficencyprofile1",
+    # "SEDeterBlockBordersvsEfficency1",
+    "SEDeterBlockBordersvsEfficencyprofile5",
+    # "SEDeterBlockBordersvsEfficency5",
     # "PUBlockBordersvsFakeVertProfi",
+    # "PUBlockBordersvsFakeVertProfi1",
+    # "PUBlockBordersvsFakeVertProfi5",
     # "PUBlockBorder",
     # "PUBlockBorder1",
     # "SEBlockBorder",
-    # "BlockSizes",
+    "BlockSizes",
     "BlockNumber",
-    "SESimulatedVertices",
-    "PUSimulatedVertices",
-    "SEReconVertices",
-    "PUReconVertices",
-    "FakeVertices",
+    # "SESimulatedVertices",
+    # "PUSimulatedVertices",
+    # "SEReconVertices",
+    # "PUReconVertices",
+    # "FakeVertices",
     # "PUSimVertexTrackDist",
-    # "PUSimVertexTrackDistLog",
+    "PUSimVertexTrackDistLog",
     # "PUReconVertexTrackDist",
-    # "PUReconVertexTrackDistLog",
+    "PUReconVertexTrackDistLog",
     # "PUFakeVertexTrackDist",
-    # "PUFakeVertexTrackDistLog",
+    "PUFakeVertexTrackDistLog",
     # "SESimVertexTrackDist",
-    # "SESimVertexTrackDistLog",
+    "SESimVertexTrackDistLog",
     # "SEReconVertexTrackDist",
-    # "SEReconVertexTrackDistLog",
-    # "PUPurityVsNumTracks",
-    # "SEEfficiencyVsNumTracks",
-    # "PUEfficiencyVsNumTracks",
-    # "SEPurityVsNumTracks",
-    # "PUSimNumTracksZPos",
-    # "PUReconNumTracksZPos",
-    # "PUFakeNumTracksZPos",
-    # "SESimNumTracksZPos",
-    # "SEReconNumTracksZPos",
+    "SEReconVertexTrackDistLog",
+    "PUSimNumTracksZPos",
+    "PUReconNumTracksZPos",
+    "PUFakeNumTracksZPos",
+    "SESimNumTracksZPos",
+    "SEReconNumTracksZPos",
     # "PUSimNumTracksBlock",
     # "PUReconNumTracksBlock",
     # "PUFakeNumTracksBlock",
     # "SESimNumTracksBlock",
     # "SEReconNumTracksBlock",
-    # "PUSimNumTracksBlock1",
-    # "PUReconNumTracksBlock1",
-    # "PUFakeNumTracksBlock1",
-    # "SESimNumTracksBlock1",
-    # "SEReconNumTracksBlock1"
+    "PUSimNumTracksBlock1",
+    "PUReconNumTracksBlock1",
+    "PUFakeNumTracksBlock1",
+    "SESimNumTracksBlock1",
+    "SEReconNumTracksBlock1",
 ]
+
+
 
 # List of ROOT files with full path
 root_files = [
@@ -134,17 +199,24 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/ZMM_overlap_40_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_30_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_31_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_32_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_33_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_34_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_35_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_36_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_37_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_38_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_39_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/TTbar_overlap_30_blocksize_512.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_1024.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_1024.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_1024.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_16/TTbar_overlap_40_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_31_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_32_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_33_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_34_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_35_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_36_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_37_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_38_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_39_blocksize_512.root",
+    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
 
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
 
@@ -156,9 +228,10 @@ subset_colors = {
     "TTbar": ROOT.kBlue,
     "ZMM": ROOT.kGreen + 2,
     "SToMuMu": ROOT.kOrange,
-    "experimental_run_7": ROOT.kGray  # Set experimental_run_7 files to gray color
+    "experimental_run_7": ROOT.kGray,  # Set experimental_run_7 files to gray color
+    "experimental_run_16": ROOT.kGray,
 }
-savefolder = "changecodetest"
+savefolder = "histosForWolfram2"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -191,14 +264,14 @@ canvas = ROOT.TCanvas("canvas", "", 800, 700)
 # Regex pattern to match and extract parts of the filename
 pattern = re.compile(r"([A-Za-z]+)_overlap_(n?\d+)_blocksize_(\d+)\.root")
 
-# Axis label dictionary for each histogram
-axis_labels = {
-    "PUBlockBordersvsZdeltayprofile": (
-        "Distance to nearest block (mm)",
-        "Delta Y (mm)",
-    ),
-    # Add other axis labels as needed
-}
+# # Axis label dictionary for each histogram
+# axis_labels = {
+#     "PUBlockBordersvsZdeltayprofile": (
+#         "Distance to nearest block (mm)",
+#         "Delta Y (mm)",
+#     ),
+#     # Add other axis labels as needed
+# }
 
 # Add ratio histograms to compare across files
 ratio_names = [
@@ -230,7 +303,7 @@ def find_histogram_in_directory(directory, hist_name):
 # Loop through each histogram name
 for hist_name in histogram_names + ratio_names:  # Include ratios in the same loop
     # Prepare a legend and list for each histogram type
-    legend = ROOT.TLegend(0.7, 0.7, 0.9, 0.9)
+    legend = ROOT.TLegend(0.7, 0.1, 0.9, 0.3)
 
     # Track line style usage within each subset
     subset_line_style_index = {}
@@ -261,14 +334,14 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
         # Extract filename and match against the regex
         filename = os.path.basename(file_path)
         match = pattern.search(filename)
-        if match:
+        if ("experimental_run_7" in file_path) or ("experimental_run_16" in file_path):
+            legend_entry = f"{filename.split('_')[0]} no blocks"
+        elif match:
             subset_type = match.group(1)  # Process name (e.g., HiggsGluonFusion, TTbar)
             overlap = match.group(2)  # Overlap (e.g., n40, 40)
             blocksize = int(match.group(3))  # Block size (e.g., 512)
 
             legend_entry = f"{subset_type} overlap {overlap} blocksize {blocksize}"
-        elif "experimental_run_7" in file_path:
-            legend_entry = f"{filename.split('_')[0]} no blocks"
         else:
             legend_entry = filename
 
@@ -315,7 +388,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
                 continue
 
             # Check flag and set color/line style accordingly
-            if "experimental_run_7" in file_path:
+            if ("experimental_run_7" in file_path) or ("experimental_run_16" in file_path):
                 color = ROOT.kGray
                 line_style = 1
             elif group_by_dataset:
@@ -338,6 +411,9 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
 
             # Draw histogram
             if first_histogram:
+                if ("profile" in hist_name):
+                    cloned_hist.SetMinimum(0)  # Set Y-axis minimum
+                    cloned_hist.SetMaximum(100)  # Set Y-axis maximum
                 cloned_hist.Draw("E")
             else:
                 cloned_hist.Draw("SAME E")
@@ -358,3 +434,4 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
     output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/combined_{safe_hist_name}_blocksizes_histograms.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
+
