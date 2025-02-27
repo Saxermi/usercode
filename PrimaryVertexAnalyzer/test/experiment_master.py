@@ -63,8 +63,8 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    base_path = "experimental_run_6"
-    dir_create_path = "/work/msaxer/"
+    base_path = "experimental_run_1"
+    dir_create_path = "/work/msaxer/ba"
 
     # Create the full path based on the sample, overlap, and blocksize
     if iterating_blocksize:
@@ -80,7 +80,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
         "sbatch",
         bash_script,
       #  "-n",
-      #  "-1",
+      # "100",
         "-d",
         sample,
         "-o",
