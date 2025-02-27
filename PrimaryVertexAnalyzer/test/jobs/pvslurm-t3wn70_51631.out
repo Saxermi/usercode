@@ -1,21 +1,21 @@
 HOME: /t3home/msaxer
 USER: msaxer
-SLURM_JOB_ID: 47266
-HOSTNAME: t3wn60
+SLURM_JOB_ID: 51631
+HOSTNAME: t3wn70
 CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
-%MSG-i AlpakaService:  (NoModuleName) 27-Feb-2025 11:45:09 CET pre-events
+%MSG-i AlpakaService:  (NoModuleName) 27-Feb-2025 12:11:14 CET pre-events
 AlpakaServiceSerialSync succesfully initialised.
 Found 1 device:
-  - Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+  - AMD EPYC 7702P 64-Core Processor
 %MSG
-27-Feb-2025 11:45:16 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root
-%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 11:45:53 CET pre-events
-Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it&xrdcl.requuid=57a34bf9-5efa-44c5-b73a-6e6796d220bb.
+27-Feb-2025 12:11:19 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root
+%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:11:50 CET pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-redic.pi.infn.it&xrdcl.requuid=9a6ad31e-fef1-435d-bb2d-0b0f42cc632e.
 %MSG
-%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 11:45:53 CET pre-events
-Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=cdfb56df-3c4e-4d71-8d7f-56c583c47bbb.
+%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:11:50 CET pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-redic.pi.infn.it,&xrdcl.requuid=1bc9a2d8-6047-4852-83da-f3188a074bc0.
 %MSG
------ Begin Fatal Exception 27-Feb-2025 11:45:53 CET-----------------------
+----- Begin Fatal Exception 27-Feb-2025 12:11:50 CET-----------------------
 An exception of category 'FileOpenError' occurred while
    [0] Constructing the EventProcessor
    [1] Constructing input source of type PoolSource
@@ -28,7 +28,7 @@ Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pr
       [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root could not be opened.
       [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
 ' (errno=3011, code=400). No additional data servers were found.
-      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=cdfb56df-3c4e-4d71-8d7f-56c583c47bbb
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/f1c0f125-807b-4bbb-92d8-04b49be031d6.root?tried=+1213xrootd-redic.pi.infn.it,&xrdcl.requuid=1bc9a2d8-6047-4852-83da-f3188a074bc0
       [d] Problematic data server: cms-xrd-global.cern.ch:1094
       [e] Disabled source: cms-xrd-global.cern.ch:1094
 ----- End Fatal Exception -------------------------------------------------

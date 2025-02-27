@@ -1,25 +1,25 @@
 HOME: /t3home/msaxer
 USER: msaxer
-SLURM_JOB_ID: 47264
-HOSTNAME: t3wn51
+SLURM_JOB_ID: 51629
+HOSTNAME: t3wn56
 CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_1_0_pre7
-%MSG-i AlpakaService:  (NoModuleName) 27-Feb-2025 11:48:49 CET pre-events
+%MSG-i AlpakaService:  (NoModuleName) 27-Feb-2025 12:16:26 CET pre-events
 AlpakaServiceSerialSync succesfully initialised.
 Found 1 device:
   - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
 %MSG
-27-Feb-2025 11:49:45 CET  Initiating request to open file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-27-Feb-2025 11:50:45 CET  Successfully opened file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-Begin processing the 1st record. Run 1, Event 8801, LumiSection 89 on stream 0 at 27-Feb-2025 11:51:08.185 CET
-27-Feb-2025 12:02:49 CET  Closed file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-27-Feb-2025 12:02:49 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root
-%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:02:51 CET PostProcessEvent
-Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it&xrdcl.requuid=87e6dd6c-104f-45b1-9c30-1ed993a5cac1.
+27-Feb-2025 12:17:32 CET  Initiating request to open file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
+27-Feb-2025 12:18:40 CET  Successfully opened file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
+Begin processing the 1st record. Run 1, Event 8801, LumiSection 89 on stream 0 at 27-Feb-2025 12:19:01.482 CET
+27-Feb-2025 12:28:11 CET  Closed file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
+27-Feb-2025 12:28:11 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root
+%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:28:12 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-redic.pi.infn.it&xrdcl.requuid=4bffed44-c905-4b82-a89a-774613d4c516.
 %MSG
-%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:02:51 CET PostProcessEvent
-Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=b62c4765-2dbd-4069-b6ac-73fa598ed765.
+%MSG-w XrdAdaptorInternal:  file_open 27-Feb-2025 12:28:12 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-redic.pi.infn.it,&xrdcl.requuid=9257881a-6c9f-409a-b198-b9826c70b86c.
 %MSG
------ Begin Fatal Exception 27-Feb-2025 12:02:52 CET-----------------------
+----- Begin Fatal Exception 27-Feb-2025 12:28:12 CET-----------------------
 An exception of category 'FileOpenError' occurred while
    [0] Calling InputSource::readFile_
    [1] Calling RootInputFileSequence::initTheFile()
@@ -31,28 +31,28 @@ Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pr
       [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root could not be opened.
       [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
 ' (errno=3011, code=400). No additional data servers were found.
-      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=b62c4765-2dbd-4069-b6ac-73fa598ed765
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/2424944d-f8a4-4e69-9ac5-1af16d48adbe.root?tried=+1213xrootd-redic.pi.infn.it,&xrdcl.requuid=9257881a-6c9f-409a-b198-b9826c70b86c
       [d] Problematic data server: cms-xrd-global.cern.ch:1094
       [e] Disabled source: cms-xrd-global.cern.ch:1094
 ----- End Fatal Exception -------------------------------------------------
 TestAnalyzer::endJob: done
-TimeReport> Time report complete in 1065.57 seconds
+TimeReport> Time report complete in 1013.89 seconds
  Time Summary: 
- - Min event:   2.71822
- - Max event:   153.846
- - Avg event:   6.90541
- - Total loop:  708.856
- - Total init:  354.835
- - Total job:   1065.57
- - Total EventSetup: 150.185
- - Total non-module: 8.24814
- Event Throughput: 0.141072 ev/s
+ - Min event:   2.8781
+ - Max event:   158.019
+ - Avg event:   5.40522
+ - Total loop:  554.655
+ - Total init:  458.775
+ - Total job:   1013.89
+ - Total EventSetup: 153.844
+ - Total non-module: 4.67282
+ Event Throughput: 0.180292 ev/s
  CPU Summary: 
- - Total loop:     564.497
- - Total init:     77.0093
+ - Total loop:     409.357
+ - Total init:     95.6948
  - Total extra:    0
- - Total children: 0.156207
- - Total job:      641.887
+ - Total children: 0.272356
+ - Total job:      505.407
  Processing Summary: 
  - Number of Events:  100
  - Number of Global Begin Lumi Calls:  1
@@ -98,15 +98,15 @@ TrigReport        100        100        100          0          0 trackingPartic
 
 
 TimeReport ---------- Event  Summary ---[sec]----
-TimeReport       event loop CPU/event = 5.645024
-TimeReport      event loop Real/event = 7.088611
-TimeReport     sum Streams Real/event = 6.963076
-TimeReport efficiency CPU/Real/thread = 0.796351
+TimeReport       event loop CPU/event = 4.093651
+TimeReport      event loop Real/event = 5.546626
+TimeReport     sum Streams Real/event = 5.462935
+TimeReport efficiency CPU/Real/thread = 0.738043
 
 TimeReport ---------- Path   Summary ---[Real sec]----
 TimeReport  per event     per exec  Name
-TimeReport   6.902683     6.902683  MPV
-TimeReport   6.905381     6.905381  analyze
+TimeReport   5.402671     5.402671  MPV
+TimeReport   5.405198     5.405198  analyze
 
 TimeReport  per event     per exec  Name
 
@@ -117,28 +117,28 @@ TimeReport  per event     per exec  Name
 
 TimeReport ---------- Modules in Path: MPV ---[Real sec]----
 TimeReport  per event    per visit  Name
-TimeReport   1.214631     1.214631  testVertices
+TimeReport   0.979145     0.979145  testVertices
 
 
 TimeReport ---------- Modules in Path: analyze ---[Real sec]----
 TimeReport  per event    per visit  Name
-TimeReport   1.634935     1.634935  tpClusterProducer
-TimeReport   0.000013     0.000013  quickTrackAssociatorByHits
-TimeReport   0.289408     0.289408  trackingParticleRecoTrackAsssociation
-TimeReport   0.203530     0.203530  oldVertexAnalysis
+TimeReport   1.227817     1.227817  tpClusterProducer
+TimeReport   0.000011     0.000011  quickTrackAssociatorByHits
+TimeReport   0.200697     0.200697  trackingParticleRecoTrackAsssociation
+TimeReport   0.149224     0.149224  oldVertexAnalysis
 
 TimeReport  per event    per visit  Name
 
 TimeReport ---------- Module Summary ---[Real sec]----
 TimeReport  per event     per exec    per visit  Name
-TimeReport   0.000002     0.000002     0.000002  MPV
-TimeReport   0.000003     0.000003     0.000003  TriggerResults
-TimeReport   0.000012     0.000012     0.000012  analyze
-TimeReport   0.203530     0.203530     0.203530  oldVertexAnalysis
-TimeReport   0.000013     0.000013     0.000013  quickTrackAssociatorByHits
-TimeReport   1.214631     1.214631     1.214631  testVertices
-TimeReport   1.634935     1.634935     1.634935  tpClusterProducer
-TimeReport   0.289408     0.289408     0.289408  trackingParticleRecoTrackAsssociation
+TimeReport   0.000001     0.000001     0.000001  MPV
+TimeReport   0.000002     0.000002     0.000002  TriggerResults
+TimeReport   0.000010     0.000010     0.000010  analyze
+TimeReport   0.149224     0.149224     0.149224  oldVertexAnalysis
+TimeReport   0.000011     0.000011     0.000011  quickTrackAssociatorByHits
+TimeReport   0.979145     0.979145     0.979145  testVertices
+TimeReport   1.227817     1.227817     1.227817  tpClusterProducer
+TimeReport   0.200697     0.200697     0.200697  trackingParticleRecoTrackAsssociation
 
 TimeReport  per event     per exec    per visit  Name
 

@@ -199,13 +199,13 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/ZMM_overlap_40_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_1024.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_1024.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_1024.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_16/TTbar_overlap_40_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_16/TTbar_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_31_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_32_blocksize_512.root",
@@ -217,9 +217,8 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_38_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_39_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
-
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
-
+"/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
 ]
 
 # Colors assigned to each subset if grouping by dataset
@@ -231,7 +230,7 @@ subset_colors = {
     "experimental_run_7": ROOT.kGray,  # Set experimental_run_7 files to gray color
     "experimental_run_16": ROOT.kGray,
 }
-savefolder = "histosForWolfram2"
+savefolder = "quicktest"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -431,7 +430,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
 
     # Update and save canvas
     safe_hist_name = hist_name.replace(" ", "_").replace("/", "_")
-    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/combined_{safe_hist_name}_blocksizes_histograms.pdf"
+    output_file = f"/t3home/msaxer/{savefolder}/combined_{safe_hist_name}_blocksizes_histograms.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
 
