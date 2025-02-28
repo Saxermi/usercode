@@ -19,7 +19,7 @@ def root_path(f):
 
 
 
-DO_VTX_RECO = True
+DO_VTX_RECO = True # will not perform vtx reco if false
 args =""
 nevent=-1
 info = "test"
@@ -45,7 +45,7 @@ parameters={  # can be overwritten by arguments of the same name
   "fill_track_histos":cms.untracked.bool(False),
   "fplo":cms.untracked.double(0),
   "chi2cutoff":cms.double(4.), 
-  "verboseAnalyzer":cms.untracked.bool(False),
+  "verboseAnalyzer":cms.untracked.bool(True),
   "verboseProducer":cms.untracked.bool(False),
   "verboseClusterizer":cms.untracked.bool(False),
   "verboseClusterizer2D":cms.untracked.bool(False),
@@ -204,9 +204,12 @@ else:
 
 #>>>  input file dependent !!
 process = cms.Process("RERECO", eras.Phase2)
-process.load('Configuration.Geometry.GeometryExtended2026D110Reco_cff')
+process.load('Configuration.Geometry.GeometryExtendedRun4D110Reco_cff')
+
+#process.load('Configuration.Geometry.GeometryRecoDB_cff')
+
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-process.GlobalTag = GlobalTag(process.GlobalTag, "141X_mcRun4_realistic_v1", '')
+process.GlobalTag = GlobalTag(process.GlobalTag, "141X_mcRun4_realistic_v3", '')
 parameters["maxEta"] = cms.double(4.0)
 #<<<  
 
