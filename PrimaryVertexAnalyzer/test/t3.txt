@@ -1,0 +1,2626 @@
+>>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py  <<<<<<<<<<<<<<<<<<<<<<<<<
+processing input directive, value= samples/TTbar_00
+setting parameter  runInBlocks True <class 'FWCore.ParameterSet.Types.bool'> 'bool'
+pv_cfg.py
+events          1
+info            test
+DO_VTX_RECO     True
+source files =  cms.untracked.vstring(
+    'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root',
+    'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root',
+    'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root',
+    'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root',
+    'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root'
+)
+original trackFilterParameters (z-clustering)
+cms.PSet(
+    algorithm = cms.string('filter'),
+    maxD0Error = cms.double(1.0),
+    maxD0Significance = cms.double(4.0),
+    maxDzError = cms.double(1.0),
+    maxEta = cms.double(4.0),
+    maxNormalizedChi2 = cms.double(10.0),
+    minPixelLayersWithHits = cms.int32(2),
+    minPt = cms.double(0.0),
+    minSiliconLayersWithHits = cms.int32(5),
+    trackQuality = cms.string('any')
+)
+original z clustering parameters
+cms.PSet(
+    TkDAClusParameters = cms.PSet(
+        Tmin = cms.double(2.0),
+        Tpurge = cms.double(2.0),
+        Tstop = cms.double(0.5),
+        block_size = cms.uint32(10000),
+        convergence_mode = cms.int32(0),
+        coolingFactor = cms.double(0.6),
+        d0CutOff = cms.double(3.0),
+        delta_highT = cms.double(0.01),
+        delta_lowT = cms.double(0.001),
+        dzCutOff = cms.double(3.0),
+        overlap_frac = cms.double(0.0),
+        runInBlocks = cms.bool(False),
+        uniquetrkminp = cms.double(0.0),
+        uniquetrkweight = cms.double(0.8),
+        vertexSize = cms.double(0.006),
+        zmerge = cms.double(0.01),
+        zrange = cms.double(4.0)
+    ),
+    algorithm = cms.string('DA_vect')
+)
+changing TkDAClusParameters parameter  runInBlocks  from  cms.bool(False)   to  cms.bool(True)
+changing TkDAClusParameters parameter  block_size  from  cms.uint32(10000)   to  cms.uint32(512)
+changing TkDAClusParameters parameter  overlap_frac  from  cms.double(0.0)   to  cms.double(0.5)
+modified z clustering parameters
+cms.PSet(
+    TkDAClusParameters = cms.PSet(
+        Tmin = cms.double(2.0),
+        Tpurge = cms.double(2.0),
+        Tstop = cms.double(0.5),
+        block_size = cms.uint32(512),
+        convergence_mode = cms.int32(0),
+        coolingFactor = cms.double(0.6),
+        d0CutOff = cms.double(3.0),
+        delta_highT = cms.double(0.01),
+        delta_lowT = cms.double(0.001),
+        dzCutOff = cms.double(3.0),
+        overlap_frac = cms.double(0.5),
+        runInBlocks = cms.bool(True),
+        uniquetrkminp = cms.double(0.0),
+        uniquetrkweight = cms.double(0.8),
+        vertexSize = cms.double(0.006),
+        zdumpcenter = cms.untracked.double(0.0),
+        zdumpwidth = cms.untracked.double(20.0),
+        zmerge = cms.double(0.01),
+        zrange = cms.double(4.0)
+    ),
+    algorithm = cms.string('DA_vect')
+)
+=============================================
+cms.Source("PoolSource",
+    fileNames = cms.untracked.vstring(
+        'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root',
+        'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root',
+        'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root',
+        'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root',
+        'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root'
+    )
+)
+
+=============================================
+running vertex reco and analysis, last message from pv_cfg
+pv_cfg.py done
+%MSG-i AlpakaService:  (NoModuleName) 06-Mar-2025 00:21:44 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2697 v4 @ 2.30GHz
+%MSG
+06-Mar-2025 00:21:50 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+06-Mar-2025 00:22:17 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+Begin processing the 1st record. Run 1, Event 2501, LumiSection 26 on stream 0 at 06-Mar-2025 00:22:35.375 CET
+Beta0 is 1.42151e-06
+iteration is 1
+beta is1.42151e-06
+betafreeze is0.2
+iteration is 2
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 3
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 4
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 5
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 6
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 7
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 8
+beta is5.078e-05
+betafreeze is0.2
+iteration is 9
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 10
+beta is0.000141055
+betafreeze is0.2
+iteration is 11
+beta is0.000235092
+betafreeze is0.2
+iteration is 12
+beta is0.000391821
+betafreeze is0.2
+iteration is 13
+beta is0.000653035
+betafreeze is0.2
+iteration is 14
+beta is0.00108839
+betafreeze is0.2
+iteration is 15
+beta is0.00181399
+betafreeze is0.2
+iteration is 16
+beta is0.00302331
+betafreeze is0.2
+iteration is 17
+beta is0.00503885
+betafreeze is0.2
+iteration is 18
+beta is0.00839808
+betafreeze is0.2
+iteration is 19
+beta is0.0139968
+betafreeze is0.2
+iteration is 20
+beta is0.023328
+betafreeze is0.2
+iteration is 21
+beta is0.03888
+betafreeze is0.2
+iteration is 22
+beta is0.0648
+betafreeze is0.2
+iteration is 23
+beta is0.108
+betafreeze is0.2
+iteration is 24
+beta is0.18
+betafreeze is0.2
+Beta0 is 5.078e-05
+iteration is 1
+beta is5.078e-05
+betafreeze is0.2
+iteration is 2
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 3
+beta is0.000141055
+betafreeze is0.2
+iteration is 4
+beta is0.000235092
+betafreeze is0.2
+iteration is 5
+beta is0.000391821
+betafreeze is0.2
+iteration is 6
+beta is0.000653035
+betafreeze is0.2
+iteration is 7
+beta is0.00108839
+betafreeze is0.2
+iteration is 8
+beta is0.00181399
+betafreeze is0.2
+iteration is 9
+beta is0.00302331
+betafreeze is0.2
+iteration is 10
+beta is0.00503885
+betafreeze is0.2
+iteration is 11
+beta is0.00839808
+betafreeze is0.2
+iteration is 12
+beta is0.0139968
+betafreeze is0.2
+iteration is 13
+beta is0.023328
+betafreeze is0.2
+iteration is 14
+beta is0.03888
+betafreeze is0.2
+iteration is 15
+beta is0.0648
+betafreeze is0.2
+iteration is 16
+beta is0.108
+betafreeze is0.2
+iteration is 17
+beta is0.18
+betafreeze is0.2
+Beta0 is 5.078e-05
+iteration is 1
+beta is5.078e-05
+betafreeze is0.2
+iteration is 2
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 3
+beta is0.000141055
+betafreeze is0.2
+iteration is 4
+beta is0.000235092
+betafreeze is0.2
+iteration is 5
+beta is0.000391821
+betafreeze is0.2
+iteration is 6
+beta is0.000653035
+betafreeze is0.2
+iteration is 7
+beta is0.00108839
+betafreeze is0.2
+iteration is 8
+beta is0.00181399
+betafreeze is0.2
+iteration is 9
+beta is0.00302331
+betafreeze is0.2
+iteration is 10
+beta is0.00503885
+betafreeze is0.2
+iteration is 11
+beta is0.00839808
+betafreeze is0.2
+iteration is 12
+beta is0.0139968
+betafreeze is0.2
+iteration is 13
+beta is0.023328
+betafreeze is0.2
+iteration is 14
+beta is0.03888
+betafreeze is0.2
+iteration is 15
+beta is0.0648
+betafreeze is0.2
+iteration is 16
+beta is0.108
+betafreeze is0.2
+iteration is 17
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 3.94865e-06
+iteration is 1
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 2
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 3
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 4
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 5
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 6
+beta is5.078e-05
+betafreeze is0.2
+iteration is 7
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 8
+beta is0.000141055
+betafreeze is0.2
+iteration is 9
+beta is0.000235092
+betafreeze is0.2
+iteration is 10
+beta is0.000391821
+betafreeze is0.2
+iteration is 11
+beta is0.000653035
+betafreeze is0.2
+iteration is 12
+beta is0.00108839
+betafreeze is0.2
+iteration is 13
+beta is0.00181399
+betafreeze is0.2
+iteration is 14
+beta is0.00302331
+betafreeze is0.2
+iteration is 15
+beta is0.00503885
+betafreeze is0.2
+iteration is 16
+beta is0.00839808
+betafreeze is0.2
+iteration is 17
+beta is0.0139968
+betafreeze is0.2
+iteration is 18
+beta is0.023328
+betafreeze is0.2
+iteration is 19
+beta is0.03888
+betafreeze is0.2
+iteration is 20
+beta is0.0648
+betafreeze is0.2
+iteration is 21
+beta is0.108
+betafreeze is0.2
+iteration is 22
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 2.36919e-06
+iteration is 1
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 2
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 3
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 4
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 5
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 6
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 7
+beta is5.078e-05
+betafreeze is0.2
+iteration is 8
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 9
+beta is0.000141055
+betafreeze is0.2
+iteration is 10
+beta is0.000235092
+betafreeze is0.2
+iteration is 11
+beta is0.000391821
+betafreeze is0.2
+iteration is 12
+beta is0.000653035
+betafreeze is0.2
+iteration is 13
+beta is0.00108839
+betafreeze is0.2
+iteration is 14
+beta is0.00181399
+betafreeze is0.2
+iteration is 15
+beta is0.00302331
+betafreeze is0.2
+iteration is 16
+beta is0.00503885
+betafreeze is0.2
+iteration is 17
+beta is0.00839808
+betafreeze is0.2
+iteration is 18
+beta is0.0139968
+betafreeze is0.2
+iteration is 19
+beta is0.023328
+betafreeze is0.2
+iteration is 20
+beta is0.03888
+betafreeze is0.2
+iteration is 21
+beta is0.0648
+betafreeze is0.2
+iteration is 22
+beta is0.108
+betafreeze is0.2
+iteration is 23
+beta is0.18
+betafreeze is0.2
+Beta0 is 3.94865e-06
+iteration is 1
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 2
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 3
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 4
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 5
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 6
+beta is5.078e-05
+betafreeze is0.2
+iteration is 7
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 8
+beta is0.000141055
+betafreeze is0.2
+iteration is 9
+beta is0.000235092
+betafreeze is0.2
+iteration is 10
+beta is0.000391821
+betafreeze is0.2
+iteration is 11
+beta is0.000653035
+betafreeze is0.2
+iteration is 12
+beta is0.00108839
+betafreeze is0.2
+iteration is 13
+beta is0.00181399
+betafreeze is0.2
+iteration is 14
+beta is0.00302331
+betafreeze is0.2
+iteration is 15
+beta is0.00503885
+betafreeze is0.2
+iteration is 16
+beta is0.00839808
+betafreeze is0.2
+iteration is 17
+beta is0.0139968
+betafreeze is0.2
+iteration is 18
+beta is0.023328
+betafreeze is0.2
+iteration is 19
+beta is0.03888
+betafreeze is0.2
+iteration is 20
+beta is0.0648
+betafreeze is0.2
+iteration is 21
+beta is0.108
+betafreeze is0.2
+iteration is 22
+beta is0.18
+betafreeze is0.2
+Beta0 is 1.42151e-06
+iteration is 1
+beta is1.42151e-06
+betafreeze is0.2
+iteration is 2
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 3
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 4
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 5
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 6
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 7
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 8
+beta is5.078e-05
+betafreeze is0.2
+iteration is 9
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 10
+beta is0.000141055
+betafreeze is0.2
+iteration is 11
+beta is0.000235092
+betafreeze is0.2
+iteration is 12
+beta is0.000391821
+betafreeze is0.2
+iteration is 13
+beta is0.000653035
+betafreeze is0.2
+iteration is 14
+beta is0.00108839
+betafreeze is0.2
+iteration is 15
+beta is0.00181399
+betafreeze is0.2
+iteration is 16
+beta is0.00302331
+betafreeze is0.2
+iteration is 17
+beta is0.00503885
+betafreeze is0.2
+iteration is 18
+beta is0.00839808
+betafreeze is0.2
+iteration is 19
+beta is0.0139968
+betafreeze is0.2
+iteration is 20
+beta is0.023328
+betafreeze is0.2
+iteration is 21
+beta is0.03888
+betafreeze is0.2
+iteration is 22
+beta is0.0648
+betafreeze is0.2
+iteration is 23
+beta is0.108
+betafreeze is0.2
+iteration is 24
+beta is0.18
+betafreeze is0.2
+Beta0 is 1.42151e-06
+iteration is 1
+beta is1.42151e-06
+betafreeze is0.2
+iteration is 2
+beta is2.36919e-06
+betafreeze is0.2
+iteration is 3
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 4
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 5
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 6
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 7
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 8
+beta is5.078e-05
+betafreeze is0.2
+iteration is 9
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 10
+beta is0.000141055
+betafreeze is0.2
+iteration is 11
+beta is0.000235092
+betafreeze is0.2
+iteration is 12
+beta is0.000391821
+betafreeze is0.2
+iteration is 13
+beta is0.000653035
+betafreeze is0.2
+iteration is 14
+beta is0.00108839
+betafreeze is0.2
+iteration is 15
+beta is0.00181399
+betafreeze is0.2
+iteration is 16
+beta is0.00302331
+betafreeze is0.2
+iteration is 17
+beta is0.00503885
+betafreeze is0.2
+iteration is 18
+beta is0.00839808
+betafreeze is0.2
+iteration is 19
+beta is0.0139968
+betafreeze is0.2
+iteration is 20
+beta is0.023328
+betafreeze is0.2
+iteration is 21
+beta is0.03888
+betafreeze is0.2
+iteration is 22
+beta is0.0648
+betafreeze is0.2
+iteration is 23
+beta is0.108
+betafreeze is0.2
+iteration is 24
+beta is0.18
+betafreeze is0.2
+Beta0 is 0.00181399
+iteration is 1
+beta is0.00181399
+betafreeze is0.2
+iteration is 2
+beta is0.00302331
+betafreeze is0.2
+iteration is 3
+beta is0.00503885
+betafreeze is0.2
+iteration is 4
+beta is0.00839808
+betafreeze is0.2
+iteration is 5
+beta is0.0139968
+betafreeze is0.2
+iteration is 6
+beta is0.023328
+betafreeze is0.2
+iteration is 7
+beta is0.03888
+betafreeze is0.2
+iteration is 8
+beta is0.0648
+betafreeze is0.2
+iteration is 9
+beta is0.108
+betafreeze is0.2
+iteration is 10
+beta is0.18
+betafreeze is0.2
+Beta0 is 3.94865e-06
+iteration is 1
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 2
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 3
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 4
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 5
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 6
+beta is5.078e-05
+betafreeze is0.2
+iteration is 7
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 8
+beta is0.000141055
+betafreeze is0.2
+iteration is 9
+beta is0.000235092
+betafreeze is0.2
+iteration is 10
+beta is0.000391821
+betafreeze is0.2
+iteration is 11
+beta is0.000653035
+betafreeze is0.2
+iteration is 12
+beta is0.00108839
+betafreeze is0.2
+iteration is 13
+beta is0.00181399
+betafreeze is0.2
+iteration is 14
+beta is0.00302331
+betafreeze is0.2
+iteration is 15
+beta is0.00503885
+betafreeze is0.2
+iteration is 16
+beta is0.00839808
+betafreeze is0.2
+iteration is 17
+beta is0.0139968
+betafreeze is0.2
+iteration is 18
+beta is0.023328
+betafreeze is0.2
+iteration is 19
+beta is0.03888
+betafreeze is0.2
+iteration is 20
+beta is0.0648
+betafreeze is0.2
+iteration is 21
+beta is0.108
+betafreeze is0.2
+iteration is 22
+beta is0.18
+betafreeze is0.2
+Beta0 is 3.94865e-06
+iteration is 1
+beta is3.94865e-06
+betafreeze is0.2
+iteration is 2
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 3
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 4
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 5
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 6
+beta is5.078e-05
+betafreeze is0.2
+iteration is 7
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 8
+beta is0.000141055
+betafreeze is0.2
+iteration is 9
+beta is0.000235092
+betafreeze is0.2
+iteration is 10
+beta is0.000391821
+betafreeze is0.2
+iteration is 11
+beta is0.000653035
+betafreeze is0.2
+iteration is 12
+beta is0.00108839
+betafreeze is0.2
+iteration is 13
+beta is0.00181399
+betafreeze is0.2
+iteration is 14
+beta is0.00302331
+betafreeze is0.2
+iteration is 15
+beta is0.00503885
+betafreeze is0.2
+iteration is 16
+beta is0.00839808
+betafreeze is0.2
+iteration is 17
+beta is0.0139968
+betafreeze is0.2
+iteration is 18
+beta is0.023328
+betafreeze is0.2
+iteration is 19
+beta is0.03888
+betafreeze is0.2
+iteration is 20
+beta is0.0648
+betafreeze is0.2
+iteration is 21
+beta is0.108
+betafreeze is0.2
+iteration is 22
+beta is0.18
+betafreeze is0.2
+Beta0 is 5.078e-05
+iteration is 1
+beta is5.078e-05
+betafreeze is0.2
+iteration is 2
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 3
+beta is0.000141055
+betafreeze is0.2
+iteration is 4
+beta is0.000235092
+betafreeze is0.2
+iteration is 5
+beta is0.000391821
+betafreeze is0.2
+iteration is 6
+beta is0.000653035
+betafreeze is0.2
+iteration is 7
+beta is0.00108839
+betafreeze is0.2
+iteration is 8
+beta is0.00181399
+betafreeze is0.2
+iteration is 9
+beta is0.00302331
+betafreeze is0.2
+iteration is 10
+beta is0.00503885
+betafreeze is0.2
+iteration is 11
+beta is0.00839808
+betafreeze is0.2
+iteration is 12
+beta is0.0139968
+betafreeze is0.2
+iteration is 13
+beta is0.023328
+betafreeze is0.2
+iteration is 14
+beta is0.03888
+betafreeze is0.2
+iteration is 15
+beta is0.0648
+betafreeze is0.2
+iteration is 16
+beta is0.108
+betafreeze is0.2
+iteration is 17
+beta is0.18
+betafreeze is0.2
+Beta0 is 6.58109e-06
+iteration is 1
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 2
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 3
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 4
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 5
+beta is5.078e-05
+betafreeze is0.2
+iteration is 6
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 7
+beta is0.000141055
+betafreeze is0.2
+iteration is 8
+beta is0.000235092
+betafreeze is0.2
+iteration is 9
+beta is0.000391821
+betafreeze is0.2
+iteration is 10
+beta is0.000653035
+betafreeze is0.2
+iteration is 11
+beta is0.00108839
+betafreeze is0.2
+iteration is 12
+beta is0.00181399
+betafreeze is0.2
+iteration is 13
+beta is0.00302331
+betafreeze is0.2
+iteration is 14
+beta is0.00503885
+betafreeze is0.2
+iteration is 15
+beta is0.00839808
+betafreeze is0.2
+iteration is 16
+beta is0.0139968
+betafreeze is0.2
+iteration is 17
+beta is0.023328
+betafreeze is0.2
+iteration is 18
+beta is0.03888
+betafreeze is0.2
+iteration is 19
+beta is0.0648
+betafreeze is0.2
+iteration is 20
+beta is0.108
+betafreeze is0.2
+iteration is 21
+beta is0.18
+betafreeze is0.2
+Beta0 is 6.58109e-06
+iteration is 1
+beta is6.58109e-06
+betafreeze is0.2
+iteration is 2
+beta is1.09685e-05
+betafreeze is0.2
+iteration is 3
+beta is1.82808e-05
+betafreeze is0.2
+iteration is 4
+beta is3.0468e-05
+betafreeze is0.2
+iteration is 5
+beta is5.078e-05
+betafreeze is0.2
+iteration is 6
+beta is8.46333e-05
+betafreeze is0.2
+iteration is 7
+beta is0.000141055
+betafreeze is0.2
+iteration is 8
+beta is0.000235092
+betafreeze is0.2
+iteration is 9
+beta is0.000391821
+betafreeze is0.2
+iteration is 10
+beta is0.000653035
+betafreeze is0.2
+iteration is 11
+beta is0.00108839
+betafreeze is0.2
+iteration is 12
+beta is0.00181399
+betafreeze is0.2
+iteration is 13
+beta is0.00302331
+betafreeze is0.2
+iteration is 14
+beta is0.00503885
+betafreeze is0.2
+iteration is 15
+beta is0.00839808
+betafreeze is0.2
+iteration is 16
+beta is0.0139968
+betafreeze is0.2
+iteration is 17
+beta is0.023328
+betafreeze is0.2
+iteration is 18
+beta is0.03888
+betafreeze is0.2
+iteration is 19
+beta is0.0648
+betafreeze is0.2
+iteration is 20
+beta is0.108
+betafreeze is0.2
+iteration is 21
+beta is0.18
+betafreeze is0.2
+Combined Vertex Prototype Cluster Positions:
+Cluster 0: z = -14.0647, rho = 0.015077
+Cluster 1: z = -8.62111, rho = 0.0251258
+Cluster 2: z = -7.574, rho = 0.00501959
+Cluster 3: z = -6.12371, rho = 0.0100981
+Cluster 4: z = -5.92824, rho = 0.00529682
+Cluster 5: z = -5.76234, rho = 0.0163024
+Cluster 6: z = -5.41932, rho = 0.00628485
+Cluster 7: z = -5.16848, rho = 0.0114444
+Cluster 8: z = -4.99494, rho = 0.00694706
+Cluster 9: z = -4.9475, rho = 0.0107369
+Cluster 10: z = -4.68584, rho = 0.0333846
+Cluster 11: z = -3.4877, rho = 0.00667184
+Cluster 12: z = -3.40459, rho = 0.043533
+Cluster 13: z = -3.28269, rho = 0.00507657
+Cluster 14: z = -2.81286, rho = 0.0211868
+Cluster 15: z = -2.60437, rho = 0.00601079
+Cluster 16: z = -2.55016, rho = 0.000889146
+Cluster 17: z = -2.55015, rho = 0.0243746
+Cluster 18: z = -2.51268, rho = 0.0314968
+Cluster 19: z = -2.29806, rho = 0.0211909
+Cluster 20: z = -2.20971, rho = 0.00675679
+Cluster 21: z = -2.13974, rho = 0.00733957
+Cluster 22: z = -1.45126, rho = 0.0204792
+Cluster 23: z = -1.31117, rho = 0.0200603
+Cluster 24: z = -1.20555, rho = 0.0415282
+Cluster 25: z = -1.1269, rho = 0.022763
+Cluster 26: z = -1.00267, rho = 0.0362386
+Cluster 27: z = -0.762406, rho = 0.00912141
+Cluster 28: z = -0.653066, rho = 0.0560967
+Cluster 29: z = -0.574842, rho = 0.0173638
+Cluster 30: z = -0.497501, rho = 0.00959919
+Cluster 31: z = -0.26962, rho = 0.00948439
+Cluster 32: z = -0.0925329, rho = 0.00612221
+Cluster 33: z = 0.0134248, rho = 0.0248635
+Cluster 34: z = 0.305331, rho = 0.00606439
+Cluster 35: z = 0.379731, rho = 0.00921156
+Cluster 36: z = 0.716452, rho = 0.00514107
+Cluster 37: z = 0.89019, rho = 0.00534783
+Cluster 38: z = 1.13679, rho = 0.0387357
+Cluster 39: z = 1.30813, rho = 0.00624617
+Cluster 40: z = 1.30813, rho = 0.000522599
+Cluster 41: z = 1.37456, rho = 0.040072
+Cluster 42: z = 1.4347, rho = 0.0136623
+Cluster 43: z = 1.63146, rho = 0.0645791
+Cluster 44: z = 2.19296, rho = 0.00567913
+Cluster 45: z = 2.48925, rho = 0.0235497
+Cluster 46: z = 2.57431, rho = 0.0117116
+Cluster 47: z = 2.72675, rho = 0.0049539
+Cluster 48: z = 2.80428, rho = 0.00503735
+Cluster 49: z = 3.01327, rho = 0.0200772
+Cluster 50: z = 3.24336, rho = 0.00502542
+Cluster 51: z = 3.34363, rho = 0.00502571
+Cluster 52: z = 3.97777, rho = 0.00492227
+Cluster 53: z = 4.40151, rho = 0.00502574
+Cluster 54: z = 4.7796, rho = 0.0255514
+Cluster 55: z = 5.00051, rho = 0.0128063
+Cluster 56: z = 5.07136, rho = 0.00677876
+Cluster 57: z = 6.07013, rho = 0.0100494
+Cluster 58: z = 6.61606, rho = 0.0149979
+Cluster 59: z = 6.9196, rho = 0.00637911
+Cluster 60: z = 7.03609, rho = 0.00847028
+Cluster 61: z = 7.30001, rho = 0.0102679
+Cluster 62: z = 7.76757, rho = 0.0050257
+Cluster 63: z = 8.59918, rho = 0.0200921
+Cluster 64: z = 11.8016, rho = 0.00502575
+Cluster 65: z = -4.97091, rho = 0.428654
+Cluster 66: z = 2.40588, rho = 0.571346
+Cluster 67: z = -4.97091, rho = 0.428654
+Cluster 68: z = 2.40588, rho = 0.571346
+Cluster 69: z = -14.025, rho = 0.00983472
+Cluster 70: z = -8.43555, rho = 0.009869
+Cluster 71: z = -7.53413, rho = 0.0295928
+Cluster 72: z = -6.11633, rho = 0.00987386
+Cluster 73: z = -5.94214, rho = 0.00872352
+Cluster 74: z = -5.76744, rho = 0.00986714
+Cluster 75: z = -4.94316, rho = 0.0295985
+Cluster 76: z = -4.68811, rho = 0.0493704
+Cluster 77: z = -4.56166, rho = 0.0098601
+Cluster 78: z = -4.41224, rho = 0.00986189
+Cluster 79: z = -3.81614, rho = 0.00987305
+Cluster 80: z = -3.50246, rho = 0.0104171
+Cluster 81: z = -3.41436, rho = 0.0897991
+Cluster 82: z = -3.30365, rho = 0.0155989
+Cluster 83: z = -3.18946, rho = 0.012042
+Cluster 84: z = -3.13117, rho = 0.0103696
+Cluster 85: z = -2.80098, rho = 0.009869
+Cluster 86: z = -2.49548, rho = 0.0536294
+Cluster 87: z = -2.26791, rho = 0.0134024
+Cluster 88: z = -2.2157, rho = 0.0258933
+Cluster 89: z = -2.13375, rho = 0.0100516
+Cluster 90: z = -2.02512, rho = 0.00974144
+Cluster 91: z = -1.83093, rho = 0.00987233
+Cluster 92: z = -1.31987, rho = 0.0296221
+Cluster 93: z = -1.01112, rho = 0.00987472
+Cluster 94: z = -0.645735, rho = 0.0277481
+Cluster 95: z = -0.579159, rho = 0.0215886
+Cluster 96: z = -0.432807, rho = 0.00987485
+Cluster 97: z = -0.264625, rho = 0.0592225
+Cluster 98: z = 0.310056, rho = 0.0296241
+Cluster 99: z = 0.899343, rho = 0.00987437
+Cluster 100: z = 1.1268, rho = 0.0197488
+Cluster 101: z = 1.36658, rho = 0.0293785
+Cluster 102: z = 1.43046, rho = 0.0101309
+Cluster 103: z = 1.53281, rho = 0.0145081
+Cluster 104: z = 1.62703, rho = 0.0344081
+Cluster 105: z = 1.77889, rho = 0.0201832
+Cluster 106: z = 2.43439, rho = 0.0098685
+Cluster 107: z = 2.495, rho = 0.00987984
+Cluster 108: z = 2.58032, rho = 0.0197404
+Cluster 109: z = 3.02169, rho = 0.0197487
+Cluster 110: z = 3.82832, rho = 0.0296246
+Cluster 111: z = 4.36802, rho = 0.00987412
+Cluster 112: z = 4.48645, rho = 0.0197474
+Cluster 113: z = 6.07777, rho = 0.0197494
+Cluster 114: z = 6.61369, rho = 0.00987498
+Cluster 115: z = 6.82153, rho = 0.00987418
+Cluster 116: z = 7.29894, rho = 0.0197481
+Cluster 117: z = 7.74591, rho = 0.00987281
+Cluster 118: z = 8.5981, rho = 0.0197493
+Cluster 119: z = 9.27563, rho = 0.00984929
+Cluster 120: z = -14.025, rho = 0.00983472
+Cluster 121: z = -8.43555, rho = 0.009869
+Cluster 122: z = -7.53413, rho = 0.0295928
+Cluster 123: z = -6.11633, rho = 0.00987386
+Cluster 124: z = -5.94214, rho = 0.00872352
+Cluster 125: z = -5.76744, rho = 0.00986714
+Cluster 126: z = -4.94316, rho = 0.0295985
+Cluster 127: z = -4.68811, rho = 0.0493704
+Cluster 128: z = -4.56166, rho = 0.0098601
+Cluster 129: z = -4.41224, rho = 0.00986189
+Cluster 130: z = -3.81614, rho = 0.00987305
+Cluster 131: z = -3.50246, rho = 0.0104171
+Cluster 132: z = -3.41436, rho = 0.0897991
+Cluster 133: z = -3.30365, rho = 0.0155989
+Cluster 134: z = -3.18946, rho = 0.012042
+Cluster 135: z = -3.13117, rho = 0.0103696
+Cluster 136: z = -2.80098, rho = 0.009869
+Cluster 137: z = -2.49548, rho = 0.0536294
+Cluster 138: z = -2.26791, rho = 0.0134024
+Cluster 139: z = -2.2157, rho = 0.0258933
+Cluster 140: z = -2.13375, rho = 0.0100516
+Cluster 141: z = -2.02512, rho = 0.00974144
+Cluster 142: z = -1.83093, rho = 0.00987233
+Cluster 143: z = -1.31987, rho = 0.0296221
+Cluster 144: z = -1.01112, rho = 0.00987472
+Cluster 145: z = -0.645735, rho = 0.0277481
+Cluster 146: z = -0.579159, rho = 0.0215886
+Cluster 147: z = -0.432807, rho = 0.00987485
+Cluster 148: z = -0.264625, rho = 0.0592225
+Cluster 149: z = 0.310056, rho = 0.0296241
+Cluster 150: z = 0.899343, rho = 0.00987437
+Cluster 151: z = 1.1268, rho = 0.0197488
+Cluster 152: z = 1.36658, rho = 0.0293785
+Cluster 153: z = 1.43046, rho = 0.0101309
+Cluster 154: z = 1.53281, rho = 0.0145081
+Cluster 155: z = 1.62703, rho = 0.0344081
+Cluster 156: z = 1.77889, rho = 0.0201832
+Cluster 157: z = 2.43439, rho = 0.0098685
+Cluster 158: z = 2.495, rho = 0.00987984
+Cluster 159: z = 2.58032, rho = 0.0197404
+Cluster 160: z = 3.02169, rho = 0.0197487
+Cluster 161: z = 3.82832, rho = 0.0296246
+Cluster 162: z = 4.36802, rho = 0.00987412
+Cluster 163: z = 4.48645, rho = 0.0197474
+Cluster 164: z = 6.07777, rho = 0.0197494
+Cluster 165: z = 6.61369, rho = 0.00987498
+Cluster 166: z = 6.82153, rho = 0.00987418
+Cluster 167: z = 7.29894, rho = 0.0197481
+Cluster 168: z = 7.74591, rho = 0.00987281
+Cluster 169: z = 8.5981, rho = 0.0197493
+Cluster 170: z = 9.27563, rho = 0.00984929
+Cluster 171: z = -6.11933, rho = 0.0563514
+Cluster 172: z = -6.02263, rho = 0.0563712
+Cluster 173: z = -4.67487, rho = 0.112732
+Cluster 174: z = -3.49738, rho = 0.056373
+Cluster 175: z = -3.19791, rho = 0.05635
+Cluster 176: z = -2.50747, rho = 0.16907
+Cluster 177: z = -1.16291, rho = 0.112747
+Cluster 178: z = -0.57576, rho = 0.112313
+Cluster 179: z = 1.6262, rho = 0.0563662
+Cluster 180: z = 2.7268, rho = 0.00968303
+Cluster 181: z = 3.84079, rho = 0.0563564
+Cluster 182: z = 5.00125, rho = 0.0889176
+Cluster 183: z = 7.31533, rho = 0.0563693
+Cluster 184: z = -14.0747, rho = 0.0137614
+Cluster 185: z = -10.8458, rho = 0.000335954
+Cluster 186: z = -9.58327, rho = 0.00136233
+Cluster 187: z = -8.61472, rho = 0.0082135
+Cluster 188: z = -8.42669, rho = 0.00244308
+Cluster 189: z = -7.54245, rho = 0.0032496
+Cluster 190: z = -7.14548, rho = 0.00160624
+Cluster 191: z = -6.11946, rho = 0.00212334
+Cluster 192: z = -6.02192, rho = 0.00080418
+Cluster 193: z = -5.92667, rho = 0.00331277
+Cluster 194: z = -5.76063, rho = 0.0171205
+Cluster 195: z = -5.56737, rho = 0.00355327
+Cluster 196: z = -5.42552, rho = 0.00636298
+Cluster 197: z = -5.17321, rho = 0.00106626
+Cluster 198: z = -5.00515, rho = 0.0120531
+Cluster 199: z = -4.9409, rho = 0.00919914
+Cluster 200: z = -4.91717, rho = 0.00720216
+Cluster 201: z = -4.69261, rho = 0.0283999
+Cluster 202: z = -4.40591, rho = 0.0042073
+Cluster 203: z = -3.94241, rho = 0.00400543
+Cluster 204: z = -3.84119, rho = 0.00284971
+Cluster 205: z = -3.52226, rho = 0.00743736
+Cluster 206: z = -3.50127, rho = 0.00897785
+Cluster 207: z = -3.40596, rho = 0.0447611
+Cluster 208: z = -3.29314, rho = 0.0140731
+Cluster 209: z = -3.19858, rho = 0.0086657
+Cluster 210: z = -3.14396, rho = 0.00691076
+Cluster 211: z = -3.08702, rho = 0.00209558
+Cluster 212: z = -3.01309, rho = 0.00764216
+Cluster 213: z = -2.80563, rho = 0.0101784
+Cluster 214: z = -2.69432, rho = 0.005029
+Cluster 215: z = -2.64218, rho = 0.00457792
+Cluster 216: z = -2.61062, rho = 0.00452825
+Cluster 217: z = -2.53316, rho = 0.0333491
+Cluster 218: z = -2.50822, rho = 0.0343093
+Cluster 219: z = -2.30993, rho = 0.0140172
+Cluster 220: z = -2.24776, rho = 0.00934586
+Cluster 221: z = -2.20665, rho = 0.0144425
+Cluster 222: z = -2.14109, rho = 0.0157095
+Cluster 223: z = -2.03728, rho = 0.00147423
+Cluster 224: z = -1.83814, rho = 0.00251841
+Cluster 225: z = -1.57275, rho = 0.00516813
+Cluster 226: z = -1.44271, rho = 0.011919
+Cluster 227: z = -1.32546, rho = 0.00880635
+Cluster 228: z = -1.30788, rho = 0.0116983
+Cluster 229: z = -1.21281, rho = 0.0194722
+Cluster 230: z = -1.11747, rho = 0.0248045
+Cluster 231: z = -1.00278, rho = 0.0164251
+Cluster 232: z = -0.771896, rho = 0.00393231
+Cluster 233: z = -0.729492, rho = 0.00423069
+Cluster 234: z = -0.674706, rho = 0.0171339
+Cluster 235: z = -0.646537, rho = 0.0181501
+Cluster 236: z = -0.578412, rho = 0.0179315
+Cluster 237: z = -0.551266, rho = 0.0168172
+Cluster 238: z = -0.264101, rho = 0.0425052
+Cluster 239: z = -0.0860774, rho = 0.00174879
+Cluster 240: z = 0.0150153, rho = 0.0102241
+Cluster 241: z = 0.155454, rho = 0.00165107
+Cluster 242: z = 0.36554, rho = 0.0134156
+Cluster 243: z = 0.4784, rho = 0.00199724
+Cluster 244: z = 0.576537, rho = 0.00178475
+Cluster 245: z = 0.716086, rho = 0.00626913
+Cluster 246: z = 1.09533, rho = 0.0111284
+Cluster 247: z = 1.13413, rho = 0.0109011
+Cluster 248: z = 1.28774, rho = 0.00437503
+Cluster 249: z = 1.31187, rho = 0.00505054
+Cluster 250: z = 1.38114, rho = 0.0302536
+Cluster 251: z = 1.40775, rho = 0.00881109
+Cluster 252: z = 1.43737, rho = 0.00812937
+Cluster 253: z = 1.53338, rho = 0.00664497
+Cluster 254: z = 1.63002, rho = 0.0297104
+Cluster 255: z = 1.77368, rho = 0.00214536
+Cluster 256: z = 1.96282, rho = 0.00368681
+Cluster 257: z = 2.40592, rho = 0.0036111
+Cluster 258: z = 2.43268, rho = 0.00423473
+Cluster 259: z = 2.44695, rho = 0.00650327
+Cluster 260: z = 2.49422, rho = 0.0174184
+Cluster 261: z = 2.57907, rho = 0.00455314
+Cluster 262: z = 2.61981, rho = 0.00363402
+Cluster 263: z = 2.72634, rho = 0.0088868
+Cluster 264: z = 2.80048, rho = 0.00311138
+Cluster 265: z = 2.91956, rho = 0.0110541
+Cluster 266: z = 3.01691, rho = 0.0135963
+Cluster 267: z = 3.03862, rho = 0.0121785
+Cluster 268: z = 3.27688, rho = 0.00314588
+Cluster 269: z = 3.58708, rho = 0.000903901
+Cluster 270: z = 3.83367, rho = 0.011445
+Cluster 271: z = 4.38717, rho = 0.00460471
+Cluster 272: z = 4.48238, rho = 0.003345
+Cluster 273: z = 4.77807, rho = 0.0115346
+Cluster 274: z = 4.90988, rho = 0.00253472
+Cluster 275: z = 5.0062, rho = 0.0132726
+Cluster 276: z = 5.07276, rho = 0.00612318
+Cluster 277: z = 5.90119, rho = 0.00919875
+Cluster 278: z = 6.02307, rho = 0.00474752
+Cluster 279: z = 6.44632, rho = 0.00556496
+Cluster 280: z = 6.6205, rho = 0.0210075
+Cluster 281: z = 6.8232, rho = 0.0126074
+Cluster 282: z = 6.88144, rho = 0.00413652
+Cluster 283: z = 7.03335, rho = 0.00809973
+Cluster 284: z = 7.29928, rho = 0.0107926
+Cluster 285: z = 7.6317, rho = 0.00190081
+Cluster 286: z = 7.77146, rho = 0.00241391
+Cluster 287: z = 8.5929, rho = 0.00727289
+Cluster 288: z = 11.6509, rho = 0.00125817
+Cluster 289: z = 11.8125, rho = 0.00477538
+Cluster 290: z = 14.972, rho = 0.000335133
+Cluster 291: z = -14.0747, rho = 0.0138439
+Cluster 292: z = -10.8458, rho = 0.000337968
+Cluster 293: z = -9.58327, rho = 0.0013705
+Cluster 294: z = -8.61472, rho = 0.00826276
+Cluster 295: z = -8.42669, rho = 0.00245774
+Cluster 296: z = -7.54245, rho = 0.0032691
+Cluster 297: z = -7.14548, rho = 0.00161627
+Cluster 298: z = -6.11995, rho = 0.00176955
+Cluster 299: z = -5.92674, rho = 0.00369722
+Cluster 300: z = -5.76065, rho = 0.0173635
+Cluster 301: z = -5.56737, rho = 0.00357391
+Cluster 302: z = -5.42552, rho = 0.00639589
+Cluster 303: z = -5.17321, rho = 0.00107123
+Cluster 304: z = -5.00515, rho = 0.0121433
+Cluster 305: z = -4.94089, rho = 0.00926725
+Cluster 306: z = -4.91715, rho = 0.00726672
+Cluster 307: z = -4.69311, rho = 0.0283499
+Cluster 308: z = -4.40268, rho = 0.00368983
+Cluster 309: z = -3.94246, rho = 0.00406786
+Cluster 310: z = -3.84127, rho = 0.00287648
+Cluster 311: z = -3.52982, rho = 0.00691035
+Cluster 312: z = -3.50221, rho = 0.00884925
+Cluster 313: z = -3.40599, rho = 0.0455147
+Cluster 314: z = -3.29309, rho = 0.0143887
+Cluster 315: z = -3.199, rho = 0.00756198
+Cluster 316: z = -3.14439, rho = 0.00738986
+Cluster 317: z = -3.08757, rho = 0.00136576
+Cluster 318: z = -3.08551, rho = 0.000846881
+Cluster 319: z = -3.01307, rho = 0.0076303
+Cluster 320: z = -2.80564, rho = 0.010266
+Cluster 321: z = -2.69432, rho = 0.00510047
+Cluster 322: z = -2.64217, rho = 0.00466586
+Cluster 323: z = -2.61059, rho = 0.00462519
+Cluster 324: z = -2.53402, rho = 0.033157
+Cluster 325: z = -2.50784, rho = 0.0340461
+Cluster 326: z = -2.30998, rho = 0.0137431
+Cluster 327: z = -2.24761, rho = 0.00931479
+Cluster 328: z = -2.20661, rho = 0.0145346
+Cluster 329: z = -2.1411, rho = 0.015909
+Cluster 330: z = -2.03728, rho = 0.0014859
+Cluster 331: z = -1.83813, rho = 0.00253421
+Cluster 332: z = -1.57275, rho = 0.00520194
+Cluster 333: z = -1.44271, rho = 0.0120134
+Cluster 334: z = -1.32544, rho = 0.00892324
+Cluster 335: z = -1.30786, rho = 0.01185
+Cluster 336: z = -1.21305, rho = 0.019193
+Cluster 337: z = -1.11703, rho = 0.0243235
+Cluster 338: z = -1.0028, rho = 0.0166982
+Cluster 339: z = -0.771883, rho = 0.00398008
+Cluster 340: z = -0.72948, rho = 0.00429335
+Cluster 341: z = -0.674745, rho = 0.0173931
+Cluster 342: z = -0.646578, rho = 0.0183894
+Cluster 343: z = -0.578539, rho = 0.0175627
+Cluster 344: z = -0.546219, rho = 0.0162905
+Cluster 345: z = -0.264105, rho = 0.0428504
+Cluster 346: z = -0.0860639, rho = 0.00176103
+Cluster 347: z = 0.0150169, rho = 0.0102758
+Cluster 348: z = 0.155463, rho = 0.00166844
+Cluster 349: z = 0.365542, rho = 0.0134914
+Cluster 350: z = 0.478399, rho = 0.00200994
+Cluster 351: z = 0.576536, rho = 0.00179622
+Cluster 352: z = 0.716085, rho = 0.00630617
+Cluster 353: z = 1.09533, rho = 0.0111955
+Cluster 354: z = 1.13413, rho = 0.010969
+Cluster 355: z = 1.28773, rho = 0.00439521
+Cluster 356: z = 1.31186, rho = 0.00507552
+Cluster 357: z = 1.38114, rho = 0.0304837
+Cluster 358: z = 1.40774, rho = 0.00890122
+Cluster 359: z = 1.43738, rho = 0.00822119
+Cluster 360: z = 1.53341, rho = 0.00677714
+Cluster 361: z = 1.6303, rho = 0.0292834
+Cluster 362: z = 1.77368, rho = 0.00219034
+Cluster 363: z = 1.96282, rho = 0.00373535
+Cluster 364: z = 2.41505, rho = 0.00495728
+Cluster 365: z = 2.43831, rho = 0.00526003
+Cluster 366: z = 2.44967, rho = 0.0038647
+Cluster 367: z = 2.49418, rho = 0.0179516
+Cluster 368: z = 2.57911, rho = 0.0045568
+Cluster 369: z = 2.61993, rho = 0.00364027
+Cluster 370: z = 2.72631, rho = 0.00879763
+Cluster 371: z = 2.80045, rho = 0.003162
+Cluster 372: z = 2.91956, rho = 0.0111257
+Cluster 373: z = 3.01691, rho = 0.0136805
+Cluster 374: z = 3.03861, rho = 0.0122561
+Cluster 375: z = 3.27689, rho = 0.00316967
+Cluster 376: z = 3.58712, rho = 0.000928168
+Cluster 377: z = 3.83128, rho = 0.0111116
+Cluster 378: z = 4.38716, rho = 0.00466512
+Cluster 379: z = 4.48237, rho = 0.00337172
+Cluster 380: z = 4.77809, rho = 0.0117156
+Cluster 381: z = 4.90994, rho = 0.00266172
+Cluster 382: z = 5.00664, rho = 0.0123381
+Cluster 383: z = 5.0727, rho = 0.00640859
+Cluster 384: z = 5.90117, rho = 0.0092532
+Cluster 385: z = 6.02305, rho = 0.00478629
+Cluster 386: z = 6.44632, rho = 0.00559751
+Cluster 387: z = 6.6205, rho = 0.0211339
+Cluster 388: z = 6.8232, rho = 0.0126869
+Cluster 389: z = 6.88144, rho = 0.0041674
+Cluster 390: z = 7.03336, rho = 0.00818829
+Cluster 391: z = 7.29894, rho = 0.0104462
+Cluster 392: z = 7.63162, rho = 0.0019263
+Cluster 393: z = 7.77145, rho = 0.00243655
+Cluster 394: z = 8.5929, rho = 0.00731715
+Cluster 395: z = 11.6509, rho = 0.00126574
+Cluster 396: z = 11.8125, rho = 0.00480399
+Cluster 397: z = 14.972, rho = 0.000337142
+Cluster 398: z = -14.0753, rho = 0.0246242
+Cluster 399: z = -9.55007, rho = 0.00599767
+Cluster 400: z = -8.60923, rho = 0.00615666
+Cluster 401: z = -7.53393, rho = 0.00614711
+Cluster 402: z = -5.94259, rho = 0.00615813
+Cluster 403: z = -5.78796, rho = 0.00404262
+Cluster 404: z = -5.75052, rho = 0.00600706
+Cluster 405: z = -5.42488, rho = 0.00612571
+Cluster 406: z = -4.99695, rho = 0.0061575
+Cluster 407: z = -4.91262, rho = 0.0061577
+Cluster 408: z = -4.68775, rho = 0.0184728
+Cluster 409: z = -4.42177, rho = 0.0307683
+Cluster 410: z = -3.8343, rho = 0.0123162
+Cluster 411: z = -3.50266, rho = 0.0184719
+Cluster 412: z = -3.41104, rho = 0.0125763
+Cluster 413: z = -3.29575, rho = 0.0305158
+Cluster 414: z = -3.08588, rho = 0.0123162
+Cluster 415: z = -2.99755, rho = 0.00613885
+Cluster 416: z = -2.80534, rho = 0.0184642
+Cluster 417: z = -2.69376, rho = 0.00614811
+Cluster 418: z = -2.61439, rho = 0.0122131
+Cluster 419: z = -2.54015, rho = 0.0214539
+Cluster 420: z = -2.50673, rho = 0.0217486
+Cluster 421: z = -2.29441, rho = 0.0162754
+Cluster 422: z = -2.2386, rho = 0.00835017
+Cluster 423: z = -2.14475, rho = 0.0181874
+Cluster 424: z = -2.03035, rho = 0.0123146
+Cluster 425: z = -1.86103, rho = 0.0061576
+Cluster 426: z = -1.44502, rho = 0.00615725
+Cluster 427: z = -1.30397, rho = 0.0275537
+Cluster 428: z = -1.21048, rho = 0.0339521
+Cluster 429: z = -1.10717, rho = 0.030532
+Cluster 430: z = -1.01087, rho = 0.00615798
+Cluster 431: z = -0.725128, rho = 0.0062244
+Cluster 432: z = -0.649831, rho = 0.0219732
+Cluster 433: z = -0.57864, rho = 0.0146144
+Cluster 434: z = -0.47777, rho = 0.00616446
+Cluster 435: z = -0.269388, rho = 0.049258
+Cluster 436: z = -0.0589595, rho = 0.00661337
+Cluster 437: z = -0.00887121, rho = 0.0118064
+Cluster 438: z = 0.381847, rho = 0.0246312
+Cluster 439: z = 0.603559, rho = 0.0123185
+Cluster 440: z = 0.727759, rho = 0.00615342
+Cluster 441: z = 1.12713, rho = 0.0184743
+Cluster 442: z = 1.2963, rho = 0.0239891
+Cluster 443: z = 1.38599, rho = 0.0496785
+Cluster 444: z = 1.63213, rho = 0.0415276
+Cluster 445: z = 1.87279, rho = 0.00615782
+Cluster 446: z = 2.41774, rho = 0.0197519
+Cluster 447: z = 2.47614, rho = 0.0171308
+Cluster 448: z = 2.56889, rho = 0.012318
+Cluster 449: z = 2.72969, rho = 0.0123108
+Cluster 450: z = 2.81003, rho = 0.0123163
+Cluster 451: z = 2.90978, rho = 0.00615001
+Cluster 452: z = 2.98297, rho = 0.0104926
+Cluster 453: z = 3.01316, rho = 0.0264557
+Cluster 454: z = 3.39119, rho = 0.00614825
+Cluster 455: z = 3.84414, rho = 0.00614222
+Cluster 456: z = 4.38029, rho = 0.00615805
+Cluster 457: z = 4.48816, rho = 0.00617458
+Cluster 458: z = 4.91581, rho = 0.0061562
+Cluster 459: z = 5.00435, rho = 0.0122176
+Cluster 460: z = 5.06989, rho = 0.012335
+Cluster 461: z = 6.62596, rho = 0.0252313
+Cluster 462: z = 6.83511, rho = 0.00615762
+Cluster 463: z = 7.02931, rho = 0.00615793
+Cluster 464: z = 7.52641, rho = 0.00117406
+Cluster 465: z = 7.76765, rho = 0.00615801
+Cluster 466: z = 8.602, rho = 0.0061569
+Cluster 467: z = 11.6125, rho = 0.00614658
+Cluster 468: z = 11.83, rho = 0.00615788
+Cluster 469: z = -14.0753, rho = 0.021805
+Cluster 470: z = -9.55007, rho = 0.005311
+Cluster 471: z = -8.60923, rho = 0.00545179
+Cluster 472: z = -7.84003, rho = 0.00545272
+Cluster 473: z = -7.53393, rho = 0.00544333
+Cluster 474: z = -5.94259, rho = 0.00545309
+Cluster 475: z = -5.78796, rho = 0.00357978
+Cluster 476: z = -5.75052, rho = 0.00531931
+Cluster 477: z = -5.42488, rho = 0.00542438
+Cluster 478: z = -4.99695, rho = 0.00545253
+Cluster 479: z = -4.91262, rho = 0.00545271
+Cluster 480: z = -4.68253, rho = 0.021807
+Cluster 481: z = -4.42177, rho = 0.0272464
+Cluster 482: z = -3.8343, rho = 0.0109062
+Cluster 483: z = -3.50241, rho = 0.0166763
+Cluster 484: z = -3.41195, rho = 0.016313
+Cluster 485: z = -3.29584, rho = 0.0324317
+Cluster 486: z = -3.08588, rho = 0.0109061
+Cluster 487: z = -2.99755, rho = 0.00543601
+Cluster 488: z = -2.8053, rho = 0.0163848
+Cluster 489: z = -2.694, rho = 0.0106696
+Cluster 490: z = -2.61421, rho = 0.0126243
+Cluster 491: z = -2.54091, rho = 0.0215127
+Cluster 492: z = -2.50744, rho = 0.0205794
+Cluster 493: z = -2.29449, rho = 0.0143453
+Cluster 494: z = -2.23874, rho = 0.00746093
+Cluster 495: z = -2.14475, rho = 0.0161051
+Cluster 496: z = -2.03035, rho = 0.0109047
+Cluster 497: z = -1.86103, rho = 0.00545262
+Cluster 498: z = -1.44502, rho = 0.00545231
+Cluster 499: z = -1.30441, rho = 0.0239905
+Cluster 500: z = -1.21073, rho = 0.0359266
+Cluster 501: z = -1.10713, rho = 0.0271577
+Cluster 502: z = -1.00358, rho = 0.0107097
+Cluster 503: z = -0.725418, rho = 0.00324614
+Cluster 504: z = -0.725418, rho = 0.00232211
+Cluster 505: z = -0.649299, rho = 0.0258708
+Cluster 506: z = -0.577979, rho = 0.0119917
+Cluster 507: z = -0.477772, rho = 0.00545826
+Cluster 508: z = -0.269513, rho = 0.0490698
+Cluster 509: z = -0.0589595, rho = 0.00585621
+Cluster 510: z = -0.00887121, rho = 0.0104547
+Cluster 511: z = 0.381847, rho = 0.0218112
+Cluster 512: z = 0.603559, rho = 0.0109082
+Cluster 513: z = 0.727759, rho = 0.00544892
+Cluster 514: z = 1.12713, rho = 0.0163592
+Cluster 515: z = 1.29646, rho = 0.0219281
+Cluster 516: z = 1.38584, rho = 0.0487583
+Cluster 517: z = 1.63213, rho = 0.0367731
+Cluster 518: z = 1.87279, rho = 0.00545281
+Cluster 519: z = 2.41976, rho = 0.0231123
+Cluster 520: z = 2.47632, rho = 0.0150014
+Cluster 521: z = 2.56889, rho = 0.0109069
+Cluster 522: z = 2.72969, rho = 0.0109013
+Cluster 523: z = 2.81003, rho = 0.0109062
+Cluster 524: z = 2.9098, rho = 0.00544646
+Cluster 525: z = 2.98382, rho = 0.0114254
+Cluster 526: z = 3.01546, rho = 0.0212922
+Cluster 527: z = 3.39119, rho = 0.00544434
+Cluster 528: z = 3.83419, rho = 0.0108911
+Cluster 529: z = 3.96831, rho = 0.00545336
+Cluster 530: z = 4.38029, rho = 0.00545302
+Cluster 531: z = 4.48816, rho = 0.00546766
+Cluster 532: z = 4.91581, rho = 0.00545138
+Cluster 533: z = 5.00435, rho = 0.0108188
+Cluster 534: z = 5.06989, rho = 0.0109228
+Cluster 535: z = 5.65046, rho = 0.00544833
+Cluster 536: z = 6.62613, rho = 0.0387009
+Cluster 537: z = 6.8355, rho = 0.0109035
+Cluster 538: z = 7.02931, rho = 0.00545291
+Cluster 539: z = 7.31232, rho = 0.0109051
+Cluster 540: z = 7.52641, rho = 0.00103964
+Cluster 541: z = 7.76765, rho = 0.00545298
+Cluster 542: z = 8.602, rho = 0.005452
+Cluster 543: z = 11.6125, rho = 0.00544286
+Cluster 544: z = 11.83, rho = 0.00545287
+Cluster 545: z = -7.84003, rho = 0.0476265
+Cluster 546: z = -4.60675, rho = 0.047602
+Cluster 547: z = -3.42026, rho = 0.0478363
+Cluster 548: z = -3.29854, rho = 0.0474168
+Cluster 549: z = -2.69377, rho = 0.049822
+Cluster 550: z = -2.57695, rho = 0.045429
+Cluster 551: z = -1.21086, rho = 0.0476286
+Cluster 552: z = -0.907062, rho = 0.0476274
+Cluster 553: z = -0.651241, rho = 0.0475634
+Cluster 554: z = -0.270412, rho = 0.0476112
+Cluster 555: z = 1.37308, rho = 0.0476287
+Cluster 556: z = 2.43197, rho = 0.0476276
+Cluster 557: z = 3.80579, rho = 0.0476194
+Cluster 558: z = 3.96831, rho = 0.0476338
+Cluster 559: z = 5.65046, rho = 0.0475881
+Cluster 560: z = 6.61764, rho = 0.0957281
+Cluster 561: z = 6.64942, rho = 0.0471518
+Cluster 562: z = 6.83564, rho = 0.0476097
+Cluster 563: z = 7.31232, rho = 0.0952496
+Cluster 564: z = -17.1707, rho = 0.00237973
+Cluster 565: z = -16.6714, rho = 0.00237722
+Cluster 566: z = -14.528, rho = 0.00475146
+Cluster 567: z = -14.0658, rho = 0.0283663
+Cluster 568: z = -13.321, rho = 0.00237518
+Cluster 569: z = -12.57, rho = 0.0023797
+Cluster 570: z = -11.0983, rho = 0.00239125
+Cluster 571: z = -10.9755, rho = 0.00235766
+Cluster 572: z = -9.88042, rho = 0.00151951
+Cluster 573: z = -9.50143, rho = 0.00238103
+Cluster 574: z = -9.03542, rho = 0.00418327
+Cluster 575: z = -8.62051, rho = 0.018962
+Cluster 576: z = -8.40194, rho = 0.00484727
+Cluster 577: z = -7.54576, rho = 0.00694929
+Cluster 578: z = -7.25561, rho = 0.00253958
+Cluster 579: z = -6.84435, rho = 0.00238019
+Cluster 580: z = -5.77264, rho = 0.0174702
+Cluster 581: z = -5.62771, rho = 0.00475591
+Cluster 582: z = -5.43209, rho = 0.00271674
+Cluster 583: z = -5.18676, rho = 0.00519469
+Cluster 584: z = -5.01516, rho = 0.0163082
+Cluster 585: z = -4.9366, rho = 0.00556169
+Cluster 586: z = -4.68353, rho = 0.0252317
+Cluster 587: z = -3.54782, rho = 0.00991002
+Cluster 588: z = -3.50183, rho = 0.0158451
+Cluster 589: z = -3.40585, rho = 0.0449278
+Cluster 590: z = -3.29248, rho = 0.00576193
+Cluster 591: z = -3.15109, rho = 0.00356101
+Cluster 592: z = -3.03181, rho = 0.00748466
+Cluster 593: z = -2.81144, rho = 0.00799643
+Cluster 594: z = -2.66498, rho = 0.00669109
+Cluster 595: z = -2.60915, rho = 0.00721583
+Cluster 596: z = -2.51571, rho = 0.0486536
+Cluster 597: z = -2.38309, rho = 0.00766273
+Cluster 598: z = -2.31372, rho = 0.00934803
+Cluster 599: z = -2.2176, rho = 0.0157466
+Cluster 600: z = -2.15088, rho = 0.0169227
+Cluster 601: z = -1.57318, rho = 0.0087422
+Cluster 602: z = -1.43733, rho = 0.0152118
+Cluster 603: z = -1.30288, rho = 0.0138706
+Cluster 604: z = -1.2193, rho = 0.0264841
+Cluster 605: z = -1.11763, rho = 0.0343548
+Cluster 606: z = -0.985174, rho = 0.0164717
+Cluster 607: z = -0.729395, rho = 0.00917833
+Cluster 608: z = -0.641404, rho = 0.0132225
+Cluster 609: z = -0.576104, rho = 0.0347373
+Cluster 610: z = -0.363583, rho = 0.00462513
+Cluster 611: z = -0.267074, rho = 0.0346415
+Cluster 612: z = -0.0283453, rho = 0.0104922
+Cluster 613: z = 0.314338, rho = 0.0100265
+Cluster 614: z = 0.358128, rho = 0.0200453
+Cluster 615: z = 0.631139, rho = 0.0113177
+Cluster 616: z = 0.727555, rho = 0.00465398
+Cluster 617: z = 1.12362, rho = 0.00965673
+Cluster 618: z = 1.30262, rho = 0.0273816
+Cluster 619: z = 1.39361, rho = 0.0122109
+Cluster 620: z = 1.46073, rho = 0.0128329
+Cluster 621: z = 1.63947, rho = 0.0209069
+Cluster 622: z = 1.9089, rho = 0.00601752
+Cluster 623: z = 1.96013, rho = 0.00613801
+Cluster 624: z = 2.04016, rho = 0.00972054
+Cluster 625: z = 2.24932, rho = 0.00552716
+Cluster 626: z = 2.44003, rho = 0.00537797
+Cluster 627: z = 2.49585, rho = 0.0123918
+Cluster 628: z = 2.57856, rho = 0.0175562
+Cluster 629: z = 2.72661, rho = 0.0156387
+Cluster 630: z = 3.00577, rho = 0.0235483
+Cluster 631: z = 3.2011, rho = 0.00324081
+Cluster 632: z = 3.32099, rho = 0.00305214
+Cluster 633: z = 3.4897, rho = 0.00294445
+Cluster 634: z = 3.83099, rho = 0.00878451
+Cluster 635: z = 4.38354, rho = 0.00715127
+Cluster 636: z = 4.57243, rho = 0.00718546
+Cluster 637: z = 4.7678, rho = 0.00562911
+Cluster 638: z = 5.0075, rho = 0.0132945
+Cluster 639: z = 6.04506, rho = 0.010718
+Cluster 640: z = 6.10504, rho = 0.0127507
+Cluster 641: z = 6.43928, rho = 0.00713905
+Cluster 642: z = 6.61755, rho = 0.0167254
+Cluster 643: z = 6.82901, rho = 0.0156669
+Cluster 644: z = 7.04496, rho = 0.00929088
+Cluster 645: z = 7.30378, rho = 0.00875838
+Cluster 646: z = 7.46074, rho = 0.00272693
+Cluster 647: z = 8.20897, rho = 0.00257916
+Cluster 648: z = 8.57723, rho = 0.00961547
+Cluster 649: z = 10.9513, rho = 0.0023749
+Cluster 650: z = 11.3265, rho = 0.00237421
+Cluster 651: z = 11.8185, rho = 0.0142769
+Cluster 652: z = 12.6885, rho = 0.00228366
+Cluster 653: z = 16.2248, rho = 0.0023486
+Cluster 654: z = -17.1707, rho = 0.00237973
+Cluster 655: z = -16.6714, rho = 0.00237722
+Cluster 656: z = -14.528, rho = 0.00475146
+Cluster 657: z = -14.0658, rho = 0.0283663
+Cluster 658: z = -13.321, rho = 0.00237518
+Cluster 659: z = -12.57, rho = 0.0023797
+Cluster 660: z = -11.0983, rho = 0.00239125
+Cluster 661: z = -10.9755, rho = 0.00235766
+Cluster 662: z = -9.88042, rho = 0.00151951
+Cluster 663: z = -9.50143, rho = 0.00238103
+Cluster 664: z = -9.03542, rho = 0.00418327
+Cluster 665: z = -8.62051, rho = 0.018962
+Cluster 666: z = -8.40194, rho = 0.00484727
+Cluster 667: z = -7.54576, rho = 0.00694929
+Cluster 668: z = -7.25561, rho = 0.00253958
+Cluster 669: z = -6.84435, rho = 0.00238019
+Cluster 670: z = -5.77264, rho = 0.0174702
+Cluster 671: z = -5.62771, rho = 0.00475591
+Cluster 672: z = -5.43209, rho = 0.00271674
+Cluster 673: z = -5.18676, rho = 0.00519469
+Cluster 674: z = -5.01516, rho = 0.0163082
+Cluster 675: z = -4.9366, rho = 0.00556169
+Cluster 676: z = -4.68353, rho = 0.0252317
+Cluster 677: z = -3.54782, rho = 0.00991002
+Cluster 678: z = -3.50183, rho = 0.0158451
+Cluster 679: z = -3.40585, rho = 0.0449278
+Cluster 680: z = -3.29248, rho = 0.00576193
+Cluster 681: z = -3.15109, rho = 0.00356101
+Cluster 682: z = -3.03181, rho = 0.00748466
+Cluster 683: z = -2.81144, rho = 0.00799643
+Cluster 684: z = -2.66498, rho = 0.00669109
+Cluster 685: z = -2.60915, rho = 0.00721583
+Cluster 686: z = -2.51571, rho = 0.0486536
+Cluster 687: z = -2.38309, rho = 0.00766273
+Cluster 688: z = -2.31372, rho = 0.00934803
+Cluster 689: z = -2.2176, rho = 0.0157466
+Cluster 690: z = -2.15088, rho = 0.0169227
+Cluster 691: z = -1.57318, rho = 0.0087422
+Cluster 692: z = -1.43733, rho = 0.0152118
+Cluster 693: z = -1.30288, rho = 0.0138706
+Cluster 694: z = -1.2193, rho = 0.0264841
+Cluster 695: z = -1.11763, rho = 0.0343548
+Cluster 696: z = -0.985174, rho = 0.0164717
+Cluster 697: z = -0.729395, rho = 0.00917833
+Cluster 698: z = -0.641404, rho = 0.0132225
+Cluster 699: z = -0.576104, rho = 0.0347373
+Cluster 700: z = -0.363583, rho = 0.00462513
+Cluster 701: z = -0.267074, rho = 0.0346415
+Cluster 702: z = -0.0283453, rho = 0.0104922
+Cluster 703: z = 0.314338, rho = 0.0100265
+Cluster 704: z = 0.358128, rho = 0.0200453
+Cluster 705: z = 0.631139, rho = 0.0113177
+Cluster 706: z = 0.727555, rho = 0.00465398
+Cluster 707: z = 1.12362, rho = 0.00965673
+Cluster 708: z = 1.30262, rho = 0.0273816
+Cluster 709: z = 1.39361, rho = 0.0122109
+Cluster 710: z = 1.46073, rho = 0.0128329
+Cluster 711: z = 1.63947, rho = 0.0209069
+Cluster 712: z = 1.9089, rho = 0.00601752
+Cluster 713: z = 1.96013, rho = 0.00613801
+Cluster 714: z = 2.04016, rho = 0.00972054
+Cluster 715: z = 2.24932, rho = 0.00552716
+Cluster 716: z = 2.44003, rho = 0.00537797
+Cluster 717: z = 2.49585, rho = 0.0123918
+Cluster 718: z = 2.57856, rho = 0.0175562
+Cluster 719: z = 2.72661, rho = 0.0156387
+Cluster 720: z = 3.00577, rho = 0.0235483
+Cluster 721: z = 3.2011, rho = 0.00324081
+Cluster 722: z = 3.32099, rho = 0.00305214
+Cluster 723: z = 3.4897, rho = 0.00294445
+Cluster 724: z = 3.83099, rho = 0.00878451
+Cluster 725: z = 4.38354, rho = 0.00715127
+Cluster 726: z = 4.57243, rho = 0.00718546
+Cluster 727: z = 4.7678, rho = 0.00562911
+Cluster 728: z = 5.0075, rho = 0.0132945
+Cluster 729: z = 6.04506, rho = 0.010718
+Cluster 730: z = 6.10504, rho = 0.0127507
+Cluster 731: z = 6.43928, rho = 0.00713905
+Cluster 732: z = 6.61755, rho = 0.0167254
+Cluster 733: z = 6.82901, rho = 0.0156669
+Cluster 734: z = 7.04496, rho = 0.00929088
+Cluster 735: z = 7.30378, rho = 0.00875838
+Cluster 736: z = 7.46074, rho = 0.00272693
+Cluster 737: z = 8.20897, rho = 0.00257916
+Cluster 738: z = 8.57723, rho = 0.00961547
+Cluster 739: z = 10.9513, rho = 0.0023749
+Cluster 740: z = 11.3265, rho = 0.00237421
+Cluster 741: z = 11.8185, rho = 0.0142769
+Cluster 742: z = 12.6885, rho = 0.00228366
+Cluster 743: z = 16.2248, rho = 0.0023486
+Cluster 744: z = -6.14408, rho = 0.333409
+Cluster 745: z = -2.14147, rho = 0.333257
+Cluster 746: z = 2.15786, rho = 0.333335
+Cluster 747: z = -14.0625, rho = 0.0137538
+Cluster 748: z = -12.993, rho = 0.00105527
+Cluster 749: z = -11.4682, rho = 0.000779799
+Cluster 750: z = -9.55632, rho = 0.000993371
+Cluster 751: z = -8.61689, rho = 0.0117381
+Cluster 752: z = -8.42936, rho = 0.00358119
+Cluster 753: z = -7.54362, rho = 0.00605675
+Cluster 754: z = -7.151, rho = 0.00432216
+Cluster 755: z = -6.10386, rho = 0.00367955
+Cluster 756: z = -5.90749, rho = 0.00503896
+Cluster 757: z = -5.74961, rho = 0.0159
+Cluster 758: z = -5.57013, rho = 0.00383644
+Cluster 759: z = -5.42884, rho = 0.00978274
+Cluster 760: z = -5.18022, rho = 0.00323651
+Cluster 761: z = -5.00965, rho = 0.0109804
+Cluster 762: z = -4.94642, rho = 0.0128633
+Cluster 763: z = -4.80903, rho = 0.00213411
+Cluster 764: z = -4.69803, rho = 0.0234402
+Cluster 765: z = -4.4374, rho = 0.00762227
+Cluster 766: z = -4.16959, rho = 0.00149687
+Cluster 767: z = -3.88252, rho = 0.00492599
+Cluster 768: z = -3.83812, rho = 0.00697536
+Cluster 769: z = -3.66826, rho = 0.00198807
+Cluster 770: z = -3.49916, rho = 0.0122069
+Cluster 771: z = -3.40987, rho = 0.046473
+Cluster 772: z = -3.28716, rho = 0.0152954
+Cluster 773: z = -3.19208, rho = 0.00669574
+Cluster 774: z = -3.15713, rho = 0.00639314
+Cluster 775: z = -3.014, rho = 0.0165884
+Cluster 776: z = -2.82712, rho = 0.00389199
+Cluster 777: z = -2.79351, rho = 0.00390167
+Cluster 778: z = -2.65752, rho = 0.0058752
+Cluster 779: z = -2.59428, rho = 0.0087294
+Cluster 780: z = -2.54306, rho = 0.0106991
+Cluster 781: z = -2.53433, rho = 0.0238691
+Cluster 782: z = -2.50167, rho = 0.0228324
+Cluster 783: z = -2.30802, rho = 0.0132537
+Cluster 784: z = -2.19912, rho = 0.030655
+Cluster 785: z = -2.11937, rho = 0.00858206
+Cluster 786: z = -2.03274, rho = 0.00364558
+Cluster 787: z = -1.85482, rho = 0.00151697
+Cluster 788: z = -1.79932, rho = 0.00145173
+Cluster 789: z = -1.57657, rho = 0.00544576
+Cluster 790: z = -1.43348, rho = 0.020559
+Cluster 791: z = -1.31181, rho = 0.00499582
+Cluster 792: z = -1.21145, rho = 0.0379698
+Cluster 793: z = -1.1166, rho = 0.0192943
+Cluster 794: z = -1.01083, rho = 0.00687633
+Cluster 795: z = -0.886819, rho = 0.00234695
+Cluster 796: z = -0.651655, rho = 0.0324634
+Cluster 797: z = -0.572722, rho = 0.0316174
+Cluster 798: z = -0.248741, rho = 0.0300055
+Cluster 799: z = 0.000576577, rho = 0.0115168
+Cluster 800: z = 0.110563, rho = 0.00162505
+Cluster 801: z = 0.304556, rho = 0.00284287
+Cluster 802: z = 0.341523, rho = 0.00283392
+Cluster 803: z = 0.356233, rho = 0.0115221
+Cluster 804: z = 0.410891, rho = 0.0126505
+Cluster 805: z = 0.518206, rho = 0.00339169
+Cluster 806: z = 0.700617, rho = 0.0151792
+Cluster 807: z = 0.915888, rho = 0.00194267
+Cluster 808: z = 1.13213, rho = 0.00382908
+Cluster 809: z = 1.29934, rho = 0.0148686
+Cluster 810: z = 1.37784, rho = 0.0417489
+Cluster 811: z = 1.44084, rho = 0.021303
+Cluster 812: z = 1.51953, rho = 0.00326476
+Cluster 813: z = 1.63463, rho = 0.01066
+Cluster 814: z = 1.7509, rho = 0.01057
+Cluster 815: z = 1.97288, rho = 0.00198056
+Cluster 816: z = 2.23528, rho = 0.00417139
+Cluster 817: z = 2.4133, rho = 0.00804683
+Cluster 818: z = 2.49701, rho = 0.0147076
+Cluster 819: z = 2.57001, rho = 0.00719214
+Cluster 820: z = 2.60262, rho = 0.00527239
+Cluster 821: z = 2.71302, rho = 0.00999785
+Cluster 822: z = 2.74798, rho = 0.00819146
+Cluster 823: z = 2.90476, rho = 0.00988127
+Cluster 824: z = 3.00878, rho = 0.0100635
+Cluster 825: z = 3.04151, rho = 0.0087666
+Cluster 826: z = 3.34519, rho = 0.00221663
+Cluster 827: z = 3.82489, rho = 0.00678412
+Cluster 828: z = 3.98474, rho = 0.0014262
+Cluster 829: z = 4.49455, rho = 0.00862885
+Cluster 830: z = 4.78316, rho = 0.00705262
+Cluster 831: z = 4.87989, rho = 0.00365904
+Cluster 832: z = 5.02098, rho = 0.0148954
+Cluster 833: z = 5.65852, rho = 0.00652417
+Cluster 834: z = 5.89519, rho = 0.0120334
+Cluster 835: z = 6.03347, rho = 0.0059151
+Cluster 836: z = 6.08354, rho = 0.00558002
+Cluster 837: z = 6.46134, rho = 0.00375094
+Cluster 838: z = 6.62749, rho = 0.013057
+Cluster 839: z = 6.82304, rho = 0.0108311
+Cluster 840: z = 6.90121, rho = 0.00456207
+Cluster 841: z = 7.037, rho = 0.00376925
+Cluster 842: z = 7.30296, rho = 0.0171159
+Cluster 843: z = 7.536, rho = 0.00207478
+Cluster 844: z = 7.64397, rho = 0.00284653
+Cluster 845: z = 7.75384, rho = 0.0011374
+Cluster 846: z = 8.58612, rho = 0.00688827
+Cluster 847: z = 11.6571, rho = 0.00385548
+Cluster 848: z = 11.8267, rho = 0.00704732
+Cluster 849: z = -14.0622, rho = 0.010046
+Cluster 850: z = -12.9929, rho = 0.000668143
+Cluster 851: z = -11.469, rho = 0.000502735
+Cluster 852: z = -9.55631, rho = 0.000646073
+Cluster 853: z = -8.61656, rho = 0.00970881
+Cluster 854: z = -8.42748, rho = 0.0042456
+Cluster 855: z = -7.54308, rho = 0.00547222
+Cluster 856: z = -7.15071, rho = 0.00432844
+Cluster 857: z = -6.10779, rho = 0.00481254
+Cluster 858: z = -5.90797, rho = 0.00614804
+Cluster 859: z = -5.75021, rho = 0.0161393
+Cluster 860: z = -5.57005, rho = 0.00373981
+Cluster 861: z = -5.42867, rho = 0.00994123
+Cluster 862: z = -5.18026, rho = 0.00533912
+Cluster 863: z = -5.00979, rho = 0.0122323
+Cluster 864: z = -4.94629, rho = 0.0139106
+Cluster 865: z = -4.80817, rho = 0.00200496
+Cluster 866: z = -4.80804, rho = 0.00174758
+Cluster 867: z = -4.6978, rho = 0.0220451
+Cluster 868: z = -4.43563, rho = 0.00775829
+Cluster 869: z = -4.16912, rho = 0.00297103
+Cluster 870: z = -3.88474, rho = 0.00554762
+Cluster 871: z = -3.83917, rho = 0.00734675
+Cluster 872: z = -3.66833, rho = 0.00192523
+Cluster 873: z = -3.49917, rho = 0.0119282
+Cluster 874: z = -3.41037, rho = 0.0433816
+Cluster 875: z = -3.28704, rho = 0.0136339
+Cluster 876: z = -3.2044, rho = 0.00259712
+Cluster 877: z = -3.16269, rho = 0.00941418
+Cluster 878: z = -3.01399, rho = 0.0159372
+Cluster 879: z = -2.83127, rho = 0.00266519
+Cluster 880: z = -2.79737, rho = 0.00224279
+Cluster 881: z = -2.79223, rho = 0.00202553
+Cluster 882: z = -2.68011, rho = 0.00243511
+Cluster 883: z = -2.61871, rho = 0.011582
+Cluster 884: z = -2.54038, rho = 0.0166283
+Cluster 885: z = -2.53241, rho = 0.0208012
+Cluster 886: z = -2.49726, rho = 0.0195198
+Cluster 887: z = -2.30844, rho = 0.0132029
+Cluster 888: z = -2.19913, rho = 0.0298135
+Cluster 889: z = -2.11929, rho = 0.00775355
+Cluster 890: z = -2.03277, rho = 0.00358028
+Cluster 891: z = -1.85518, rho = 0.00159582
+Cluster 892: z = -1.79873, rho = 0.00155417
+Cluster 893: z = -1.57667, rho = 0.0058309
+Cluster 894: z = -1.43378, rho = 0.0211448
+Cluster 895: z = -1.31185, rho = 0.00504828
+Cluster 896: z = -1.21145, rho = 0.0367394
+Cluster 897: z = -1.11656, rho = 0.0185697
+Cluster 898: z = -1.0107, rho = 0.00683873
+Cluster 899: z = -0.886534, rho = 0.00237346
+Cluster 900: z = -0.651675, rho = 0.0332427
+Cluster 901: z = -0.572459, rho = 0.0327896
+Cluster 902: z = -0.248659, rho = 0.0295617
+Cluster 903: z = 0.000435555, rho = 0.0108321
+Cluster 904: z = 0.110531, rho = 0.00151459
+Cluster 905: z = 0.305151, rho = 0.0031005
+Cluster 906: z = 0.350932, rho = 0.00350432
+Cluster 907: z = 0.356779, rho = 0.00934746
+Cluster 908: z = 0.408146, rho = 0.0102974
+Cluster 909: z = 0.479288, rho = 0.00165323
+Cluster 910: z = 0.521393, rho = 0.00207616
+Cluster 911: z = 0.700989, rho = 0.0133904
+Cluster 912: z = 0.91682, rho = 0.00248633
+Cluster 913: z = 1.1313, rho = 0.0048701
+Cluster 914: z = 1.29897, rho = 0.0148912
+Cluster 915: z = 1.37824, rho = 0.0381001
+Cluster 916: z = 1.38779, rho = 0.00570777
+Cluster 917: z = 1.44012, rho = 0.00741174
+Cluster 918: z = 1.44306, rho = 0.00847652
+Cluster 919: z = 1.49944, rho = 0.00570162
+Cluster 920: z = 1.6346, rho = 0.0104505
+Cluster 921: z = 1.75118, rho = 0.0105431
+Cluster 922: z = 1.97343, rho = 0.00235218
+Cluster 923: z = 2.23444, rho = 0.00478411
+Cluster 924: z = 2.41311, rho = 0.00853493
+Cluster 925: z = 2.49694, rho = 0.0153705
+Cluster 926: z = 2.56988, rho = 0.00741855
+Cluster 927: z = 2.60558, rho = 0.00538329
+Cluster 928: z = 2.71326, rho = 0.0101715
+Cluster 929: z = 2.74914, rho = 0.00821518
+Cluster 930: z = 2.90388, rho = 0.0093595
+Cluster 931: z = 3.00721, rho = 0.00994308
+Cluster 932: z = 3.04376, rho = 0.00881245
+Cluster 933: z = 3.34524, rho = 0.00259352
+Cluster 934: z = 3.8253, rho = 0.00812633
+Cluster 935: z = 3.98449, rho = 0.00179656
+Cluster 936: z = 4.49298, rho = 0.0111464
+Cluster 937: z = 4.78368, rho = 0.00629968
+Cluster 938: z = 4.88137, rho = 0.004774
+Cluster 939: z = 5.02069, rho = 0.0160052
+Cluster 940: z = 5.65833, rho = 0.00687669
+Cluster 941: z = 5.8949, rho = 0.0111022
+Cluster 942: z = 6.03141, rho = 0.00539249
+Cluster 943: z = 6.08495, rho = 0.00513302
+Cluster 944: z = 6.46109, rho = 0.0039814
+Cluster 945: z = 6.62762, rho = 0.0145791
+Cluster 946: z = 6.822, rho = 0.00943596
+Cluster 947: z = 6.90061, rho = 0.00431021
+Cluster 948: z = 7.03816, rho = 0.00420875
+Cluster 949: z = 7.30229, rho = 0.0163253
+Cluster 950: z = 7.5364, rho = 0.00174477
+Cluster 951: z = 7.64398, rho = 0.0024705
+Cluster 952: z = 7.76696, rho = 0.00130825
+Cluster 953: z = 8.58858, rho = 0.0101802
+Cluster 954: z = 9.83251, rho = 0.000579643
+Cluster 955: z = 11.6523, rho = 0.00343743
+Cluster 956: z = 11.8325, rho = 0.0061959
+Cluster 957: z = 12.5804, rho = 0.00299946
+Cluster 958: z = 13.3231, rho = 0.000637283
+Cluster 959: z = -14.0204, rho = 0.00348737
+Cluster 960: z = -8.63368, rho = 0.00443743
+Cluster 961: z = -8.28695, rho = 0.00742394
+Cluster 962: z = -7.48629, rho = 0.00600442
+Cluster 963: z = -6.68712, rho = 0.00509139
+Cluster 964: z = -5.89147, rho = 0.0292085
+Cluster 965: z = -5.455, rho = 0.0120317
+Cluster 966: z = -5.15242, rho = 0.0234944
+Cluster 967: z = -4.90854, rho = 0.028113
+Cluster 968: z = -4.68012, rho = 0.0166581
+Cluster 969: z = -4.10088, rho = 0.0261749
+Cluster 970: z = -3.48588, rho = 0.0524239
+Cluster 971: z = -3.03709, rho = 0.0444955
+Cluster 972: z = -2.48656, rho = 0.0523593
+Cluster 973: z = -2.34434, rho = 0.0575366
+Cluster 974: z = -1.55216, rho = 0.0506716
+Cluster 975: z = -1.19118, rho = 0.0341155
+Cluster 976: z = -0.864342, rho = 0.036113
+Cluster 977: z = -0.555163, rho = 0.0612534
+Cluster 978: z = -0.152866, rho = 0.0317581
+Cluster 979: z = 0.35969, rho = 0.0266908
+Cluster 980: z = 1.12012, rho = 0.0474518
+Cluster 981: z = 1.48485, rho = 0.0603586
+Cluster 982: z = 2.09178, rho = 0.0265681
+Cluster 983: z = 2.55645, rho = 0.0242197
+Cluster 984: z = 2.67507, rho = 0.0365582
+Cluster 985: z = 3.186, rho = 0.0207429
+Cluster 986: z = 3.88933, rho = 0.0118784
+Cluster 987: z = 4.41475, rho = 0.0159979
+Cluster 988: z = 4.93745, rho = 0.0287641
+Cluster 989: z = 5.67689, rho = 0.0160345
+Cluster 990: z = 6.15883, rho = 0.0103281
+Cluster 991: z = 6.62303, rho = 0.0292436
+Cluster 992: z = 7.2001, rho = 0.0258668
+Cluster 993: z = 8.24508, rho = 0.00594716
+Cluster 994: z = 8.75682, rho = 0.00915685
+Cluster 995: z = 9.18336, rho = 0.00248652
+Cluster 996: z = 9.84244, rho = 0.00152587
+Cluster 997: z = 11.4724, rho = 0.00201832
+Cluster 998: z = 11.9408, rho = 0.00679439
+Cluster 999: z = 12.57, rho = 0.00676818
+Cluster 1000: z = 13.3232, rho = 0.00174687
+Cluster 1001: z = -15.634, rho = 0.00132803
+Cluster 1002: z = -15.0514, rho = 0.00135908
+Cluster 1003: z = -14.5881, rho = 0.00312483
+Cluster 1004: z = -14.0764, rho = 0.0072359
+Cluster 1005: z = -13.9147, rho = 0.0051399
+Cluster 1006: z = -13.5573, rho = 0.000499817
+Cluster 1007: z = -13.0825, rho = 0.00375412
+Cluster 1008: z = -12.3057, rho = 0.000327084
+Cluster 1009: z = -9.90835, rho = 0.00151221
+Cluster 1010: z = -9.47965, rho = 0.000426898
+Cluster 1011: z = -8.89282, rho = 0.00450221
+Cluster 1012: z = -8.59193, rho = 0.00431298
+Cluster 1013: z = -7.52935, rho = 0.0080792
+Cluster 1014: z = -7.13518, rho = 0.00170768
+Cluster 1015: z = -6.35524, rho = 0.00211081
+Cluster 1016: z = -6.03487, rho = 0.00250456
+Cluster 1017: z = -5.88206, rho = 0.0055726
+Cluster 1018: z = -5.74597, rho = 0.014681
+Cluster 1019: z = -5.43334, rho = 0.00975401
+Cluster 1020: z = -5.01868, rho = 0.0148662
+Cluster 1021: z = -4.9454, rho = 0.00957633
+Cluster 1022: z = -4.68778, rho = 0.0189932
+Cluster 1023: z = -4.43317, rho = 0.0092762
+Cluster 1024: z = -3.85175, rho = 0.019807
+Cluster 1025: z = -3.48793, rho = 0.0276087
+Cluster 1026: z = -3.3987, rho = 0.0347782
+Cluster 1027: z = -3.2761, rho = 0.0143457
+Cluster 1028: z = -3.20561, rho = 0.0119513
+Cluster 1029: z = -3.01468, rho = 0.0123433
+Cluster 1030: z = -2.92651, rho = 0.00688118
+Cluster 1031: z = -2.7856, rho = 0.00766436
+Cluster 1032: z = -2.71394, rho = 0.0095584
+Cluster 1033: z = -2.51786, rho = 0.0701133
+Cluster 1034: z = -2.28357, rho = 0.00573508
+Cluster 1035: z = -2.22368, rho = 0.00524364
+Cluster 1036: z = -2.18548, rho = 0.0205064
+Cluster 1037: z = -2.17758, rho = 0.00739869
+Cluster 1038: z = -2.12735, rho = 0.00776157
+Cluster 1039: z = -2.02171, rho = 0.011244
+Cluster 1040: z = -1.81756, rho = 0.00681915
+Cluster 1041: z = -1.54804, rho = 0.0111126
+Cluster 1042: z = -1.44426, rho = 0.0133898
+Cluster 1043: z = -1.30548, rho = 0.0084717
+Cluster 1044: z = -1.20256, rho = 0.0138221
+Cluster 1045: z = -1.10209, rho = 0.0216766
+Cluster 1046: z = -0.962454, rho = 0.0176333
+Cluster 1047: z = -0.648311, rho = 0.037481
+Cluster 1048: z = -0.576186, rho = 0.0200792
+Cluster 1049: z = -0.252352, rho = 0.0232443
+Cluster 1050: z = -0.100771, rho = 0.00796679
+Cluster 1051: z = 0.136792, rho = 0.00608518
+Cluster 1052: z = 0.32005, rho = 0.00667229
+Cluster 1053: z = 0.456681, rho = 0.0128857
+Cluster 1054: z = 0.738268, rho = 0.0175761
+Cluster 1055: z = 1.09256, rho = 0.00298735
+Cluster 1056: z = 1.31887, rho = 0.00758356
+Cluster 1057: z = 1.39711, rho = 0.0548094
+Cluster 1058: z = 1.52226, rho = 0.0060804
+Cluster 1059: z = 1.61996, rho = 0.0214394
+Cluster 1060: z = 1.70449, rho = 0.00572817
+Cluster 1061: z = 1.79325, rho = 0.00690083
+Cluster 1062: z = 1.93452, rho = 0.00290951
+Cluster 1063: z = 2.1615, rho = 0.00560931
+Cluster 1064: z = 2.50943, rho = 0.0158755
+Cluster 1065: z = 2.71718, rho = 0.0302356
+Cluster 1066: z = 2.80729, rho = 0.0125744
+Cluster 1067: z = 2.89758, rho = 0.0196005
+Cluster 1068: z = 3.82355, rho = 0.0158376
+Cluster 1069: z = 4.37895, rho = 0.00659202
+Cluster 1070: z = 4.85193, rho = 0.00387136
+Cluster 1071: z = 5.00719, rho = 0.0287792
+Cluster 1072: z = 5.88968, rho = 0.0131666
+Cluster 1073: z = 6.07989, rho = 0.00823468
+Cluster 1074: z = 6.44489, rho = 0.00687537
+Cluster 1075: z = 6.60366, rho = 0.00971211
+Cluster 1076: z = 6.81131, rho = 0.0142657
+Cluster 1077: z = 7.31438, rho = 0.0118393
+Cluster 1078: z = 7.53643, rho = 0.00448386
+Cluster 1079: z = 7.76925, rho = 0.00465508
+Cluster 1080: z = 8.68398, rho = 0.00871247
+Cluster 1081: z = 9.97058, rho = 0.00319044
+Cluster 1082: z = 10.8813, rho = 0.00152525
+Cluster 1083: z = 11.1298, rho = 0.00347063
+Cluster 1084: z = 11.7983, rho = 0.0109401
+Cluster 1085: z = 12.3265, rho = 0.00243766
+Cluster 1086: z = 12.6701, rho = 0.0113634
+Cluster 1087: z = 13.0545, rho = 0.00202997
+Cluster 1088: z = 13.3815, rho = 0.00187497
+Cluster 1089: z = 14.4692, rho = 0.00132683
+Cluster 1090: z = 15.234, rho = 0.0013268
+Cluster 1091: z = 16.0635, rho = 0.00132676
+Cluster 1092: z = 19.1066, rho = 0.00132618
+Cluster 1093: z = -15.634, rho = 0.00132803
+Cluster 1094: z = -15.0514, rho = 0.00135908
+Cluster 1095: z = -14.5881, rho = 0.00312483
+Cluster 1096: z = -14.0764, rho = 0.0072359
+Cluster 1097: z = -13.9147, rho = 0.0051399
+Cluster 1098: z = -13.5573, rho = 0.000499817
+Cluster 1099: z = -13.0825, rho = 0.00375412
+Cluster 1100: z = -12.3057, rho = 0.000327084
+Cluster 1101: z = -9.90835, rho = 0.00151221
+Cluster 1102: z = -9.47965, rho = 0.000426898
+Cluster 1103: z = -8.89282, rho = 0.00450221
+Cluster 1104: z = -8.59193, rho = 0.00431298
+Cluster 1105: z = -7.52935, rho = 0.0080792
+Cluster 1106: z = -7.13518, rho = 0.00170768
+Cluster 1107: z = -6.35524, rho = 0.00211081
+Cluster 1108: z = -6.03487, rho = 0.00250456
+Cluster 1109: z = -5.88206, rho = 0.0055726
+Cluster 1110: z = -5.74597, rho = 0.014681
+Cluster 1111: z = -5.43334, rho = 0.00975401
+Cluster 1112: z = -5.01868, rho = 0.0148662
+Cluster 1113: z = -4.9454, rho = 0.00957633
+Cluster 1114: z = -4.68778, rho = 0.0189932
+Cluster 1115: z = -4.43317, rho = 0.0092762
+Cluster 1116: z = -3.85175, rho = 0.019807
+Cluster 1117: z = -3.48793, rho = 0.0276087
+Cluster 1118: z = -3.3987, rho = 0.0347782
+Cluster 1119: z = -3.2761, rho = 0.0143457
+Cluster 1120: z = -3.20561, rho = 0.0119513
+Cluster 1121: z = -3.01468, rho = 0.0123433
+Cluster 1122: z = -2.92651, rho = 0.00688118
+Cluster 1123: z = -2.7856, rho = 0.00766436
+Cluster 1124: z = -2.71394, rho = 0.0095584
+Cluster 1125: z = -2.51786, rho = 0.0701133
+Cluster 1126: z = -2.28357, rho = 0.00573508
+Cluster 1127: z = -2.22368, rho = 0.00524364
+Cluster 1128: z = -2.18548, rho = 0.0205064
+Cluster 1129: z = -2.17758, rho = 0.00739869
+Cluster 1130: z = -2.12735, rho = 0.00776157
+Cluster 1131: z = -2.02171, rho = 0.011244
+Cluster 1132: z = -1.81756, rho = 0.00681915
+Cluster 1133: z = -1.54804, rho = 0.0111126
+Cluster 1134: z = -1.44426, rho = 0.0133898
+Cluster 1135: z = -1.30548, rho = 0.0084717
+Cluster 1136: z = -1.20256, rho = 0.0138221
+Cluster 1137: z = -1.10209, rho = 0.0216766
+Cluster 1138: z = -0.962454, rho = 0.0176333
+Cluster 1139: z = -0.648311, rho = 0.037481
+Cluster 1140: z = -0.576186, rho = 0.0200792
+Cluster 1141: z = -0.252352, rho = 0.0232443
+Cluster 1142: z = -0.100771, rho = 0.00796679
+Cluster 1143: z = 0.136792, rho = 0.00608518
+Cluster 1144: z = 0.32005, rho = 0.00667229
+Cluster 1145: z = 0.456681, rho = 0.0128857
+Cluster 1146: z = 0.738268, rho = 0.0175761
+Cluster 1147: z = 1.09256, rho = 0.00298735
+Cluster 1148: z = 1.31887, rho = 0.00758356
+Cluster 1149: z = 1.39711, rho = 0.0548094
+Cluster 1150: z = 1.52226, rho = 0.0060804
+Cluster 1151: z = 1.61996, rho = 0.0214394
+Cluster 1152: z = 1.70449, rho = 0.00572817
+Cluster 1153: z = 1.79325, rho = 0.00690083
+Cluster 1154: z = 1.93452, rho = 0.00290951
+Cluster 1155: z = 2.1615, rho = 0.00560931
+Cluster 1156: z = 2.50943, rho = 0.0158755
+Cluster 1157: z = 2.71718, rho = 0.0302356
+Cluster 1158: z = 2.80729, rho = 0.0125744
+Cluster 1159: z = 2.89758, rho = 0.0196005
+Cluster 1160: z = 3.82355, rho = 0.0158376
+Cluster 1161: z = 4.37895, rho = 0.00659202
+Cluster 1162: z = 4.85193, rho = 0.00387136
+Cluster 1163: z = 5.00719, rho = 0.0287792
+Cluster 1164: z = 5.88968, rho = 0.0131666
+Cluster 1165: z = 6.07989, rho = 0.00823468
+Cluster 1166: z = 6.44489, rho = 0.00687537
+Cluster 1167: z = 6.60366, rho = 0.00971211
+Cluster 1168: z = 6.81131, rho = 0.0142657
+Cluster 1169: z = 7.31438, rho = 0.0118393
+Cluster 1170: z = 7.53643, rho = 0.00448386
+Cluster 1171: z = 7.76925, rho = 0.00465508
+Cluster 1172: z = 8.68398, rho = 0.00871247
+Cluster 1173: z = 9.97058, rho = 0.00319044
+Cluster 1174: z = 10.8813, rho = 0.00152525
+Cluster 1175: z = 11.1298, rho = 0.00347063
+Cluster 1176: z = 11.7983, rho = 0.0109401
+Cluster 1177: z = 12.3265, rho = 0.00243766
+Cluster 1178: z = 12.6701, rho = 0.0113634
+Cluster 1179: z = 13.0545, rho = 0.00202997
+Cluster 1180: z = 13.3815, rho = 0.00187497
+Cluster 1181: z = 14.4692, rho = 0.00132683
+Cluster 1182: z = 15.234, rho = 0.0013268
+Cluster 1183: z = 16.0635, rho = 0.00132676
+Cluster 1184: z = 19.1066, rho = 0.00132618
+size before1185
+made it to the second loop
+beta is0.3
+betafreeze is0.387298
+made it trough the second loop
+size after1160
+[2025-03-06 00:25:12.928108 +0100][Error  ][XRootD            ][ 8561] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+size at the end151
+06-Mar-2025 00:25:42 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+TimeReport> Time report complete in 259.186 seconds
+ Time Summary: 
+ - Min event:   187.255
+ - Max event:   187.255
+ - Avg event:   187.255
+ - Total loop:  191.521
+ - Total init:  67.6647
+ - Total job:   259.186
+ - Total EventSetup: 17.0642
+ - Total non-module: 0.163945
+ Event Throughput: 0.00522136 ev/s
+ CPU Summary: 
+ - Total loop:     183.47
+ - Total init:     47.8599
+ - Total extra:    0
+ - Total children: 0.162853
+ - Total job:      231.33
+ Processing Summary: 
+ - Number of Events:  1
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1 passed = 1 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 MPV
+TrigReport     1    1          1          1          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          1          1          0          0 tpClusterProducer
+TrigReport     1    1          1          1          0          0 quickTrackAssociatorByHits
+TrigReport     1    2          1          1          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3          1          1          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport          1          1          1          0          0 MPV
+TrigReport          1          1          1          0          0 TriggerResults
+TrigReport          1          1          1          0          0 analyze
+TrigReport          1          1          1          0          0 oldVertexAnalysis
+TrigReport          1          1          1          0          0 quickTrackAssociatorByHits
+TrigReport          1          1          1          0          0 testVertices
+TrigReport          1          1          1          0          0 tpClusterProducer
+TrigReport          1          1          1          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 183.476033
+TimeReport      event loop Real/event = 191.526754
+TimeReport     sum Streams Real/event = 190.738065
+TimeReport efficiency CPU/Real/thread = 0.957966
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport 187.254302   187.254302  MPV
+TimeReport 114.483769   114.483769  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport  68.503322    68.503322  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.340546     1.340546  tpClusterProducer
+TimeReport   0.000582     0.000582  quickTrackAssociatorByHits
+TimeReport   0.698752     0.698752  trackingParticleRecoTrackAsssociation
+TimeReport  97.475397    97.475397  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000011     0.000011     0.000011  MPV
+TimeReport   0.000021     0.000021     0.000021  TriggerResults
+TimeReport   0.000066     0.000066     0.000066  analyze
+TimeReport  97.475397    97.475397    97.475397  oldVertexAnalysis
+TimeReport   0.000582     0.000582     0.000582  quickTrackAssociatorByHits
+TimeReport  68.503322    68.503322    68.503322  testVertices
+TimeReport   1.340546     1.340546     1.340546  tpClusterProducer
+TimeReport   0.698752     0.698752     0.698752  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
