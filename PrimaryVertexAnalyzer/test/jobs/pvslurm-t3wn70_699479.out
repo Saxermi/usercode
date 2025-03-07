@@ -1,0 +1,142 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 699479
+HOSTNAME: t3wn70
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 07-Mar-2025 15:28:01 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+07-Mar-2025 15:28:06 CET  Initiating request to open file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root
+07-Mar-2025 15:28:23 CET  Successfully opened file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root
+Begin processing the 1st record. Run 1, Event 6701, LumiSection 68 on stream 0 at 07-Mar-2025 15:28:28.096 CET
+07-Mar-2025 15:29:12 CET  Closed file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 94.0648 seconds
+ Time Summary: 
+ - Min event:   2.5311
+ - Max event:   17.0044
+ - Avg event:   4.3608
+ - Total loop:  44.9259
+ - Total init:  48.9163
+ - Total job:   94.0648
+ - Total EventSetup: 13.9383
+ - Total non-module: 0.360883
+ Event Throughput: 0.222589 ev/s
+ CPU Summary: 
+ - Total loop:     41.5934
+ - Total init:     38.4783
+ - Total extra:    0
+ - Total children: 0.11903
+ - Total job:      80.2855
+ Processing Summary: 
+ - Number of Events:  10
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 10 passed = 10 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0         10         10          0          0 MPV
+TrigReport     1    1         10         10          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         10         10          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         10         10          0          0 tpClusterProducer
+TrigReport     1    1         10         10          0          0 quickTrackAssociatorByHits
+TrigReport     1    2         10         10          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3         10         10          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport         10         10         10          0          0 MPV
+TrigReport         10         10         10          0          0 TriggerResults
+TrigReport         10         10         10          0          0 analyze
+TrigReport         10         10         10          0          0 oldVertexAnalysis
+TrigReport         10         10         10          0          0 quickTrackAssociatorByHits
+TrigReport         10         10         10          0          0 testVertices
+TrigReport         10         10         10          0          0 tpClusterProducer
+TrigReport         10         10         10          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 4.159819
+TimeReport      event loop Real/event = 4.493070
+TimeReport     sum Streams Real/event = 4.407750
+TimeReport efficiency CPU/Real/thread = 0.925830
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   4.347230     4.347230  MPV
+TimeReport   4.360760     4.360760  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.646985     0.646985  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.844658     0.844658  tpClusterProducer
+TimeReport   0.000027     0.000027  quickTrackAssociatorByHits
+TimeReport   0.175546     0.175546  trackingParticleRecoTrackAsssociation
+TimeReport   0.112166     0.112166  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000003     0.000003     0.000003  TriggerResults
+TimeReport   0.000015     0.000015     0.000015  analyze
+TimeReport   0.112166     0.112166     0.112166  oldVertexAnalysis
+TimeReport   0.000027     0.000027     0.000027  quickTrackAssociatorByHits
+TimeReport   0.646985     0.646985     0.646985  testVertices
+TimeReport   0.844658     0.844658     0.844658  tpClusterProducer
+TimeReport   0.175546     0.175546     0.175546  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+daten_20250307_152844.csv
+daten_20250307_152847.csv
+daten_20250307_152849.csv
+daten_20250307_152852.csv
+daten_20250307_152855.csv
+daten_20250307_152859.csv
+daten_20250307_152902.csv
+daten_20250307_152905.csv
+daten_20250307_152908.csv
+daten_20250307_152911.csv
+logfile
+plotter.py
+pv.root
+pv_cfg.py
+  File "/scratch/msaxer/699479/plotter.py", line 10
+    print "No CSV files found. Make sure you've downloaded the data before running this script."
+          ^
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print("No CSV files found. Make sure you've downloaded the data before running this script.")?

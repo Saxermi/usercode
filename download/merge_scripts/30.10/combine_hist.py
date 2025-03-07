@@ -218,7 +218,8 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_39_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
-"/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
+#"/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
+"/work/msaxer/ba/experimental_run_1/Subset_TTbar_01/40/512/pvSubset_TTbar_01_OL0.4_BS512_20250228_212321.root"
 ]
 
 # Colors assigned to each subset if grouping by dataset

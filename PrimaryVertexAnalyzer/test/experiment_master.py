@@ -7,10 +7,10 @@ from datetime import datetime
 
 # Global variable to control test mode
 TEST_MODE = False  # Set to False to submit all jobs
-
+global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_1"
+base_path = "experimental_run_8"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer/ba", log_filename)
 
@@ -63,7 +63,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     overlap_dir_name = f"n{overlap_dir}" if overlap < 0 else f"{overlap_dir}"
 
     # Hardcoded base path for experimental runs
-    base_path = "experimental_run_1"
+    #base_path = "experimental_run_8"
     dir_create_path = "/work/msaxer/ba"
 
     # Create the full path based on the sample, overlap, and blocksize
@@ -79,8 +79,8 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     cmd = [
         "sbatch",
         bash_script,
-      #  "-n",
-      # "100",
+    #  "-n",
+     # "500",
         "-d",
         sample,
         "-o",
@@ -121,15 +121,15 @@ def main():
     #     "Subset_HiggsGluonFusion_02", "Subset_ZMM_01", "Subset_ZMM_02"
     # ]
     subsets = [
-        
-        "Subset_TTbar_01", "Subset_TTbar_02", 
+     # "localtestfiles" 
+        "Subset_TTbar_01" , "Subset_TTbar_02", 
     ]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [-0.4,0.4]  # Add negative overlaps here
+    overlaps = [0.4,0.5,0.6]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    #blocksizes = [ 256,512, 1024]
-    blocksizes = [ 512,256]
+    blocksizes = [ 256,512, 1024]
+    #blocksizes = [ 512,]
 
     # If in test mode, only submit two jobs, one with notify and one without
     if TEST_MODE:

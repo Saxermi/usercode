@@ -97,9 +97,12 @@ eval `scram runtime -sh`
 cd $WORKDIR
 # copy the CMSSW config file to the worker node 
 cp $STARTDIR/cfg/${LABEL}_cfg.py  .
-
+#cp $STARTDIR/plotter.py .
 touch logfile
+
 cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
+ls
+
 # touch debuglog
 # Check if pv.root exists and append confirmation message to logfile
 # if [ -f pv.root ]; then
@@ -115,6 +118,10 @@ TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
 cp pv.root /work/msaxer/ba/${OUTPUTPATH}/${LABEL}${SAMPLE}_OL${OVERLAPP}_BS${BLOCKSIZE}_${TIMESTAMP}.root
 
+#python3 plotter.py
+# Recursively copy CSV files from the workdir
+find $WORKDIR -name "*.csv" -exec cp {} /work/msaxer/ba/${OUTPUTPATH}/ \;
+#find $WORKDIR -name "*.png" -exec cp {} /work/msaxer/ba/${OUTPUTPATH}/ \;
 
 cp logfile /work/msaxer/ba/${OUTPUTPATH}/${LABEL}${SAMPLE}_OL${OVERLAPP}_BS${BLOCKSIZE}_${TIMESTAMP}.log.gz
 

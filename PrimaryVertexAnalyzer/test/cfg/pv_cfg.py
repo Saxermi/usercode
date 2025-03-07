@@ -85,7 +85,7 @@ parameters={  # can be overwritten by arguments of the same name
 # vertex selection
   "minNdof": cms.double( 2.0 ),
 # clustering in blocks
-  "runInBlocks" : cms.bool(False),
+  "runInBlocks" : cms.bool(True),
   "block_size" : cms.uint32(1024),
   "overlap_frac" : cms.double(0.5)
 }
