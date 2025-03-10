@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_8"
+base_path = "experimental_run_9"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer/ba", log_filename)
 
@@ -125,7 +125,7 @@ def main():
         "Subset_TTbar_01" , "Subset_TTbar_02", 
     ]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0.4,0.5,0.6]  # Add negative overlaps here
+    overlaps = [0,0.4,0.5,0.6]  # Add negative overlaps here
 
     # Block sizes to iterate over
     blocksizes = [ 256,512, 1024]
