@@ -236,9 +236,9 @@ def setCMSLumiStyle(pad, iPosX, **kwargs):
       latex.DrawLatex(posX,posY-relExtraDY*cmsTextSize*t,extraText)
   
   if verbosity>=2:
-    print ">>> setCMSLumiStyle: outOfFrame=%r, iPosX=%s, alignX_=%s, align=%s"%(outOfFrame,iPosX,alignX_,align)
-    print ">>> setCMSLumiStyle: extraTextSize=%s, extraOverCmsTextSize=%s, cmsTextSize=%s"%(extraTextSize,extraOverCmsTextSize,cmsTextSize)
-    print ">>> setCMSLumiStyle: posX=%s, posY=%s, relPosX_=%s"%(posX,posY,relPosX_)
+    print(">>> setCMSLumiStyle: outOfFrame=%r, iPosX=%s, alignX_=%s, align=%s"%(outOfFrame,iPosX,alignX_,align))
+    print (">>> setCMSLumiStyle: extraTextSize=%s, extraOverCmsTextSize=%s, cmsTextSize=%s"%(extraTextSize,extraOverCmsTextSize,cmsTextSize))
+    print( ">>> setCMSLumiStyle: posX=%s, posY=%s, relPosX_=%s"%(posX,posY,relPosX_))
     
   pad.Update()
   
