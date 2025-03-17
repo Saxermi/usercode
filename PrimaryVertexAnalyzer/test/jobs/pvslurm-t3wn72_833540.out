@@ -1,0 +1,2092 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 833540
+HOSTNAME: t3wn72
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 14-Mar-2025 14:12:19 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+14-Mar-2025 14:12:25 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+14-Mar-2025 14:12:53 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+Begin processing the 1st record. Run 1, Event 2501, LumiSection 26 on stream 0 at 14-Mar-2025 14:13:04.187 CET
+[2025-03-14 14:17:42.406793 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 14:18:00.901802 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 14:28:22.949250 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 14:32:28.710637 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 14:46:50.033774 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 14:53:39 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+14-Mar-2025 14:53:39 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root
+14-Mar-2025 14:53:41 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root
+[2025-03-14 14:58:54.601591 +0100][Error  ][PostMaster        ][45799] [se09.cscs.ch:36015] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 14:58:55.755649 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 15:10:32.160495 +0100][Error  ][XRootD            ][45799] [xrootd-cms.infn.it:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root?tried=cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 15:13:42.397675 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 15:15:13.168211 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 15:36:17 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/2c145a63-991c-499a-916d-64de4a7c8c74.root
+14-Mar-2025 15:36:17 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root
+14-Mar-2025 15:36:19 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root
+[2025-03-14 15:41:32.453603 +0100][Error  ][PostMaster        ][45799] [se12.cscs.ch:36053] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 15:41:34.442665 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 15:41:38.294504 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 15:46:38.322384 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 15:56:20.587688 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 15:58:55.387188 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:03:44.410167 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:11:14.449832 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:19:16.487534 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 16:22:56 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root
+14-Mar-2025 16:22:56 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root
+14-Mar-2025 16:22:58 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root
+[2025-03-14 16:25:22.518405 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/06389bf4-6539-46ee-a319-a60bb719dc16.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:26:01.521714 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:28:11.741585 +0100][Error  ][PostMaster        ][45799] [se25.cscs.ch:36070] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 16:28:12.535633 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 16:29:38.539787 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:34:35.575299 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:42:31.599850 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:43:13.864687 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 16:47:04.622256 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 16:54:40.659323 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 17:02:15 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/24a50fb1-4b1a-48c5-86e0-26ece4851373.root
+14-Mar-2025 17:02:15 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root
+14-Mar-2025 17:02:17 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root
+[2025-03-14 17:05:18.708595 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:07:30.020189 +0100][Error  ][PostMaster        ][45799] [se09.cscs.ch:36381] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 17:07:31.775665 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 17:10:06.731624 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:18:55.772252 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:22:18.210608 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 17:23:40.800093 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:32:08.837101 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:37:04.863153 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 17:40:52 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root
+14-Mar-2025 17:40:52 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root
+14-Mar-2025 17:40:54 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root
+[2025-03-14 17:42:13.887915 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/41aa6d97-4e98-4899-90f2-6aef56dc314f.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:46:07.788582 +0100][Error  ][PostMaster        ][45799] [se22.cscs.ch:36988] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 17:46:08.974625 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 17:48:01.915663 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:53:00.945871 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 17:58:06.969235 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:00:55.568649 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:01:46.067660 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:02:44.991835 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:07:19.012859 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:12:19.039770 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:17:08.062919 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 18:17:17 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a7aad875-2155-4547-9650-843429419222.root
+14-Mar-2025 18:17:17 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root
+14-Mar-2025 18:17:19 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root
+[2025-03-14 18:22:32.724610 +0100][Error  ][PostMaster        ][45799] [se27.cscs.ch:36117] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:22:33.089627 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:27:28.110493 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:32:36.133959 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:36:43.153332 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:37:34.405658 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:42:12.177778 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:42:27.292587 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 18:47:54.202661 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:52:24.223246 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 18:54:48 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root
+14-Mar-2025 18:54:48 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root
+14-Mar-2025 18:54:50 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root
+[2025-03-14 18:57:16.253928 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/750a57a7-d411-4760-af32-124cc4ef794a.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 18:57:53.257027 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:00:03.354585 +0100][Error  ][PostMaster        ][45799] [se16.cscs.ch:36627] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 19:00:04.961669 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 19:02:29.279148 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:07:40.304816 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:12:31.330390 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:14:51.377687 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 19:17:07.352190 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:22:08.383215 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:27:26.407217 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:32:31.430272 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:36:56.451032 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 19:37:24 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/29ee3efd-fc4a-4176-b675-b33236f9fd61.root
+14-Mar-2025 19:37:24 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root
+14-Mar-2025 19:37:25 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root
+[2025-03-14 19:40:26.468668 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:42:39.405586 +0100][Error  ][PostMaster        ][45799] [se22.cscs.ch:36988] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 19:42:40.543245 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 19:44:56.490184 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:49:57.513575 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:55:15.545223 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 19:57:26.741681 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:00:08.567651 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:04:52.590158 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:09:27.763606 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:09:51.618608 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:14:43.641388 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 20:17:00 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root
+14-Mar-2025 20:17:00 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root
+14-Mar-2025 20:17:02 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root
+[2025-03-14 20:19:30.670835 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/84821e7b-ba6d-4edb-bb82-e1b9805c9183.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:20:04.673452 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:22:15.504565 +0100][Error  ][PostMaster        ][45799] [se14.cscs.ch:36143] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:22:16.756616 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:25:05.704933 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:30:02.729767 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:34:36.748933 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:37:02.827627 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:37:51.878595 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:39:48.772498 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:44:41.794496 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:49:49.818136 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 20:52:58 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root
+14-Mar-2025 20:52:58 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root
+14-Mar-2025 20:53:00 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root
+Begin processing the 1001st record. Run 1, Event 4201, LumiSection 43 on stream 0 at 14-Mar-2025 20:53:12.048 CET
+[2025-03-14 20:54:47.842609 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/fdc64fb6-82a6-4f86-b921-aaacb066bf35.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:56:00.848607 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 20:58:13.941572 +0100][Error  ][PostMaster        ][45799] [se12.cscs.ch:36053] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 20:58:14.658678 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 21:00:41.870294 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:05:32.892027 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:10:34.914812 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:13:00.972647 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 21:15:39.937269 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:20:22.958850 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:25:14.980877 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 21:27:11 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root
+14-Mar-2025 21:27:11 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root
+14-Mar-2025 21:27:13 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root
+[2025-03-14 21:29:41.003520 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/a60f48c8-cb37-4bbf-b609-f0702944aa5b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:30:19.006559 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:32:26.840593 +0100][Error  ][PostMaster        ][45799] [se15.cscs.ch:36401] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 21:32:28.388636 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 21:35:17.028986 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:39:59.049901 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:45:18.073707 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:47:14.524685 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 21:50:23.096385 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:54:43.117458 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 21:59:35.140537 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:04:40.163356 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 22:05:01 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4a42cb2e-fd09-4342-a4ff-a4c0fcb39eb8.root
+14-Mar-2025 22:05:01 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root
+14-Mar-2025 22:05:02 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root
+[2025-03-14 22:08:07.179628 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:10:16.336609 +0100][Error  ][PostMaster        ][45799] [se21.cscs.ch:36468] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:10:17.190635 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:12:55.202510 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:18:16.226083 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:22:24.245500 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:25:17.345651 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:27:18.267772 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:32:18.290026 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:37:09.312855 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 22:41:52 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root
+14-Mar-2025 22:41:52 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root
+14-Mar-2025 22:41:54 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root
+[2025-03-14 22:42:05.337516 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/e16a5099-436d-4d18-b735-78896f216cb4.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:44:57.354360 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:46:54.234630 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:47:07.444671 +0100][Error  ][PostMaster        ][45799] [se15.cscs.ch:36501] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:49:38.376485 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:55:01.402903 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 22:59:51.547576 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 22:59:54.426256 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:01:55.727611 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 23:04:30.447293 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:09:31.475076 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:13:45.500101 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:18:49.522857 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 23:22:20 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root
+14-Mar-2025 23:22:20 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root
+14-Mar-2025 23:22:22 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root
+[2025-03-14 23:23:33.547484 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/0ac0d042-8a61-479e-ae2e-99e08a70ed27.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:25:24.554886 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:27:35.599599 +0100][Error  ][PostMaster        ][45799] [se18.cscs.ch:36017] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 23:27:37.405666 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 23:30:02.575963 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:35:08.598680 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:39:17.617584 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:42:23.592672 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-14 23:44:15.644666 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:48:30.664131 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-14 23:54:09.689102 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+14-Mar-2025 23:58:02 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root
+14-Mar-2025 23:58:02 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root
+14-Mar-2025 23:58:04 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root
+[2025-03-14 23:58:58.711358 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c39e5f04-8b4b-4cd8-803e-e00959f4884b.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:01:05.722359 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:03:03.208675 +0100][Error  ][PostMaster        ][45799] [se12.cscs.ch:36024] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:03:19.855650 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:06:21.746820 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:11:15.768716 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:15:40.789212 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:18:06.858690 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:20:34.811472 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:25:17.835549 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:30:19.858253 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:35:01.879454 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+15-Mar-2025 00:35:15 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/8e65ca13-9d65-45c0-b043-b6a484697b59.root
+15-Mar-2025 00:35:15 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root
+15-Mar-2025 00:35:17 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root
+[2025-03-15 00:38:22.896017 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:40:17.148681 +0100][Error  ][PostMaster        ][45799] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:40:30.977554 +0100][Error  ][PostMaster        ][45799] [se09.cscs.ch:36072] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:42:34.011552 +0100][Error  ][PostMaster        ][45799] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:43:10.919071 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:48:03.941081 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:52:51.963295 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 00:55:18.622680 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 00:57:27.985016 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 01:02:13.005545 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 01:06:57.031197 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 01:11:46.053006 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+15-Mar-2025 01:14:59 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root
+15-Mar-2025 01:14:59 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root
+[2025-03-15 01:15:01.217151 +0100][Error  ][XRootDTransport   ][45799] [storage01.lcg.cscs.ch:1095.0] Authentication with gsi failed: login failed
+[2025-03-15 01:15:01.217226 +0100][Error  ][XRootDTransport   ][45799] [storage01.lcg.cscs.ch:1095.0] No protocols left to try
+[2025-03-15 01:15:01.217432 +0100][Error  ][AsyncSock         ][45799] [storage01.lcg.cscs.ch:1095.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-15 01:15:01.217583 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-03-15 01:15:01.217613 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Unable to recover: [FATAL] Auth failed.
+[2025-03-15 01:15:01.217624 +0100][Error  ][XRootD            ][45799] [storage01.lcg.cscs.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2025-03-15 01:16:57.081250 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/419ad25a-6e94-4ae2-8119-98652f5ffa5a.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-15 01:17:56.087712 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=srverr, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorInternal:  file_open 15-Mar-2025 01:17:56 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=4a89c23a-f248-4c8a-a75b-9756995f0c19.
+%MSG
+[2025-03-15 01:17:56.192023 +0100][Error  ][XRootDTransport   ][45799] [storage01.lcg.cscs.ch:1095.0] Authentication with gsi failed: login failed
+[2025-03-15 01:17:56.192090 +0100][Error  ][XRootDTransport   ][45799] [storage01.lcg.cscs.ch:1095.0] No protocols left to try
+[2025-03-15 01:17:56.192100 +0100][Error  ][AsyncSock         ][45799] [storage01.lcg.cscs.ch:1095.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-15 01:17:56.192165 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-03-15 01:17:56.192171 +0100][Error  ][PostMaster        ][45799] [storage01.lcg.cscs.ch:1095] Unable to recover: [FATAL] Auth failed.
+[2025-03-15 01:17:56.192176 +0100][Error  ][XRootD            ][45799] [storage01.lcg.cscs.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2025-03-15 01:20:14.331886 +0100][Error  ][PostMaster        ][45799] [se28.cscs.ch:36884] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-15 01:20:51.106875 +0100][Error  ][XRootD            ][45799] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=srverr, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorInternal:  file_open 15-Mar-2025 01:20:51 CET PostProcessEvent
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=9bca0693-815a-4c65-9a9e-1e7caf383d32.
+%MSG
+----- Begin Fatal Exception 15-Mar-2025 01:20:51 CET-----------------------
+An exception of category 'FileOpenError' occurred while
+   [0] Calling InputSource::readFile_
+   [1] Calling RootInputFileSequence::initTheFile()
+   [2] Calling StorageFactory::open()
+   [3] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root'
+   Additional Info:
+      [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root could not be opened.
+      [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root', flags=0x10, permissions=0660) => error '[ERROR] Operation expired' (errno=0, code=206). No additional data servers were found.
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/5282f5c4-685b-482c-9f95-963009364424.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=9bca0693-815a-4c65-9a9e-1e7caf383d32
+      [d] Problematic data server: cms-xrd-global.cern.ch:1094
+      [e] Disabled source: cms-xrd-global.cern.ch:1094
+----- End Fatal Exception -------------------------------------------------
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 40138 seconds
+ Time Summary: 
+ - Min event:   3.90282
+ - Max event:   141.69
+ - Avg event:   21.6415
+ - Total loop:  40067.8
+ - Total init:  69.758
+ - Total job:   40138
+ - Total EventSetup: 20.817
+ - Total non-module: 553.25
+ Event Throughput: 0.042428 ev/s
+ CPU Summary: 
+ - Total loop:     35384.5
+ - Total init:     66.6238
+ - Total extra:    0
+ - Total children: 0.119594
+ - Total job:      35451.5
+ Processing Summary: 
+ - Number of Events:  1700
+ - Number of Global Begin Lumi Calls:  17
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 1700 passed = 1700 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0       1700       1700          0          0 MPV
+TrigReport     1    1       1700       1700          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0       1700       1700          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0       1700       1700          0          0 tpClusterProducer
+TrigReport     1    1       1700       1700          0          0 quickTrackAssociatorByHits
+TrigReport     1    2       1700       1700          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3       1700       1700          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport       1700       1700       1700          0          0 MPV
+TrigReport       1700       1700       1700          0          0 TriggerResults
+TrigReport       1700       1700       1700          0          0 analyze
+TrigReport       1700       1700       1700          0          0 oldVertexAnalysis
+TrigReport       1700       1700       1700          0          0 quickTrackAssociatorByHits
+TrigReport       1700       1700       1700          0          0 testVertices
+TrigReport       1700       1700       1700          0          0 tpClusterProducer
+TrigReport       1700       1700       1700          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 20.814413
+TimeReport      event loop Real/event = 23.569322
+TimeReport     sum Streams Real/event = 23.244060
+TimeReport efficiency CPU/Real/thread = 0.883115
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport  21.641304    21.641304  MPV
+TimeReport  21.641467    21.641467  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport  16.744595    16.744595  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.621350     1.621350  tpClusterProducer
+TimeReport   0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport   0.292942     0.292942  trackingParticleRecoTrackAsssociation
+TimeReport   0.170421     0.170421  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000004     0.000004     0.000004  TriggerResults
+TimeReport   0.000017     0.000017     0.000017  analyze
+TimeReport   0.170421     0.170421     0.170421  oldVertexAnalysis
+TimeReport   0.000016     0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport  16.744595    16.744595    16.744595  testVertices
+TimeReport   1.621350     1.621350     1.621350  tpClusterProducer
+TimeReport   0.292942     0.292942     0.292942  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+daten_20250314_141329.csv
+daten_20250314_141510.csv
+daten_20250314_141537.csv
+daten_20250314_141606.csv
+daten_20250314_141641.csv
+daten_20250314_141701.csv
+daten_20250314_141708.csv
+daten_20250314_141717.csv
+daten_20250314_141726.csv
+daten_20250314_141804.csv
+daten_20250314_141823.csv
+daten_20250314_141850.csv
+daten_20250314_141859.csv
+daten_20250314_141916.csv
+daten_20250314_142005.csv
+daten_20250314_142016.csv
+daten_20250314_142042.csv
+daten_20250314_142131.csv
+daten_20250314_142203.csv
+daten_20250314_142223.csv
+daten_20250314_142241.csv
+daten_20250314_142304.csv
+daten_20250314_142339.csv
+daten_20250314_142354.csv
+daten_20250314_142405.csv
+daten_20250314_142452.csv
+daten_20250314_142528.csv
+daten_20250314_142614.csv
+daten_20250314_142656.csv
+daten_20250314_142725.csv
+daten_20250314_142734.csv
+daten_20250314_142752.csv
+daten_20250314_142823.csv
+daten_20250314_142835.csv
+daten_20250314_142845.csv
+daten_20250314_142906.csv
+daten_20250314_142928.csv
+daten_20250314_142949.csv
+daten_20250314_143005.csv
+daten_20250314_143019.csv
+daten_20250314_143101.csv
+daten_20250314_143122.csv
+daten_20250314_143135.csv
+daten_20250314_143153.csv
+daten_20250314_143243.csv
+daten_20250314_143314.csv
+daten_20250314_143332.csv
+daten_20250314_143343.csv
+daten_20250314_143354.csv
+daten_20250314_143502.csv
+daten_20250314_143514.csv
+daten_20250314_143540.csv
+daten_20250314_143556.csv
+daten_20250314_143611.csv
+daten_20250314_143651.csv
+daten_20250314_143723.csv
+daten_20250314_143742.csv
+daten_20250314_143753.csv
+daten_20250314_143821.csv
+daten_20250314_143840.csv
+daten_20250314_143910.csv
+daten_20250314_143917.csv
+daten_20250314_143938.csv
+daten_20250314_143946.csv
+daten_20250314_144001.csv
+daten_20250314_144018.csv
+daten_20250314_144104.csv
+daten_20250314_144123.csv
+daten_20250314_144146.csv
+daten_20250314_144153.csv
+daten_20250314_144214.csv
+daten_20250314_144220.csv
+daten_20250314_144230.csv
+daten_20250314_144252.csv
+daten_20250314_144307.csv
+daten_20250314_144333.csv
+daten_20250314_144344.csv
+daten_20250314_144359.csv
+daten_20250314_144407.csv
+daten_20250314_144432.csv
+daten_20250314_144503.csv
+daten_20250314_144528.csv
+daten_20250314_144548.csv
+daten_20250314_144556.csv
+daten_20250314_144620.csv
+daten_20250314_144740.csv
+daten_20250314_144829.csv
+daten_20250314_144839.csv
+daten_20250314_144856.csv
+daten_20250314_144916.csv
+daten_20250314_144936.csv
+daten_20250314_145022.csv
+daten_20250314_145058.csv
+daten_20250314_145115.csv
+daten_20250314_145143.csv
+daten_20250314_145156.csv
+daten_20250314_145217.csv
+daten_20250314_145245.csv
+daten_20250314_145310.csv
+daten_20250314_145335.csv
+daten_20250314_145350.csv
+daten_20250314_145413.csv
+daten_20250314_145443.csv
+daten_20250314_145459.csv
+daten_20250314_145513.csv
+daten_20250314_145534.csv
+daten_20250314_145626.csv
+daten_20250314_145639.csv
+daten_20250314_145652.csv
+daten_20250314_145703.csv
+daten_20250314_145719.csv
+daten_20250314_145756.csv
+daten_20250314_145826.csv
+daten_20250314_145845.csv
+daten_20250314_145902.csv
+daten_20250314_145918.csv
+daten_20250314_145926.csv
+daten_20250314_145937.csv
+daten_20250314_145952.csv
+daten_20250314_150044.csv
+daten_20250314_150054.csv
+daten_20250314_150112.csv
+daten_20250314_150133.csv
+daten_20250314_150156.csv
+daten_20250314_150213.csv
+daten_20250314_150258.csv
+daten_20250314_150342.csv
+daten_20250314_150352.csv
+daten_20250314_150421.csv
+daten_20250314_150438.csv
+daten_20250314_150453.csv
+daten_20250314_150513.csv
+daten_20250314_150530.csv
+daten_20250314_150606.csv
+daten_20250314_150626.csv
+daten_20250314_150715.csv
+daten_20250314_150741.csv
+daten_20250314_150820.csv
+daten_20250314_150835.csv
+daten_20250314_150929.csv
+daten_20250314_151005.csv
+daten_20250314_151016.csv
+daten_20250314_151043.csv
+daten_20250314_151158.csv
+daten_20250314_151223.csv
+daten_20250314_151230.csv
+daten_20250314_151239.csv
+daten_20250314_151303.csv
+daten_20250314_151323.csv
+daten_20250314_151334.csv
+daten_20250314_151351.csv
+daten_20250314_151357.csv
+daten_20250314_151427.csv
+daten_20250314_151446.csv
+daten_20250314_151459.csv
+daten_20250314_151518.csv
+daten_20250314_151543.csv
+daten_20250314_151622.csv
+daten_20250314_151656.csv
+daten_20250314_151730.csv
+daten_20250314_151805.csv
+daten_20250314_151822.csv
+daten_20250314_151845.csv
+daten_20250314_151910.csv
+daten_20250314_151933.csv
+daten_20250314_151958.csv
+daten_20250314_152026.csv
+daten_20250314_152048.csv
+daten_20250314_152102.csv
+daten_20250314_152207.csv
+daten_20250314_152227.csv
+daten_20250314_152253.csv
+daten_20250314_152319.csv
+daten_20250314_152337.csv
+daten_20250314_152400.csv
+daten_20250314_152422.csv
+daten_20250314_152439.csv
+daten_20250314_152452.csv
+daten_20250314_152536.csv
+daten_20250314_152548.csv
+daten_20250314_152618.csv
+daten_20250314_152654.csv
+daten_20250314_152717.csv
+daten_20250314_152743.csv
+daten_20250314_152811.csv
+daten_20250314_152851.csv
+daten_20250314_152909.csv
+daten_20250314_152940.csv
+daten_20250314_152952.csv
+daten_20250314_153020.csv
+daten_20250314_153029.csv
+daten_20250314_153115.csv
+daten_20250314_153150.csv
+daten_20250314_153236.csv
+daten_20250314_153259.csv
+daten_20250314_153354.csv
+daten_20250314_153415.csv
+daten_20250314_153445.csv
+daten_20250314_153508.csv
+daten_20250314_153602.csv
+daten_20250314_153638.csv
+daten_20250314_153711.csv
+daten_20250314_153809.csv
+daten_20250314_153832.csv
+daten_20250314_153852.csv
+daten_20250314_153923.csv
+daten_20250314_153946.csv
+daten_20250314_154007.csv
+daten_20250314_154029.csv
+daten_20250314_154048.csv
+daten_20250314_154134.csv
+daten_20250314_154155.csv
+daten_20250314_154209.csv
+daten_20250314_154226.csv
+daten_20250314_154302.csv
+daten_20250314_154325.csv
+daten_20250314_154353.csv
+daten_20250314_154435.csv
+daten_20250314_154451.csv
+daten_20250314_154527.csv
+daten_20250314_154546.csv
+daten_20250314_154627.csv
+daten_20250314_154640.csv
+daten_20250314_154701.csv
+daten_20250314_154722.csv
+daten_20250314_154806.csv
+daten_20250314_154825.csv
+daten_20250314_154909.csv
+daten_20250314_154936.csv
+daten_20250314_155002.csv
+daten_20250314_155015.csv
+daten_20250314_155049.csv
+daten_20250314_155122.csv
+daten_20250314_155141.csv
+daten_20250314_155202.csv
+daten_20250314_155221.csv
+daten_20250314_155234.csv
+daten_20250314_155240.csv
+daten_20250314_155330.csv
+daten_20250314_155349.csv
+daten_20250314_155408.csv
+daten_20250314_155439.csv
+daten_20250314_155516.csv
+daten_20250314_155547.csv
+daten_20250314_155603.csv
+daten_20250314_155628.csv
+daten_20250314_155643.csv
+daten_20250314_155739.csv
+daten_20250314_155814.csv
+daten_20250314_155845.csv
+daten_20250314_155921.csv
+daten_20250314_160006.csv
+daten_20250314_160019.csv
+daten_20250314_160058.csv
+daten_20250314_160111.csv
+daten_20250314_160142.csv
+daten_20250314_160204.csv
+daten_20250314_160219.csv
+daten_20250314_160309.csv
+daten_20250314_160337.csv
+daten_20250314_160359.csv
+daten_20250314_160420.csv
+daten_20250314_160431.csv
+daten_20250314_160535.csv
+daten_20250314_160558.csv
+daten_20250314_160619.csv
+daten_20250314_160646.csv
+daten_20250314_160700.csv
+daten_20250314_160716.csv
+daten_20250314_160730.csv
+daten_20250314_160745.csv
+daten_20250314_160810.csv
+daten_20250314_160827.csv
+daten_20250314_160908.csv
+daten_20250314_160942.csv
+daten_20250314_160954.csv
+daten_20250314_161033.csv
+daten_20250314_161053.csv
+daten_20250314_161127.csv
+daten_20250314_161150.csv
+daten_20250314_161213.csv
+daten_20250314_161249.csv
+daten_20250314_161314.csv
+daten_20250314_161333.csv
+daten_20250314_161411.csv
+daten_20250314_161437.csv
+daten_20250314_161457.csv
+daten_20250314_161520.csv
+daten_20250314_161532.csv
+daten_20250314_161544.csv
+daten_20250314_161632.csv
+daten_20250314_161705.csv
+daten_20250314_161720.csv
+daten_20250314_161750.csv
+daten_20250314_162011.csv
+daten_20250314_162037.csv
+daten_20250314_162126.csv
+daten_20250314_162147.csv
+daten_20250314_162208.csv
+daten_20250314_162234.csv
+daten_20250314_162314.csv
+daten_20250314_162326.csv
+daten_20250314_162339.csv
+daten_20250314_162402.csv
+daten_20250314_162432.csv
+daten_20250314_162441.csv
+daten_20250314_162608.csv
+daten_20250314_162623.csv
+daten_20250314_162648.csv
+daten_20250314_162709.csv
+daten_20250314_162722.csv
+daten_20250314_162801.csv
+daten_20250314_162824.csv
+daten_20250314_162849.csv
+daten_20250314_162921.csv
+daten_20250314_162932.csv
+daten_20250314_163005.csv
+daten_20250314_163020.csv
+daten_20250314_163038.csv
+daten_20250314_163101.csv
+daten_20250314_163122.csv
+daten_20250314_163146.csv
+daten_20250314_163210.csv
+daten_20250314_163232.csv
+daten_20250314_163256.csv
+daten_20250314_163308.csv
+daten_20250314_163324.csv
+daten_20250314_163353.csv
+daten_20250314_163415.csv
+daten_20250314_163436.csv
+daten_20250314_163459.csv
+daten_20250314_163530.csv
+daten_20250314_163544.csv
+daten_20250314_163620.csv
+daten_20250314_163654.csv
+daten_20250314_163729.csv
+daten_20250314_163747.csv
+daten_20250314_163801.csv
+daten_20250314_163827.csv
+daten_20250314_163852.csv
+daten_20250314_163901.csv
+daten_20250314_163941.csv
+daten_20250314_164014.csv
+daten_20250314_164023.csv
+daten_20250314_164041.csv
+daten_20250314_164105.csv
+daten_20250314_164140.csv
+daten_20250314_164206.csv
+daten_20250314_164214.csv
+daten_20250314_164251.csv
+daten_20250314_164306.csv
+daten_20250314_164347.csv
+daten_20250314_164413.csv
+daten_20250314_164446.csv
+daten_20250314_164514.csv
+daten_20250314_164540.csv
+daten_20250314_164555.csv
+daten_20250314_164608.csv
+daten_20250314_164621.csv
+daten_20250314_164656.csv
+daten_20250314_164704.csv
+daten_20250314_164712.csv
+daten_20250314_164725.csv
+daten_20250314_164747.csv
+daten_20250314_164840.csv
+daten_20250314_164907.csv
+daten_20250314_164928.csv
+daten_20250314_164949.csv
+daten_20250314_165000.csv
+daten_20250314_165034.csv
+daten_20250314_165126.csv
+daten_20250314_165153.csv
+daten_20250314_165245.csv
+daten_20250314_165309.csv
+daten_20250314_165331.csv
+daten_20250314_165416.csv
+daten_20250314_165440.csv
+daten_20250314_165457.csv
+daten_20250314_165519.csv
+daten_20250314_165528.csv
+daten_20250314_165551.csv
+daten_20250314_165559.csv
+daten_20250314_165616.csv
+daten_20250314_165630.csv
+daten_20250314_165638.csv
+daten_20250314_165702.csv
+daten_20250314_165726.csv
+daten_20250314_165741.csv
+daten_20250314_165809.csv
+daten_20250314_165823.csv
+daten_20250314_165840.csv
+daten_20250314_165903.csv
+daten_20250314_165919.csv
+daten_20250314_165941.csv
+daten_20250314_165957.csv
+daten_20250314_170043.csv
+daten_20250314_170059.csv
+daten_20250314_170107.csv
+daten_20250314_170127.csv
+daten_20250314_170157.csv
+daten_20250314_170227.csv
+daten_20250314_170244.csv
+daten_20250314_170315.csv
+daten_20250314_170335.csv
+daten_20250314_170355.csv
+daten_20250314_170423.csv
+daten_20250314_170441.csv
+daten_20250314_170513.csv
+daten_20250314_170551.csv
+daten_20250314_170614.csv
+daten_20250314_170628.csv
+daten_20250314_170654.csv
+daten_20250314_170720.csv
+daten_20250314_170737.csv
+daten_20250314_170757.csv
+daten_20250314_170813.csv
+daten_20250314_170837.csv
+daten_20250314_170848.csv
+daten_20250314_170908.csv
+daten_20250314_170928.csv
+daten_20250314_170946.csv
+daten_20250314_171025.csv
+daten_20250314_171104.csv
+daten_20250314_171120.csv
+daten_20250314_171145.csv
+daten_20250314_171230.csv
+daten_20250314_171251.csv
+daten_20250314_171310.csv
+daten_20250314_171323.csv
+daten_20250314_171345.csv
+daten_20250314_171354.csv
+daten_20250314_171405.csv
+daten_20250314_171424.csv
+daten_20250314_171504.csv
+daten_20250314_171534.csv
+daten_20250314_171540.csv
+daten_20250314_171606.csv
+daten_20250314_171624.csv
+daten_20250314_171635.csv
+daten_20250314_171653.csv
+daten_20250314_171713.csv
+daten_20250314_171754.csv
+daten_20250314_171818.csv
+daten_20250314_171842.csv
+daten_20250314_171850.csv
+daten_20250314_171914.csv
+daten_20250314_171926.csv
+daten_20250314_171937.csv
+daten_20250314_171950.csv
+daten_20250314_171959.csv
+daten_20250314_172013.csv
+daten_20250314_172022.csv
+daten_20250314_172033.csv
+daten_20250314_172051.csv
+daten_20250314_172124.csv
+daten_20250314_172150.csv
+daten_20250314_172205.csv
+daten_20250314_172242.csv
+daten_20250314_172255.csv
+daten_20250314_172314.csv
+daten_20250314_172334.csv
+daten_20250314_172355.csv
+daten_20250314_172412.csv
+daten_20250314_172456.csv
+daten_20250314_172514.csv
+daten_20250314_172528.csv
+daten_20250314_172632.csv
+daten_20250314_172642.csv
+daten_20250314_172657.csv
+daten_20250314_172736.csv
+daten_20250314_172749.csv
+daten_20250314_172805.csv
+daten_20250314_172831.csv
+daten_20250314_172850.csv
+daten_20250314_172919.csv
+daten_20250314_173004.csv
+daten_20250314_173022.csv
+daten_20250314_173039.csv
+daten_20250314_173055.csv
+daten_20250314_173141.csv
+daten_20250314_173218.csv
+daten_20250314_173243.csv
+daten_20250314_173313.csv
+daten_20250314_173336.csv
+daten_20250314_173415.csv
+daten_20250314_173424.csv
+daten_20250314_173440.csv
+daten_20250314_173540.csv
+daten_20250314_173605.csv
+daten_20250314_173621.csv
+daten_20250314_173649.csv
+daten_20250314_173711.csv
+daten_20250314_173720.csv
+daten_20250314_173744.csv
+daten_20250314_173754.csv
+daten_20250314_173804.csv
+daten_20250314_173835.csv
+daten_20250314_173924.csv
+daten_20250314_174005.csv
+daten_20250314_174020.csv
+daten_20250314_174103.csv
+daten_20250314_174133.csv
+daten_20250314_174205.csv
+daten_20250314_174233.csv
+daten_20250314_174246.csv
+daten_20250314_174257.csv
+daten_20250314_174315.csv
+daten_20250314_174335.csv
+daten_20250314_174351.csv
+daten_20250314_174405.csv
+daten_20250314_174420.csv
+daten_20250314_174450.csv
+daten_20250314_174510.csv
+daten_20250314_174545.csv
+daten_20250314_174616.csv
+daten_20250314_174636.csv
+daten_20250314_174659.csv
+daten_20250314_174720.csv
+daten_20250314_174745.csv
+daten_20250314_174755.csv
+daten_20250314_174812.csv
+daten_20250314_174846.csv
+daten_20250314_174857.csv
+daten_20250314_174909.csv
+daten_20250314_174925.csv
+daten_20250314_174943.csv
+daten_20250314_175011.csv
+daten_20250314_175025.csv
+daten_20250314_175035.csv
+daten_20250314_175044.csv
+daten_20250314_175059.csv
+daten_20250314_175111.csv
+daten_20250314_175125.csv
+daten_20250314_175136.csv
+daten_20250314_175202.csv
+daten_20250314_175221.csv
+daten_20250314_175254.csv
+daten_20250314_175312.csv
+daten_20250314_175339.csv
+daten_20250314_175401.csv
+daten_20250314_175428.csv
+daten_20250314_175444.csv
+daten_20250314_175518.csv
+daten_20250314_175532.csv
+daten_20250314_175546.csv
+daten_20250314_175607.csv
+daten_20250314_175632.csv
+daten_20250314_175644.csv
+daten_20250314_175705.csv
+daten_20250314_175720.csv
+daten_20250314_175749.csv
+daten_20250314_175817.csv
+daten_20250314_175843.csv
+daten_20250314_175927.csv
+daten_20250314_175954.csv
+daten_20250314_180003.csv
+daten_20250314_180028.csv
+daten_20250314_180045.csv
+daten_20250314_180054.csv
+daten_20250314_180108.csv
+daten_20250314_180120.csv
+daten_20250314_180153.csv
+daten_20250314_180221.csv
+daten_20250314_180307.csv
+daten_20250314_180317.csv
+daten_20250314_180335.csv
+daten_20250314_180346.csv
+daten_20250314_180407.csv
+daten_20250314_180429.csv
+daten_20250314_180455.csv
+daten_20250314_180528.csv
+daten_20250314_180539.csv
+daten_20250314_180608.csv
+daten_20250314_180628.csv
+daten_20250314_180645.csv
+daten_20250314_180710.csv
+daten_20250314_180742.csv
+daten_20250314_180815.csv
+daten_20250314_180827.csv
+daten_20250314_180842.csv
+daten_20250314_180933.csv
+daten_20250314_180958.csv
+daten_20250314_181017.csv
+daten_20250314_181104.csv
+daten_20250314_181126.csv
+daten_20250314_181151.csv
+daten_20250314_181219.csv
+daten_20250314_181236.csv
+daten_20250314_181303.csv
+daten_20250314_181324.csv
+daten_20250314_181343.csv
+daten_20250314_181352.csv
+daten_20250314_181420.csv
+daten_20250314_181441.csv
+daten_20250314_181451.csv
+daten_20250314_181526.csv
+daten_20250314_181536.csv
+daten_20250314_181603.csv
+daten_20250314_181632.csv
+daten_20250314_181710.csv
+daten_20250314_181727.csv
+daten_20250314_181742.csv
+daten_20250314_181812.csv
+daten_20250314_181823.csv
+daten_20250314_181854.csv
+daten_20250314_181930.csv
+daten_20250314_181951.csv
+daten_20250314_182016.csv
+daten_20250314_182050.csv
+daten_20250314_182109.csv
+daten_20250314_182118.csv
+daten_20250314_182200.csv
+daten_20250314_182208.csv
+daten_20250314_182221.csv
+daten_20250314_182229.csv
+daten_20250314_182251.csv
+daten_20250314_182335.csv
+daten_20250314_182353.csv
+daten_20250314_182358.csv
+daten_20250314_182413.csv
+daten_20250314_182427.csv
+daten_20250314_182438.csv
+daten_20250314_182455.csv
+daten_20250314_182513.csv
+daten_20250314_182532.csv
+daten_20250314_182548.csv
+daten_20250314_182622.csv
+daten_20250314_182641.csv
+daten_20250314_182712.csv
+daten_20250314_182734.csv
+daten_20250314_182740.csv
+daten_20250314_182813.csv
+daten_20250314_182824.csv
+daten_20250314_182852.csv
+daten_20250314_182944.csv
+daten_20250314_182959.csv
+daten_20250314_183014.csv
+daten_20250314_183034.csv
+daten_20250314_183052.csv
+daten_20250314_183126.csv
+daten_20250314_183153.csv
+daten_20250314_183250.csv
+daten_20250314_183311.csv
+daten_20250314_183327.csv
+daten_20250314_183342.csv
+daten_20250314_183352.csv
+daten_20250314_183402.csv
+daten_20250314_183410.csv
+daten_20250314_183438.csv
+daten_20250314_183503.csv
+daten_20250314_183536.csv
+daten_20250314_183600.csv
+daten_20250314_183619.csv
+daten_20250314_183645.csv
+daten_20250314_183700.csv
+daten_20250314_183729.csv
+daten_20250314_183805.csv
+daten_20250314_183843.csv
+daten_20250314_183923.csv
+daten_20250314_184028.csv
+daten_20250314_184038.csv
+daten_20250314_184056.csv
+daten_20250314_184118.csv
+daten_20250314_184134.csv
+daten_20250314_184204.csv
+daten_20250314_184216.csv
+daten_20250314_184251.csv
+daten_20250314_184304.csv
+daten_20250314_184322.csv
+daten_20250314_184344.csv
+daten_20250314_184413.csv
+daten_20250314_184505.csv
+daten_20250314_184529.csv
+daten_20250314_184604.csv
+daten_20250314_184611.csv
+daten_20250314_184621.csv
+daten_20250314_184639.csv
+daten_20250314_184728.csv
+daten_20250314_184800.csv
+daten_20250314_184817.csv
+daten_20250314_184847.csv
+daten_20250314_184925.csv
+daten_20250314_184934.csv
+daten_20250314_184951.csv
+daten_20250314_185018.csv
+daten_20250314_185026.csv
+daten_20250314_185041.csv
+daten_20250314_185051.csv
+daten_20250314_185120.csv
+daten_20250314_185146.csv
+daten_20250314_185216.csv
+daten_20250314_185236.csv
+daten_20250314_185256.csv
+daten_20250314_185305.csv
+daten_20250314_185319.csv
+daten_20250314_185336.csv
+daten_20250314_185359.csv
+daten_20250314_185424.csv
+daten_20250314_185434.csv
+daten_20250314_185446.csv
+daten_20250314_185507.csv
+daten_20250314_185538.csv
+daten_20250314_185601.csv
+daten_20250314_185610.csv
+daten_20250314_185634.csv
+daten_20250314_185640.csv
+daten_20250314_185709.csv
+daten_20250314_185734.csv
+daten_20250314_185809.csv
+daten_20250314_185842.csv
+daten_20250314_185857.csv
+daten_20250314_185937.csv
+daten_20250314_185954.csv
+daten_20250314_190012.csv
+daten_20250314_190023.csv
+daten_20250314_190037.csv
+daten_20250314_190108.csv
+daten_20250314_190134.csv
+daten_20250314_190140.csv
+daten_20250314_190225.csv
+daten_20250314_190237.csv
+daten_20250314_190315.csv
+daten_20250314_190350.csv
+daten_20250314_190424.csv
+daten_20250314_190449.csv
+daten_20250314_190514.csv
+daten_20250314_190536.csv
+daten_20250314_190559.csv
+daten_20250314_190626.csv
+daten_20250314_190649.csv
+daten_20250314_190700.csv
+daten_20250314_190714.csv
+daten_20250314_190754.csv
+daten_20250314_190813.csv
+daten_20250314_190831.csv
+daten_20250314_190856.csv
+daten_20250314_190939.csv
+daten_20250314_190951.csv
+daten_20250314_191002.csv
+daten_20250314_191034.csv
+daten_20250314_191102.csv
+daten_20250314_191109.csv
+daten_20250314_191126.csv
+daten_20250314_191157.csv
+daten_20250314_191243.csv
+daten_20250314_191345.csv
+daten_20250314_191416.csv
+daten_20250314_191425.csv
+daten_20250314_191512.csv
+daten_20250314_191535.csv
+daten_20250314_191603.csv
+daten_20250314_191617.csv
+daten_20250314_191637.csv
+daten_20250314_191645.csv
+daten_20250314_191702.csv
+daten_20250314_191718.csv
+daten_20250314_191737.csv
+daten_20250314_191802.csv
+daten_20250314_191829.csv
+daten_20250314_191857.csv
+daten_20250314_191917.csv
+daten_20250314_191943.csv
+daten_20250314_192010.csv
+daten_20250314_192028.csv
+daten_20250314_192040.csv
+daten_20250314_192120.csv
+daten_20250314_192146.csv
+daten_20250314_192159.csv
+daten_20250314_192221.csv
+daten_20250314_192245.csv
+daten_20250314_192308.csv
+daten_20250314_192313.csv
+daten_20250314_192348.csv
+daten_20250314_192359.csv
+daten_20250314_192435.csv
+daten_20250314_192544.csv
+daten_20250314_192617.csv
+daten_20250314_192634.csv
+daten_20250314_192652.csv
+daten_20250314_192712.csv
+daten_20250314_192730.csv
+daten_20250314_192753.csv
+daten_20250314_192818.csv
+daten_20250314_192901.csv
+daten_20250314_192926.csv
+daten_20250314_192943.csv
+daten_20250314_193019.csv
+daten_20250314_193105.csv
+daten_20250314_193210.csv
+daten_20250314_193235.csv
+daten_20250314_193314.csv
+daten_20250314_193323.csv
+daten_20250314_193335.csv
+daten_20250314_193406.csv
+daten_20250314_193428.csv
+daten_20250314_193457.csv
+daten_20250314_193506.csv
+daten_20250314_193526.csv
+daten_20250314_193632.csv
+daten_20250314_193718.csv
+daten_20250314_193738.csv
+daten_20250314_193808.csv
+daten_20250314_193827.csv
+daten_20250314_193839.csv
+daten_20250314_193903.csv
+daten_20250314_193920.csv
+daten_20250314_194011.csv
+daten_20250314_194041.csv
+daten_20250314_194058.csv
+daten_20250314_194126.csv
+daten_20250314_194138.csv
+daten_20250314_194208.csv
+daten_20250314_194236.csv
+daten_20250314_194314.csv
+daten_20250314_194333.csv
+daten_20250314_194348.csv
+daten_20250314_194426.csv
+daten_20250314_194446.csv
+daten_20250314_194505.csv
+daten_20250314_194541.csv
+daten_20250314_194607.csv
+daten_20250314_194619.csv
+daten_20250314_194630.csv
+daten_20250314_194653.csv
+daten_20250314_194708.csv
+daten_20250314_194733.csv
+daten_20250314_194754.csv
+daten_20250314_194820.csv
+daten_20250314_194834.csv
+daten_20250314_194846.csv
+daten_20250314_194917.csv
+daten_20250314_194932.csv
+daten_20250314_195008.csv
+daten_20250314_195022.csv
+daten_20250314_195044.csv
+daten_20250314_195118.csv
+daten_20250314_195224.csv
+daten_20250314_195242.csv
+daten_20250314_195300.csv
+daten_20250314_195314.csv
+daten_20250314_195345.csv
+daten_20250314_195409.csv
+daten_20250314_195421.csv
+daten_20250314_195435.csv
+daten_20250314_195503.csv
+daten_20250314_195533.csv
+daten_20250314_195559.csv
+daten_20250314_195614.csv
+daten_20250314_195631.csv
+daten_20250314_195655.csv
+daten_20250314_195720.csv
+daten_20250314_195740.csv
+daten_20250314_195802.csv
+daten_20250314_195824.csv
+daten_20250314_195840.csv
+daten_20250314_195903.csv
+daten_20250314_195925.csv
+daten_20250314_195953.csv
+daten_20250314_200016.csv
+daten_20250314_200027.csv
+daten_20250314_200040.csv
+daten_20250314_200059.csv
+daten_20250314_200114.csv
+daten_20250314_200204.csv
+daten_20250314_200226.csv
+daten_20250314_200247.csv
+daten_20250314_200307.csv
+daten_20250314_200320.csv
+daten_20250314_200345.csv
+daten_20250314_200402.csv
+daten_20250314_200419.csv
+daten_20250314_200439.csv
+daten_20250314_200456.csv
+daten_20250314_200529.csv
+daten_20250314_200554.csv
+daten_20250314_200613.csv
+daten_20250314_200651.csv
+daten_20250314_200709.csv
+daten_20250314_200739.csv
+daten_20250314_200803.csv
+daten_20250314_200841.csv
+daten_20250314_200907.csv
+daten_20250314_200943.csv
+daten_20250314_200954.csv
+daten_20250314_201013.csv
+daten_20250314_201036.csv
+daten_20250314_201116.csv
+daten_20250314_201131.csv
+daten_20250314_201156.csv
+daten_20250314_201216.csv
+daten_20250314_201236.csv
+daten_20250314_201329.csv
+daten_20250314_201342.csv
+daten_20250314_201356.csv
+daten_20250314_201420.csv
+daten_20250314_201444.csv
+daten_20250314_201511.csv
+daten_20250314_201537.csv
+daten_20250314_201553.csv
+daten_20250314_201641.csv
+daten_20250314_201718.csv
+daten_20250314_201729.csv
+daten_20250314_201740.csv
+daten_20250314_201758.csv
+daten_20250314_201829.csv
+daten_20250314_201902.csv
+daten_20250314_201932.csv
+daten_20250314_201952.csv
+daten_20250314_202004.csv
+daten_20250314_202024.csv
+daten_20250314_202040.csv
+daten_20250314_202058.csv
+daten_20250314_202134.csv
+daten_20250314_202152.csv
+daten_20250314_202214.csv
+daten_20250314_202336.csv
+daten_20250314_202342.csv
+daten_20250314_202408.csv
+daten_20250314_202423.csv
+daten_20250314_202435.csv
+daten_20250314_202459.csv
+daten_20250314_202517.csv
+daten_20250314_202528.csv
+daten_20250314_202544.csv
+daten_20250314_202609.csv
+daten_20250314_202628.csv
+daten_20250314_202654.csv
+daten_20250314_202715.csv
+daten_20250314_202736.csv
+daten_20250314_202758.csv
+daten_20250314_202827.csv
+daten_20250314_202841.csv
+daten_20250314_202847.csv
+daten_20250314_202937.csv
+daten_20250314_203032.csv
+daten_20250314_203042.csv
+daten_20250314_203050.csv
+daten_20250314_203113.csv
+daten_20250314_203133.csv
+daten_20250314_203148.csv
+daten_20250314_203226.csv
+daten_20250314_203250.csv
+daten_20250314_203301.csv
+daten_20250314_203334.csv
+daten_20250314_203403.csv
+daten_20250314_203417.csv
+daten_20250314_203438.csv
+daten_20250314_203448.csv
+daten_20250314_203518.csv
+daten_20250314_203546.csv
+daten_20250314_203610.csv
+daten_20250314_203633.csv
+daten_20250314_203700.csv
+daten_20250314_203722.csv
+daten_20250314_203738.csv
+daten_20250314_203748.csv
+daten_20250314_203826.csv
+daten_20250314_203844.csv
+daten_20250314_203856.csv
+daten_20250314_203904.csv
+daten_20250314_203915.csv
+daten_20250314_203937.csv
+daten_20250314_203955.csv
+daten_20250314_204004.csv
+daten_20250314_204031.csv
+daten_20250314_204101.csv
+daten_20250314_204150.csv
+daten_20250314_204226.csv
+daten_20250314_204256.csv
+daten_20250314_204314.csv
+daten_20250314_204335.csv
+daten_20250314_204351.csv
+daten_20250314_204410.csv
+daten_20250314_204428.csv
+daten_20250314_204445.csv
+daten_20250314_204502.csv
+daten_20250314_204530.csv
+daten_20250314_204620.csv
+daten_20250314_204638.csv
+daten_20250314_204657.csv
+daten_20250314_204706.csv
+daten_20250314_204720.csv
+daten_20250314_204731.csv
+daten_20250314_204743.csv
+daten_20250314_204753.csv
+daten_20250314_204801.csv
+daten_20250314_204811.csv
+daten_20250314_204837.csv
+daten_20250314_204859.csv
+daten_20250314_204943.csv
+daten_20250314_204954.csv
+daten_20250314_205011.csv
+daten_20250314_205019.csv
+daten_20250314_205046.csv
+daten_20250314_205058.csv
+daten_20250314_205122.csv
+daten_20250314_205144.csv
+daten_20250314_205158.csv
+daten_20250314_205210.csv
+daten_20250314_205241.csv
+daten_20250314_205317.csv
+daten_20250314_205336.csv
+daten_20250314_205348.csv
+daten_20250314_205404.csv
+daten_20250314_205429.csv
+daten_20250314_205438.csv
+daten_20250314_205447.csv
+daten_20250314_205508.csv
+daten_20250314_205517.csv
+daten_20250314_205548.csv
+daten_20250314_205629.csv
+daten_20250314_205649.csv
+daten_20250314_205724.csv
+daten_20250314_205738.csv
+daten_20250314_205753.csv
+daten_20250314_205810.csv
+daten_20250314_205831.csv
+daten_20250314_205906.csv
+daten_20250314_205920.csv
+daten_20250314_205939.csv
+daten_20250314_210003.csv
+daten_20250314_210037.csv
+daten_20250314_210054.csv
+daten_20250314_210129.csv
+daten_20250314_210148.csv
+daten_20250314_210208.csv
+daten_20250314_210239.csv
+daten_20250314_210245.csv
+daten_20250314_210254.csv
+daten_20250314_210313.csv
+daten_20250314_210341.csv
+daten_20250314_210353.csv
+daten_20250314_210423.csv
+daten_20250314_210428.csv
+daten_20250314_210444.csv
+daten_20250314_210456.csv
+daten_20250314_210514.csv
+daten_20250314_210529.csv
+daten_20250314_210538.csv
+daten_20250314_210559.csv
+daten_20250314_210623.csv
+daten_20250314_210655.csv
+daten_20250314_210716.csv
+daten_20250314_210731.csv
+daten_20250314_210747.csv
+daten_20250314_210804.csv
+daten_20250314_210819.csv
+daten_20250314_210836.csv
+daten_20250314_210844.csv
+daten_20250314_210906.csv
+daten_20250314_210930.csv
+daten_20250314_210938.csv
+daten_20250314_211007.csv
+daten_20250314_211016.csv
+daten_20250314_211029.csv
+daten_20250314_211043.csv
+daten_20250314_211055.csv
+daten_20250314_211143.csv
+daten_20250314_211155.csv
+daten_20250314_211206.csv
+daten_20250314_211220.csv
+daten_20250314_211247.csv
+daten_20250314_211304.csv
+daten_20250314_211319.csv
+daten_20250314_211331.csv
+daten_20250314_211346.csv
+daten_20250314_211415.csv
+daten_20250314_211455.csv
+daten_20250314_211504.csv
+daten_20250314_211529.csv
+daten_20250314_211558.csv
+daten_20250314_211612.csv
+daten_20250314_211716.csv
+daten_20250314_211729.csv
+daten_20250314_211740.csv
+daten_20250314_211756.csv
+daten_20250314_211817.csv
+daten_20250314_211840.csv
+daten_20250314_211854.csv
+daten_20250314_211930.csv
+daten_20250314_211941.csv
+daten_20250314_211950.csv
+daten_20250314_211959.csv
+daten_20250314_212015.csv
+daten_20250314_212100.csv
+daten_20250314_212107.csv
+daten_20250314_212202.csv
+daten_20250314_212223.csv
+daten_20250314_212244.csv
+daten_20250314_212302.csv
+daten_20250314_212320.csv
+daten_20250314_212358.csv
+daten_20250314_212409.csv
+daten_20250314_212432.csv
+daten_20250314_212450.csv
+daten_20250314_212530.csv
+daten_20250314_212551.csv
+daten_20250314_212611.csv
+daten_20250314_212648.csv
+daten_20250314_212654.csv
+daten_20250314_212726.csv
+daten_20250314_212735.csv
+daten_20250314_212754.csv
+daten_20250314_212806.csv
+daten_20250314_212817.csv
+daten_20250314_212837.csv
+daten_20250314_212848.csv
+daten_20250314_212915.csv
+daten_20250314_212948.csv
+daten_20250314_213017.csv
+daten_20250314_213041.csv
+daten_20250314_213048.csv
+daten_20250314_213108.csv
+daten_20250314_213143.csv
+daten_20250314_213210.csv
+daten_20250314_213226.csv
+daten_20250314_213237.csv
+daten_20250314_213307.csv
+daten_20250314_213317.csv
+daten_20250314_213341.csv
+daten_20250314_213409.csv
+daten_20250314_213425.csv
+daten_20250314_213444.csv
+daten_20250314_213501.csv
+daten_20250314_213529.csv
+daten_20250314_213549.csv
+daten_20250314_213643.csv
+daten_20250314_213708.csv
+daten_20250314_213755.csv
+daten_20250314_213826.csv
+daten_20250314_213900.csv
+daten_20250314_213907.csv
+daten_20250314_213946.csv
+daten_20250314_213955.csv
+daten_20250314_214019.csv
+daten_20250314_214024.csv
+daten_20250314_214044.csv
+daten_20250314_214111.csv
+daten_20250314_214145.csv
+daten_20250314_214226.csv
+daten_20250314_214242.csv
+daten_20250314_214254.csv
+daten_20250314_214321.csv
+daten_20250314_214354.csv
+daten_20250314_214419.csv
+daten_20250314_214444.csv
+daten_20250314_214450.csv
+daten_20250314_214516.csv
+daten_20250314_214534.csv
+daten_20250314_214600.csv
+daten_20250314_214649.csv
+daten_20250314_214734.csv
+daten_20250314_214810.csv
+daten_20250314_214824.csv
+daten_20250314_214842.csv
+daten_20250314_214853.csv
+daten_20250314_214920.csv
+daten_20250314_214934.csv
+daten_20250314_214952.csv
+daten_20250314_215046.csv
+daten_20250314_215113.csv
+daten_20250314_215128.csv
+daten_20250314_215145.csv
+daten_20250314_215152.csv
+daten_20250314_215217.csv
+daten_20250314_215233.csv
+daten_20250314_215246.csv
+daten_20250314_215339.csv
+daten_20250314_215400.csv
+daten_20250314_215416.csv
+daten_20250314_215434.csv
+daten_20250314_215449.csv
+daten_20250314_215507.csv
+daten_20250314_215515.csv
+daten_20250314_215544.csv
+daten_20250314_215619.csv
+daten_20250314_215643.csv
+daten_20250314_215653.csv
+daten_20250314_215708.csv
+daten_20250314_215723.csv
+daten_20250314_215746.csv
+daten_20250314_215812.csv
+daten_20250314_215845.csv
+daten_20250314_215903.csv
+daten_20250314_215928.csv
+daten_20250314_215946.csv
+daten_20250314_220002.csv
+daten_20250314_220024.csv
+daten_20250314_220042.csv
+daten_20250314_220055.csv
+daten_20250314_220108.csv
+daten_20250314_220150.csv
+daten_20250314_220201.csv
+daten_20250314_220239.csv
+daten_20250314_220258.csv
+daten_20250314_220315.csv
+daten_20250314_220343.csv
+daten_20250314_220352.csv
+daten_20250314_220409.csv
+daten_20250314_220437.csv
+daten_20250314_220518.csv
+daten_20250314_220539.csv
+daten_20250314_220627.csv
+daten_20250314_220636.csv
+daten_20250314_220648.csv
+daten_20250314_220714.csv
+daten_20250314_220736.csv
+daten_20250314_220827.csv
+daten_20250314_220842.csv
+daten_20250314_220908.csv
+daten_20250314_220915.csv
+daten_20250314_221003.csv
+daten_20250314_221022.csv
+daten_20250314_221030.csv
+daten_20250314_221044.csv
+daten_20250314_221052.csv
+daten_20250314_221101.csv
+daten_20250314_221133.csv
+daten_20250314_221149.csv
+daten_20250314_221212.csv
+daten_20250314_221233.csv
+daten_20250314_221257.csv
+daten_20250314_221329.csv
+daten_20250314_221409.csv
+daten_20250314_221418.csv
+daten_20250314_221431.csv
+daten_20250314_221444.csv
+daten_20250314_221524.csv
+daten_20250314_221555.csv
+daten_20250314_221604.csv
+daten_20250314_221628.csv
+daten_20250314_221637.csv
+daten_20250314_221649.csv
+daten_20250314_221723.csv
+daten_20250314_221825.csv
+daten_20250314_221847.csv
+daten_20250314_221903.csv
+daten_20250314_221917.csv
+daten_20250314_221935.csv
+daten_20250314_221956.csv
+daten_20250314_222036.csv
+daten_20250314_222116.csv
+daten_20250314_222133.csv
+daten_20250314_222209.csv
+daten_20250314_222223.csv
+daten_20250314_222246.csv
+daten_20250314_222303.csv
+daten_20250314_222426.csv
+daten_20250314_222434.csv
+daten_20250314_222458.csv
+daten_20250314_222516.csv
+daten_20250314_222545.csv
+daten_20250314_222601.csv
+daten_20250314_222613.csv
+daten_20250314_222627.csv
+daten_20250314_222656.csv
+daten_20250314_222719.csv
+daten_20250314_222742.csv
+daten_20250314_222747.csv
+daten_20250314_222756.csv
+daten_20250314_222817.csv
+daten_20250314_222840.csv
+daten_20250314_222903.csv
+daten_20250314_222927.csv
+daten_20250314_223017.csv
+daten_20250314_223027.csv
+daten_20250314_223044.csv
+daten_20250314_223057.csv
+daten_20250314_223114.csv
+daten_20250314_223134.csv
+daten_20250314_223155.csv
+daten_20250314_223204.csv
+daten_20250314_223210.csv
+daten_20250314_223234.csv
+daten_20250314_223306.csv
+daten_20250314_223354.csv
+daten_20250314_223418.csv
+daten_20250314_223436.csv
+daten_20250314_223448.csv
+daten_20250314_223502.csv
+daten_20250314_223511.csv
+daten_20250314_223522.csv
+daten_20250314_223529.csv
+daten_20250314_223538.csv
+daten_20250314_223605.csv
+daten_20250314_223617.csv
+daten_20250314_223649.csv
+daten_20250314_223700.csv
+daten_20250314_223712.csv
+daten_20250314_223720.csv
+daten_20250314_223733.csv
+daten_20250314_223833.csv
+daten_20250314_223853.csv
+daten_20250314_223913.csv
+daten_20250314_223925.csv
+daten_20250314_223945.csv
+daten_20250314_224023.csv
+daten_20250314_224037.csv
+daten_20250314_224050.csv
+daten_20250314_224109.csv
+daten_20250314_224210.csv
+daten_20250314_224227.csv
+daten_20250314_224246.csv
+daten_20250314_224307.csv
+daten_20250314_224332.csv
+daten_20250314_224412.csv
+daten_20250314_224437.csv
+daten_20250314_224511.csv
+daten_20250314_224526.csv
+daten_20250314_224541.csv
+daten_20250314_224602.csv
+daten_20250314_224621.csv
+daten_20250314_224653.csv
+daten_20250314_224713.csv
+daten_20250314_224735.csv
+daten_20250314_224754.csv
+daten_20250314_224815.csv
+daten_20250314_224833.csv
+daten_20250314_224914.csv
+daten_20250314_224937.csv
+daten_20250314_224957.csv
+daten_20250314_225035.csv
+daten_20250314_225048.csv
+daten_20250314_225109.csv
+daten_20250314_225131.csv
+daten_20250314_225213.csv
+daten_20250314_225229.csv
+daten_20250314_225245.csv
+daten_20250314_225306.csv
+daten_20250314_225342.csv
+daten_20250314_225408.csv
+daten_20250314_225425.csv
+daten_20250314_225440.csv
+daten_20250314_225502.csv
+daten_20250314_225523.csv
+daten_20250314_225553.csv
+daten_20250314_225637.csv
+daten_20250314_225707.csv
+daten_20250314_225727.csv
+daten_20250314_225747.csv
+daten_20250314_225808.csv
+daten_20250314_225834.csv
+daten_20250314_225901.csv
+daten_20250314_225928.csv
+daten_20250314_225944.csv
+daten_20250314_230027.csv
+daten_20250314_230042.csv
+daten_20250314_230113.csv
+daten_20250314_230146.csv
+daten_20250314_230222.csv
+daten_20250314_230305.csv
+daten_20250314_230323.csv
+daten_20250314_230342.csv
+daten_20250314_230402.csv
+daten_20250314_230430.csv
+daten_20250314_230440.csv
+daten_20250314_230511.csv
+daten_20250314_230527.csv
+daten_20250314_230606.csv
+daten_20250314_230640.csv
+daten_20250314_230811.csv
+daten_20250314_230834.csv
+daten_20250314_230854.csv
+daten_20250314_230959.csv
+daten_20250314_231017.csv
+daten_20250314_231055.csv
+daten_20250314_231112.csv
+daten_20250314_231123.csv
+daten_20250314_231145.csv
+daten_20250314_231201.csv
+daten_20250314_231233.csv
+daten_20250314_231246.csv
+daten_20250314_231256.csv
+daten_20250314_231325.csv
+daten_20250314_231335.csv
+daten_20250314_231356.csv
+daten_20250314_231414.csv
+daten_20250314_231444.csv
+daten_20250314_231504.csv
+daten_20250314_231520.csv
+daten_20250314_231530.csv
+daten_20250314_231558.csv
+daten_20250314_231620.csv
+daten_20250314_231633.csv
+daten_20250314_231707.csv
+daten_20250314_231719.csv
+daten_20250314_231744.csv
+daten_20250314_231805.csv
+daten_20250314_231828.csv
+daten_20250314_231858.csv
+daten_20250314_231909.csv
+daten_20250314_231927.csv
+daten_20250314_231950.csv
+daten_20250314_232002.csv
+daten_20250314_232019.csv
+daten_20250314_232045.csv
+daten_20250314_232055.csv
+daten_20250314_232129.csv
+daten_20250314_232155.csv
+daten_20250314_232210.csv
+daten_20250314_232238.csv
+daten_20250314_232256.csv
+daten_20250314_232330.csv
+daten_20250314_232350.csv
+daten_20250314_232420.csv
+daten_20250314_232433.csv
+daten_20250314_232501.csv
+daten_20250314_232510.csv
+daten_20250314_232542.csv
+daten_20250314_232605.csv
+daten_20250314_232619.csv
+daten_20250314_232714.csv
+daten_20250314_232750.csv
+daten_20250314_232808.csv
+daten_20250314_232829.csv
+daten_20250314_232852.csv
+daten_20250314_232911.csv
+daten_20250314_232926.csv
+daten_20250314_232944.csv
+daten_20250314_233015.csv
+daten_20250314_233045.csv
+daten_20250314_233111.csv
+daten_20250314_233120.csv
+daten_20250314_233141.csv
+daten_20250314_233216.csv
+daten_20250314_233230.csv
+daten_20250314_233247.csv
+daten_20250314_233320.csv
+daten_20250314_233342.csv
+daten_20250314_233422.csv
+daten_20250314_233516.csv
+daten_20250314_233528.csv
+daten_20250314_233546.csv
+daten_20250314_233558.csv
+daten_20250314_233618.csv
+daten_20250314_233629.csv
+daten_20250314_233641.csv
+daten_20250314_233654.csv
+daten_20250314_233711.csv
+daten_20250314_233742.csv
+daten_20250314_233756.csv
+daten_20250314_233823.csv
+daten_20250314_233836.csv
+daten_20250314_233852.csv
+daten_20250314_233907.csv
+daten_20250314_233931.csv
+daten_20250314_233942.csv
+daten_20250314_234001.csv
+daten_20250314_234031.csv
+daten_20250314_234047.csv
+daten_20250314_234059.csv
+daten_20250314_234124.csv
+daten_20250314_234139.csv
+daten_20250314_234146.csv
+daten_20250314_234154.csv
+daten_20250314_234215.csv
+daten_20250314_234224.csv
+daten_20250314_234240.csv
+daten_20250314_234258.csv
+daten_20250314_234311.csv
+daten_20250314_234337.csv
+daten_20250314_234432.csv
+daten_20250314_234443.csv
+daten_20250314_234507.csv
+daten_20250314_234542.csv
+daten_20250314_234556.csv
+daten_20250314_234712.csv
+daten_20250314_234730.csv
+daten_20250314_234746.csv
+daten_20250314_234813.csv
+daten_20250314_234834.csv
+daten_20250314_234853.csv
+daten_20250314_234931.csv
+daten_20250314_234952.csv
+daten_20250314_235000.csv
+daten_20250314_235026.csv
+daten_20250314_235117.csv
+daten_20250314_235135.csv
+daten_20250314_235146.csv
+daten_20250314_235152.csv
+daten_20250314_235158.csv
+daten_20250314_235210.csv
+daten_20250314_235226.csv
+daten_20250314_235233.csv
+daten_20250314_235257.csv
+daten_20250314_235313.csv
+daten_20250314_235403.csv
+daten_20250314_235432.csv
+daten_20250314_235457.csv
+daten_20250314_235514.csv
+daten_20250314_235531.csv
+daten_20250314_235553.csv
+daten_20250314_235600.csv
+daten_20250314_235609.csv
+daten_20250314_235624.csv
+daten_20250314_235648.csv
+daten_20250314_235656.csv
+daten_20250314_235706.csv
+daten_20250314_235734.csv
+daten_20250314_235758.csv
+daten_20250314_235820.csv
+daten_20250314_235840.csv
+daten_20250314_235933.csv
+daten_20250314_235953.csv
+daten_20250315_000006.csv
+daten_20250315_000015.csv
+daten_20250315_000037.csv
+daten_20250315_000047.csv
+daten_20250315_000107.csv
+daten_20250315_000119.csv
+daten_20250315_000131.csv
+daten_20250315_000155.csv
+daten_20250315_000215.csv
+daten_20250315_000235.csv
+daten_20250315_000247.csv
+daten_20250315_000308.csv
+daten_20250315_000331.csv
+daten_20250315_000354.csv
+daten_20250315_000447.csv
+daten_20250315_000506.csv
+daten_20250315_000611.csv
+daten_20250315_000631.csv
+daten_20250315_000656.csv
+daten_20250315_000724.csv
+daten_20250315_000804.csv
+daten_20250315_000823.csv
+daten_20250315_000846.csv
+daten_20250315_000901.csv
+daten_20250315_000910.csv
+daten_20250315_000922.csv
+daten_20250315_000958.csv
+daten_20250315_001012.csv
+daten_20250315_001028.csv
+daten_20250315_001039.csv
+daten_20250315_001125.csv
+daten_20250315_001137.csv
+daten_20250315_001146.csv
+daten_20250315_001205.csv
+daten_20250315_001249.csv
+daten_20250315_001304.csv
+daten_20250315_001324.csv
+daten_20250315_001338.csv
+daten_20250315_001400.csv
+daten_20250315_001420.csv
+daten_20250315_001449.csv
+daten_20250315_001540.csv
+daten_20250315_001555.csv
+daten_20250315_001603.csv
+daten_20250315_001637.csv
+daten_20250315_001646.csv
+daten_20250315_001659.csv
+daten_20250315_001742.csv
+daten_20250315_001753.csv
+daten_20250315_001800.csv
+daten_20250315_001810.csv
+daten_20250315_001829.csv
+daten_20250315_001844.csv
+daten_20250315_001904.csv
+daten_20250315_001927.csv
+daten_20250315_001947.csv
+daten_20250315_002007.csv
+daten_20250315_002027.csv
+daten_20250315_002053.csv
+daten_20250315_002113.csv
+daten_20250315_002128.csv
+daten_20250315_002142.csv
+daten_20250315_002215.csv
+daten_20250315_002227.csv
+daten_20250315_002236.csv
+daten_20250315_002248.csv
+daten_20250315_002313.csv
+daten_20250315_002358.csv
+daten_20250315_002404.csv
+daten_20250315_002417.csv
+daten_20250315_002450.csv
+daten_20250315_002508.csv
+daten_20250315_002521.csv
+daten_20250315_002534.csv
+daten_20250315_002556.csv
+daten_20250315_002624.csv
+daten_20250315_002640.csv
+daten_20250315_002701.csv
+daten_20250315_002731.csv
+daten_20250315_002819.csv
+daten_20250315_002835.csv
+daten_20250315_002911.csv
+daten_20250315_002923.csv
+daten_20250315_003000.csv
+daten_20250315_003036.csv
+daten_20250315_003055.csv
+daten_20250315_003134.csv
+daten_20250315_003210.csv
+daten_20250315_003238.csv
+daten_20250315_003307.csv
+daten_20250315_003319.csv
+daten_20250315_003343.csv
+daten_20250315_003406.csv
+daten_20250315_003424.csv
+daten_20250315_003443.csv
+daten_20250315_003456.csv
+daten_20250315_003534.csv
+daten_20250315_003559.csv
+daten_20250315_003641.csv
+daten_20250315_003700.csv
+daten_20250315_003716.csv
+daten_20250315_003732.csv
+daten_20250315_003751.csv
+daten_20250315_003821.csv
+daten_20250315_003841.csv
+daten_20250315_003914.csv
+daten_20250315_003927.csv
+daten_20250315_003951.csv
+daten_20250315_004019.csv
+daten_20250315_004051.csv
+daten_20250315_004120.csv
+daten_20250315_004149.csv
+daten_20250315_004213.csv
+daten_20250315_004251.csv
+daten_20250315_004316.csv
+daten_20250315_004348.csv
+daten_20250315_004415.csv
+daten_20250315_004428.csv
+daten_20250315_004449.csv
+daten_20250315_004501.csv
+daten_20250315_004516.csv
+daten_20250315_004538.csv
+daten_20250315_004629.csv
+daten_20250315_004703.csv
+daten_20250315_004719.csv
+daten_20250315_004735.csv
+daten_20250315_004812.csv
+daten_20250315_004854.csv
+daten_20250315_004919.csv
+daten_20250315_004930.csv
+daten_20250315_005002.csv
+daten_20250315_005028.csv
+daten_20250315_005056.csv
+daten_20250315_005112.csv
+daten_20250315_005128.csv
+daten_20250315_005142.csv
+daten_20250315_005206.csv
+daten_20250315_005241.csv
+daten_20250315_005310.csv
+daten_20250315_005324.csv
+daten_20250315_005335.csv
+daten_20250315_005414.csv
+daten_20250315_005442.csv
+daten_20250315_005513.csv
+daten_20250315_005543.csv
+daten_20250315_005557.csv
+daten_20250315_005612.csv
+daten_20250315_005626.csv
+daten_20250315_005647.csv
+daten_20250315_005718.csv
+daten_20250315_005756.csv
+daten_20250315_005813.csv
+daten_20250315_005836.csv
+daten_20250315_005852.csv
+daten_20250315_005909.csv
+daten_20250315_005926.csv
+daten_20250315_005946.csv
+daten_20250315_010009.csv
+daten_20250315_010039.csv
+daten_20250315_010202.csv
+daten_20250315_010222.csv
+daten_20250315_010234.csv
+daten_20250315_010257.csv
+daten_20250315_010323.csv
+daten_20250315_010347.csv
+daten_20250315_010407.csv
+daten_20250315_010428.csv
+daten_20250315_010449.csv
+daten_20250315_010521.csv
+daten_20250315_010600.csv
+daten_20250315_010615.csv
+daten_20250315_010629.csv
+daten_20250315_010653.csv
+daten_20250315_010719.csv
+daten_20250315_010739.csv
+daten_20250315_010759.csv
+daten_20250315_010828.csv
+daten_20250315_010842.csv
+daten_20250315_010900.csv
+daten_20250315_010936.csv
+daten_20250315_010958.csv
+daten_20250315_011010.csv
+daten_20250315_011052.csv
+daten_20250315_011120.csv
+daten_20250315_011129.csv
+daten_20250315_011152.csv
+daten_20250315_011209.csv
+daten_20250315_011223.csv
+daten_20250315_011236.csv
+daten_20250315_011251.csv
+daten_20250315_011301.csv
+daten_20250315_011314.csv
+daten_20250315_011342.csv
+daten_20250315_011411.csv
+daten_20250315_011444.csv
+daten_20250315_011458.csv
+logfile
+pv.root
+pv_cfg.py
