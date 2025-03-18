@@ -12,7 +12,7 @@ global base_path
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 base_path = "experimental_run_101"
 log_filename = f"{base_path}_{timestamp}.log"
-log_path = os.path.join("/work/msaxer/ba", log_filename)
+log_path = os.path.join("/work/frejalom/ba", log_filename)
 
 # Set up logging to file and console
 logging.basicConfig(
@@ -31,7 +31,7 @@ def create_directory(path):
     Args:
         path (str): The path of the directory to create.
     """
-    path = os.path.join("/work/msaxer/ba", path)
+    path = os.path.join("/work/frejalom/ba", path)
     if not os.path.exists(path):
         os.makedirs(path)
         logging.info(f"Directory created: {path}")

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the base directory
-BASE_DIR="/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_14/experimental_run_14"
+BASE_DIR="/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_8"
 
 # Navigate to the base directory
 cd "$BASE_DIR" || { echo "Failed to navigate to $BASE_DIR"; exit 1; }
@@ -18,11 +18,11 @@ for DATASET_TYPE in $DATASET_TYPES; do
     echo "Processing dataset type: $DATASET_TYPE"
 
     # Iterate over each overlap (0, 10, 20, etc.)
-    for OVERLAP in 30 31 32 33 34 35 36 37 38 39 40; do
+    for OVERLAP in 0 40 50 60; do
         echo "  Processing overlap: $OVERLAP"
 
         # Iterate over each blocksize (256, 512, 1024, etc.)
-        for BLOCKSIZE in 512 1024; do
+        for BLOCKSIZE in 256 512 1024; do
             echo "    Processing blocksize: $BLOCKSIZE"
 
             # Initialize an empty array to collect ROOT files to combine

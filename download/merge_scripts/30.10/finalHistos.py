@@ -219,6 +219,7 @@ root_files = [
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_21/SToMuMu_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_21/TTbar_overlap_40_blocksize_512.root",
     # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_21/ZMM_overlap_40_blocksize_512.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/PrimaryVertexAnalyzer/test/test.root",
 
 ]
 
@@ -231,7 +232,7 @@ subset_colors = {
     "experimental_run_7": ROOT.kGray,  # Set experimental_run_7 files to gray color
     "experimental_run_16": ROOT.kBlack,
 }
-savefolder = "Report/Speed"
+savefolder = "TestHistograms/280225"
 
 # Distinct colors for individual files if not grouping by dataset
 distinct_colors = [
@@ -426,6 +427,6 @@ for hist_name in histogram_names + ratio_names:
 
     # Update and save canvas
     safe_hist_name = hist_name.replace(" ", "_").replace("/", "_")
-    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/combinedHistograms/{savefolder}/combined_{safe_hist_name}_mintreckweight55b512TTbar_histograms.pdf"
+    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/combinedHistograms/{savefolder}/combined_{safe_hist_name}.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
