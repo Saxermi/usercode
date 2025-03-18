@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_9"
+base_path = "experimental_run_101"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer/ba", log_filename)
 
@@ -79,8 +79,8 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     cmd = [
         "sbatch",
         bash_script,
-    #  "-n",
-     # "500",
+      "-n",
+     "50",
         "-d",
         sample,
         "-o",
@@ -125,10 +125,10 @@ def main():
         "Subset_TTbar_01" , "Subset_TTbar_02", 
     ]
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0,0.4,0.5,0.6]  # Add negative overlaps here
+    overlaps = [0,0.3,0.4,0.5]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [ 256,512, 1024]
+    blocksizes = [128,256, 512]
     #blocksizes = [ 512,]
 
     # If in test mode, only submit two jobs, one with notify and one without
