@@ -218,7 +218,7 @@ parameters["maxEta"] = cms.double(4.0)
 process.load('Configuration.StandardSequences.Services_cff')
 process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
 process.load('FWCore.MessageService.MessageLogger_cfi')
-process.MessageLogger.cerr.FwkReport.reportEvery = 1000   # don't be too noisy
+process.MessageLogger.cerr.FwkReport.reportEvery = 1#000   # don't be too noisy
 process.load('Configuration.EventContent.EventContent_cff')
 process.load('SimGeneral.MixingModule.mixNoPU_cfi')
 process.load('Configuration.StandardSequences.MagneticField_cff')
