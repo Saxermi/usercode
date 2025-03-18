@@ -355,19 +355,19 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PURecoVsSimZPosition);
    
     // SE tracks purity
-    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Track Purity; Track Purity [%];Count", 1000, 0, 101);
+    TH1F *SETracksPurity = new TH1F("SETracksPurity", "SE Track Assignment Purity; Track Assignment Purity [%]; Count", 1000, 0, 101);
     addn(h, SETracksPurity);
 
     // SE tracks Efficiency
-    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Track Efficiency; Track Efficiency [%];Count", 1000, 0, 101);
+    TH1F *SETracksEfficiency = new TH1F("SETracksEfficiency", "SE Track Assignment Efficiency; Track Assignment Efficiency [%]; Count", 1000, 0, 101);
     addn(h, SETracksEfficiency);
 
     // PU tracks purity
-    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Purity; Track Purity [%];Count", 1000, 0, 101);
+    TH1F *PUTracksPurity = new TH1F("PUTracksPurity", "PU Tracks Assignment Purity; Track Assignment Purity [%]; Count", 1000, 0, 101);
     addn(h, PUTracksPurity);
 
     // PU tracks Efficiency
-    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Efficiency, Track Efficiency [%];Count", 1000, 0, 101);
+    TH1F *PUTracksEfficiency = new TH1F("PUTracksEfficiency", "PU Tracks Assignment Efficiency, Track Assignment Efficiency [%]; Count", 1000, 0, 101);
     addn(h, PUTracksEfficiency);
 
     // SE residual
@@ -378,7 +378,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUResidual);
 
     // PU Confusion Matrix
-      TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Count of Simulated  PU Vertex Reconstructed as 1 Vertex vs. Position; Reconstructed Vertex Z-Position; Count", 1000, -30, 30);
+      TH1F *PUConfusionMatrixCategorialC1 = new TH1F("reco_vs_true_z_position_hist_categorial_c1", "Count of Simulated PU Vertex Reconstructed as 1 Vertex vs. Position; Reconstructed Vertex Z-Position; Count", 1000, -30, 30);
       addn(h, PUConfusionMatrixCategorialC1);
       // new histogram
       // definition of an 2H histogram
@@ -405,7 +405,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // Definition of the 2D histogram, which shows the PU purity as a function of the z axis and additonally displays the block borders
       TH2F* PUTracksPurityBlock =
           new TH2F("PUTracksPurityBlock",
-                   "PU Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Purity [%]",
+                   "PU Track Assignment Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Assignment Purity [%]",
                    1000,
                    -30,
                    30,
@@ -417,7 +417,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
       // Definition of the 2D histogram, which shows the SE purity as a function of the z axis and additonally displays the block borders
       TH2F* SETracksPurityBlock =
           new TH2F("SETracksPurityBlock",
-                   "SE Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Purity [%]",
+                   "SE Assignment Purity vs  Z-Position; Z-Position of Reconstructed Vertex [cm]; Track Assignment Purity [%]",
                    1000,
                    -30,
                    30,
@@ -449,31 +449,31 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block
-    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "PU Track Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 0, 100);
+    TProfile* PUBlockBordersvsPurityprofile = new TProfile("PUBlockBordersvsPurityprofile", "PU Track Assignment Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -10, 10, 0, 100);
 
     addn(h, PUBlockBordersvsPurityprofile);
 
   // definition of histogramm that shows the purity as a function of the distance to the nearest block
-    TProfile* PURandomBlockBordersvsPurityprofile = new TProfile("PURandomBlockBordersvsPurityprofile", "PU Track Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 0, 100);
+    TProfile* PURandomBlockBordersvsPurityprofile = new TProfile("PURandomBlockBordersvsPurityprofile", "PU Track Assignment Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -10, 10, 0, 100);
 
     addn(h, PURandomBlockBordersvsPurityprofile);
 
 
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -10, 10, 1000, 0, 100);
+    TH2F* PUBlockBordersvsPurity  = new TH2F("PUBlockBordersvsPurity", "PU Track Assignment Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -10, 10, 1000, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsPurity );
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "PU Track Efficency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -10, 10, 0, 100);
-    addn(h, PUBlockBordersvsEfficencyprofile);
+    // definition of histogramm that shows the track Efficiency as a function of the distance to the neirgest block
+    TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "PU Track Assignment Efficiency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -10, 10, 0, 100);
+    addn(h, PUBlockBordersvsEfficiencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "PU Track Efficency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -10, 10, 1000,  0, 100);
+    TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "PU Track Assignment Efficiency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -10, 10, 1000,  0, 100);
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUBlockBordersvsEfficency);
 
-    TH2F* PURandomBlockBordersvsEfficency   = new TH2F("PURandomBlockBordersvsEfficency", "PU Track Efficency vs. Random kBlockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -10, 10, 1000,  0, 100);
+    TH2F* PURandomBlockBordersvsEfficency   = new TH2F("PURandomBlockBordersvsEfficency", "PU Track Assignment Efficiency vs. Random kBlockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -10, 10, 1000,  0, 100);
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PURandomBlockBordersvsEfficency);
 
@@ -483,22 +483,22 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
      // definition of histogramm that shows the purity as a function of the distance to the nearest block for PU
-    TProfile* PUDeterBlockBordersvsPurityprofile = new TProfile("PUDeterBlockBordersvsPurityprofile", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+    TProfile* PUDeterBlockBordersvsPurityprofile = new TProfile("PUDeterBlockBordersvsPurityprofile", "PU Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 0, 101);
 
     addn(h, PUDeterBlockBordersvsPurityprofile);
 
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUDeterBlockBordersvsPurity  = new TH2F("PUDeterBlockBordersvsPurity", "PU Track Purity vs. Distance to Closest Blockborders; Distance to Closest Deterministic Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* PUDeterBlockBordersvsPurity  = new TH2F("PUDeterBlockBordersvsPurity", "PU Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Deterministic Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUDeterBlockBordersvsPurity );
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* PUDeterBlockBordersvsEfficencyprofile  = new TProfile("PUDeterBlockBordersvsEfficencyprofile", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+    // definition of histogramm that shows the track Efficiency as a function of the distance to the neirgest block
+    TProfile* PUDeterBlockBordersvsEfficencyprofile  = new TProfile("PUDeterBlockBordersvsEfficencyprofile", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 0, 100);
 
     addn(h, PUDeterBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for SEDeterBlockBordersvsEfficency
-    TH2F* PUDeterBlockBordersvsEfficency   = new TH2F("PUDeterBlockBordersvsEfficency", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* PUDeterBlockBordersvsEfficency   = new TH2F("PUDeterBlockBordersvsEfficency", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUDeterBlockBordersvsEfficency);
@@ -506,119 +506,119 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     // ZOOM IN FOR distance to closest block border for PU
 
       // definition of histogramm that shows the purity as a function of the distance to the nearest block zoom to -1 to 1
-      TProfile* PUBlockBordersvsPurityprofile1 = new TProfile("PUBlockBordersvsPurityprofile1", "PU Track Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 0, 100);
+      TProfile* PUBlockBordersvsPurityprofile1 = new TProfile("PUBlockBordersvsPurityprofile1", "PU Track Assignment Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -1, 1, 0, 100);
 
       addn(h, PUBlockBordersvsPurityprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurity1
-      TH2F* PUBlockBordersvsPurity1  = new TH2F("PUBlockBordersvsPurity1", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 1000, 0, 100);
+      TH2F* PUBlockBordersvsPurity1  = new TH2F("PUBlockBordersvsPurity1", "PU Track Assignment Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -1, 1, 1000, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsPurity1 );
 
         // Define a TH2F histogram for PURandomBlockBordersvsPurity1
-      TH2F* PURandomBlockBordersvsPurity1  = new TH2F("PURandomBlockBordersvsPurity1", "PU Track Purity vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 1000, 0, 100);
+      TH2F* PURandomBlockBordersvsPurity1  = new TH2F("PURandomBlockBordersvsPurity1", "PU Track Assignment Purity vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -1, 1, 1000, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PURandomBlockBordersvsPurity1 );
            // definition of histogramm that shows the purity as a function of the distance to the nearest block zoom to -1 to 1
-      TProfile* PURandomBlockBordersvsPurityprofile1 = new TProfile("PURandomBlockBordersvsPurityprofile1", "PU Track Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -1, 1, 0, 100);
+      TProfile* PURandomBlockBordersvsPurityprofile1 = new TProfile("PURandomBlockBordersvsPurityprofile1", "PU Track Assignment Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -1, 1, 0, 100);
 
       addn(h, PURandomBlockBordersvsPurityprofile1);
 
       // Define a TH2F histogram for PURandomBlockBordersvsPurity5
-      TH2F* PURandomBlockBordersvsPurity5  = new TH2F("PURandomBlockBordersvsPurity5", "PU Track Purity vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -5, 5, 1000, 0, 100);
+      TH2F* PURandomBlockBordersvsPurity5  = new TH2F("PURandomBlockBordersvsPurity5", "PU Track Assignment Purity vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -5, 5, 1000, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PURandomBlockBordersvsPurity5 );
            // definition of histogramm that shows the purity as a function of the distance to the nearest block zoom to -5 to 5
-      TProfile* PURandomBlockBordersvsPurityprofile5 = new TProfile("PURandomBlockBordersvsPurityprofile5", "PU Track Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -5, 5, 0, 100);
+      TProfile* PURandomBlockBordersvsPurityprofile5 = new TProfile("PURandomBlockBordersvsPurityprofile5", "PU Track Assignment Purity vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -5, 5, 0, 100);
 
       addn(h, PURandomBlockBordersvsPurityprofile5);
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PUBlockBordersvsEfficencyprofile1  = new TProfile("PUBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PUBlockBordersvsEfficencyprofile1  = new TProfile("PUBlockBordersvsEfficencyprofile1", "PU Track Assignment Efficiency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -1, 1, 0, 100);
       addn(h, PUBlockBordersvsEfficencyprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PURandomBlockBordersvsEfficency1   = new TH2F("PURandomBlockBordersvsEfficency1", "PU Track Efficency vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 1000,  0, 100);
+      TH2F* PURandomBlockBordersvsEfficency1   = new TH2F("PURandomBlockBordersvsEfficency1", "PU Track Assignment Efficiency vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -1, 1, 1000,  0, 100);
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PURandomBlockBordersvsEfficency1);
-       // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PURandomBlockBordersvsEfficencyprofile1  = new TProfile("PURandomBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 0, 100);
+       // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PURandomBlockBordersvsEfficencyprofile1  = new TProfile("PURandomBlockBordersvsEfficencyprofile1", "PU Track Assignment Efficiency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -1, 1, 0, 100);
       addn(h, PURandomBlockBordersvsEfficencyprofile1);
       //
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PURandomBlockBordersvsEfficency5   = new TH2F("PURandomBlockBordersvsEfficency5", "PU Track Efficency vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -5, 5, 1000,  0, 100);
+      TH2F* PURandomBlockBordersvsEfficency5   = new TH2F("PURandomBlockBordersvsEfficency5", "PU Track Assignment Efficiency vs. Random Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -5, 5, 1000,  0, 100);
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PURandomBlockBordersvsEfficency5);
-       // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PURandomBlockBordersvsEfficencyprofile5  = new TProfile("PURandomBlockBordersvsEfficencyprofile5", "PU Track Efficency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -5, 5, 0, 100);
+       // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PURandomBlockBordersvsEfficencyprofile5  = new TProfile("PURandomBlockBordersvsEfficencyprofile5", "PU Track Assignment Efficiency vs. Random Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -5, 5, 0, 100);
       addn(h, PURandomBlockBordersvsEfficencyprofile5);
       
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PUBlockBordersvsEfficency1   = new TH2F("PUBlockBordersvsEfficency1", "PU Track Efficency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -1, 1, 1000,  0, 100);
+      TH2F* PUBlockBordersvsEfficency1   = new TH2F("PUBlockBordersvsEfficency1", "PU Track Assignment Efficiency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -1, 1, 1000,  0, 100);
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsEfficency1);
 
       // now one for random profiles
 
       // definition of histogramm that shows the purity as a function of the distance to the nearest block for -5 to 5
-      TProfile* PUBlockBordersvsPurityprofile5 = new TProfile("PUBlockBordersvsPurityprofile5", "PU Track Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -5, 5, 0, 100);
+      TProfile* PUBlockBordersvsPurityprofile5 = new TProfile("PUBlockBordersvsPurityprofile5", "PU Track Assignment Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -5, 5, 0, 100);
 
       addn(h, PUBlockBordersvsPurityprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* PUBlockBordersvsPurity5  = new TH2F("PUBlockBordersvsPurity5", "PU Track Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -5, 5, 1000, 0, 100);
+      TH2F* PUBlockBordersvsPurity5  = new TH2F("PUBlockBordersvsPurity5", "PU Track Assignment Purity vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -5, 5, 1000, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsPurity5 );
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PUBlockBordersvsEfficencyprofile5  = new TProfile("PUBlockBordersvsEfficencyprofile5", "PU Track Efficency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -5, 5, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PUBlockBordersvsEfficencyprofile5  = new TProfile("PUBlockBordersvsEfficencyprofile5", "PU Track Assignment Efficiency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -5, 5, 0, 100);
       addn(h, PUBlockBordersvsEfficencyprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PUBlockBordersvsEfficency5   = new TH2F("PUBlockBordersvsEfficency5", "PU Track Efficency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Efficency [%]", 1000, -5, 5, 1000,  0, 100);
+      TH2F* PUBlockBordersvsEfficency5   = new TH2F("PUBlockBordersvsEfficency5", "PU Track Assignment Efficiency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -5, 5, 1000,  0, 100);
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUBlockBordersvsEfficency5);
 
       //beginn deterministic
-      TProfile* PUDeterBlockBordersvsPurityprofile1 = new TProfile("PUDeterBlockBordersvsPurityprofile1", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+      TProfile* PUDeterBlockBordersvsPurityprofile1 = new TProfile("PUDeterBlockBordersvsPurityprofile1", "PU Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 0, 101);
 
       addn(h, PUDeterBlockBordersvsPurityprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* PUDeterBlockBordersvsPurity1  = new TH2F("PUDeterBlockBordersvsPurity1", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* PUDeterBlockBordersvsPurity1  = new TH2F("PUDeterBlockBordersvsPurity1", "PU Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUDeterBlockBordersvsPurity1 );
 
            // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-      TProfile* PUDeterBlockBordersvsPurityprofile5 = new TProfile("PUDeterBlockBordersvsPurityprofile5", "PU Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+      TProfile* PUDeterBlockBordersvsPurityprofile5 = new TProfile("PUDeterBlockBordersvsPurityprofile5", "PU Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 0, 101);
 
       addn(h, PUDeterBlockBordersvsPurityprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* PUDeterBlockBordersvsPurity5  = new TH2F("PUDeterBlockBordersvsPurity5", "PU Track Purity vs. Distance to Closest  Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* PUDeterBlockBordersvsPurity5  = new TH2F("PUDeterBlockBordersvsPurity5", "PU Track Assignment Purity vs. Distance to Closest  Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUDeterBlockBordersvsPurity5 );
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PUDeterBlockBordersvsEfficencyprofile1  = new TProfile("PUDeterBlockBordersvsEfficencyprofile1", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PUDeterBlockBordersvsEfficencyprofile1  = new TProfile("PUDeterBlockBordersvsEfficencyprofile1", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 0, 100);
 
       addn(h, PUDeterBlockBordersvsEfficencyprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PUDeterBlockBordersvsEfficency1   = new TH2F("PUDeterBlockBordersvsEfficency1", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest  Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* PUDeterBlockBordersvsEfficency1   = new TH2F("PUDeterBlockBordersvsEfficency1", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest  Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUDeterBlockBordersvsEfficency1);
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* PUDeterBlockBordersvsEfficencyprofile5  = new TProfile("PUDeterBlockBordersvsEfficencyprofile5", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* PUDeterBlockBordersvsEfficencyprofile5  = new TProfile("PUDeterBlockBordersvsEfficencyprofile5", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 0, 100);
 
       addn(h, PUDeterBlockBordersvsEfficencyprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* PUDeterBlockBordersvsEfficency5   = new TH2F("PUDeterBlockBordersvsEfficency5", "PU Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* PUDeterBlockBordersvsEfficency5   = new TH2F("PUDeterBlockBordersvsEfficency5", "PU Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, PUDeterBlockBordersvsEfficency5);
 
-   // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+   // definition of histogramm that shows the Efficiency as a function of the distance to the neirgest block
     TProfile* PUBlockBordersvsZdeltayprofile  = new TProfile("PUBlockBordersvsZdeltayprofile", "PU Vertex Position Difference vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Difference Z-Position of Sim. & Recon. Vertex [cm]", 1000, -10, 10, -0.2, 0.2);
 
     addn(h, PUBlockBordersvsZdeltayprofile);
@@ -629,46 +629,46 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUBlockBordersvsZdelta );
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "PU Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 1000, -20, 20, 0, 100);
+    TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "PU Track Assignment Purity vs. Z-Position Profile; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 0, 100);
 
     addn(h, PUPurityVsZaxisprofile);
     // Define a TH2F histogram for PUPurityVsZaxis
-    TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "PU Track Purity vs. Z-Position; Z-Position [cm]; Track Purity [%]", 1000, -20, 20, 1000, 0, 100);
+    TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "PU Track Assignment Purity vs. Z-Position; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 1000, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUPurityVsZaxis );
 
-    TProfile* PUPurityVsNumTracks = new TProfile("PUPurityVsNumTracks", "PU Track Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+    TProfile* PUPurityVsNumTracks = new TProfile("PUPurityVsNumTracks", "PU Track Assignment Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Assignment Purity [%]", 1000, 0, 4, 0, 100);
 
     addn(h, PUPurityVsNumTracks);
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "SE Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 1000, -20, 20, 0, 100);
+    TProfile* SEEfficiencyVsZaxisProfile = new TProfile("SEEfficiencyVsZaxisProfile", "SE Track Assignment Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Assignment Efficiency [%]", 1000, -20, 20, 0, 100);
 
     addn(h, SEEfficiencyVsZaxisProfile);
     // Define a TH2F histogram for SEEfficiencyVsZaxis
-    TH2F* SEEfficiencyVsZaxis  = new TH2F("SEEfficiencyVsZaxis", "SE Track Efficiency vs. Z-Position; Z-Position [cm]; Track Efficiency [%]", 1000, -20, 20, 100, 0, 100);
+    TH2F* SEEfficiencyVsZaxis  = new TH2F("SEEfficiencyVsZaxis", "SE Track Assignment Efficiency vs. Z-Position; Z-Position [cm]; Track Assignment Efficiency [%]", 1000, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEEfficiencyVsZaxis );
 
-    // SE track efficiency vs number of tracks
-    TProfile* SEEfficiencyVsNumTracks = new TProfile("SEEfficiencyVsNumTracks", "SE Track Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+    // SE Track Assignment Efficiency vs number of tracks
+    TProfile* SEEfficiencyVsNumTracks = new TProfile("SEEfficiencyVsNumTracks", "SE Track Assignment Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Assignment Efficiency [%]", 1000, 0, 4, 0, 100);
 
     addn(h, SEEfficiencyVsNumTracks);
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "PU Track Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 0, 100);
+    TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "PU Track Assignment Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 0, 100);
 
     addn(h, PUEfficiencyVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "PU Track Efficiency vs. Z-Position; Z-Position [cm]; Track Efficiency [%]", 100, -20, 20, 100, 0, 100);
+    TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "PU Track Assignment Efficiency vs. Z-Position; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, PUEfficiencyVsZaxis );
 
-    // PU track efficiency vs number of tracks
-    TProfile* PUEfficiencyVsNumTracks = new TProfile("PUEfficiencyVsNumTracks", "PU Track Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+    // PU Track Assignment Efficiency vs number of tracks
+    TProfile* PUEfficiencyVsNumTracks = new TProfile("PUEfficiencyVsNumTracks", "PU Track Assignment Efficiency vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Assignment Efficiency [%]", 1000, 0, 4, 0, 100);
 
     addn(h, PUEfficiencyVsNumTracks);
 
@@ -688,12 +688,12 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     addn(h, PUResidualNormalized);
 
     // Histogram SE ResolutionVsTrack Purity
-    TH2F *SEResidualVsTrackPurity = new TH2F("SEResidualVsTrackPurity", "SE Residual vs. Track Purity; Resolution [cm]; Track Purity [%]", 100, -0.2, 0.2, 100, 0, 101);
+    TH2F *SEResidualVsTrackPurity = new TH2F("SEResidualVsTrackPurity", "SE Residual vs. Track Assignment Purity; Resolution [cm]; Track Assignment Purity [%]", 100, -0.2, 0.2, 100, 0, 101);
     addn(h, SEResidualVsTrackPurity);
 
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEResidualVsTrackPurityprofile = new TProfile("SEResidualVsTrackPurityprofile", "SE Residual vs. Track Purity; Residual [cm]; Track Purity [%]", 100, -0.2, 0.2, 0, 101);
+    TProfile* SEResidualVsTrackPurityprofile = new TProfile("SEResidualVsTrackPurityprofile", "SE Residual vs. Track Assignment Purity; Residual [cm]; Track Assignment Purity [%]", 100, -0.2, 0.2, 0, 101);
 
     addn(h, SEResidualVsTrackPurityprofile);
 
@@ -701,68 +701,68 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -15, 15, 0, 101);
+    TProfile* SEBlockBordersvsPurityprofile = new TProfile("SEBlockBordersvsPurityprofile", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -15, 15, 0, 101);
 
     addn(h, SEBlockBordersvsPurityprofile);
 
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 1000, -15, 15, 100, 0, 100);
+    TH2F* SEBlockBordersvsPurity  = new TH2F("SEBlockBordersvsPurity", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsPurity );
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+    // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+    TProfile* SEBlockBordersvsEfficencyprofile  = new TProfile("SEBlockBordersvsEfficencyprofile", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 0, 100);
 
     addn(h, SEBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SEBlockBordersvsEfficency   = new TH2F("SEBlockBordersvsEfficency", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEBlockBordersvsEfficency);
 
     // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SERandomBlockBordersvsPurityprofile = new TProfile("SERandomBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+    TProfile* SERandomBlockBordersvsPurityprofile = new TProfile("SERandomBlockBordersvsPurityprofile", "SE Track Assignment Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 0, 101);
 
     addn(h, SERandomBlockBordersvsPurityprofile);
 
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SERandomBlockBordersvsPurity  = new TH2F("SERandomBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SERandomBlockBordersvsPurity  = new TH2F("SERandomBlockBordersvsPurity", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SERandomBlockBordersvsPurity );
 
-    // SE track purity versus number of tracks
-    TProfile* SEPurityVsNumTracks = new TProfile("SEPurityVsNumTracks", "SE Track Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Purity [%]", 1000, 0, 4, 0, 100);
+    // SE Track Assignment Purity versus number of tracks
+    TProfile* SEPurityVsNumTracks = new TProfile("SEPurityVsNumTracks", "SE Track Assignment Purity vs. Log of Number of Associated Tracks; Log10(Number of Associated Tracks); Track Assignment Purity [%]", 1000, 0, 4, 0, 100);
     addn(h,SEPurityVsNumTracks);
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* SERandomBlockBordersvsEfficencyprofile  = new TProfile("SERandomBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+    // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+    TProfile* SERandomBlockBordersvsEfficencyprofile  = new TProfile("SERandomBlockBordersvsEfficencyprofile", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 0, 100);
 
     addn(h, SERandomBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-    TH2F* SERandomBlockBordersvsEfficency   = new TH2F("SERandomBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SERandomBlockBordersvsEfficency   = new TH2F("SERandomBlockBordersvsEfficency", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SERandomBlockBordersvsEfficency);
 
    // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-    TProfile* SEDeterBlockBordersvsPurityprofile = new TProfile("SEDeterBlockBordersvsPurityprofile", "SE Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -15, 15, 0, 101);
+    TProfile* SEDeterBlockBordersvsPurityprofile = new TProfile("SEDeterBlockBordersvsPurityprofile", "SE Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 0, 101);
 
     addn(h, SEDeterBlockBordersvsPurityprofile);
 
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEDeterBlockBordersvsPurity  = new TH2F("SEDeterBlockBordersvsPurity", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Deterministic Blockborder [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SEDeterBlockBordersvsPurity  = new TH2F("SEDeterBlockBordersvsPurity", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Deterministic Blockborder [cm]; Track Assignment Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEDeterBlockBordersvsPurity );
 
-    // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-    TProfile* SEDeterBlockBordersvsEfficencyprofile  = new TProfile("SEDeterBlockBordersvsEfficencyprofile", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 0, 100);
+    // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+    TProfile* SEDeterBlockBordersvsEfficencyprofile  = new TProfile("SEDeterBlockBordersvsEfficencyprofile", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 0, 100);
 
     addn(h, SEDeterBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for SEDeterBlockBordersvsEfficency
-    TH2F* SEDeterBlockBordersvsEfficency   = new TH2F("SEDeterBlockBordersvsEfficency", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SEDeterBlockBordersvsEfficency   = new TH2F("SEDeterBlockBordersvsEfficency", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEDeterBlockBordersvsEfficency);
@@ -771,11 +771,11 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
 
     // definition of histogramm that shows the purity as a function of z axis position
-    TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "SE Track Purity vs. Z-Position Profile; Z-Position [cm]; Track Purity [%]", 100, -15, 15, 0, 100);
+    TProfile* SEPurityVsZaxisProfile = new TProfile("SEPurityVsZaxisProfile", "SE Track Assignment Purity vs. Z-Position Profile; Z-Position [cm]; Track Assignment Purity [%]", 100, -15, 15, 0, 100);
 
     addn(h, SEPurityVsZaxisProfile);
     // Define a TH2F histogram for PUBlockBordersvsPurity
-    TH2F* SEPurityVsZaxis  = new TH2F("SEPurityVsZaxis", "SE Track Purity vs. Z-Position; Z-Position [cm]; Track Purity [%]", 100, -15, 15, 100, 0, 100);
+    TH2F* SEPurityVsZaxis  = new TH2F("SEPurityVsZaxis", "SE Track Assignment Purity vs. Z-Position; Z-Position [cm]; Track Assignment Purity [%]", 100, -15, 15, 100, 0, 100);
 
     // Adding the 2D histogram to a collection or for further processing
     addn(h, SEPurityVsZaxis );
@@ -783,128 +783,128 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // ZOOM IN for SE Track purity/efficiency
       // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-      TProfile* SEBlockBordersvsPurityprofile1 = new TProfile("SEBlockBordersvsPurityprofile1", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+      TProfile* SEBlockBordersvsPurityprofile1 = new TProfile("SEBlockBordersvsPurityprofile1", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 0, 101);
 
       addn(h, SEBlockBordersvsPurityprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SEBlockBordersvsPurity1  = new TH2F("SEBlockBordersvsPurity1", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SEBlockBordersvsPurity1  = new TH2F("SEBlockBordersvsPurity1", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEBlockBordersvsPurity1 );
 
       // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-      TProfile* SEBlockBordersvsPurityprofile5 = new TProfile("SEBlockBordersvsPurityprofile5", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+      TProfile* SEBlockBordersvsPurityprofile5 = new TProfile("SEBlockBordersvsPurityprofile5", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 0, 101);
 
       addn(h, SEBlockBordersvsPurityprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SEBlockBordersvsPurity5  = new TH2F("SEBlockBordersvsPurity5", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SEBlockBordersvsPurity5  = new TH2F("SEBlockBordersvsPurity5", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEBlockBordersvsPurity5 );
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SEBlockBordersvsEfficencyprofile1  = new TProfile("SEBlockBordersvsEfficencyprofile1", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SEBlockBordersvsEfficencyprofile1  = new TProfile("SEBlockBordersvsEfficencyprofile1", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 0, 100);
 
       addn(h, SEBlockBordersvsEfficencyprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SEBlockBordersvsEfficency1   = new TH2F("SEBlockBordersvsEfficency1", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SEBlockBordersvsEfficency1   = new TH2F("SEBlockBordersvsEfficency1", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEBlockBordersvsEfficency1);
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SEBlockBordersvsEfficencyprofile5  = new TProfile("SEBlockBordersvsEfficencyprofile5", "SE Track Efficency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SEBlockBordersvsEfficencyprofile5  = new TProfile("SEBlockBordersvsEfficencyprofile5", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 0, 100);
 
       addn(h, SEBlockBordersvsEfficencyprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SEBlockBordersvsEfficency5   = new TH2F("SEBlockBordersvsEfficency5", "SE Track Efficency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SEBlockBordersvsEfficency5   = new TH2F("SEBlockBordersvsEfficency5", "SE Track Assignment Efficiency vs. Distance to Closest Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEBlockBordersvsEfficency5);
       //random blockborders
 
 
-      TProfile* SERandomBlockBordersvsPurityprofile1 = new TProfile("SERandomBlockBordersvsPurityprofile1", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+      TProfile* SERandomBlockBordersvsPurityprofile1 = new TProfile("SERandomBlockBordersvsPurityprofile1", "SE Track Assignment Purity vs. Distance to Closest Random Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 0, 101);
 
       addn(h, SERandomBlockBordersvsPurityprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SERandomBlockBordersvsPurity1  = new TH2F("SERandomBlockBordersvsPurity1", "SE Track Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SERandomBlockBordersvsPurity1  = new TH2F("SERandomBlockBordersvsPurity1", "SE Track Assignment Purity vs. Distance to Closest Blockborders; Distance to Closest Random Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SERandomBlockBordersvsPurity1 );
 
            // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-      TProfile* SERandomBlockBordersvsPurityprofile5 = new TProfile("SERandomBlockBordersvsPurityprofile5", "SE Track Purity vs. Distance to Closest Random Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+      TProfile* SERandomBlockBordersvsPurityprofile5 = new TProfile("SERandomBlockBordersvsPurityprofile5", "SE Track Assignment Purity vs. Distance to Closest Random Blockborders; Distance to Closest  Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 0, 101);
 
       addn(h, SERandomBlockBordersvsPurityprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SERandomBlockBordersvsPurity5  = new TH2F("SERandomBlockBordersvsPurity5", "SE Track Purity vs. Distance to Closest  Random Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SERandomBlockBordersvsPurity5  = new TH2F("SERandomBlockBordersvsPurity5", "SE Track Assignment Purity vs. Distance to Closest  Random Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SERandomBlockBordersvsPurity5 );
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SERandomBlockBordersvsEfficencyprofile1  = new TProfile("SERandomBlockBordersvsEfficencyprofile1", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SERandomBlockBordersvsEfficencyprofile1  = new TProfile("SERandomBlockBordersvsEfficencyprofile1", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 0, 100);
 
       addn(h, SERandomBlockBordersvsEfficencyprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SERandomBlockBordersvsEfficency1   = new TH2F("SERandomBlockBordersvsEfficency1", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest  Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SERandomBlockBordersvsEfficency1   = new TH2F("SERandomBlockBordersvsEfficency1", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder; Distance to Closest  Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SERandomBlockBordersvsEfficency1);
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SERandomBlockBordersvsEfficencyprofile5  = new TProfile("SERandomBlockBordersvsEfficencyprofile5", "SE Track Efficency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SERandomBlockBordersvsEfficencyprofile5  = new TProfile("SERandomBlockBordersvsEfficencyprofile5", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 0, 100);
 
       addn(h, SERandomBlockBordersvsEfficencyprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SERandomBlockBordersvsEfficency5   = new TH2F("SERandomBlockBordersvsEfficency5", "SE Track Efficency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SERandomBlockBordersvsEfficency5   = new TH2F("SERandomBlockBordersvsEfficency5", "SE Track Assignment Efficiency vs. Distance to Closest Random Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SERandomBlockBordersvsEfficency5);
 //beginn deterministic
-TProfile* SEDeterBlockBordersvsPurityprofile1 = new TProfile("SEDeterBlockBordersvsPurityprofile1", "SE Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -1, 1, 0, 101);
+TProfile* SEDeterBlockBordersvsPurityprofile1 = new TProfile("SEDeterBlockBordersvsPurityprofile1", "SE Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 0, 101);
 
       addn(h, SEDeterBlockBordersvsPurityprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SEDeterBlockBordersvsPurity1  = new TH2F("SEDeterBlockBordersvsPurity1", "SE Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SEDeterBlockBordersvsPurity1  = new TH2F("SEDeterBlockBordersvsPurity1", "SE Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Assignment Purity [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEDeterBlockBordersvsPurity1 );
 
            // definition of histogramm that shows the purity as a function of the distance to the nearest block for SE
-      TProfile* SEDeterBlockBordersvsPurityprofile5 = new TProfile("SEDeterBlockBordersvsPurityprofile5", "SE Track Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Purity [%]", 100, -5, 5, 0, 101);
+      TProfile* SEDeterBlockBordersvsPurityprofile5 = new TProfile("SEDeterBlockBordersvsPurityprofile5", "SE Track Assignment Purity vs. Distance to Closest Deterministic Blockborders; Distance to Closest  Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 0, 101);
 
       addn(h, SEDeterBlockBordersvsPurityprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurity
-      TH2F* SEDeterBlockBordersvsPurity5  = new TH2F("SEDeterBlockBordersvsPurity5", "SE Track Purity vs. Distance to Closest  Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Purity [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SEDeterBlockBordersvsPurity5  = new TH2F("SEDeterBlockBordersvsPurity5", "SE Track Assignment Purity vs. Distance to Closest  Deterministic Blockborders; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEDeterBlockBordersvsPurity5 );
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SEDeterBlockBordersvsEfficencyprofile1  = new TProfile("SEDeterBlockBordersvsEfficencyprofile1", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SEDeterBlockBordersvsEfficencyprofile1  = new TProfile("SEDeterBlockBordersvsEfficencyprofile1", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 0, 100);
 
       addn(h, SEDeterBlockBordersvsEfficencyprofile1);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SEDeterBlockBordersvsEfficency1   = new TH2F("SEDeterBlockBordersvsEfficency1", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest  Blockborder [cm]; Track Efficency [%]", 100, -1, 1, 100, 0, 100);
+      TH2F* SEDeterBlockBordersvsEfficency1   = new TH2F("SEDeterBlockBordersvsEfficency1", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest  Blockborder [cm]; Track Assignment Efficiency [%]", 100, -1, 1, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEDeterBlockBordersvsEfficency1);
 
-      // definition of histogramm that shows the track efficency as a function of the distance to the neirgest block
-      TProfile* SEDeterBlockBordersvsEfficencyprofile5  = new TProfile("SEDeterBlockBordersvsEfficencyprofile5", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 0, 100);
+      // definition of histogramm that shows the Track Assignment Efficiency as a function of the distance to the neirgest block
+      TProfile* SEDeterBlockBordersvsEfficencyprofile5  = new TProfile("SEDeterBlockBordersvsEfficencyprofile5", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 0, 100);
 
       addn(h, SEDeterBlockBordersvsEfficencyprofile5);
       // Define a TH2F histogram for PUBlockBordersvsPurityprofile
-      TH2F* SEDeterBlockBordersvsEfficency5   = new TH2F("SEDeterBlockBordersvsEfficency5", "SE Track Efficency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Efficency [%]", 100, -5, 5, 100, 0, 100);
+      TH2F* SEDeterBlockBordersvsEfficency5   = new TH2F("SEDeterBlockBordersvsEfficency5", "SE Track Assignment Efficiency vs. Distance to Closest Deterministic Blockborder; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 100, -5, 5, 100, 0, 100);
 
       // Adding the 2D histogram to a collection or for further processing
       addn(h, SEDeterBlockBordersvsEfficency5);
 
 
 
-    // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+    // definition of histogramm that shows the Efficiency as a function of the distance to the neirgest block
       TProfile* PUBlockBordersvsFakeVertProfi =
           new TProfile("PUBlockBordersvsFakeVertProfi",
                        "PU Fake Vertices Distance Closest Blockborder vs. Z-Position; Distance to Closest Blockborder [cm]; Z-Position",
@@ -917,7 +917,7 @@ TProfile* SEDeterBlockBordersvsPurityprofile1 = new TProfile("SEDeterBlockBorder
       addn(h, PUBlockBordersvsFakeVertProfi);
 
       // ZOOM IN for Fake Vertex vs Block borders
-        // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+        // definition of histogramm that shows the Efficiency as a function of the distance to the neirgest block
         TProfile* PUBlockBordersvsFakeVertProfi1 =
             new TProfile("PUBlockBordersvsFakeVertProfi1",
                         "PU Fake Vertices Distance Closest Blockborder vs. Z-Position; Distance to Closest Blockborder [cm]; Z-Position",
@@ -928,7 +928,7 @@ TProfile* SEDeterBlockBordersvsPurityprofile1 = new TProfile("SEDeterBlockBorder
                           20);
 
         addn(h, PUBlockBordersvsFakeVertProfi1);
-        // definition of histogramm that shows the efficency as a function of the distance to the neirgest block
+        // definition of histogramm that shows the Efficiency as a function of the distance to the neirgest block
         TProfile* PUBlockBordersvsFakeVertProfi5 =
             new TProfile("PUBlockBordersvsFakeVertProfi5",
                         "PU Fake Vertices Distance Closest Blockborder vs. Z-Position; Distance to Closest Blockborder [cm]; Z-Position",
@@ -1063,6 +1063,18 @@ TProfile* SEDeterBlockBordersvsPurityprofile1 = new TProfile("SEDeterBlockBorder
       TProfile*  SEReconNumTracksBlock1 = new TProfile("SEReconNumTracksBlock1", "SE: Log of Associated Tracks to Recon. Vertices versus Block Border Distance; Closest Block Border Distance [cm]; Log10(Number of Tracks)", 1000, -1, 1 ,0, 4);
       addn(h, SEReconNumTracksBlock1);
 
+      // Zoom in closer to blockborders
+      TProfile* PUBlockBordersvsPurityprofile05 = new TProfile("PUBlockBordersvsPurityprofile05", "PU Track Assignment Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -0.5, 0.5, 0, 100);
+      addn(h, PUBlockBordersvsPurityprofile05);
+
+      TProfile* PUBlockBordersvsEfficiencyprofile05 = new TProfile("PUBlockBordersvsEfficiencyprofile05", "PU Track Assignment Efficiency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -0.5, 0.5, 0, 100);
+      addn(h, PUBlockBordersvsEfficiencyprofile05);
+
+      TProfile* SEBlockBordersvsPurityprofile05 = new TProfile("SEBlockBordersvsPurityprofile05", "SE Track Assignment Purity vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Purity [%]", 1000, -0.5, 0.5, 0, 100);
+      addn(h, SEBlockBordersvsPurityprofile05);
+
+      TProfile* SEBlockBordersvsEfficiencyprofile05 = new TProfile("SEBlockBordersvsEfficiencyprofile05", "SE Track Assignment Efficiency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -0.5, 0.5, 0, 100);
+      addn(h, SEBlockBordersvsEfficiencyprofile05);
 
 
       // Return to the base directory to maintain proper organization
@@ -5237,6 +5249,12 @@ std::vector<float> DeterBlockBorders = {
       return;
   }
 
+  // Zoom in of blockborder vs purity
+  TProfile* SEBlockBordersvsPurityprofile05 = dynamic_cast<TProfile*>(h["efficiency/SEBlockBordersvsPurityprofile05"]);
+  if (!SEBlockBordersvsPurityprofile05) {
+      std::cerr << "Error: Histogram SEBlockBordersvsPurityprofile05 not found!" << std::endl;
+      return;
+  }
 
   // Retrieve SEDeterBlockBordersvsPurityprofile5
   TProfile* SEDeterBlockBordersvsPurityprofile5 = dynamic_cast<TProfile*>(h["efficiency/SEDeterBlockBordersvsPurityprofile5"]);
@@ -5368,6 +5386,10 @@ std::vector<float> DeterBlockBorders = {
 
         SEPurityVsNumTracks->Fill(log10(numTracks), purity);
 
+        if (abs(distance) < 0.5) {
+          SEBlockBordersvsPurityprofile05->Fill(distance, purity);
+        }
+
     }
 
     // histogram for SE track efficiency
@@ -5382,6 +5404,13 @@ std::vector<float> DeterBlockBorders = {
     TProfile* SEBlockBordersvsEfficencyprofile = dynamic_cast<TProfile*>(h["efficiency/SEBlockBordersvsEfficencyprofile"]);
     if (!SEBlockBordersvsEfficencyprofile) {
         std::cerr << "Error: Histogram SEBlockBordersvsEfficencyprofile not found!" << std::endl;
+        return;
+    }
+
+    // Retrieve SEBlockBordersvsEfficencyprofile05
+    TProfile* SEBlockBordersvsEfficiencyprofile05 = dynamic_cast<TProfile*>(h["efficiency/SEBlockBordersvsEfficiencyprofile05"]);
+    if (!SEBlockBordersvsEfficiencyprofile05) {
+        std::cerr << "Error: Histogram SEBlockBordersvsEfficiencyprofile05 not found!" << std::endl;
         return;
     }
 
@@ -5609,6 +5638,10 @@ std::vector<float> DeterBlockBorders = {
 
         SEEfficiencyVsNumTracks->Fill(log10(matchedVtx.tracks.size()), efficiency);
 
+        if (abs(distance) < 0.5) {
+          SEBlockBordersvsEfficiencyprofile05->Fill(distance, efficiency);
+        }
+
     }
 
 
@@ -5742,8 +5775,14 @@ std::vector<float> DeterBlockBorders = {
     }
 
     TProfile* PUPurityVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsNumTracks"]);
-      if (!PUPurityVsNumTracks) {
-        std::cerr << "Error: Histogram PUPurityVsNumTracks not found!" << std::endl;
+    if (!PUPurityVsNumTracks) {
+      std::cerr << "Error: Histogram PUPurityVsNumTracks not found!" << std::endl;
+      return;
+    }
+    // Retrieve Close up of track assignment purity
+    TProfile* PUBlockBordersvsPurityprofile05 = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsPurityprofile05"]);
+    if (!PUBlockBordersvsPurityprofile05) {
+        std::cerr << "Error: Histogram PUBlockBordersvsPurityprofile05 not found!" << std::endl;
         return;
     }
 
@@ -5753,49 +5792,49 @@ std::vector<float> DeterBlockBorders = {
         unsigned int numMatchedTracks = 0;
         unsigned int numTracks = matchedVtx.tracks.size();
 
-          // Loop through the reconstructed tracks in the matched vertex
-          for (auto tv : matchedVtx.tracks) {
-              // Check if the track is matched to a simulated event
-              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
-              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+        // Loop through the reconstructed tracks in the matched vertex
+        for (auto tv : matchedVtx.tracks) {
+            // Check if the track is matched to a simulated event
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
 
-              // Check if the track is correctly assigned to the signal vertex
-              bool correctly_assigned = (tk_sim == matchedVtx.sim);
-              if (correctly_assigned) {
-                  numMatchedTracks++;
-              }
-          }
+            // Check if the track is correctly assigned to the signal vertex
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+                numMatchedTracks++;
+            }
+        }
 
-          // Calculate the purity as the fraction of correctly matched tracks
-          float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
-          purity = purity * 100;
+        // Calculate the purity as the fraction of correctly matched tracks
+        float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
+        purity = purity * 100;
 
-          // Fill the histogram with the calculated purity
-          PUTracksPurity->Fill(purity);
-          // calculate the distance to the nearest block border
-          float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
-          //calculate the distance to the nearest random blockborder
-          float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
-          //cout << "nearestrandomdistance :" << randomdistance << std::endl;
-          float deterministicdistance = nearestBlockAndDistance(matchedVtx.z(), DeterBlockBorders).second;
+        // Fill the histogram with the calculated purity
+        PUTracksPurity->Fill(purity);
+        // calculate the distance to the nearest block border
+        float distance = nearestBlockAndDistance(matchedVtx.z(), blockborders).second;
+        //calculate the distance to the nearest random blockborder
+        float randomdistance = nearestBlockAndDistance(matchedVtx.z(), randomblockborders).second;
+        //cout << "nearestrandomdistance :" << randomdistance << std::endl;
+        float deterministicdistance = nearestBlockAndDistance(matchedVtx.z(), DeterBlockBorders).second;
 
 
-          // Fill the histograms with the calculated purity
-          PUBlockBordersvsPurity->Fill(distance, purity);
-          PUBlockBordersvsPurityprofile->Fill(distance, purity);
-          PURandomBlockBordersvsPurityprofile->Fill(randomdistance, purity);
-          PURandomBlockBordersvsPurity1->Fill(randomdistance, purity);
-          PURandomBlockBordersvsPurityprofile1->Fill(randomdistance, purity);
-          PURandomBlockBordersvsPurity5->Fill(randomdistance, purity);
-          PURandomBlockBordersvsPurityprofile5->Fill(randomdistance, purity);
-          PUBlockBordersvsPurity1->Fill(distance, purity);
-          PUBlockBordersvsPurityprofile1->Fill(distance, purity);
-          PUPurityVsNumTracks->Fill(log10(numTracks), purity);
-          
-          PUBlockBordersvsPurity5->Fill(distance, purity);
-          PUBlockBordersvsPurityprofile5->Fill(distance, purity);
-          PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
-          PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
+        // Fill the histograms with the calculated purity
+        PUBlockBordersvsPurity->Fill(distance, purity);
+        PUBlockBordersvsPurityprofile->Fill(distance, purity);
+        PURandomBlockBordersvsPurityprofile->Fill(randomdistance, purity);
+        PURandomBlockBordersvsPurity1->Fill(randomdistance, purity);
+        PURandomBlockBordersvsPurityprofile1->Fill(randomdistance, purity);
+        PURandomBlockBordersvsPurity5->Fill(randomdistance, purity);
+        PURandomBlockBordersvsPurityprofile5->Fill(randomdistance, purity);
+        PUBlockBordersvsPurity1->Fill(distance, purity);
+        PUBlockBordersvsPurityprofile1->Fill(distance, purity);
+        PUPurityVsNumTracks->Fill(log10(numTracks), purity);
+        
+        PUBlockBordersvsPurity5->Fill(distance, purity);
+        PUBlockBordersvsPurityprofile5->Fill(distance, purity);
+        PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
+        PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
 
         PUDeterBlockBordersvsPurityprofile->Fill(deterministicdistance, purity);
         PUDeterBlockBordersvsPurity->Fill(deterministicdistance, purity);
@@ -5807,6 +5846,10 @@ std::vector<float> DeterBlockBorders = {
 
         PUDeterBlockBordersvsPurity5->Fill(deterministicdistance, purity);
         PUDeterBlockBordersvsPurityprofile5->Fill(deterministicdistance, purity);
+
+        if (abs(distance) < 0.5) {
+          PUBlockBordersvsPurityprofile05->Fill(distance, purity);
+        }
       }
     }
 
@@ -5841,7 +5884,12 @@ std::vector<float> DeterBlockBorders = {
         return;
     }
 
-
+    // Retrieve zoom in of blockborders vs track efficiency
+    TProfile* PUBlockBordersvsEfficiencyprofile05 = dynamic_cast<TProfile*>(h["efficiency/PUBlockBordersvsEfficiencyprofile05"]);
+    if (!PUBlockBordersvsEfficiencyprofile05) {
+        std::cerr << "Error: Histogram PUBlockBordersvsEfficiencyprofile05 not found!" << std::endl;
+        return;
+    }
 
 
 
@@ -6033,6 +6081,10 @@ std::vector<float> DeterBlockBorders = {
         PUDeterBlockBordersvsEfficency->Fill(deterministicdistance, efficiency);
         PUDeterBlockBordersvsEfficencyprofile->Fill(deterministicdistance, efficiency);
         PUEfficiencyVsNumTracks->Fill(log10(matchedVtx.tracks.size()), efficiency);
+
+        if (abs(distance) < 0.5) {
+          PUBlockBordersvsEfficiencyprofile05->Fill(distance, efficiency);
+        }
       }
     }
 
