@@ -467,7 +467,7 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
 
     // definition of histogramm that shows the track Efficiency as a function of the distance to the neirgest block
     TProfile* PUBlockBordersvsEfficencyprofile  = new TProfile("PUBlockBordersvsEfficencyprofile", "PU Track Assignment Efficiency vs. Blockborders Distance Profile; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -10, 10, 0, 100);
-    addn(h, PUBlockBordersvsEfficiencyprofile);
+    addn(h, PUBlockBordersvsEfficencyprofile);
     // Define a TH2F histogram for PUBlockBordersvsPurityprofile
     TH2F* PUBlockBordersvsEfficency   = new TH2F("PUBlockBordersvsEfficency", "PU Track Assignment Efficiency vs. Blockborders Distance; Distance to Closest Blockborder [cm]; Track Assignment Efficiency [%]", 1000, -10, 10, 1000,  0, 100);
     // Adding the 2D histogram to a collection or for further processing
