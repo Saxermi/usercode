@@ -155,87 +155,22 @@ histogram_names = [
 
 # List of ROOT files with full path
 root_files = [
-<<<<<<< HEAD
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_30_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_40_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/HiggsGluonFusion_overlap_50_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_30_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_40_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/SToMuMu_overlap_50_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_30_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_40_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/TTbar_overlap_50_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_30_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_40_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_5/ZMM_overlap_50_blocksize_1024.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/HiggsGluonFusion_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/SToMuMu_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/TTbar_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_6/ZMM_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/HiggsGluonFusion_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/SToMuMu_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/TTbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_7/experimental_run_7/ZMM_overlap_40_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_0_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_40_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_15/TTbar_overlap_n40_blocksize_1024.root",
     #"/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_16/TTbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_31_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_32_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_33_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_34_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_35_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_36_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_37_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_38_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_39_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_17/TTbar_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
-#"/t3home/msaxer/cmssw/CMSSW_14_1_0_pre7/src/usercode/PrimaryVertexAnalyzer/test/pv.root"
-"/work/msaxer/ba/experimental_run_1/Subset_TTbar_01/40/512/pvSubset_TTbar_01_OL0.4_BS512_20250228_212321.root"
-=======
-    "/t3home/frejalom/cmssw/CMSSW_14_1_0_pre7/src/usercode/rootFileStorage/experimental_run_16/TTbar_overlap_40_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_0_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_0_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_0_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_40_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_40_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_40_blocksize_1024.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_1024.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_40_blocksize_256.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_40_blocksize_512.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_40_blocksize_1024.root",
     #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_50_blocksize_256.root",
     #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_50_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_50_blocksize_1024.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_50_blocksize_1024.root",
     #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_60_blocksize_256.root",
     #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_60_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_60_blocksize_1024.root",
->>>>>>> 4921108 (combine hist changes)
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_9/TTbar_overlap_60_blocksize_1024.root",
+    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_0_blocksize_256.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_0_blocksize_512.root",
+    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_30_blocksize_512.root",
 ]
 
 # Colors assigned to each subset if grouping by dataset
@@ -244,11 +179,11 @@ subset_colors = {
     "TTbar": ROOT.kBlue,
     "ZMM": ROOT.kGreen + 2,
     "SToMuMu": ROOT.kOrange,
-    "experimental_run_16": ROOT.kGray,
+    "experimental_run_10": ROOT.kGray,
 }
 
 
-savefolder = "blocksize1024"
+savefolder = "experimentalRun25"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -351,7 +286,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
         # Extract filename and match against the regex
         filename = os.path.basename(file_path)
         match = pattern.search(filename)
-        if ("experimental_run_7" in file_path) or ("experimental_run_16" in file_path):
+        if ("experimental_run_10" in file_path) or ("experimental_run_16" in file_path):
             legend_entry = f"{filename.split('_')[0]} no blocks"
         elif match:
             subset_type = match.group(1)  # Process name (e.g., HiggsGluonFusion, TTbar)
