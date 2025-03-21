@@ -1,5 +1,6 @@
 import os
 import math
+import glob
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -7,7 +8,19 @@ from matplotlib.patches import Patch
 from datetime import datetime
 
 # Step 1: Find all downloaded CSV files
-csv_files = [f for f in os.listdir() if f.endswith('.csv')]
+
+def find_csv_files(exp_run_dir, overlap, blocksize):
+    # Build the pattern with a wildcard for the subset directory
+    pattern = os.path.join(exp_run_dir, '*', str(overlap), str(blocksize), '*.csv')
+    csv_files = glob.glob(pattern)
+    return csv_files
+
+# Example usage:
+exp_run_dir = '/work/msaxer/ba/experimental_run_29'
+overlap = 50
+blocksize = 512
+
+csv_files = find_csv_files(exp_run_dir, overlap, blocksize)
 
 if not csv_files:
     print("❌ No CSV files found. Make sure you've downloaded the data before running this script.")
@@ -48,7 +61,7 @@ all_data_df = all_data_df.sort_values("Checkpoint")
 
 # Get the earliest date from filenames
 try:
-    earliest_date = min([datetime.strptime(f[6:20], "%Y%m%d_%H%M%S") for f in csv_files])
+    earliest_date = min([datetime.strptime(os.path.basename(f)[6:20], "%Y%m%d_%H%M%S") for f in csv_files])
 except ValueError:
     print("❌ Error parsing timestamps from filenames. Ensure the format is correct.")
     exit(1)
@@ -100,8 +113,8 @@ stats_text = " | ".join(time_stats) + "    " + created_text
 
 plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
 plt.tight_layout(rect=[0, 0.03, 1, 1])
-plt.savefig("time_per_step.png")
-print("✅ Saved: time_per_step.png")
+plt.savefig(f"time_per_step_overlap_{overlap}_blocksize{blocksize}.png")
+print(f"✅ Saved: time_per_step_overlap_{overlap}_blocksize{blocksize}.png")
 plt.close()
 
 # --------------------------
@@ -132,8 +145,8 @@ stats_text = " | ".join(cluster_stats) + "    " + created_text
 
 plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
 plt.tight_layout(rect=[0, 0.03, 1, 1])
-plt.savefig("size_per_step.png")
-print("✅ Saved: size_per_step.png")
+plt.savefig(f"size_per_step_overlap_{overlap}_blocksize{blocksize}.png")
+print(f"✅ Saved: size_per_step_overlap_{overlap}_blocksize{blocksize}.png")
 plt.close()
 
 # --------------------------
@@ -195,8 +208,8 @@ legend_handles = [Patch(facecolor=time_color, label="Time (µs)"),
 ax1.legend(handles=legend_handles, loc="upper right")
 
 plt.tight_layout(rect=[0, 0.05, 1, 1])
-plt.savefig("time_and_size_overlay.png")
-print("✅ Saved: time_and_size_overlay.png")
+plt.savefig(f"time_and_size_overlay_overlap_{overlap}_blocksize{blocksize}.png")
+print(f"✅ Saved: time_and_size_overlay_overlap_{overlap}_blocksize{blocksize}.png")
 plt.close()
 
 print("✅ All plots saved successfully!")
