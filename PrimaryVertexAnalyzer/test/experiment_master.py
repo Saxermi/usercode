@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_101"
+base_path = "experimental_run_25"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer/ba", log_filename)
 
@@ -79,8 +79,8 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     cmd = [
         "sbatch",
         bash_script,
-      "-n",
-     "50",
+    #  "-n",
+     #"205",
         "-d",
         sample,
         "-o",
