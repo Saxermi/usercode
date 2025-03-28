@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Define the base directory
+BASE_DIR="/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_16"
+
+# Navigate to the base directory
+cd "$BASE_DIR" || { echo "Failed to navigate to $BASE_DIR"; exit 1; }
+echo "Navigated to base directory: $BASE_DIR"
+
+# Get a list of all dataset directories (Subset_XYZ...)
+SUBSET_DIRS=$(find "$BASE_DIR" -maxdepth 1 -type d -name "Subset_*")
+
+# Extract dataset types (e.g., HiggsGluonFusion, TTbar, etc.) without subset number
+DATASET_TYPES=$(find "$BASE_DIR" -maxdepth 1 -type d -name "Subset_*" | sed 's/.*Subset_\([a-zA-Z0-9]*\).*/\1/' | sort | uniq)
+
+# Iterate over each dataset type
+for DATASET_TYPE in $DATASET_TYPES; do
+    echo "Processing dataset type: $DATASET_TYPE"
+
+    # Iterate over each overlap (0, 10, 20, etc.)
+    for OVERLAP in 0 30 40 50; do
+        echo "  Processing overlap: $OVERLAP"
+
+        # Iterate over each blocksize (256, 512, 1024, etc.)
+        for BLOCKSIZE in 128 256 512 1024; do
+            echo "    Processing blocksize: $BLOCKSIZE"
+
+            # Initialize an empty array to collect ROOT files to combine
+            ROOT_FILES=()
+
+            # Iterate over each subset directory and search for matching ROOT files within the same dataset type
+            for SUBSET_DIR in $SUBSET_DIRS; do
+                # Check if the subset directory belongs to the current dataset type
+                if [[ $SUBSET_DIR == *"Subset_${DATASET_TYPE}"* ]]; then
+                    for ROOT_FILE in "$SUBSET_DIR/$OVERLAP/$BLOCKSIZE"/*.root; do
+                        if [ -f "$ROOT_FILE" ]; then
+                            ROOT_FILES+=("$ROOT_FILE")
+                            echo "      Found ROOT file: $ROOT_FILE"
+                        fi
+                    done
+                fi
+            done
+
+            # Combine ROOT files if there are at least two matching files from the same dataset type
+            if [ "${#ROOT_FILES[@]}" -gt 1 ]; then
+                OUTPUT_FILE="$BASE_DIR/${DATASET_TYPE}_overlap_${OVERLAP}_blocksize_${BLOCKSIZE}.root"
+                echo "    Combining ${#ROOT_FILES[@]} files for $DATASET_TYPE with overlap $OVERLAP and blocksize $BLOCKSIZE"
+                echo "    Output file: $OUTPUT_FILE"
+                hadd "$OUTPUT_FILE" "${ROOT_FILES[@]}"
+                if [ $? -eq 0 ]; then
+                    echo "    Successfully combined files into $OUTPUT_FILE"
+                else
+                    echo "    Error occurred while combining files for $DATASET_TYPE with overlap $OVERLAP and blocksize $BLOCKSIZE"
+                fi
+            else
+                echo "    Insufficient matching ROOT files found for $DATASET_TYPE with overlap $OVERLAP and blocksize $BLOCKSIZE. Skipping combination."
+            fi
+        done
+    done
+done
+
+echo "Script completed."
