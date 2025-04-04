@@ -222,9 +222,9 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 1#000   # don't be too noisy
 process.load('Configuration.EventContent.EventContent_cff')
 process.load('SimGeneral.MixingModule.mixNoPU_cfi')
 process.load('Configuration.StandardSequences.MagneticField_cff')
-process.load('Configuration.StandardSequences.RawToDigi_cff')
-process.load('Configuration.StandardSequences.L1Reco_cff')
-process.load('CommonTools.ParticleFlow.EITopPAG_cff')
+process.load('Configuration.StandardSequences.RawToDigi_cff')#
+process.load('Configuration.StandardSequences.L1Reco_cff')#
+process.load('CommonTools.ParticleFlow.EITopPAG_cff')#
 process.load('Configuration.StandardSequences.AlCaRecoStreamsMC_cff')
 process.load('Configuration.StandardSequences.Validation_cff')
 process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
@@ -234,6 +234,10 @@ process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
 
 # use tp
 process.load("SimTracker.TrackAssociation.trackingParticleRecoTrackAsssociation_cfi")
+print(process)
+print("*********************************")
+print(process.tpClusterProducer)
+
 process.theTruth = cms.Sequence(
     process.tpClusterProducer *
     process.quickTrackAssociatorByHits *

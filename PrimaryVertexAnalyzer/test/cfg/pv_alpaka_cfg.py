@@ -1,31 +1,27 @@
 import FWCore.ParameterSet.Config as cms
 
 #from Configuration.Eras.Era_Run3_cff import Run3
-from Configuration.Eras.Era_Phase2_cff import Phase2
 
-#process = cms.Process('PV',Run3)
-process = cms.Process("PV", Phase2)
-process.load('Configuration.Geometry.GeometryExtendedRun4D110Reco_cff')
-
-# import of standard configurations
-process.load('Configuration.StandardSequences.Services_cff')
-process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
-process.load('FWCore.MessageService.MessageLogger_cfi')
-process.load('Configuration.EventContent.EventContent_cff')
-process.load('SimGeneral.MixingModule.mixNoPU_cfi')
-process.load("TrackingTools/TransientTrack/TransientTrackBuilder_cfi")
-
-process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
-process.load('Configuration.StandardSequences.MagneticField_cff')
-process.load('HLTrigger.Configuration.HLT_GRun_cff')
-process.load('Configuration.StandardSequences.EndOfProcess_cff')
-process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
-
-process.load('Configuration.StandardSequences.Accelerators_cff')
-process.load('HeterogeneousCore.AlpakaCore.ProcessAcceleratorAlpaka_cfi')
+from Configuration.StandardSequences.Eras import eras
 from Configuration.AlCa.GlobalTag import GlobalTag
-#process.GlobalTag = GlobalTag(process.GlobalTag, '140X_mcRun3_2023_realistic_v3')
-process.GlobalTag = GlobalTag(process.GlobalTag, "141X_mcRun4_realistic_v3", '')
+
+import sys, os
+import subprocess, shlex
+
+
+def root_path(f):
+    # f is a file path as e.g. das would spit it out:  /store/...../XXX.root
+    # prefers the local version if there is one
+    if os.path.exists( "/pnfs/psi.ch/cms/trivcat/store/user/werdmann" + f):
+        return "root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann" + f
+    elif f.startswith("/eos/cms/store"):
+        return "root://cms-xrd-global.cern.ch//"+ f[len("/eos/cms/"):]
+    else:
+        return "root://xrootd-cms.infn.it/" + f
+
+
+
+
 
 
 
@@ -91,19 +87,91 @@ parameters={  # can be overwritten by arguments of the same name
 }
 info = "alpaka_run4_test"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+process = cms.Process("RERECO", eras.Phase2)
+process.load('Configuration.Geometry.GeometryExtendedRun4D110Reco_cff')
+
+
+
+
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+process.GlobalTag = GlobalTag(process.GlobalTag, "141X_mcRun4_realistic_v3", '')
+parameters["maxEta"] = cms.double(4.0)
+
+
+# import of standard configurations
+process.load('Configuration.StandardSequences.Services_cff')
+process.load('SimGeneral.HepPDTESSource.pythiapdt_cfi')
+process.load('FWCore.MessageService.MessageLogger_cfi')
+process.load('Configuration.EventContent.EventContent_cff')
+process.load('SimGeneral.MixingModule.mixNoPU_cfi')
+process.load("TrackingTools/TransientTrack/TransientTrackBuilder_cfi")
+
+process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+process.load('Configuration.StandardSequences.MagneticField_cff')
+process.load('HLTrigger.Configuration.HLT_GRun_cff')
+process.load('Configuration.StandardSequences.EndOfProcess_cff')
+process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
+##
+
+process.load('Configuration.StandardSequences.RawToDigi_cff')#
+process.load('Configuration.StandardSequences.L1Reco_cff')#
+process.load('CommonTools.ParticleFlow.EITopPAG_cff')#
+process.load('Configuration.StandardSequences.AlCaRecoStreamsMC_cff')
+process.load('Configuration.StandardSequences.Validation_cff')
+process.load('DQMOffline.Configuration.DQMOfflineMC_cff')
+
+process.load('Configuration.StandardSequences.Accelerators_cff')
+process.load('HeterogeneousCore.AlpakaCore.ProcessAcceleratorAlpaka_cfi')
+
+
+
+
+
+
+
+
+
+
+
 # Input files
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring('/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root'),
+    fileNames = cms.untracked.vstring(root_path('/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root')),
     secondaryFileNames = cms.untracked.vstring(),
 )
 
 # use tp
-process.load("SimTracker.TrackAssociation.trackingParticleRecoTrackAsssociation_cfi") # should i add this also to the src files? but it should be there already
+#process.load("SimTracker.TrackAssociation.trackingParticleRecoTrackAsssociation_cfi") # should i add this also to the src files? but it should be there already
+process.load("SimTracker.TrackAssociation.trackingParticleRecoTrackAsssociation_cfi")
+
+print(process)
+print("*************test********************")
+print(process.tpClusterProducer)
 process.theTruth = cms.Sequence(
     process.tpClusterProducer *
     process.quickTrackAssociatorByHits *
     process.trackingParticleRecoTrackAsssociation
 )
+
+process.options = cms.untracked.PSet(
+    allowUnscheduled = cms.untracked.bool(True),
+    wantSummary = cms.untracked.bool(True)
+)
+
 
 process.Timing = cms.Service("Timing", summaryOnly = cms.untracked.bool(True)  )
 
