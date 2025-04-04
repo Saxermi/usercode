@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+#SBATCH --job-name=gpu_job
+#SBATCH --account=gpu_gres
+#SBATCH --partition=gpu
+#SBATCH --gres=gpu:1
+#SBATCH --mem=3000
+#SBATCH --time=0-00:30
+#SBATCH --output=/work/msaxer/ba/gpujob-%N_%j.out
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=michael.saxer@psi.ch
+
+# Create and use scratch dir
+WORKDIR=/scratch/$USER/${SLURM_JOB_ID}
+mkdir -p $WORKDIR
+export TMPDIR=$WORKDIR
+
+# Print job metadata
+echo "CUDA_VISIBLE_DEVICES: $CUDA_VISIBLE_DEVICES"
+echo "SLURM_JOB_ID: $SLURM_JOB_ID"
+echo "RUNNING ON: $HOSTNAME"
+echo "WORKDIR: $WORKDIR"
+
+# Set up CMS environment if needed
+export VO_CMS_SW_DIR=/cvmfs/cms.cern.ch/
+source /cvmfs/cms.cern.ch/cmsset_default.sh
+source /etc/profile.d/grid-env.sh
+export XRD_NETWORKSTACK=IPv4
+
+# If using CMSSW
+STARTDIR=`pwd`
+cd $WORKDIR
+# eval `scram runtime -sh`  # Uncomment if needed for CMSSW
+
+# Copy and run your GPU-based code (e.g., PyTorch/TensorFlow script)
+cp $STARTDIR/test-cuda.py .
+pip install PyTorch
+python3 test-cuda.py > gpu_output.txt
+
+# Copy results to permanent storage
+TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+cp gpu_output.txt /work/msaxer/ba/gpu_output_${TIMESTAMP}.txt
+
+# Clean up
+rm -rf $WORKDIR

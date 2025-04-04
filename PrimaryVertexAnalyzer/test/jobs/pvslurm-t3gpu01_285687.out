@@ -1,0 +1,19 @@
+HOME: /t3home/msaxer
+USER: msaxer
+SLURM_JOB_ID: 285687
+HOSTNAME: t3gpu01
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+----- Begin Fatal Exception 04-Apr-2025 10:52:12 CEST-----------------------
+An exception of category 'ConfigFileReadError' occurred while
+   [0] Processing the python configuration file named pv_alpaka_cfg.py
+Exception Message:
+ unknown python problem occurred.
+AttributeError: 'Process' object has no attribute 'unsortedOfflinePrimaryVertices'
+
+At:
+  pv_alpaka_cfg.py(209): <module>
+
+----- End Fatal Exception -------------------------------------------------
+logfile
+pv_alpaka_cfg.py
+cp: cannot stat 'pv.root': No such file or directory

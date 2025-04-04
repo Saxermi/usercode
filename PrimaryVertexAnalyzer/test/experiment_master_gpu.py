@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_38"
+base_path = "experimental_run_39"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/msaxer/ba", log_filename)
 
@@ -54,7 +54,7 @@ def submit_job(sample, overlap, blocksize, iterating_blocksize=False, notify=Fal
     # sample_name = os.path.splitext(sample)[0]
 
     # Determine which script to use
-    bash_script = "pvslurmmaster_notifyme.bsh" if notify else "pvslurmmaster.bsh"
+    bash_script = "pvslurmmaster_notifyme_gpu.bsh" #if notify else "pvslurmmaster.bsh"
 
     # Calculate the directory name based on overlap (convert to an integer percentage)
     overlap_dir = int(abs(overlap) * 10) * 10  # Converts 0.1 to 10, 0.2 to 20, ..., 0.9 to 90
@@ -128,42 +128,42 @@ def main():
     #]
     subsets = [
     "ttbar_new_1_3_split",
-    "ttbar_new_2_3_split",
-    "ttbar_new_3_3_split",
-    "ttbar_new_4_3_split",
-    "ttbar_new_5_3_split",
-    "ttbar_new_6_3_split",
-    "ttbar_new_7_3_split",
-    "ttbar_new_8_3_split",
-    "ttbar_new_9_3_split",
-    "ttbar_new_10_3_split",
-    "ttbar_new_11_3_split",
-    "ttbar_new_12_3_split",
-    "ttbar_new_13_3_split",
-    "ttbar_new_14_3_split",
-    "ttbar_new_15_3_split",
-    "ttbar_new_16_3_split",
-    "ttbar_new_17_3_split",
-    "ttbar_new_18_3_split",
-    "ttbar_new_19_3_split",
-    "ttbar_new_20_3_split",
-    "ttbar_new_21_3_split",
-    "ttbar_new_22_3_split",
-    "ttbar_new_23_3_split",
-    "ttbar_new_24_3_split",
-    "ttbar_new_25_3_split",
-    "ttbar_new_26_3_split",
-    "ttbar_new_27_3_split",
-    "ttbar_new_28_3_split",
-    "ttbar_new_29_3_split",
-    "ttbar_new_30_3_split",
+    #"ttbar_new_2_3_split",
+    #"ttbar_new_3_3_split",
+    #"ttbar_new_4_3_split",
+    #"ttbar_new_5_3_split",
+    #"ttbar_new_6_3_split",
+    #"ttbar_new_7_3_split",
+    #"ttbar_new_8_3_split",
+    #"ttbar_new_9_3_split",
+    #"ttbar_new_10_3_split",
+    #"ttbar_new_11_3_split",
+    #"ttbar_new_12_3_split",
+    #"ttbar_new_13_3_split",
+    #"ttbar_new_14_3_split",
+    #"ttbar_new_15_3_split",
+    #"ttbar_new_16_3_split",
+    #"ttbar_new_17_3_split",
+    #"ttbar_new_18_3_split",
+    #"ttbar_new_19_3_split",
+    #"ttbar_new_20_3_split",
+    #"ttbar_new_21_3_split",
+    #"ttbar_new_22_3_split",
+    #"ttbar_new_23_3_split",
+    #"ttbar_new_24_3_split",
+    #"ttbar_new_25_3_split",
+    #"ttbar_new_26_3_split",
+    #"ttbar_new_27_3_split",
+    #"ttbar_new_28_3_split",
+    #"ttbar_new_29_3_split",
+    #"ttbar_new_30_3_split",
 ]
 
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0,0.4]  # Add negative overlaps here
+    overlaps = [0]  # Add negative overlaps here
 
     # Block sizes to iterate over
-    blocksizes = [256, 512]
+    blocksizes = [ 512]
     #blocksizes = [ 512,]
 
     # If in test mode, only submit two jobs, one with notify and one without
