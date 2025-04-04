@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Define paths (modify these with your actual paths)
+experiment_folder="/work/frejalom/ba/experimental_run_39"
+dest_256="/work/frejalom/ba/experimental_run_39/o0bs256"
+dest_512="/work/frejalom/ba/experimental_run_39/o0bs512"
+
+# Create destination folders if they do not exist
+mkdir -p "$dest_256"
+mkdir -p "$dest_512"
+
+# Find and copy CSV files from the 256 folders
+find "$experiment_folder" -type f -path "*/0/256/*.csv" -exec cp {} "$dest_256/" \;
+
+# Find and copy CSV files from the 512 folders
+find "$experiment_folder" -type f -path "*/0/512/*.csv" -exec cp {} "$dest_512/" \;
+
+echo "CSV files copied successfully."

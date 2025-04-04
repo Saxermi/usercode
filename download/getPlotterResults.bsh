@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Define source and destination directories
+src_folder="/work/frejalom/ba"
+dest_folder="/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/download/ResultsPlotter39-44"
+
+# Ensure the destination directory exists
+mkdir -p "$dest_folder"
+
+# Change to the source directory to preserve structure relative to it
+cd "$src_folder" || exit 1
+
+# Find all .png files and copy them with their parent directories to the destination
+find . -type f -name '*.png' -exec cp --parents {} "$dest_folder" \;
+
+echo "All .png files copied with directory structure preserved."
