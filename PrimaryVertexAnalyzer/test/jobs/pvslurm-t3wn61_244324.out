@@ -1,0 +1,49 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 244324
+HOSTNAME: t3wn61
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 02-Apr-2025 08:54:14 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+%MSG
+02-Apr-2025 08:54:19 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root
+[2025-04-02 08:54:21.151788 +0200][Error  ][XRootDTransport   ][222866] [storage01.lcg.cscs.ch:1095.0] Authentication with gsi failed: login failed
+[2025-04-02 08:54:21.151910 +0200][Error  ][XRootDTransport   ][222866] [storage01.lcg.cscs.ch:1095.0] No protocols left to try
+[2025-04-02 08:54:21.151930 +0200][Error  ][AsyncSock         ][222866] [storage01.lcg.cscs.ch:1095.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-04-02 08:54:21.152029 +0200][Error  ][PostMaster        ][222866] [storage01.lcg.cscs.ch:1095] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-04-02 08:54:21.152043 +0200][Error  ][PostMaster        ][222866] [storage01.lcg.cscs.ch:1095] Unable to recover: [FATAL] Auth failed.
+[2025-04-02 08:54:21.152053 +0200][Error  ][XRootD            ][222866] [storage01.lcg.cscs.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 02-Apr-2025 08:55:01 CEST pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=696e898c-14cc-4192-b040-5b9416146c95.
+%MSG
+[2025-04-02 08:55:01.937517 +0200][Error  ][XRootDTransport   ][222866] [storage01.lcg.cscs.ch:1095.0] Authentication with gsi failed: login failed
+[2025-04-02 08:55:01.937633 +0200][Error  ][XRootDTransport   ][222866] [storage01.lcg.cscs.ch:1095.0] No protocols left to try
+[2025-04-02 08:55:01.937660 +0200][Error  ][AsyncSock         ][222866] [storage01.lcg.cscs.ch:1095.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-04-02 08:55:01.937771 +0200][Error  ][PostMaster        ][222866] [storage01.lcg.cscs.ch:1095] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-04-02 08:55:01.937796 +0200][Error  ][PostMaster        ][222866] [storage01.lcg.cscs.ch:1095] Unable to recover: [FATAL] Auth failed.
+[2025-04-02 08:55:01.937811 +0200][Error  ][XRootD            ][222866] [storage01.lcg.cscs.ch:1095] Impossible to send message kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 02-Apr-2025 08:55:37 CEST pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=e4bdb6cb-9121-460f-ad0c-63e6f9031c46.
+%MSG
+----- Begin Fatal Exception 02-Apr-2025 08:55:37 CEST-----------------------
+An exception of category 'FileOpenError' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing input source of type PoolSource
+   [2] Calling RootInputFileSequence::initTheFile()
+   [3] Calling StorageFactory::open()
+   [4] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root'
+   Additional Info:
+      [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root could not be opened.
+      [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
+' (errno=3011, code=400). No additional data servers were found.
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&xrdcl.requuid=e4bdb6cb-9121-460f-ad0c-63e6f9031c46
+      [d] Problematic data server: cms-xrd-global.cern.ch:1094
+      [e] Disabled source: cms-xrd-global.cern.ch:1094
+----- End Fatal Exception -------------------------------------------------
+logfile
+pv_cfg.py
+cp: cannot stat 'pv.root': No such file or directory

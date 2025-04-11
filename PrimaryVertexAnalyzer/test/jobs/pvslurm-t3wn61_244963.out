@@ -1,0 +1,1046 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 244963
+HOSTNAME: t3wn61
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 02-Apr-2025 09:57:35 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+%MSG
+02-Apr-2025 09:57:38 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root
+02-Apr-2025 09:57:55 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root
+Begin processing the 1st record. Run 1, Event 7401, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:08.412 CEST
+Begin processing the 2nd record. Run 1, Event 7402, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:26.157 CEST
+Begin processing the 3rd record. Run 1, Event 7403, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:32.027 CEST
+Begin processing the 4th record. Run 1, Event 7404, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:38.440 CEST
+Begin processing the 5th record. Run 1, Event 7405, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:44.309 CEST
+Begin processing the 6th record. Run 1, Event 7406, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:49.615 CEST
+Begin processing the 7th record. Run 1, Event 7407, LumiSection 75 on stream 0 at 02-Apr-2025 09:58:55.635 CEST
+Begin processing the 8th record. Run 1, Event 7408, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:00.656 CEST
+Begin processing the 9th record. Run 1, Event 7409, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:06.483 CEST
+Begin processing the 10th record. Run 1, Event 7410, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:12.794 CEST
+Begin processing the 11th record. Run 1, Event 7411, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:18.490 CEST
+Begin processing the 12th record. Run 1, Event 7412, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:23.862 CEST
+Begin processing the 13th record. Run 1, Event 7413, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:29.269 CEST
+Begin processing the 14th record. Run 1, Event 7414, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:34.497 CEST
+Begin processing the 15th record. Run 1, Event 7415, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:40.138 CEST
+Begin processing the 16th record. Run 1, Event 7416, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:46.205 CEST
+Begin processing the 17th record. Run 1, Event 7417, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:51.251 CEST
+Begin processing the 18th record. Run 1, Event 7418, LumiSection 75 on stream 0 at 02-Apr-2025 09:59:56.976 CEST
+Begin processing the 19th record. Run 1, Event 7419, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:03.052 CEST
+Begin processing the 20th record. Run 1, Event 7420, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:09.415 CEST
+Begin processing the 21st record. Run 1, Event 7421, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:16.021 CEST
+Begin processing the 22nd record. Run 1, Event 7422, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:21.936 CEST
+Begin processing the 23rd record. Run 1, Event 7423, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:27.985 CEST
+Begin processing the 24th record. Run 1, Event 7424, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:34.600 CEST
+Begin processing the 25th record. Run 1, Event 7425, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:40.877 CEST
+Begin processing the 26th record. Run 1, Event 7426, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:46.840 CEST
+[2025-04-02 10:00:50.803239 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 27th record. Run 1, Event 7427, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:51.623 CEST
+Begin processing the 28th record. Run 1, Event 7428, LumiSection 75 on stream 0 at 02-Apr-2025 10:00:57.085 CEST
+Begin processing the 29th record. Run 1, Event 7429, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:02.853 CEST
+Begin processing the 30th record. Run 1, Event 7430, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:09.025 CEST
+Begin processing the 31st record. Run 1, Event 7431, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:14.773 CEST
+Begin processing the 32nd record. Run 1, Event 7432, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:22.083 CEST
+Begin processing the 33rd record. Run 1, Event 7433, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:27.317 CEST
+Begin processing the 34th record. Run 1, Event 7434, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:34.318 CEST
+Begin processing the 35th record. Run 1, Event 7435, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:41.630 CEST
+Begin processing the 36th record. Run 1, Event 7436, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:48.679 CEST
+Begin processing the 37th record. Run 1, Event 7437, LumiSection 75 on stream 0 at 02-Apr-2025 10:01:54.433 CEST
+Begin processing the 38th record. Run 1, Event 7438, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:01.566 CEST
+Begin processing the 39th record. Run 1, Event 7439, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:07.192 CEST
+Begin processing the 40th record. Run 1, Event 7440, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:14.395 CEST
+Begin processing the 41st record. Run 1, Event 7441, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:20.885 CEST
+Begin processing the 42nd record. Run 1, Event 7442, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:26.873 CEST
+Begin processing the 43rd record. Run 1, Event 7443, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:33.720 CEST
+[2025-04-02 10:02:40.265241 +0200][Error  ][PostMaster        ][237418] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 44th record. Run 1, Event 7444, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:41.038 CEST
+Begin processing the 45th record. Run 1, Event 7445, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:47.809 CEST
+Begin processing the 46th record. Run 1, Event 7446, LumiSection 75 on stream 0 at 02-Apr-2025 10:02:54.468 CEST
+Begin processing the 47th record. Run 1, Event 7447, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:01.505 CEST
+Begin processing the 48th record. Run 1, Event 7448, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:08.691 CEST
+Begin processing the 49th record. Run 1, Event 7449, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:15.460 CEST
+Begin processing the 50th record. Run 1, Event 7450, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:22.548 CEST
+Begin processing the 51st record. Run 1, Event 7451, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:29.525 CEST
+Begin processing the 52nd record. Run 1, Event 7452, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:35.346 CEST
+Begin processing the 53rd record. Run 1, Event 7453, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:41.605 CEST
+Begin processing the 54th record. Run 1, Event 7454, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:47.514 CEST
+Begin processing the 55th record. Run 1, Event 7455, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:53.454 CEST
+Begin processing the 56th record. Run 1, Event 7456, LumiSection 75 on stream 0 at 02-Apr-2025 10:03:59.685 CEST
+Begin processing the 57th record. Run 1, Event 7457, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:05.871 CEST
+Begin processing the 58th record. Run 1, Event 7458, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:12.597 CEST
+Begin processing the 59th record. Run 1, Event 7459, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:23.151 CEST
+Begin processing the 60th record. Run 1, Event 7460, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:30.565 CEST
+Begin processing the 61st record. Run 1, Event 7461, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:36.755 CEST
+Begin processing the 62nd record. Run 1, Event 7462, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:43.542 CEST
+Begin processing the 63rd record. Run 1, Event 7463, LumiSection 75 on stream 0 at 02-Apr-2025 10:04:50.206 CEST
+Begin processing the 64th record. Run 1, Event 7464, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:00.075 CEST
+Begin processing the 65th record. Run 1, Event 7465, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:12.869 CEST
+Begin processing the 66th record. Run 1, Event 7466, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:22.465 CEST
+Begin processing the 67th record. Run 1, Event 7467, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:32.087 CEST
+Begin processing the 68th record. Run 1, Event 7468, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:42.809 CEST
+[2025-04-02 10:05:42.829047 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 69th record. Run 1, Event 7469, LumiSection 75 on stream 0 at 02-Apr-2025 10:05:52.420 CEST
+Begin processing the 70th record. Run 1, Event 7470, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:02.301 CEST
+Begin processing the 71st record. Run 1, Event 7471, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:12.959 CEST
+Begin processing the 72nd record. Run 1, Event 7472, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:22.639 CEST
+Begin processing the 73rd record. Run 1, Event 7473, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:35.831 CEST
+Begin processing the 74th record. Run 1, Event 7474, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:45.049 CEST
+Begin processing the 75th record. Run 1, Event 7475, LumiSection 75 on stream 0 at 02-Apr-2025 10:06:58.644 CEST
+Begin processing the 76th record. Run 1, Event 7476, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:11.179 CEST
+Begin processing the 77th record. Run 1, Event 7477, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:22.694 CEST
+Begin processing the 78th record. Run 1, Event 7478, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:31.149 CEST
+Begin processing the 79th record. Run 1, Event 7479, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:39.349 CEST
+Begin processing the 80th record. Run 1, Event 7480, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:49.126 CEST
+Begin processing the 81st record. Run 1, Event 7481, LumiSection 75 on stream 0 at 02-Apr-2025 10:07:57.965 CEST
+Begin processing the 82nd record. Run 1, Event 7482, LumiSection 75 on stream 0 at 02-Apr-2025 10:08:10.171 CEST
+Begin processing the 83rd record. Run 1, Event 7483, LumiSection 75 on stream 0 at 02-Apr-2025 10:08:22.431 CEST
+Begin processing the 84th record. Run 1, Event 7484, LumiSection 75 on stream 0 at 02-Apr-2025 10:08:32.754 CEST
+Begin processing the 85th record. Run 1, Event 7485, LumiSection 75 on stream 0 at 02-Apr-2025 10:08:43.109 CEST
+Begin processing the 86th record. Run 1, Event 7486, LumiSection 75 on stream 0 at 02-Apr-2025 10:08:53.325 CEST
+Begin processing the 87th record. Run 1, Event 7487, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:04.412 CEST
+Begin processing the 88th record. Run 1, Event 7488, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:14.259 CEST
+Begin processing the 89th record. Run 1, Event 7489, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:24.213 CEST
+Begin processing the 90th record. Run 1, Event 7490, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:35.761 CEST
+Begin processing the 91st record. Run 1, Event 7491, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:44.042 CEST
+Begin processing the 92nd record. Run 1, Event 7492, LumiSection 75 on stream 0 at 02-Apr-2025 10:09:54.184 CEST
+Begin processing the 93rd record. Run 1, Event 7493, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:03.334 CEST
+Begin processing the 94th record. Run 1, Event 7494, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:13.773 CEST
+Begin processing the 95th record. Run 1, Event 7495, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:22.872 CEST
+Begin processing the 96th record. Run 1, Event 7496, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:32.795 CEST
+[2025-04-02 10:10:34.859441 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root?tried=+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 97th record. Run 1, Event 7497, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:42.066 CEST
+Begin processing the 98th record. Run 1, Event 7498, LumiSection 75 on stream 0 at 02-Apr-2025 10:10:53.454 CEST
+Begin processing the 99th record. Run 1, Event 7499, LumiSection 75 on stream 0 at 02-Apr-2025 10:11:03.726 CEST
+Begin processing the 100th record. Run 1, Event 7500, LumiSection 75 on stream 0 at 02-Apr-2025 10:11:14.622 CEST
+02-Apr-2025 10:11:21 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c76768ee-3659-480a-8965-fe9f2f97ecf3.root
+02-Apr-2025 10:11:21 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root
+02-Apr-2025 10:11:23 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root
+Begin processing the 101st record. Run 1, Event 3301, LumiSection 34 on stream 0 at 02-Apr-2025 10:11:36.954 CEST
+Begin processing the 102nd record. Run 1, Event 3302, LumiSection 34 on stream 0 at 02-Apr-2025 10:11:46.123 CEST
+Begin processing the 103rd record. Run 1, Event 3303, LumiSection 34 on stream 0 at 02-Apr-2025 10:11:52.545 CEST
+Begin processing the 104th record. Run 1, Event 3304, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:00.054 CEST
+Begin processing the 105th record. Run 1, Event 3305, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:08.681 CEST
+Begin processing the 106th record. Run 1, Event 3306, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:15.108 CEST
+Begin processing the 107th record. Run 1, Event 3307, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:21.680 CEST
+Begin processing the 108th record. Run 1, Event 3308, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:27.316 CEST
+Begin processing the 109th record. Run 1, Event 3309, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:33.509 CEST
+Begin processing the 110th record. Run 1, Event 3310, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:39.978 CEST
+Begin processing the 111th record. Run 1, Event 3311, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:47.281 CEST
+Begin processing the 112th record. Run 1, Event 3312, LumiSection 34 on stream 0 at 02-Apr-2025 10:12:55.454 CEST
+Begin processing the 113th record. Run 1, Event 3313, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:02.341 CEST
+Begin processing the 114th record. Run 1, Event 3314, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:08.881 CEST
+Begin processing the 115th record. Run 1, Event 3315, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:15.121 CEST
+Begin processing the 116th record. Run 1, Event 3316, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:22.682 CEST
+Begin processing the 117th record. Run 1, Event 3317, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:29.353 CEST
+Begin processing the 118th record. Run 1, Event 3318, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:36.278 CEST
+Begin processing the 119th record. Run 1, Event 3319, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:43.990 CEST
+Begin processing the 120th record. Run 1, Event 3320, LumiSection 34 on stream 0 at 02-Apr-2025 10:13:53.922 CEST
+Begin processing the 121st record. Run 1, Event 3321, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:01.711 CEST
+Begin processing the 122nd record. Run 1, Event 3322, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:08.917 CEST
+Begin processing the 123rd record. Run 1, Event 3323, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:18.350 CEST
+[2025-04-02 10:14:25.881134 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 124th record. Run 1, Event 3324, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:28.949 CEST
+Begin processing the 125th record. Run 1, Event 3325, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:40.415 CEST
+Begin processing the 126th record. Run 1, Event 3326, LumiSection 34 on stream 0 at 02-Apr-2025 10:14:50.044 CEST
+Begin processing the 127th record. Run 1, Event 3327, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:00.148 CEST
+Begin processing the 128th record. Run 1, Event 3328, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:09.756 CEST
+Begin processing the 129th record. Run 1, Event 3329, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:20.954 CEST
+Begin processing the 130th record. Run 1, Event 3330, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:29.611 CEST
+Begin processing the 131st record. Run 1, Event 3331, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:39.721 CEST
+Begin processing the 132nd record. Run 1, Event 3332, LumiSection 34 on stream 0 at 02-Apr-2025 10:15:49.436 CEST
+Begin processing the 133rd record. Run 1, Event 3333, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:00.959 CEST
+Begin processing the 134th record. Run 1, Event 3334, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:11.790 CEST
+Begin processing the 135th record. Run 1, Event 3335, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:17.861 CEST
+Begin processing the 136th record. Run 1, Event 3336, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:27.876 CEST
+[2025-04-02 10:16:36.693706 +0200][Error  ][PostMaster        ][237418] [se16.cscs.ch:36239] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-04-02 10:16:37.873813 +0200][Error  ][PostMaster        ][237418] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 137th record. Run 1, Event 3337, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:38.937 CEST
+Begin processing the 138th record. Run 1, Event 3338, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:49.041 CEST
+Begin processing the 139th record. Run 1, Event 3339, LumiSection 34 on stream 0 at 02-Apr-2025 10:16:59.799 CEST
+Begin processing the 140th record. Run 1, Event 3340, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:09.013 CEST
+Begin processing the 141st record. Run 1, Event 3341, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:18.787 CEST
+Begin processing the 142nd record. Run 1, Event 3342, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:28.364 CEST
+Begin processing the 143rd record. Run 1, Event 3343, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:36.716 CEST
+Begin processing the 144th record. Run 1, Event 3344, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:46.273 CEST
+Begin processing the 145th record. Run 1, Event 3345, LumiSection 34 on stream 0 at 02-Apr-2025 10:17:55.695 CEST
+Begin processing the 146th record. Run 1, Event 3346, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:03.654 CEST
+Begin processing the 147th record. Run 1, Event 3347, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:11.393 CEST
+Begin processing the 148th record. Run 1, Event 3348, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:20.501 CEST
+Begin processing the 149th record. Run 1, Event 3349, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:30.229 CEST
+Begin processing the 150th record. Run 1, Event 3350, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:38.912 CEST
+Begin processing the 151st record. Run 1, Event 3351, LumiSection 34 on stream 0 at 02-Apr-2025 10:18:48.704 CEST
+Begin processing the 152nd record. Run 1, Event 3352, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:00.943 CEST
+[2025-04-02 10:19:10.905352 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 153rd record. Run 1, Event 3353, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:11.775 CEST
+Begin processing the 154th record. Run 1, Event 3354, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:21.613 CEST
+Begin processing the 155th record. Run 1, Event 3355, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:31.117 CEST
+Begin processing the 156th record. Run 1, Event 3356, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:41.546 CEST
+Begin processing the 157th record. Run 1, Event 3357, LumiSection 34 on stream 0 at 02-Apr-2025 10:19:50.256 CEST
+Begin processing the 158th record. Run 1, Event 3358, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:01.027 CEST
+Begin processing the 159th record. Run 1, Event 3359, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:12.504 CEST
+Begin processing the 160th record. Run 1, Event 3360, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:21.514 CEST
+Begin processing the 161st record. Run 1, Event 3361, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:28.924 CEST
+Begin processing the 162nd record. Run 1, Event 3362, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:37.845 CEST
+Begin processing the 163rd record. Run 1, Event 3363, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:47.836 CEST
+Begin processing the 164th record. Run 1, Event 3364, LumiSection 34 on stream 0 at 02-Apr-2025 10:20:58.627 CEST
+Begin processing the 165th record. Run 1, Event 3365, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:09.648 CEST
+Begin processing the 166th record. Run 1, Event 3366, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:20.324 CEST
+Begin processing the 167th record. Run 1, Event 3367, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:30.551 CEST
+Begin processing the 168th record. Run 1, Event 3368, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:37.854 CEST
+Begin processing the 169th record. Run 1, Event 3369, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:47.827 CEST
+Begin processing the 170th record. Run 1, Event 3370, LumiSection 34 on stream 0 at 02-Apr-2025 10:21:57.303 CEST
+Begin processing the 171st record. Run 1, Event 3371, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:05.394 CEST
+Begin processing the 172nd record. Run 1, Event 3372, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:12.369 CEST
+Begin processing the 173rd record. Run 1, Event 3373, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:18.462 CEST
+Begin processing the 174th record. Run 1, Event 3374, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:23.897 CEST
+Begin processing the 175th record. Run 1, Event 3375, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:29.729 CEST
+Begin processing the 176th record. Run 1, Event 3376, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:37.247 CEST
+Begin processing the 177th record. Run 1, Event 3377, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:43.893 CEST
+Begin processing the 178th record. Run 1, Event 3378, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:49.254 CEST
+Begin processing the 179th record. Run 1, Event 3379, LumiSection 34 on stream 0 at 02-Apr-2025 10:22:55.892 CEST
+Begin processing the 180th record. Run 1, Event 3380, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:03.952 CEST
+Begin processing the 181st record. Run 1, Event 3381, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:10.274 CEST
+Begin processing the 182nd record. Run 1, Event 3382, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:16.509 CEST
+Begin processing the 183rd record. Run 1, Event 3383, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:24.354 CEST
+Begin processing the 184th record. Run 1, Event 3384, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:31.378 CEST
+Begin processing the 185th record. Run 1, Event 3385, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:36.799 CEST
+Begin processing the 186th record. Run 1, Event 3386, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:42.450 CEST
+Begin processing the 187th record. Run 1, Event 3387, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:49.095 CEST
+Begin processing the 188th record. Run 1, Event 3388, LumiSection 34 on stream 0 at 02-Apr-2025 10:23:55.723 CEST
+Begin processing the 189th record. Run 1, Event 3389, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:02.653 CEST
+[2025-04-02 10:24:05.930596 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 190th record. Run 1, Event 3390, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:07.883 CEST
+Begin processing the 191st record. Run 1, Event 3391, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:15.137 CEST
+Begin processing the 192nd record. Run 1, Event 3392, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:23.130 CEST
+Begin processing the 193rd record. Run 1, Event 3393, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:31.085 CEST
+Begin processing the 194th record. Run 1, Event 3394, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:39.435 CEST
+Begin processing the 195th record. Run 1, Event 3395, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:47.084 CEST
+Begin processing the 196th record. Run 1, Event 3396, LumiSection 34 on stream 0 at 02-Apr-2025 10:24:53.384 CEST
+Begin processing the 197th record. Run 1, Event 3397, LumiSection 34 on stream 0 at 02-Apr-2025 10:25:00.157 CEST
+Begin processing the 198th record. Run 1, Event 3398, LumiSection 34 on stream 0 at 02-Apr-2025 10:25:07.253 CEST
+Begin processing the 199th record. Run 1, Event 3399, LumiSection 34 on stream 0 at 02-Apr-2025 10:25:14.722 CEST
+Begin processing the 200th record. Run 1, Event 3400, LumiSection 34 on stream 0 at 02-Apr-2025 10:25:20.721 CEST
+02-Apr-2025 10:25:26 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/33e13be8-df41-4c6e-a98d-8ef7b66d97c3.root
+02-Apr-2025 10:25:26 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root
+02-Apr-2025 10:25:28 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root
+Begin processing the 201st record. Run 1, Event 6601, LumiSection 67 on stream 0 at 02-Apr-2025 10:25:34.893 CEST
+Begin processing the 202nd record. Run 1, Event 6602, LumiSection 67 on stream 0 at 02-Apr-2025 10:25:43.071 CEST
+Begin processing the 203rd record. Run 1, Event 6603, LumiSection 67 on stream 0 at 02-Apr-2025 10:25:49.226 CEST
+Begin processing the 204th record. Run 1, Event 6604, LumiSection 67 on stream 0 at 02-Apr-2025 10:25:56.173 CEST
+Begin processing the 205th record. Run 1, Event 6605, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:05.301 CEST
+Begin processing the 206th record. Run 1, Event 6606, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:12.721 CEST
+Begin processing the 207th record. Run 1, Event 6607, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:22.580 CEST
+Begin processing the 208th record. Run 1, Event 6608, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:31.368 CEST
+Begin processing the 209th record. Run 1, Event 6609, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:41.658 CEST
+Begin processing the 210th record. Run 1, Event 6610, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:49.158 CEST
+Begin processing the 211th record. Run 1, Event 6611, LumiSection 67 on stream 0 at 02-Apr-2025 10:26:57.661 CEST
+Begin processing the 212th record. Run 1, Event 6612, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:04.653 CEST
+Begin processing the 213th record. Run 1, Event 6613, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:10.169 CEST
+Begin processing the 214th record. Run 1, Event 6614, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:17.736 CEST
+Begin processing the 215th record. Run 1, Event 6615, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:27.265 CEST
+Begin processing the 216th record. Run 1, Event 6616, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:34.334 CEST
+Begin processing the 217th record. Run 1, Event 6617, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:42.113 CEST
+Begin processing the 218th record. Run 1, Event 6618, LumiSection 67 on stream 0 at 02-Apr-2025 10:27:51.313 CEST
+Begin processing the 219th record. Run 1, Event 6619, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:00.962 CEST
+Begin processing the 220th record. Run 1, Event 6620, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:10.047 CEST
+Begin processing the 221st record. Run 1, Event 6621, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:18.325 CEST
+Begin processing the 222nd record. Run 1, Event 6622, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:22.817 CEST
+[2025-04-02 10:28:28.954956 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 223rd record. Run 1, Event 6623, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:29.221 CEST
+Begin processing the 224th record. Run 1, Event 6624, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:35.997 CEST
+Begin processing the 225th record. Run 1, Event 6625, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:43.066 CEST
+Begin processing the 226th record. Run 1, Event 6626, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:50.688 CEST
+Begin processing the 227th record. Run 1, Event 6627, LumiSection 67 on stream 0 at 02-Apr-2025 10:28:56.443 CEST
+Begin processing the 228th record. Run 1, Event 6628, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:04.916 CEST
+Begin processing the 229th record. Run 1, Event 6629, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:11.922 CEST
+Begin processing the 230th record. Run 1, Event 6630, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:19.643 CEST
+Begin processing the 231st record. Run 1, Event 6631, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:28.416 CEST
+Begin processing the 232nd record. Run 1, Event 6632, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:36.731 CEST
+Begin processing the 233rd record. Run 1, Event 6633, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:43.601 CEST
+Begin processing the 234th record. Run 1, Event 6634, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:49.470 CEST
+Begin processing the 235th record. Run 1, Event 6635, LumiSection 67 on stream 0 at 02-Apr-2025 10:29:56.454 CEST
+Begin processing the 236th record. Run 1, Event 6636, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:02.950 CEST
+Begin processing the 237th record. Run 1, Event 6637, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:09.916 CEST
+Begin processing the 238th record. Run 1, Event 6638, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:18.221 CEST
+[2025-04-02 10:30:27.096706 +0200][Error  ][PostMaster        ][237418] [se11.cscs.ch:36316] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 239th record. Run 1, Event 6639, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:27.387 CEST
+Begin processing the 240th record. Run 1, Event 6640, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:37.903 CEST
+[2025-04-02 10:30:42.287760 +0200][Error  ][PostMaster        ][237418] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+Begin processing the 241st record. Run 1, Event 6641, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:47.728 CEST
+Begin processing the 242nd record. Run 1, Event 6642, LumiSection 67 on stream 0 at 02-Apr-2025 10:30:57.930 CEST
+Begin processing the 243rd record. Run 1, Event 6643, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:05.891 CEST
+Begin processing the 244th record. Run 1, Event 6644, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:13.848 CEST
+Begin processing the 245th record. Run 1, Event 6645, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:20.623 CEST
+Begin processing the 246th record. Run 1, Event 6646, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:26.756 CEST
+Begin processing the 247th record. Run 1, Event 6647, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:34.425 CEST
+Begin processing the 248th record. Run 1, Event 6648, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:41.424 CEST
+Begin processing the 249th record. Run 1, Event 6649, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:49.256 CEST
+Begin processing the 250th record. Run 1, Event 6650, LumiSection 67 on stream 0 at 02-Apr-2025 10:31:56.447 CEST
+Begin processing the 251st record. Run 1, Event 6651, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:02.532 CEST
+Begin processing the 252nd record. Run 1, Event 6652, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:11.346 CEST
+Begin processing the 253rd record. Run 1, Event 6653, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:21.129 CEST
+Begin processing the 254th record. Run 1, Event 6654, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:29.198 CEST
+Begin processing the 255th record. Run 1, Event 6655, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:39.476 CEST
+Begin processing the 256th record. Run 1, Event 6656, LumiSection 67 on stream 0 at 02-Apr-2025 10:32:51.261 CEST
+Begin processing the 257th record. Run 1, Event 6657, LumiSection 67 on stream 0 at 02-Apr-2025 10:33:01.927 CEST
+Begin processing the 258th record. Run 1, Event 6658, LumiSection 67 on stream 0 at 02-Apr-2025 10:33:13.242 CEST
+[2025-04-02 10:33:13.985359 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 259th record. Run 1, Event 6659, LumiSection 67 on stream 0 at 02-Apr-2025 10:33:29.365 CEST
+Begin processing the 260th record. Run 1, Event 6660, LumiSection 67 on stream 0 at 02-Apr-2025 10:33:44.411 CEST
+Begin processing the 261st record. Run 1, Event 6661, LumiSection 67 on stream 0 at 02-Apr-2025 10:33:56.734 CEST
+Begin processing the 262nd record. Run 1, Event 6662, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:08.562 CEST
+Begin processing the 263rd record. Run 1, Event 6663, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:18.836 CEST
+Begin processing the 264th record. Run 1, Event 6664, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:28.323 CEST
+Begin processing the 265th record. Run 1, Event 6665, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:36.525 CEST
+Begin processing the 266th record. Run 1, Event 6666, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:45.395 CEST
+Begin processing the 267th record. Run 1, Event 6667, LumiSection 67 on stream 0 at 02-Apr-2025 10:34:55.806 CEST
+Begin processing the 268th record. Run 1, Event 6668, LumiSection 67 on stream 0 at 02-Apr-2025 10:35:05.404 CEST
+Begin processing the 269th record. Run 1, Event 6669, LumiSection 67 on stream 0 at 02-Apr-2025 10:35:18.733 CEST
+Begin processing the 270th record. Run 1, Event 6670, LumiSection 67 on stream 0 at 02-Apr-2025 10:35:30.804 CEST
+Begin processing the 271st record. Run 1, Event 6671, LumiSection 67 on stream 0 at 02-Apr-2025 10:35:42.069 CEST
+Begin processing the 272nd record. Run 1, Event 6672, LumiSection 67 on stream 0 at 02-Apr-2025 10:35:54.144 CEST
+Begin processing the 273rd record. Run 1, Event 6673, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:04.816 CEST
+Begin processing the 274th record. Run 1, Event 6674, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:16.486 CEST
+Begin processing the 275th record. Run 1, Event 6675, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:27.795 CEST
+Begin processing the 276th record. Run 1, Event 6676, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:38.814 CEST
+Begin processing the 277th record. Run 1, Event 6677, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:48.351 CEST
+Begin processing the 278th record. Run 1, Event 6678, LumiSection 67 on stream 0 at 02-Apr-2025 10:36:58.261 CEST
+Begin processing the 279th record. Run 1, Event 6679, LumiSection 67 on stream 0 at 02-Apr-2025 10:37:06.769 CEST
+Begin processing the 280th record. Run 1, Event 6680, LumiSection 67 on stream 0 at 02-Apr-2025 10:37:15.828 CEST
+Begin processing the 281st record. Run 1, Event 6681, LumiSection 67 on stream 0 at 02-Apr-2025 10:37:27.928 CEST
+Begin processing the 282nd record. Run 1, Event 6682, LumiSection 67 on stream 0 at 02-Apr-2025 10:37:41.441 CEST
+Begin processing the 283rd record. Run 1, Event 6683, LumiSection 67 on stream 0 at 02-Apr-2025 10:37:52.680 CEST
+Begin processing the 284th record. Run 1, Event 6684, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:01.609 CEST
+Begin processing the 285th record. Run 1, Event 6685, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:10.681 CEST
+[2025-04-02 10:38:12.011153 +0200][Error  ][XRootD            ][237418] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 286th record. Run 1, Event 6686, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:20.720 CEST
+Begin processing the 287th record. Run 1, Event 6687, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:30.251 CEST
+Begin processing the 288th record. Run 1, Event 6688, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:38.659 CEST
+Begin processing the 289th record. Run 1, Event 6689, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:46.502 CEST
+Begin processing the 290th record. Run 1, Event 6690, LumiSection 67 on stream 0 at 02-Apr-2025 10:38:55.613 CEST
+Begin processing the 291st record. Run 1, Event 6691, LumiSection 67 on stream 0 at 02-Apr-2025 10:39:04.636 CEST
+Begin processing the 292nd record. Run 1, Event 6692, LumiSection 67 on stream 0 at 02-Apr-2025 10:39:17.609 CEST
+Begin processing the 293rd record. Run 1, Event 6693, LumiSection 67 on stream 0 at 02-Apr-2025 10:39:29.569 CEST
+Begin processing the 294th record. Run 1, Event 6694, LumiSection 67 on stream 0 at 02-Apr-2025 10:39:40.181 CEST
+Begin processing the 295th record. Run 1, Event 6695, LumiSection 67 on stream 0 at 02-Apr-2025 10:39:51.039 CEST
+Begin processing the 296th record. Run 1, Event 6696, LumiSection 67 on stream 0 at 02-Apr-2025 10:40:00.436 CEST
+Begin processing the 297th record. Run 1, Event 6697, LumiSection 67 on stream 0 at 02-Apr-2025 10:40:08.638 CEST
+Begin processing the 298th record. Run 1, Event 6698, LumiSection 67 on stream 0 at 02-Apr-2025 10:40:18.577 CEST
+Begin processing the 299th record. Run 1, Event 6699, LumiSection 67 on stream 0 at 02-Apr-2025 10:40:29.281 CEST
+Begin processing the 300th record. Run 1, Event 6700, LumiSection 67 on stream 0 at 02-Apr-2025 10:40:39.505 CEST
+02-Apr-2025 10:40:46 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/ca5bebbb-7964-43fc-a3f0-30edac55a891.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 2605.19 seconds
+ Time Summary: 
+ - Min event:   3.15444
+ - Max event:   15.5173
+ - Avg event:   6.17896
+ - Total loop:  2561.35
+ - Total init:  43.3421
+ - Total job:   2605.19
+ - Total EventSetup: 11.673
+ - Total non-module: 32.9107
+ Event Throughput: 0.117126 ev/s
+ CPU Summary: 
+ - Total loop:     1497.95
+ - Total init:     34.4224
+ - Total extra:    0
+ - Total children: 0.088513
+ - Total job:      1532.84
+ Processing Summary: 
+ - Number of Events:  300
+ - Number of Global Begin Lumi Calls:  3
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 300 passed = 300 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0        300        300          0          0 MPV
+TrigReport     1    1        300        300          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        300        300          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0        300        300          0          0 tpClusterProducer
+TrigReport     1    1        300        300          0          0 quickTrackAssociatorByHits
+TrigReport     1    2        300        300          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3        300        300          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport        300        300        300          0          0 MPV
+TrigReport        300        300        300          0          0 TriggerResults
+TrigReport        300        300        300          0          0 analyze
+TrigReport        300        300        300          0          0 oldVertexAnalysis
+TrigReport        300        300        300          0          0 quickTrackAssociatorByHits
+TrigReport        300        300        300          0          0 testVertices
+TrigReport        300        300        300          0          0 tpClusterProducer
+TrigReport        300        300        300          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 4.993195
+TimeReport      event loop Real/event = 8.537854
+TimeReport     sum Streams Real/event = 8.427678
+TimeReport efficiency CPU/Real/thread = 0.584830
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   6.178511     6.178511  MPV
+TimeReport   6.178932     6.178932  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.925994     0.925994  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.600105     1.600105  tpClusterProducer
+TimeReport   0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport   0.277543     0.277543  trackingParticleRecoTrackAsssociation
+TimeReport   0.185994     0.185994  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000002     0.000002     0.000002  MPV
+TimeReport   0.000003     0.000003     0.000003  TriggerResults
+TimeReport   0.000015     0.000015     0.000015  analyze
+TimeReport   0.185994     0.185994     0.185994  oldVertexAnalysis
+TimeReport   0.000016     0.000016     0.000016  quickTrackAssociatorByHits
+TimeReport   0.925994     0.925994     0.925994  testVertices
+TimeReport   1.600105     1.600105     1.600105  tpClusterProducer
+TimeReport   0.277543     0.277543     0.277543  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+clusters_20250402_095823.csv
+clusters_20250402_095829.csv
+clusters_20250402_095835.csv
+clusters_20250402_095841.csv
+clusters_20250402_095847.csv
+clusters_20250402_095852.csv
+clusters_20250402_095858.csv
+clusters_20250402_095903.csv
+clusters_20250402_095909.csv
+clusters_20250402_095915.csv
+clusters_20250402_095921.csv
+clusters_20250402_095926.csv
+clusters_20250402_095931.csv
+clusters_20250402_095937.csv
+clusters_20250402_095943.csv
+clusters_20250402_095949.csv
+clusters_20250402_095953.csv
+clusters_20250402_100000.csv
+clusters_20250402_100006.csv
+clusters_20250402_100012.csv
+clusters_20250402_100019.csv
+clusters_20250402_100024.csv
+clusters_20250402_100031.csv
+clusters_20250402_100037.csv
+clusters_20250402_100044.csv
+clusters_20250402_100049.csv
+clusters_20250402_100054.csv
+clusters_20250402_100059.csv
+clusters_20250402_100106.csv
+clusters_20250402_100112.csv
+clusters_20250402_100118.csv
+clusters_20250402_100124.csv
+clusters_20250402_100131.csv
+clusters_20250402_100137.csv
+clusters_20250402_100145.csv
+clusters_20250402_100151.csv
+clusters_20250402_100158.csv
+clusters_20250402_100204.csv
+clusters_20250402_100211.csv
+clusters_20250402_100217.csv
+clusters_20250402_100224.csv
+clusters_20250402_100230.csv
+clusters_20250402_100237.csv
+clusters_20250402_100244.csv
+clusters_20250402_100251.csv
+clusters_20250402_100258.csv
+clusters_20250402_100305.csv
+clusters_20250402_100311.csv
+clusters_20250402_100319.csv
+clusters_20250402_100326.csv
+clusters_20250402_100332.csv
+clusters_20250402_100338.csv
+clusters_20250402_100344.csv
+clusters_20250402_100351.csv
+clusters_20250402_100356.csv
+clusters_20250402_100402.csv
+clusters_20250402_100409.csv
+clusters_20250402_100418.csv
+clusters_20250402_100428.csv
+clusters_20250402_100434.csv
+clusters_20250402_100440.csv
+clusters_20250402_100447.csv
+clusters_20250402_100455.csv
+clusters_20250402_100505.csv
+clusters_20250402_100517.csv
+clusters_20250402_100527.csv
+clusters_20250402_100538.csv
+clusters_20250402_100548.csv
+clusters_20250402_100558.csv
+clusters_20250402_100607.csv
+clusters_20250402_100617.csv
+clusters_20250402_100629.csv
+clusters_20250402_100640.csv
+clusters_20250402_100652.csv
+clusters_20250402_100705.csv
+clusters_20250402_100717.csv
+clusters_20250402_100728.csv
+clusters_20250402_100734.csv
+clusters_20250402_100744.csv
+clusters_20250402_100753.csv
+clusters_20250402_100802.csv
+clusters_20250402_100816.csv
+clusters_20250402_100827.csv
+clusters_20250402_100837.csv
+clusters_20250402_100848.csv
+clusters_20250402_100859.csv
+clusters_20250402_100909.csv
+clusters_20250402_100919.csv
+clusters_20250402_100930.csv
+clusters_20250402_100940.csv
+clusters_20250402_100948.csv
+clusters_20250402_100959.csv
+clusters_20250402_101008.csv
+clusters_20250402_101019.csv
+clusters_20250402_101028.csv
+clusters_20250402_101037.csv
+clusters_20250402_101048.csv
+clusters_20250402_101058.csv
+clusters_20250402_101109.csv
+clusters_20250402_101120.csv
+clusters_20250402_101143.csv
+clusters_20250402_101149.csv
+clusters_20250402_101156.csv
+clusters_20250402_101204.csv
+clusters_20250402_101211.csv
+clusters_20250402_101218.csv
+clusters_20250402_101224.csv
+clusters_20250402_101230.csv
+clusters_20250402_101237.csv
+clusters_20250402_101244.csv
+clusters_20250402_101252.csv
+clusters_20250402_101259.csv
+clusters_20250402_101305.csv
+clusters_20250402_101312.csv
+clusters_20250402_101319.csv
+clusters_20250402_101326.csv
+clusters_20250402_101333.csv
+clusters_20250402_101340.csv
+clusters_20250402_101348.csv
+clusters_20250402_101358.csv
+clusters_20250402_101405.csv
+clusters_20250402_101413.csv
+clusters_20250402_101424.csv
+clusters_20250402_101434.csv
+clusters_20250402_101446.csv
+clusters_20250402_101456.csv
+clusters_20250402_101505.csv
+clusters_20250402_101516.csv
+clusters_20250402_101525.csv
+clusters_20250402_101535.csv
+clusters_20250402_101545.csv
+clusters_20250402_101555.csv
+clusters_20250402_101607.csv
+clusters_20250402_101614.csv
+clusters_20250402_101624.csv
+clusters_20250402_101634.csv
+clusters_20250402_101645.csv
+clusters_20250402_101654.csv
+clusters_20250402_101704.csv
+clusters_20250402_101714.csv
+clusters_20250402_101724.csv
+clusters_20250402_101733.csv
+clusters_20250402_101741.csv
+clusters_20250402_101751.csv
+clusters_20250402_101800.csv
+clusters_20250402_101807.csv
+clusters_20250402_101816.csv
+clusters_20250402_101826.csv
+clusters_20250402_101835.csv
+clusters_20250402_101844.csv
+clusters_20250402_101855.csv
+clusters_20250402_101907.csv
+clusters_20250402_101918.csv
+clusters_20250402_101926.csv
+clusters_20250402_101936.csv
+clusters_20250402_101946.csv
+clusters_20250402_101956.csv
+clusters_20250402_102007.csv
+clusters_20250402_102017.csv
+clusters_20250402_102026.csv
+clusters_20250402_102034.csv
+clusters_20250402_102043.csv
+clusters_20250402_102053.csv
+clusters_20250402_102104.csv
+clusters_20250402_102116.csv
+clusters_20250402_102126.csv
+clusters_20250402_102135.csv
+clusters_20250402_102144.csv
+clusters_20250402_102153.csv
+clusters_20250402_102201.csv
+clusters_20250402_102210.csv
+clusters_20250402_102217.csv
+clusters_20250402_102222.csv
+clusters_20250402_102227.csv
+clusters_20250402_102235.csv
+clusters_20250402_102242.csv
+clusters_20250402_102247.csv
+clusters_20250402_102254.csv
+clusters_20250402_102302.csv
+clusters_20250402_102308.csv
+clusters_20250402_102314.csv
+clusters_20250402_102322.csv
+clusters_20250402_102329.csv
+clusters_20250402_102335.csv
+clusters_20250402_102341.csv
+clusters_20250402_102347.csv
+clusters_20250402_102353.csv
+clusters_20250402_102401.csv
+clusters_20250402_102405.csv
+clusters_20250402_102413.csv
+clusters_20250402_102421.csv
+clusters_20250402_102428.csv
+clusters_20250402_102437.csv
+clusters_20250402_102445.csv
+clusters_20250402_102451.csv
+clusters_20250402_102458.csv
+clusters_20250402_102505.csv
+clusters_20250402_102513.csv
+clusters_20250402_102519.csv
+clusters_20250402_102525.csv
+clusters_20250402_102540.csv
+clusters_20250402_102547.csv
+clusters_20250402_102553.csv
+clusters_20250402_102603.csv
+clusters_20250402_102611.csv
+clusters_20250402_102620.csv
+clusters_20250402_102629.csv
+clusters_20250402_102637.csv
+clusters_20250402_102647.csv
+clusters_20250402_102656.csv
+clusters_20250402_102702.csv
+clusters_20250402_102709.csv
+clusters_20250402_102714.csv
+clusters_20250402_102725.csv
+clusters_20250402_102732.csv
+clusters_20250402_102740.csv
+clusters_20250402_102747.csv
+clusters_20250402_102758.csv
+clusters_20250402_102807.csv
+clusters_20250402_102816.csv
+clusters_20250402_102821.csv
+clusters_20250402_102827.csv
+clusters_20250402_102834.csv
+clusters_20250402_102841.csv
+clusters_20250402_102849.csv
+clusters_20250402_102855.csv
+clusters_20250402_102902.csv
+clusters_20250402_102910.csv
+clusters_20250402_102917.csv
+clusters_20250402_102926.csv
+clusters_20250402_102934.csv
+clusters_20250402_102942.csv
+clusters_20250402_102948.csv
+clusters_20250402_102955.csv
+clusters_20250402_103001.csv
+clusters_20250402_103008.csv
+clusters_20250402_103015.csv
+clusters_20250402_103024.csv
+clusters_20250402_103035.csv
+clusters_20250402_103043.csv
+clusters_20250402_103054.csv
+clusters_20250402_103104.csv
+clusters_20250402_103110.csv
+clusters_20250402_103119.csv
+clusters_20250402_103124.csv
+clusters_20250402_103132.csv
+clusters_20250402_103139.csv
+clusters_20250402_103147.csv
+clusters_20250402_103154.csv
+clusters_20250402_103201.csv
+clusters_20250402_103209.csv
+clusters_20250402_103219.csv
+clusters_20250402_103227.csv
+clusters_20250402_103234.csv
+clusters_20250402_103246.csv
+clusters_20250402_103257.csv
+clusters_20250402_103306.csv
+clusters_20250402_103322.csv
+clusters_20250402_103338.csv
+clusters_20250402_103351.csv
+clusters_20250402_103404.csv
+clusters_20250402_103414.csv
+clusters_20250402_103423.csv
+clusters_20250402_103433.csv
+clusters_20250402_103441.csv
+clusters_20250402_103451.csv
+clusters_20250402_103500.csv
+clusters_20250402_103512.csv
+clusters_20250402_103526.csv
+clusters_20250402_103537.csv
+clusters_20250402_103548.csv
+clusters_20250402_103559.csv
+clusters_20250402_103611.csv
+clusters_20250402_103622.csv
+clusters_20250402_103633.csv
+clusters_20250402_103644.csv
+clusters_20250402_103654.csv
+clusters_20250402_103703.csv
+clusters_20250402_103711.csv
+clusters_20250402_103722.csv
+clusters_20250402_103735.csv
+clusters_20250402_103748.csv
+clusters_20250402_103758.csv
+clusters_20250402_103807.csv
+clusters_20250402_103815.csv
+clusters_20250402_103826.csv
+clusters_20250402_103835.csv
+clusters_20250402_103842.csv
+clusters_20250402_103851.csv
+clusters_20250402_103900.csv
+clusters_20250402_103913.csv
+clusters_20250402_103924.csv
+clusters_20250402_103934.csv
+clusters_20250402_103946.csv
+clusters_20250402_103956.csv
+clusters_20250402_104004.csv
+clusters_20250402_104014.csv
+clusters_20250402_104023.csv
+clusters_20250402_104034.csv
+clusters_20250402_104045.csv
+daten_20250402_095823.csv
+daten_20250402_095829.csv
+daten_20250402_095835.csv
+daten_20250402_095841.csv
+daten_20250402_095847.csv
+daten_20250402_095852.csv
+daten_20250402_095858.csv
+daten_20250402_095903.csv
+daten_20250402_095909.csv
+daten_20250402_095915.csv
+daten_20250402_095921.csv
+daten_20250402_095926.csv
+daten_20250402_095931.csv
+daten_20250402_095937.csv
+daten_20250402_095943.csv
+daten_20250402_095949.csv
+daten_20250402_095953.csv
+daten_20250402_100000.csv
+daten_20250402_100006.csv
+daten_20250402_100012.csv
+daten_20250402_100019.csv
+daten_20250402_100024.csv
+daten_20250402_100031.csv
+daten_20250402_100037.csv
+daten_20250402_100044.csv
+daten_20250402_100049.csv
+daten_20250402_100054.csv
+daten_20250402_100059.csv
+daten_20250402_100106.csv
+daten_20250402_100112.csv
+daten_20250402_100118.csv
+daten_20250402_100124.csv
+daten_20250402_100131.csv
+daten_20250402_100137.csv
+daten_20250402_100145.csv
+daten_20250402_100151.csv
+daten_20250402_100158.csv
+daten_20250402_100204.csv
+daten_20250402_100211.csv
+daten_20250402_100217.csv
+daten_20250402_100224.csv
+daten_20250402_100230.csv
+daten_20250402_100237.csv
+daten_20250402_100244.csv
+daten_20250402_100251.csv
+daten_20250402_100258.csv
+daten_20250402_100305.csv
+daten_20250402_100311.csv
+daten_20250402_100319.csv
+daten_20250402_100326.csv
+daten_20250402_100332.csv
+daten_20250402_100338.csv
+daten_20250402_100344.csv
+daten_20250402_100351.csv
+daten_20250402_100356.csv
+daten_20250402_100402.csv
+daten_20250402_100409.csv
+daten_20250402_100418.csv
+daten_20250402_100428.csv
+daten_20250402_100434.csv
+daten_20250402_100440.csv
+daten_20250402_100447.csv
+daten_20250402_100455.csv
+daten_20250402_100505.csv
+daten_20250402_100517.csv
+daten_20250402_100527.csv
+daten_20250402_100538.csv
+daten_20250402_100548.csv
+daten_20250402_100558.csv
+daten_20250402_100607.csv
+daten_20250402_100617.csv
+daten_20250402_100629.csv
+daten_20250402_100640.csv
+daten_20250402_100652.csv
+daten_20250402_100705.csv
+daten_20250402_100717.csv
+daten_20250402_100728.csv
+daten_20250402_100734.csv
+daten_20250402_100744.csv
+daten_20250402_100753.csv
+daten_20250402_100802.csv
+daten_20250402_100816.csv
+daten_20250402_100827.csv
+daten_20250402_100837.csv
+daten_20250402_100848.csv
+daten_20250402_100859.csv
+daten_20250402_100909.csv
+daten_20250402_100919.csv
+daten_20250402_100930.csv
+daten_20250402_100940.csv
+daten_20250402_100948.csv
+daten_20250402_100959.csv
+daten_20250402_101008.csv
+daten_20250402_101019.csv
+daten_20250402_101028.csv
+daten_20250402_101037.csv
+daten_20250402_101048.csv
+daten_20250402_101058.csv
+daten_20250402_101109.csv
+daten_20250402_101120.csv
+daten_20250402_101143.csv
+daten_20250402_101149.csv
+daten_20250402_101156.csv
+daten_20250402_101204.csv
+daten_20250402_101211.csv
+daten_20250402_101218.csv
+daten_20250402_101224.csv
+daten_20250402_101230.csv
+daten_20250402_101237.csv
+daten_20250402_101244.csv
+daten_20250402_101252.csv
+daten_20250402_101259.csv
+daten_20250402_101305.csv
+daten_20250402_101312.csv
+daten_20250402_101319.csv
+daten_20250402_101326.csv
+daten_20250402_101333.csv
+daten_20250402_101340.csv
+daten_20250402_101348.csv
+daten_20250402_101358.csv
+daten_20250402_101405.csv
+daten_20250402_101413.csv
+daten_20250402_101424.csv
+daten_20250402_101434.csv
+daten_20250402_101446.csv
+daten_20250402_101456.csv
+daten_20250402_101505.csv
+daten_20250402_101516.csv
+daten_20250402_101525.csv
+daten_20250402_101535.csv
+daten_20250402_101545.csv
+daten_20250402_101555.csv
+daten_20250402_101607.csv
+daten_20250402_101614.csv
+daten_20250402_101624.csv
+daten_20250402_101634.csv
+daten_20250402_101645.csv
+daten_20250402_101654.csv
+daten_20250402_101704.csv
+daten_20250402_101714.csv
+daten_20250402_101724.csv
+daten_20250402_101733.csv
+daten_20250402_101741.csv
+daten_20250402_101751.csv
+daten_20250402_101800.csv
+daten_20250402_101807.csv
+daten_20250402_101816.csv
+daten_20250402_101826.csv
+daten_20250402_101835.csv
+daten_20250402_101844.csv
+daten_20250402_101855.csv
+daten_20250402_101907.csv
+daten_20250402_101918.csv
+daten_20250402_101926.csv
+daten_20250402_101936.csv
+daten_20250402_101946.csv
+daten_20250402_101956.csv
+daten_20250402_102007.csv
+daten_20250402_102017.csv
+daten_20250402_102026.csv
+daten_20250402_102034.csv
+daten_20250402_102043.csv
+daten_20250402_102053.csv
+daten_20250402_102104.csv
+daten_20250402_102116.csv
+daten_20250402_102126.csv
+daten_20250402_102135.csv
+daten_20250402_102144.csv
+daten_20250402_102153.csv
+daten_20250402_102201.csv
+daten_20250402_102210.csv
+daten_20250402_102217.csv
+daten_20250402_102222.csv
+daten_20250402_102227.csv
+daten_20250402_102235.csv
+daten_20250402_102242.csv
+daten_20250402_102247.csv
+daten_20250402_102254.csv
+daten_20250402_102302.csv
+daten_20250402_102308.csv
+daten_20250402_102314.csv
+daten_20250402_102322.csv
+daten_20250402_102329.csv
+daten_20250402_102335.csv
+daten_20250402_102341.csv
+daten_20250402_102347.csv
+daten_20250402_102353.csv
+daten_20250402_102401.csv
+daten_20250402_102405.csv
+daten_20250402_102413.csv
+daten_20250402_102421.csv
+daten_20250402_102428.csv
+daten_20250402_102437.csv
+daten_20250402_102445.csv
+daten_20250402_102451.csv
+daten_20250402_102458.csv
+daten_20250402_102505.csv
+daten_20250402_102513.csv
+daten_20250402_102519.csv
+daten_20250402_102525.csv
+daten_20250402_102540.csv
+daten_20250402_102547.csv
+daten_20250402_102553.csv
+daten_20250402_102603.csv
+daten_20250402_102611.csv
+daten_20250402_102620.csv
+daten_20250402_102629.csv
+daten_20250402_102637.csv
+daten_20250402_102647.csv
+daten_20250402_102656.csv
+daten_20250402_102702.csv
+daten_20250402_102709.csv
+daten_20250402_102714.csv
+daten_20250402_102725.csv
+daten_20250402_102732.csv
+daten_20250402_102740.csv
+daten_20250402_102747.csv
+daten_20250402_102758.csv
+daten_20250402_102807.csv
+daten_20250402_102816.csv
+daten_20250402_102821.csv
+daten_20250402_102827.csv
+daten_20250402_102834.csv
+daten_20250402_102841.csv
+daten_20250402_102849.csv
+daten_20250402_102855.csv
+daten_20250402_102902.csv
+daten_20250402_102910.csv
+daten_20250402_102917.csv
+daten_20250402_102926.csv
+daten_20250402_102934.csv
+daten_20250402_102942.csv
+daten_20250402_102948.csv
+daten_20250402_102955.csv
+daten_20250402_103001.csv
+daten_20250402_103008.csv
+daten_20250402_103015.csv
+daten_20250402_103024.csv
+daten_20250402_103035.csv
+daten_20250402_103043.csv
+daten_20250402_103054.csv
+daten_20250402_103104.csv
+daten_20250402_103110.csv
+daten_20250402_103119.csv
+daten_20250402_103124.csv
+daten_20250402_103132.csv
+daten_20250402_103139.csv
+daten_20250402_103147.csv
+daten_20250402_103154.csv
+daten_20250402_103201.csv
+daten_20250402_103209.csv
+daten_20250402_103219.csv
+daten_20250402_103227.csv
+daten_20250402_103234.csv
+daten_20250402_103246.csv
+daten_20250402_103257.csv
+daten_20250402_103306.csv
+daten_20250402_103322.csv
+daten_20250402_103338.csv
+daten_20250402_103351.csv
+daten_20250402_103404.csv
+daten_20250402_103414.csv
+daten_20250402_103423.csv
+daten_20250402_103433.csv
+daten_20250402_103441.csv
+daten_20250402_103451.csv
+daten_20250402_103500.csv
+daten_20250402_103512.csv
+daten_20250402_103526.csv
+daten_20250402_103537.csv
+daten_20250402_103548.csv
+daten_20250402_103559.csv
+daten_20250402_103611.csv
+daten_20250402_103622.csv
+daten_20250402_103633.csv
+daten_20250402_103644.csv
+daten_20250402_103654.csv
+daten_20250402_103703.csv
+daten_20250402_103711.csv
+daten_20250402_103722.csv
+daten_20250402_103735.csv
+daten_20250402_103748.csv
+daten_20250402_103758.csv
+daten_20250402_103807.csv
+daten_20250402_103815.csv
+daten_20250402_103826.csv
+daten_20250402_103835.csv
+daten_20250402_103842.csv
+daten_20250402_103851.csv
+daten_20250402_103900.csv
+daten_20250402_103913.csv
+daten_20250402_103924.csv
+daten_20250402_103934.csv
+daten_20250402_103946.csv
+daten_20250402_103956.csv
+daten_20250402_104004.csv
+daten_20250402_104014.csv
+daten_20250402_104023.csv
+daten_20250402_104034.csv
+daten_20250402_104045.csv
+logfile
+pv.root
+pv_cfg.py

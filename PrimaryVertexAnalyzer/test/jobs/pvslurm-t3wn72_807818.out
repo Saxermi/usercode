@@ -1,0 +1,221 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 807818
+HOSTNAME: t3wn72
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 12-Mar-2025 15:31:48 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+12-Mar-2025 15:32:47 CET  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+12-Mar-2025 15:33:12 CET  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+Begin processing the 1st record. Run 1, Event 2501, LumiSection 26 on stream 0 at 12-Mar-2025 15:33:26.793 CET
+[2025-03-12 15:38:03.940930 +0100][Error  ][PostMaster        ][129879] [cms03.lcg.cscs.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 15:52:51.603811 +0100][Error  ][PostMaster        ][129879] [storage01.lcg.cscs.ch:1095] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 15:53:48.162766 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 16:07:19.225112 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 16:24:25.399691 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:24:25.429615 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:24:25.450598 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:44:47.360698 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:44:47.441633 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:44:47.500650 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:46:17.515630 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:46:37.509634 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:51:20.427756 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 17:08:26.277678 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:08:26.908662 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:08:27.123643 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:11:21.627648 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:16:41.545929 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 17:33:47.473643 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:33:47.591631 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:33:47.683641 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:36:42.745658 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:45:52.683394 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 18:02:58.257700 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:02:58.353628 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:02:58.414632 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:05:53.882642 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:36:51.988671 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:36:52.026779 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:36:52.087608 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:37:27.059644 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:37:32.027661 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:14:52.622713 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:14:52.732650 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:14:52.794616 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:15:23.224651 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:16:17.204636 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:39:21.207063 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,+1213llrxrd-redir.in2p3.fr,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 19:56:26.391697 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:56:27.271652 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:56:27.363633 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:57:47.421682 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:59:22.406648 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 20:23:53.418089 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 20:40:59.042719 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 20:40:59.152623 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 20:40:59.216620 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 20:43:54.617659 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:12:19.641794 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 21:29:25.939635 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:29:26.039629 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:29:26.100618 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:30:10.855648 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:32:20.841659 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:04:34.884698 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,+1213xrootd-redic.pi.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 22:21:40.782660 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:21:40.889622 +0100][Error  ][PostMaster        ][129879] [xrootd-cms-redir-int.cr.cnaf.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:21:40.950609 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:21:51.093632 +0100][Error  ][PostMaster        ][129879] [cms-xrd-transit.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:24:36.083646 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 23:01:50.149990 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch&triedrc=resel, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-12 23:18:56.483648 +0100][Error  ][PostMaster        ][129879] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 23:18:56.580634 +0100][Error  ][PostMaster        ][129879] [xrootd-redic.pi.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 23:18:56.642640 +0100][Error  ][PostMaster        ][129879] [llrxrd-redir.in2p3.fr:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 23:21:51.349645 +0100][Error  ][PostMaster        ][129879] [cms-xrd-global.cern.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-13 00:01:59.431813 +0100][Error  ][XRootD            ][129879] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?tried=+1098cms-xrd-global01.cern.ch,+1213llrxrd-redir.in2p3.fr,+1213xrootd-redic.pi.infn.it,+1213xrootd-cms-redir-int.cr.cnaf.infn.it,cms03.lcg.cscs.ch,cms-xrd-transit.cern.ch&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-03-13 00:02:05.427296 +0100][Error  ][XRootD            ][129879] [se09.cscs.ch:36015] Unable to get the response to request kXR_readv (handle: 0x00000000, chunks: [(offset: 2270590611, size: 524288); (offset: 2271114899, size: 524288); (offset: 2271639187, size: 524288); (offset: 2272163475, size: 524288); (offset: 2272687763, size: 524288); (offset: 2273212051, size: 524288); (offset: 2273736339, size: 524288); (offset: 2274260627, size: 524288); (offset: 2274784915, size: 524288); (offset: 2275309203, size: 524288); (offset: 2275833491, size: 524288); (offset: 2276357779, size: 524288); (offset: 2276882067, size: 524288); (offset: 2277406355, size: 524288); (offset: 2277930643, size: 524288); (offset: 2278454931, size: 338841); (offset: 2279124942, size: 524288); (offset: 2279649230, size: 524288); (offset: 2280173518, size: 524288); (offset: 2280697806, size: 524288); (offset: 2281222094, size: 524288); (offset: 2281746382, size: 524288); (offset: 2282270670, size: 524288); (offset: 2282794958, size: 524288); (offset: 2283319246, size: 524288); (offset: 2283843534, size: 524288); (offset: 2284367822, size: 524288); (offset: 2284892110, size: 524288); (offset: 2285416398, size: 524288); (offset: 2285940686, size: 524288); (offset: 2286464974, size: 524288); (offset: 2286989262, size: 524288); (offset: 2287513550, size: 524288); (offset: 2288037838, size: 195608); (offset: 2323625770, size: 59357); (offset: 2347448680, size: 524288); (offset: 2347972968, size: 156943); (offset: 2355559914, size: 524288); (offset: 2356084202, size: 270103); (offset: 2357456905, size: 524288); (offset: 2357981193, size: 524288); (offset: 2358505481, size: 411400); (offset: 2365652935, size: 524288); (offset: 2366177223, size: 524288); (offset: 2366701511, size: 524288); (offset: 2367225799, size: 524288); (offset: 2367750087, size: 524288); (offset: 2368274375, size: 524288); (offset: 2368798663, size: 524288); (offset: 2369322951, size: 524288); (offset: 2369847239, size: 98506); (offset: 2401750878, size: 524288); (offset: 2402275166, size: 260081); (offset: 2407487340, size: 861); (offset: 2407490717, size: 363); (offset: 2407492035, size: 141); (offset: 2407493267, size: 108); (offset: 2407499941, size: 112); (offset: 2407705098, size: 165); (offset: 2407705400, size: 114); (offset: 2407750859, size: 414); ], total size: 25386077)
+[2025-03-13 00:02:05.427733 +0100][Error  ][File              ][129879] [0x56670110@root://xrootd-cms.infn.it:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root?xrdcl.requuid=f5fc5e18-7ee8-4112-b23e-0cf443a08e93] Fatal file state error. Message kXR_readv (handle: 0x00000000, chunks: [(offset: 2270590611, size: 524288); (offset: 2271114899, size: 524288); (offset: 2271639187, size: 524288); (offset: 2272163475, size: 524288); (offset: 2272687763, size: 524288); (offset: 2273212051, size: 524288); (offset: 2273736339, size: 524288); (offset: 2274260627, size: 524288); (offset: 2274784915, size: 524288); (offset: 2275309203, size: 524288); (offset: 2275833491, size: 524288); (offset: 2276357779, size: 524288); (offset: 2276882067, size: 524288); (offset: 2277406355, size: 524288); (offset: 2277930643, size: 524288); (offset: 2278454931, size: 338841); (offset: 2279124942, size: 524288); (offset: 2279649230, size: 524288); (offset: 2280173518, size: 524288); (offset: 2280697806, size: 524288); (offset: 2281222094, size: 524288); (offset: 2281746382, size: 524288); (offset: 2282270670, size: 524288); (offset: 2282794958, size: 524288); (offset: 2283319246, size: 524288); (offset: 2283843534, size: 524288); (offset: 2284367822, size: 524288); (offset: 2284892110, size: 524288); (offset: 2285416398, size: 524288); (offset: 2285940686, size: 524288); (offset: 2286464974, size: 524288); (offset: 2286989262, size: 524288); (offset: 2287513550, size: 524288); (offset: 2288037838, size: 195608); (offset: 2323625770, size: 59357); (offset: 2347448680, size: 524288); (offset: 2347972968, size: 156943); (offset: 2355559914, size: 524288); (offset: 2356084202, size: 270103); (offset: 2357456905, size: 524288); (offset: 2357981193, size: 524288); (offset: 2358505481, size: 411400); (offset: 2365652935, size: 524288); (offset: 2366177223, size: 524288); (offset: 2366701511, size: 524288); (offset: 2367225799, size: 524288); (offset: 2367750087, size: 524288); (offset: 2368274375, size: 524288); (offset: 2368798663, size: 524288); (offset: 2369322951, size: 524288); (offset: 2369847239, size: 98506); (offset: 2401750878, size: 524288); (offset: 2402275166, size: 260081); (offset: 2407487340, size: 861); (offset: 2407490717, size: 363); (offset: 2407492035, size: 141); (offset: 2407493267, size: 108); (offset: 2407499941, size: 112); (offset: 2407705098, size: 165); (offset: 2407705400, size: 114); (offset: 2407750859, size: 414); ], total size: 25386077) returned with [ERROR] Operation expired
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 13-Mar-2025 00:02:05 CET pre-events
+XrdRequestManager::handle(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root) failure when reading from se09.cscs.ch:36015 (unknown site); failed with error '[ERROR] Operation expired' (errno=0, code=206).
+%MSG
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 13-Mar-2025 00:02:05 CET pre-events
+Request failure when reading from se09.cscs.ch:36015 (unknown site)
+%MSG
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 13-Mar-2025 00:03:45 CET pre-events
+Caught a CMSSW exception when running connection recovery.
+%MSG
+----- Begin Fatal Exception 13-Mar-2025 00:03:45 CET-----------------------
+An exception of category 'FileReadError' occurred while
+   [0] Calling InputSource::readEvent_
+   [1] Reading branch EventSelections
+   [2] Calling XrdFile::readv()
+   [3] XrdAdaptor::ClientRequest::HandleResponse() failure while running connection recovery
+   [4] Handling XrdAdaptor::RequestManager::requestFailure()
+   [5] In XrdAdaptor::RequestManager::OpenHandler::HandleResponseWithHosts()
+Exception Message:
+XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
+' (errno=3011, code=400)
+   Additional Info:
+      [a] Original error: '[ERROR] Operation expired' (errno=0, code=206, source=se09.cscs.ch:36015 (unknown site)).
+      [b] Original failed source is se09.cscs.ch:36015 (unknown site)
+      [c] Disabled source: se09.cscs.ch:36015
+----- End Fatal Exception -------------------------------------------------
+13-Mar-2025 00:03:45 CET  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root
+TimeReport> Time report complete in 30857.8 seconds
+ Time Summary: 
+ - Min event:   151.195
+ - Max event:   3607.92
+ - Avg event:   1894.95
+ - Total loop:  30620.9
+ - Total init:  236.95
+ - Total job:   30857.8
+ - Total EventSetup: 26.8925
+ - Total non-module: 0.887677
+ Event Throughput: 0.00052252 ev/s
+ CPU Summary: 
+ - Total loop:     30208.8
+ - Total init:     68.0134
+ - Total extra:    0
+ - Total children: 0.226094
+ - Total job:      30276.8
+ Processing Summary: 
+ - Number of Events:  16
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 16 passed = 16 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0         16         16          0          0 MPV
+TrigReport     1    1         16         16          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         16         16          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         16         16          0          0 tpClusterProducer
+TrigReport     1    1         16         16          0          0 quickTrackAssociatorByHits
+TrigReport     1    2         16         16          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3         16         16          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport         16         16         16          0          0 MPV
+TrigReport         16         16         16          0          0 TriggerResults
+TrigReport         16         16         16          0          0 analyze
+TrigReport         16         16         16          0          0 oldVertexAnalysis
+TrigReport         16         16         16          0          0 quickTrackAssociatorByHits
+TrigReport         16         16         16          0          0 testVertices
+TrigReport         16         16         16          0          0 tpClusterProducer
+TrigReport         16         16         16          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 1776.989154
+TimeReport      event loop Real/event = 1801.226979
+TimeReport     sum Streams Real/event = 1801.099480
+TimeReport efficiency CPU/Real/thread = 0.986544
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport  11.736609    12.470147  MPV
+TimeReport 1783.037991  1894.477865  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.826712     0.878381  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.475798     1.568036  tpClusterProducer
+TimeReport   0.000041     0.000043  quickTrackAssociatorByHits
+TimeReport   0.305374     0.324459  trackingParticleRecoTrackAsssociation
+TimeReport 1777.122022  1888.192148  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000009     0.000010     0.000010  MPV
+TimeReport   0.000005     0.000006     0.000006  TriggerResults
+TimeReport   0.000043     0.000045     0.000045  analyze
+TimeReport 1777.122022  1888.192148  1888.192148  oldVertexAnalysis
+TimeReport   0.000041     0.000043     0.000043  quickTrackAssociatorByHits
+TimeReport   0.826712     0.878381     0.878381  testVertices
+TimeReport   1.475798     1.568036     1.568036  tpClusterProducer
+TimeReport   0.305374     0.324459     0.324459  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+
+
+Fatal system signal has occurred during exit
+cp: cannot stat 'pv.root': No such file or directory
+cp: cannot create regular file '/work/msaxer/ba/experimental_run_1/Subset_TTbar_02/0/512/pvSubset_TTbar_02_OL0.0_BS512_20250313_000357.log.gz': No such file or directory

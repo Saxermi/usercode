@@ -87,7 +87,7 @@ parameters={  # can be overwritten by arguments of the same name
 # clustering in blocks
   "runInBlocks" : cms.bool(True),# default value run in blocks is true
   "block_size" : cms.uint32(512),
-  "overlap_frac" : cms.double(0.5)
+    "overlap_frac" : cms.double(0.1)
 }
 
 print(">>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py   <<<<<<<<<<<<<<<<<<<<<<<<<")

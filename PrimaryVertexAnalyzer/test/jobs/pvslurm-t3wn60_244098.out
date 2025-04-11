@@ -1,0 +1,57 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 244098
+HOSTNAME: t3wn60
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 02-Apr-2025 08:41:11 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) Gold 6148 CPU @ 2.40GHz
+%MSG
+02-Apr-2025 08:41:16 CEST  Initiating request to open file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root
+[2025-04-02 08:41:16.411173 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-04-02 08:41:16.411277 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-04-02 08:41:16.411303 +0200][Error  ][AsyncSock         ][74787] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-04-02 08:41:16.411379 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-04-02 08:41:16.411393 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-04-02 08:41:16.411407 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_prepare (flags: kXR_stage , priority: 0, paths: //pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root). Trying to recover.
+[2025-04-02 08:41:16.411566 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_prepare (flags: kXR_stage , priority: 0, paths: //pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/88e69231-d84b-498f-a910-ca4e179422a4.root). Trying to recover.
+[2025-04-02 08:41:16.411637 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_prepare (flags: kXR_stage , priority: 0, paths: //pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/c3b287da-8fb0-448b-8e8f-70143e73747c.root). Trying to recover.
+[2025-04-02 08:41:16.411674 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_query (code: kXR_Qconfig, arg length: 9). Trying to recover.
+[2025-04-02 08:41:17.438768 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-04-02 08:41:17.438848 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-04-02 08:41:17.438864 +0200][Error  ][AsyncSock         ][74787] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-04-02 08:41:17.438909 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-04-02 08:41:17.438917 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-04-02 08:41:17.438925 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 02-Apr-2025 08:41:17 CEST pre-events
+Failed to open file at URL root://t3dcachedb.psi.ch:1094//pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root?xrdcl.requuid=003efb78-d1a0-474e-b935-e3704c05989a.
+%MSG
+[2025-04-02 08:41:17.464960 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-04-02 08:41:17.465040 +0200][Error  ][XRootDTransport   ][74787] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-04-02 08:41:17.465055 +0200][Error  ][AsyncSock         ][74787] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-04-02 08:41:17.465096 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-04-02 08:41:17.465105 +0200][Error  ][PostMaster        ][74787] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-04-02 08:41:17.465113 +0200][Error  ][XRootD            ][74787] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root?tried=, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+%MSG-w XrdAdaptorInternal:  file_open 02-Apr-2025 08:41:17 CEST pre-events
+Failed to open file at URL root://t3dcachedb.psi.ch:1094//pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root?tried=&xrdcl.requuid=ac5b3922-9f0e-491c-ae88-3a907f3171ea.
+%MSG
+----- Begin Fatal Exception 02-Apr-2025 08:41:17 CEST-----------------------
+An exception of category 'FileOpenError' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing input source of type PoolSource
+   [2] Calling RootInputFileSequence::initTheFile()
+   [3] Calling StorageFactory::open()
+   [4] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://t3dcachedb.psi.ch//pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root'
+   Additional Info:
+      [a] Input file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root could not be opened.
+      [b] XrdCl::File::Open(name='root://t3dcachedb.psi.ch//pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root', flags=0x10, permissions=0660) => error '[FATAL] Auth failed: No protocols left to try' (errno=0, code=204). No additional data servers were found.
+      [c] Last URL tried: root://t3dcachedb.psi.ch:1094//pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/4d1db84e-4966-4862-b8b9-bc3dfbfd930d.root?tried=&xrdcl.requuid=ac5b3922-9f0e-491c-ae88-3a907f3171ea
+      [d] Problematic data server: t3dcachedb.psi.ch:1094
+      [e] Disabled source: t3dcachedb.psi.ch:1094
+----- End Fatal Exception -------------------------------------------------
+logfile
+pv_cfg.py
+cp: cannot stat 'pv.root': No such file or directory

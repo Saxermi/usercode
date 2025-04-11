@@ -1,0 +1,50 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 807813
+HOSTNAME: t3wn72
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 12-Mar-2025 15:31:48 CET pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+12-Mar-2025 15:32:47 CET  Initiating request to open file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root
+12-Mar-2025 15:33:11 CET  Successfully opened file root://t3dcachedb.psi.ch:1094///pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root
+Begin processing the 1st record. Run 1, Event 6701, LumiSection 68 on stream 0 at 12-Mar-2025 15:33:23.038 CET
+[2025-03-12 15:52:48.344787 +0100][Error  ][PostMaster        ][127770] [xrootd-cms.infn.it:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 16:44:36.935690 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:07:28.274636 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 17:32:18.704657 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:00:13.083708 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 18:32:19.369642 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:09:26.674707 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 19:51:04.475698 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 20:36:12.911639 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 21:25:50.595659 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 22:19:49.554693 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-12 23:18:19.458660 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Forcing error on disconnect: [ERROR] Operation interrupted.
+[2025-03-13 00:01:01.876899 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-03-13 00:01:01.877810 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-03-13 00:01:01.878141 +0100][Error  ][AsyncSock         ][127770] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-13 00:01:01.878282 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-03-13 00:01:01.878313 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-03-13 00:01:01.878326 +0100][Error  ][XRootD            ][127770] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root?tried=t3fs02.psi.ch&triedrc=resel, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2025-03-13 01:03:53.021954 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-03-13 01:03:53.022574 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-03-13 01:03:53.022597 +0100][Error  ][AsyncSock         ][127770] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-13 01:03:53.022640 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] elapsed = 1, pConnectionWindow = 31 seconds.
+[2025-03-13 01:03:53.022647 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-03-13 01:03:53.022655 +0100][Error  ][XRootD            ][127770] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root?tried=t3fs02.psi.ch&triedrc=resel, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2025-03-13 02:09:14.748307 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-03-13 02:09:14.749121 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-03-13 02:09:14.749145 +0100][Error  ][AsyncSock         ][127770] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-13 02:09:14.749189 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] elapsed = 0, pConnectionWindow = 31 seconds.
+[2025-03-13 02:09:14.749196 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-03-13 02:09:14.749204 +0100][Error  ][XRootD            ][127770] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root?tried=t3fs02.psi.ch&triedrc=resel, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+[2025-03-13 03:17:16.034380 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] Authentication with gsi failed: login failed
+[2025-03-13 03:17:16.034824 +0100][Error  ][XRootDTransport   ][127770] [t3dcachedb.psi.ch:1094.0] No protocols left to try
+[2025-03-13 03:17:16.034840 +0100][Error  ][AsyncSock         ][127770] [t3dcachedb.psi.ch:1094.0] Socket error while handshaking: [FATAL] Auth failed
+[2025-03-13 03:17:16.034875 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] elapsed = 1, pConnectionWindow = 31 seconds.
+[2025-03-13 03:17:16.034882 +0100][Error  ][PostMaster        ][127770] [t3dcachedb.psi.ch:1094] Unable to recover: [FATAL] Auth failed.
+[2025-03-13 03:17:16.034887 +0100][Error  ][XRootD            ][127770] [t3dcachedb.psi.ch:1094] Impossible to send message kXR_open (file: /pnfs/psi.ch/cms/trivcat/store/user/werdmann/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/7fdaaa50-5863-4108-b350-12036bf29ad0.root?tried=t3fs02.psi.ch&triedrc=resel, mode: 0660, flags: kXR_open_read kXR_async kXR_retstat ). Trying to recover.
+slurmstepd: error: *** JOB 807813 ON t3wn72 CANCELLED AT 2025-03-13T03:29:15 DUE TO TIME LIMIT ***

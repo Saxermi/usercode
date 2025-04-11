@@ -1,0 +1,37 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 320352
+HOSTNAME: t3wn72
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_14_2_0_pre4
+%MSG-i AlpakaService:  (NoModuleName) 10-Apr-2025 22:49:07 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - AMD EPYC 7702P 64-Core Processor
+%MSG
+10-Apr-2025 22:49:12 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root
+%MSG-w XrdAdaptorInternal:  file_open 10-Apr-2025 22:50:14 CEST pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it&xrdcl.requuid=7753369e-dc18-4a68-a700-7c8549492d94.
+%MSG
+%MSG-w XrdAdaptorInternal:  file_open 10-Apr-2025 22:50:14 CEST pre-events
+Failed to open file at URL root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=59a57aca-f5b8-4b29-9c91-6500c7f7f98f.
+%MSG
+----- Begin Fatal Exception 10-Apr-2025 22:50:14 CEST-----------------------
+An exception of category 'FileOpenError' occurred while
+   [0] Constructing the EventProcessor
+   [1] Constructing input source of type PoolSource
+   [2] Calling RootInputFileSequence::initTheFile()
+   [3] Calling StorageFactory::open()
+   [4] Calling XrdFile::open()
+Exception Message:
+Failed to open the file 'root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root'
+   Additional Info:
+      [a] Input file root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root could not be opened.
+      [b] XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root', flags=0x10, permissions=0660) => error '[ERROR] Server responded with an error: [3011] No servers are available to read the file.
+' (errno=3011, code=400). No additional data servers were found.
+      [c] Last URL tried: root://cms-xrd-global.cern.ch:1094//store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/d7d4b8cb-cc39-4095-ab9e-6a6ae59dea7f.root?tried=+1213xrootd-cms-redir-int.cr.cnaf.infn.it,&xrdcl.requuid=59a57aca-f5b8-4b29-9c91-6500c7f7f98f
+      [d] Problematic data server: cms-xrd-global.cern.ch:1094
+      [e] Disabled source: cms-xrd-global.cern.ch:1094
+----- End Fatal Exception -------------------------------------------------
+logfile
+pv_cfg.py
+cp: cannot stat 'pv.root': No such file or directory
