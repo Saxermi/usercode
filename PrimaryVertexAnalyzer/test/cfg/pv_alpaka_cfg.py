@@ -67,6 +67,8 @@ parameters={  # can be overwritten by arguments of the same name
   "convergence_mode" : cms.int32(0),
   "delta_lowT" : cms.double(1.e-3),
   "delta_highT" : cms.double(1.e-2),
+  "minValidStripHits" : cms.int32(0),
+
 # track selection
   "maxNormalizedChi2":cms.double(10.0),
   "minPixelLayersWithHits":cms.int32(2),
@@ -150,7 +152,7 @@ process.load('HeterogeneousCore.AlpakaCore.ProcessAcceleratorAlpaka_cfi')
 
 # Input files
 process.source = cms.Source("PoolSource",
-    fileNames = cms.untracked.vstring(root_path('/store/relval/CMSSW_14_2_0_pre4/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_2026D110_PU-v2/2590000/f6600449-5fa8-4e84-81cf-4f9df8425f9c.root')),
+        fileNames = cms.untracked.vstring(root_path('/store/relval/CMSSW_15_1_0_pre1/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2580000/c699f8a2-4146-4edb-8614-9bf8d188ffee.root')),
     secondaryFileNames = cms.untracked.vstring(),
 )
 
@@ -245,6 +247,7 @@ process.tracksSoA = cms.EDProducer("PortableTrackSoAProducer@alpaka",
         maxD0Error = cms.double(1.0), 
         maxDzError = cms.double(1.0), 
         minPt = cms.double(0.0),
+        minValidStripHits = cms.int32(0),
 
         maxEta =cms.double(4.0),# cms.double(2.4),
         trackQuality = cms.string("any"),
@@ -284,6 +287,8 @@ process.vertexSoA = cms.EDProducer("PrimaryVertexProducer_Alpaka@alpaka",
         zmerge = cms.double(1e-2),        # merge intermediat clusters separated by less than zmerge
         uniquetrkweight = cms.double(0.8),# require at least two tracks with this weight at T=Tpurge
         uniquetrkminp = cms.double(0.0),  # minimal a priori track weight for counting unique tracks
+           minValidStripHits = cms.int32(0),
+
     ) 
 )
 
@@ -324,6 +329,8 @@ process.oldVertexAnalysis = cms.EDAnalyzer("TestAnalyzer",
     selNdofWithBS = parameters["selNdofWithBS"],                                    
     beamSpot = cms.InputTag('offlineBeamSpot'),
     simG4 = cms.InputTag("g4SimHits"),
+    minValidStripHits = cms.int32(0),
+
     outputFile = cms.untracked.string("pv.root"),
     verbose = parameters["verboseAnalyzer"],
     veryverbose = cms.untracked.bool(False),
