@@ -123,9 +123,9 @@ process.load('Configuration.EventContent.EventContent_cff')
 process.load('SimGeneral.MixingModule.mixNoPU_cfi')
 process.load("TrackingTools/TransientTrack/TransientTrackBuilder_cfi")
 
-process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
+#process.load('Configuration.StandardSequences.GeometryRecoDB_cff')
 process.load('Configuration.StandardSequences.MagneticField_cff')
-process.load('HLTrigger.Configuration.HLT_GRun_cff')
+#process.load('HLTrigger.Configuration.HLT_GRun_cff')
 process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 ##
@@ -247,7 +247,6 @@ process.tracksSoA = cms.EDProducer("PortableTrackSoAProducer@alpaka",
         maxD0Error = cms.double(1.0), 
         maxDzError = cms.double(1.0), 
         minPt = cms.double(0.0),
-        minValidStripHits = cms.int32(0),
 
         maxEta =cms.double(4.0),# cms.double(2.4),
         trackQuality = cms.string("any"),
@@ -287,7 +286,7 @@ process.vertexSoA = cms.EDProducer("PrimaryVertexProducer_Alpaka@alpaka",
         zmerge = cms.double(1e-2),        # merge intermediat clusters separated by less than zmerge
         uniquetrkweight = cms.double(0.8),# require at least two tracks with this weight at T=Tpurge
         uniquetrkminp = cms.double(0.0),  # minimal a priori track weight for counting unique tracks
-           minValidStripHits = cms.int32(0),
+
 
     ) 
 )
@@ -329,7 +328,6 @@ process.oldVertexAnalysis = cms.EDAnalyzer("TestAnalyzer",
     selNdofWithBS = parameters["selNdofWithBS"],                                    
     beamSpot = cms.InputTag('offlineBeamSpot'),
     simG4 = cms.InputTag("g4SimHits"),
-    minValidStripHits = cms.int32(0),
 
     outputFile = cms.untracked.string("pv.root"),
     verbose = parameters["verboseAnalyzer"],
@@ -365,11 +363,20 @@ process.analyze =  cms.Path( process.theTruth * process.oldVertexAnalysis )
 ###################################
 ## Last, organize paths and exec ##
 ###################################
+print(process.beamSpotSoA)
+#process.vertexing_task = cms.EndPath(process.tracksSoA + process.beamSpotSoA + process.vertexSoA + process.vertexAoS)
+process.vertexing_task = cms.EndPath( process.beamSpotSoA)
 
-process.vertexing_task = cms.EndPath(process.tracksSoA + process.beamSpotSoA + process.vertexSoA + process.vertexAoS)
+process.content = cms.EDAnalyzer("EventContentAnalyzer")
+process.dump = cms.Path(process.content)
+
+
+
 process.schedule = cms.Schedule(
     process.vertexing_task,
-    process.analyze,
+    process.dump,
+
+   # process.analyze,
     process.endjob_step,
-    process.FEVToutput_step
+   # process.FEVToutput_step
 )
