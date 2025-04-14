@@ -2479,3 +2479,2484 @@ Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVe
 Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testCPU_noPU.py
 Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testPrimaryVertexProducer_Alpaka.py
 Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testPrimaryVertexProducer_Alpaka_PU200.py
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/SoAToRecoVertexProducer.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/SoAToRecoVertexProducer.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/SoAToRecoVertexProducer.cc	2025-04-14 12:10:45.711185950 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/SoAToRecoVertexProducer.cc	2025-04-10 14:09:38.672803000 +0200
+@@ -16,57 +16,65 @@
+ 
+ #include "DataFormats/Math/interface/AlgebraicROOTObjects.h"
+ 
+-
+ /**
+    * This plugin takes the SoA portableVertex and converts them to reco::Vertex, for usage within other workflows
+    * - consuming set of reco::Tracks and portablevertex SoA
+    * - produces a host reco::vertexCollection
+  */
+ class SoAToRecoVertexProducer : public edm::stream::EDProducer<> {
+-  public:
+-    SoAToRecoVertexProducer(edm::ParameterSet const& config) : portableVertexToken_(consumes(config.getParameter<edm::InputTag>("soaVertex"))), recoTrackToken_(consumes(config.getParameter<edm::InputTag>("srcTrack"))), recoVertexToken_(produces<reco::VertexCollection>()){
+-    }
++public:
++  SoAToRecoVertexProducer(edm::ParameterSet const& config)
++      : portableVertexToken_(consumes(config.getParameter<edm::InputTag>("soaVertex"))),
++        recoTrackToken_(consumes(config.getParameter<edm::InputTag>("srcTrack"))),
++        recoVertexToken_(produces<reco::VertexCollection>()) {}
++
++  static void fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
++    edm::ParameterSetDescription desc;
++    desc.add<edm::InputTag>("soaVertex");
++    desc.add<edm::InputTag>("srcTrack");
+ 
+-    static void fillDescriptions(edm::ConfigurationDescriptions& descriptions) {
+-      edm::ParameterSetDescription desc;
+-      desc.add<edm::InputTag>("soaVertex");
+-      desc.add<edm::InputTag>("srcTrack");
+-      
+-      descriptions.addWithDefaultLabel(desc);
+-    }
++    descriptions.addWithDefaultLabel(desc);
++  }
+ 
+-  private:
+-    void produce(edm::Event&, const edm::EventSetup&) override;
+-    const edm::EDGetTokenT<portablevertex::VertexHostCollection> portableVertexToken_;
+-    const edm::EDGetTokenT<reco::TrackCollection> recoTrackToken_;
+-    const edm::EDPutTokenT<reco::VertexCollection> recoVertexToken_;
++private:
++  void produce(edm::Event&, const edm::EventSetup&) override;
++  const edm::EDGetTokenT<portablevertex::VertexHostCollection> portableVertexToken_;
++  const edm::EDGetTokenT<reco::TrackCollection> recoTrackToken_;
++  const edm::EDPutTokenT<reco::VertexCollection> recoVertexToken_;
+ };
+ 
+-void SoAToRecoVertexProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup){
++void SoAToRecoVertexProducer::produce(edm::Event& iEvent, const edm::EventSetup& iSetup) {
+   // Book inputs and space for outputs
+   const portablevertex::VertexHostCollection& hostVertex = iEvent.get(portableVertexToken_);
+   const portablevertex::VertexHostCollection::ConstView& hostVertexView = hostVertex.const_view();
+-  auto tracks = iEvent.getHandle(recoTrackToken_).product(); // Note that we need reco::Tracks for building the track Reference vector inside the reco::Vertex
++  auto tracks =
++      iEvent.getHandle(recoTrackToken_)
++          .product();  // Note that we need reco::Tracks for building the track Reference vector inside the reco::Vertex
+ 
+   // This is an annoying conversion as the vertex expects a transient track here, which is a dataformat which we otherwise bypass
+   auto result = std::make_unique<reco::VertexCollection>();
+ 
+   // Do the conversion back to reco::Vertex
+   reco::VertexCollection& vColl = (*result);
+-  for (int iV = 0; iV < hostVertexView[0].nV() ; iV++){
+-    if (not(hostVertexView[iV].isGood())) continue;
++  for (int iV = 0; iV < hostVertexView[0].nV(); iV++) {
++    if (not(hostVertexView[iV].isGood()))
++      continue;
+     // Convert the SoA errors to a diagonal 3x3 matrix
+     AlgebraicSymMatrix33 err;
+     err[0][0] = hostVertexView[iV].errx();
+     err[1][1] = hostVertexView[iV].erry();
+     err[2][2] = hostVertexView[iV].errz();
+     // Then we can actually create the vertex
+-    reco::Vertex newV(reco::Vertex::Point(hostVertexView[iV].x(), hostVertexView[iV].y(), hostVertexView[iV].z()), err, hostVertexView[iV].chi2(), hostVertexView[iV].ndof(), hostVertexView[iV].ntracks());
++    reco::Vertex newV(reco::Vertex::Point(hostVertexView[iV].x(), hostVertexView[iV].y(), hostVertexView[iV].z()),
++                      err,
++                      hostVertexView[iV].chi2(),
++                      hostVertexView[iV].ndof(),
++                      hostVertexView[iV].ntracks());
+     // Finally, add references to the reco::Track used for building it
+-    for (int iT=0; iT < hostVertexView[iV].ntracks(); iT++) {
+-       int new_itrack = hostVertexView[iV].track_id()[iT];
+-       reco::TrackRef ref(tracks, new_itrack);
+-       newV.add(ref, hostVertexView[iV].track_weight()[iT]);
++    for (int iT = 0; iT < hostVertexView[iV].ntracks(); iT++) {
++      int new_itrack = hostVertexView[iV].track_id()[iT];
++      reco::TrackRef ref(tracks, new_itrack);
++      newV.add(ref, hostVertexView[iV].track_weight()[iT]);
+     }
+     vColl.push_back(newV);
+   }
+@@ -74,6 +82,5 @@
+   iEvent.put(std::move(result));
+ }
+ 
+-
+ #include "FWCore/Framework/interface/MakerMacros.h"
+ DEFINE_FWK_MODULE(SoAToRecoVertexProducer);
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.dev.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.dev.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.dev.cc	2025-04-14 12:10:45.735185538 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.dev.cc	2025-04-10 14:09:38.675776000 +0200
+@@ -5,85 +5,111 @@
+ 
+ #include "RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.h"
+ 
+-#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO 1
++//#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO 0
+ 
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+-  using namespace cms::alpakatools; 
++  using namespace cms::alpakatools;
+ 
+   class createBlocksKernel {
+   public:
+     template <typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>>
+-    ALPAKA_FN_ACC void operator()(const TAcc& acc,  const portablevertex::TrackDeviceCollection::ConstView inputTracks,  portablevertex::TrackDeviceCollection::View trackInBlocks, double blockOverlap, int32_t blockSize) const{
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-        printf("[BlockAlgo::operator()] Start\n");
+-        printf("[BlockAlgo::operator()] blockOverlap: %1.3f, blockSize %i\n",blockOverlap, blockSize);
+-      #endif
++    ALPAKA_FN_ACC void operator()(const TAcc& acc,
++                                  const portablevertex::TrackDeviceCollection::ConstView inputTracks,
++                                  portablevertex::TrackDeviceCollection::View trackInBlocks,
++                                  double blockOverlap,
++                                  int32_t blockSize) const {
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++      printf("[BlockAlgo::operator()] Start creation of overlapping blocks of tracks\n");
++      printf("[BlockAlgo::operator()] Parameters blockOverlap: %1.3f, blockSize %i\n", blockOverlap, blockSize);
++#endif
+       int32_t nTOld = inputTracks.nT();
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-        printf("[BlockAlgo::operator()] blockSize: %i, blockOverlap %1.3f, nTOld %i\n", blockSize, blockOverlap, nTOld);
+-      #endif
+-      int32_t nBlocks = nTOld > blockSize ? int32_t ((nTOld-1)/(blockOverlap*blockSize)) : 1; // If all fit within a block, no need to split
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-        printf("[BlockAlgo::operator()] nBlocks: %i\n", nBlocks);
+-      #endif
+-      int32_t overlapStart = blockOverlap*blockSize; // First block starts at 0, second block starts at overlapStart, third at 2*overlapStart and so on
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-        printf("[BlockAlgo::operator()] blockSize: %i\n", blockSize);
+-      #endif
+-      for (auto iNewTrack : elements_with_stride(acc, blockSize) ) { // The accelerator has as much threads as blockSize, so each thread will enter once on each block
+-	#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-	  printf("[BlockAlgo::operator()] iNewTrack %i, nBlocks %i\n", iNewTrack, nBlocks);
+-	#endif 
+-        for (int32_t iblock = 0; iblock < nBlocks; iblock++){
+-      	  int32_t oldIndex = (iblock*overlapStart) + iNewTrack; // I.e. first track in the block in which we are + thread in which we are
+-	  if (oldIndex >= nTOld) break; // I.e. we reached the end of the input block
+-          int32_t newIndex = iNewTrack+iblock*blockSize;
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-	    printf("[BlockAlgo::operator()] iblock %i, oldIndex %i => newIndex %i, x: %1.5f, y: %1.5f, z:%1.5f\n", iblock, oldIndex, newIndex, inputTracks[oldIndex].x(),inputTracks[oldIndex].y(), inputTracks[oldIndex].z());
+-	  #endif
+-	  // And just copy in new places
+-	  trackInBlocks[newIndex].x()          = inputTracks[oldIndex].x();
+-          trackInBlocks[newIndex].y()          = inputTracks[oldIndex].y();
+-          trackInBlocks[newIndex].z()          = inputTracks[oldIndex].z();
+-          trackInBlocks[newIndex].px()         = inputTracks[oldIndex].px();
+-          trackInBlocks[newIndex].py()         = inputTracks[oldIndex].py();
+-          trackInBlocks[newIndex].pz()         = inputTracks[oldIndex].pz();
+-          trackInBlocks[newIndex].weight()     = inputTracks[oldIndex].weight();
+-          trackInBlocks[newIndex].tt_index()   = inputTracks[oldIndex].tt_index(); // Relevant to keep the index at hand, as it lets us merge tracks later
+-          trackInBlocks[newIndex].dz2()        = inputTracks[oldIndex].dz2();
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++      printf("[BlockAlgo::operator()] Start from nTOld %i input tracks\n", nTOld);
++#endif
++      int32_t nBlocks = nTOld > blockSize ? int32_t((nTOld - 1) / (blockOverlap * blockSize))
++                                          : 1;  // If all fit within a block, no need to split
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++      printf("[BlockAlgo::operator()] Will create nBlocks: %i\n", nBlocks);
++#endif
++      int32_t overlapStart =
++          blockOverlap *
++          blockSize;  // First block starts at 0, second block starts at overlapStart, third at 2*overlapStart and so on
++      for (auto iNewTrack : uniform_elements(
++               acc,
++               blockSize)) {  // The accelerator has as much threads as blockSize, so each thread will enter once on each block
++        for (int32_t iblock = 0; iblock < nBlocks; iblock++) {  // Each thread will create -up to- one track per block
++          int32_t oldIndex = (iblock * overlapStart) +
++                             iNewTrack;  // I.e. first track in the block in which we are + thread in which we are
++          if (oldIndex >= nTOld)
++            break;  // I.e. we reached the end of the input block
++          int32_t newIndex = iNewTrack + iblock * blockSize;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++          printf("[BlockAlgo::operator()] iblock %i, oldIndex %i => newIndex %i, x: %1.5f, y: %1.5f, z:%1.5f\n",
++                 iblock,
++                 oldIndex,
++                 newIndex,
++                 inputTracks[oldIndex].x(),
++                 inputTracks[oldIndex].y(),
++                 inputTracks[oldIndex].z());
++#endif
++          // And just copy in new places
++          trackInBlocks[newIndex].x() = inputTracks[oldIndex].x();
++          trackInBlocks[newIndex].y() = inputTracks[oldIndex].y();
++          trackInBlocks[newIndex].z() = inputTracks[oldIndex].z();
++          trackInBlocks[newIndex].px() = inputTracks[oldIndex].px();
++          trackInBlocks[newIndex].py() = inputTracks[oldIndex].py();
++          trackInBlocks[newIndex].pz() = inputTracks[oldIndex].pz();
++          trackInBlocks[newIndex].weight() = inputTracks[oldIndex].weight();
++          trackInBlocks[newIndex].tt_index() =
++              inputTracks[oldIndex]
++                  .tt_index();  // Relevant to keep the index at hand, as we want to reference the original reco::track later when building the reco::vertex
++          trackInBlocks[newIndex].dz2() = inputTracks[oldIndex].dz2();
+           trackInBlocks[newIndex].oneoverdz2() = inputTracks[oldIndex].oneoverdz2();
+-          trackInBlocks[newIndex].dxy2AtIP()   = inputTracks[oldIndex].dxy2AtIP();
+-          trackInBlocks[newIndex].dxy2()       = inputTracks[oldIndex].dxy2();
+-          trackInBlocks[newIndex].sum_Z()      = inputTracks[oldIndex].order();
+-          trackInBlocks[newIndex].kmin()       = inputTracks[oldIndex].kmin();
+-          trackInBlocks[newIndex].kmax()       = inputTracks[oldIndex].kmax();
+-          trackInBlocks[newIndex].aux1()       = inputTracks[oldIndex].aux1();
+-          trackInBlocks[newIndex].aux2()       = inputTracks[oldIndex].aux2();
+-          trackInBlocks[newIndex].isGood()     = inputTracks[oldIndex].isGood();
+-	} // iblock for
+-      } // iNewTrack for
+-      if (once_per_block(acc)){
+-        trackInBlocks.nT() = (nBlocks-1)*blockSize + nTOld-blockSize*std::floor(nTOld/(blockOverlap*blockSize));
++          trackInBlocks[newIndex].dxy2AtIP() = inputTracks[oldIndex].dxy2AtIP();
++          trackInBlocks[newIndex].dxy2() = inputTracks[oldIndex].dxy2();
++          trackInBlocks[newIndex].sum_Z() = inputTracks[oldIndex].order();
++          trackInBlocks[newIndex].kmin() = inputTracks[oldIndex].kmin();
++          trackInBlocks[newIndex].kmax() = inputTracks[oldIndex].kmax();
++          trackInBlocks[newIndex].aux1() = inputTracks[oldIndex].aux1();
++          trackInBlocks[newIndex].aux2() = inputTracks[oldIndex].aux2();
++          trackInBlocks[newIndex].isGood() = inputTracks[oldIndex].isGood();
++        }  // iblock for
++      }  // iNewTrack for
++      if (once_per_block(acc)) {
++        trackInBlocks.nT() =
++            (int32_t)((nBlocks - 1) * blockSize + nTOld -
++                      blockSize *
++                          std::floor(
++                              nTOld /
++                              (blockOverlap *
++                               blockSize)));  // The new number of tracks has to account for the fact that we overlapped
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++        printf(
++            "[BlockAlgo::operator()] Set nTracks to %i\n",
++            (int32_t)((nBlocks - 1) * blockSize + nTOld - blockSize * std::floor(nTOld / (blockOverlap * blockSize))));
++#endif
+       }
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
+-        printf("[BlockAlgo::operator()] End\n");
+-      #endif
+-    } // createBlocksKernel::operator()
+-  }; // class createBlocksKernel
+-
+-  BlockAlgo::BlockAlgo() {
+-  } // BlockAlgo::BlockAlgo
+-  
+-  void BlockAlgo::createBlocks(Queue& queue, const portablevertex::TrackDeviceCollection& inputTracks, portablevertex::TrackDeviceCollection& trackInBlocks, int32_t bSize, double bOverlap){
+-    const int threadsPerBlock = bSize;// each thread will write nBlocks tracks
+-    const int blocks = 1;             // 1 block with all threads
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_BLOCKALGO
++      printf("[BlockAlgo::operator()] End\n");
++#endif
++    }  // createBlocksKernel::operator()
++  };  // class createBlocksKernel
++
++  BlockAlgo::BlockAlgo() {}  // BlockAlgo::BlockAlgo
++
++  void BlockAlgo::createBlocks(Queue& queue,
++                               const portablevertex::TrackDeviceCollection& inputTracks,
++                               portablevertex::TrackDeviceCollection& trackInBlocks,
++                               int32_t bSize,
++                               double bOverlap) {
++    const int threadsPerBlock = bSize;  // each thread will write nBlocks tracks
++    const int blocks = 1;               // 1 block with all threads
+     alpaka::exec<Acc1D>(queue,
+-		        make_workdiv<Acc1D>(blocks, threadsPerBlock),
+-			createBlocksKernel{},
+-			inputTracks.view(),
+-			trackInBlocks.view(),
+-			bOverlap,
+-			bSize
+-			); 
+-  } // BlockAlgo::createBlocks
+-} // namespace ALPAKA_ACCELERATOR_NAMESPACE
++                        make_workdiv<Acc1D>(blocks, threadsPerBlock),
++                        createBlocksKernel{},
++                        inputTracks.view(),
++                        trackInBlocks.view(),
++                        bOverlap,
++                        bSize);
++  }  // BlockAlgo::createBlocks
++}  // namespace ALPAKA_ACCELERATOR_NAMESPACE
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.h /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.h
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.h	2025-04-14 12:10:45.721185778 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/BlockAlgo.h	2025-04-10 14:09:38.676790000 +0200
+@@ -9,7 +9,11 @@
+   class BlockAlgo {
+   public:
+     BlockAlgo();
+-    void createBlocks(Queue& queue, const portablevertex::TrackDeviceCollection& inputTrack, portablevertex::TrackDeviceCollection& trackInBlocks, int32_t blockSize, double blockOverlap); // The actual block creation
++    void createBlocks(Queue& queue,
++                      const portablevertex::TrackDeviceCollection& inputTrack,
++                      portablevertex::TrackDeviceCollection& trackInBlocks,
++                      int32_t blockSize,
++                      double blockOverlap);  // The actual block creation
+ 
+   private:
+   };
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.dev.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.dev.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.dev.cc	2025-04-14 12:10:45.732185589 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.dev.cc	2025-04-10 14:09:38.678774000 +0200
+@@ -1,998 +1,128 @@
+-#include <alpaka/alpaka.hpp>
+-
+-#include "HeterogeneousCore/AlpakaInterface/interface/config.h"
+-#include "HeterogeneousCore/AlpakaInterface/interface/workdivision.h"
+-#include "HeterogeneousCore/AlpakaInterface/interface/radixSort.h"
+-
+-#include "RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.h"
++#include "RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.dev.h"
+ 
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+   using namespace cms::alpakatools;
+-  ////////////////////// 
++  //////////////////////
+   // Device functions //
+   //////////////////////
+ 
+-   template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void set_vtx_range(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // These updates the range of vertices associated to each track through the kmin/kmax variables
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    double zrange_min_= 0.1; // Hard coded as in CPU version
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){ // TODO:Saving and reading in the tracks dataformat might be a bit too much?
+-      // Based on current temperature (regularization term) and track position uncertainty, only keep relevant vertices
+-      double zrange     = std::max(cParams.zrange()/ sqrt((_beta) * tracks[itrack].oneoverdz2()), zrange_min_);
+-      double zmin       = tracks[itrack].z() - zrange;
+-      // First the lower bound
+-      int kmin = std::min((int) (maxVerticesPerBlock * blockIdx) + vertices.nV(blockIdx) - 1,  tracks[itrack].kmin()); //We might have deleted a vertex, so be careful if the track is in one extreme of the axis
+-      if (vertices[vertices[kmin].order()].z() > zmin){ // If the vertex position in z is bigger than the minimum, go down through all vertices position until finding one that is too far
+-          while ((kmin > maxVerticesPerBlock * blockIdx) && ((vertices[vertices[kmin-1].order()].z()) > zmin)) { // i.e., while we find another vertex within range that is before the previous initial step
+-          kmin--;
+-        }
+-      }
+-      else { // Otherwise go up
+-        while ((kmin < (maxVerticesPerBlock * blockIdx + (int) (vertices[blockIdx].nV()) - 1)) && ((vertices[vertices[kmin].order()].z()) < zmin)) { // Or it might happen that we have to take out vertices from the thing
+-          kmin++;
+-        }
+-      }
+-      // And now do the same for the upper bound
+-      double zmax       = tracks[itrack].z() + zrange;
+-      int kmax = std::min(maxVerticesPerBlock * blockIdx + (int) (vertices[blockIdx].nV()) - 1, (int) (tracks[itrack].kmax()) - 1);
+-      if (vertices[vertices[kmax].order()].z() < zmax) {
+-        while ((kmax < (maxVerticesPerBlock * blockIdx + (int) (vertices[blockIdx].nV())  - 1)) && ((vertices[vertices[kmax+1].order()].z()) < zmax)) { // As long as we have more vertex above kmax but within z range, we can add them to the collection, keep going
+-          kmax++;
+-        }
+-      }
+-      else { //Or maybe we have to restrict it
+-        while ((kmax > maxVerticesPerBlock * blockIdx) && (vertices[vertices[kmax].order()].z() > zmax)) {
+-          kmax--;
+-        }
+-      }
+-      if (kmin <= kmax){ // i.e. we have vertex associated to the track
+-        tracks[itrack].kmin() = (int) kmin;
+-	tracks[itrack].kmax() = (int) kmax;
+-      }
+-      else { // Otherwise, track goes in the most extreme vertex
+-        tracks[itrack].kmin() = (int) std::max(maxVerticesPerBlock * blockIdx, (int) std::min(kmin, kmax));
+-        tracks[itrack].kmax() = (int) std::min((maxVerticesPerBlock * blockIdx) + (int) vertices[blockIdx].nV(), (int) std::max(kmin, kmax) + 1);
+-      }
+-    } //end for
+-    alpaka::syncBlockThreads(acc);
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void update(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta, double rho0, bool updateTc){
+-    // Main function that updates the annealing parameters on each T step, computes all partition functions and so on
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    double Zinit =  rho0 * exp(-(_beta) * cParams.dzCutOff() * cParams.dzCutOff()); // Initial partition function, really only used on the outlier rejection step to penalize
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-      double botrack_dz2 = -(_beta) * tracks[itrack].oneoverdz2();
+-      tracks[itrack].sum_Z() = Zinit;
+-      for (int ivertexO = tracks[itrack].kmin(); ivertexO < tracks[itrack].kmax() ; ++ivertexO){
+-        int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-	double mult_res = tracks[itrack].z() - vertices[ivertex].z();
+-	tracks[itrack].vert_exparg()[ivertex] = botrack_dz2*mult_res*mult_res; // -beta*(z_t-z_v)/dz^2
+-	tracks[itrack].vert_exp()[ivertex]    = exp(tracks[itrack].vert_exparg()[ivertex] ); // e^{-beta*(z_t-z_v)/dz^2}
+-        tracks[itrack].sum_Z()      += vertices[ivertex].rho()*tracks[itrack].vert_exp()[ivertex]; // Z_t = sum_v pho_v * e^{-beta*(z_t-z_v)/dz^2}, partition function of the track
+-      } //end vertex for
+-      if(not(std::isfinite(tracks[itrack].sum_Z()))) tracks[itrack].sum_Z() = 0; // Just in case something diverges
+-      if(tracks[itrack].sum_Z()>1e-100){ // If non-zero then the track has a non-trivial assignment to a vertex
+-        double sumw = tracks[itrack].weight()/tracks[itrack].sum_Z();
+-  	for (int ivertexO = tracks[itrack].kmin(); ivertexO < tracks[itrack].kmax() ; ++ivertexO){
+-          int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-          tracks[itrack].vert_se()[ivertex] = tracks[itrack].vert_exp()[ivertex] * sumw; // From partition of track to contribution of track to vertex partition
+-          double w = vertices[ivertex].rho() * tracks[itrack].vert_exp()[ivertex] * sumw * tracks[itrack].oneoverdz2(); 
+-          tracks[itrack].vert_sw()[ivertex]  = w; // Contribution of track to vertex as weight
+-          tracks[itrack].vert_swz()[ivertex] = w * tracks[itrack].z(); // Weighted track position
+-          if (updateTc){ 
+-	    tracks[itrack].vert_swE()[ivertex] = -w * tracks[itrack].vert_exparg()[ivertex]/(_beta); // Only need it when changing the Tc (i.e. after a split), to recompute it
+-	  }
+-	  else{
+-	    tracks[itrack].vert_swE()[ivertex] = 0;
+-	  }
+-        } //end vertex for
+-      } //end if
+-    } //end track for
+-    alpaka::syncBlockThreads(acc);
+-    // After the track-vertex matrix assignment, we need to add up across vertices. This time, we use one thread per vertex
+-    for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-      vertices[ivertexO].se() = 0.;
+-      vertices[ivertexO].sw() = 0.;
+-      vertices[ivertexO].swz() = 0.;
+-      vertices[ivertexO].aux1() = 0.;
+-      if (updateTc) vertices[ivertexO].swE() = 0.;
+-    } // end vertex for
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-      for (int ivertexO = tracks[itrack].kmin(); ivertexO < tracks[itrack].kmax() ; ++ivertexO){
+-	// TODO: these atomics are going to be very slow. Can we optimize?
+-        int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-        alpaka::atomicAdd(acc, &vertices[ivertex].se(), tracks[itrack].vert_se()[ivertex], alpaka::hierarchy::Threads{});
+-        alpaka::atomicAdd(acc, &vertices[ivertex].sw(), tracks[itrack].vert_sw()[ivertex], alpaka::hierarchy::Threads{});
+-        alpaka::atomicAdd(acc, &vertices[ivertex].swz(), tracks[itrack].vert_swz()[ivertex], alpaka::hierarchy::Threads{});
+-        if (updateTc) alpaka::atomicAdd(acc, &vertices[ivertex].swE(), tracks[itrack].vert_swE()[ivertex], alpaka::hierarchy::Threads{});
+-      } // end for
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Last, evalute vertex properties
+-    for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-      int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-      if (vertices[ivertex].sw() > 0){ // If any tracks were assigned, update
+-        double znew = vertices[ivertex].swz()/vertices[ivertex].sw();
+-	vertices[ivertex].aux1() = abs(znew - vertices[ivertex].z()); // How much the vertex moved which we need to determine convergence in thermalize
+-	vertices[ivertex].z() = znew;
+-      }
+-      vertices[ivertex].rho() = vertices[ivertex].rho()*vertices[ivertex].se()*osumtkwt; // This is the 'size' or 'mass' of the vertex  
+-    } // end vertex for
+-    alpaka::syncBlockThreads(acc);
+-  } //end update
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void merge(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // If two vertex are too close together, merge them
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    int nprev = vertices[blockIdx].nV();
+-    if (nprev < 2) return;
+-    for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-      int ivertex = vertices[ivertexO].order();
+-      int ivertexnext = vertices[ivertexO+1].order();
+-      vertices[ivertex].aux1() = abs(vertices[ivertex].z() - vertices[ivertexnext].z());
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Sorter things
+-    auto& critical_dist = alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    auto& critical_index = alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    int& ncritical = alpaka::declareSharedVar<int, __COUNTER__>(acc);
+-
+-    if (once_per_block(acc)){
+-      ncritical = 0;
+-      for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-        int ivertex = vertices[ivertexO].order();
+-        if (vertices[ivertex].aux1() < cParams.zmerge()){ // i.e., if we are to split the vertex
+-          critical_dist[ncritical] = abs(vertices[ivertex].aux1());
+-          critical_index[ncritical] = ivertexO;
+-          ncritical++;
+-          if (ncritical > 128) break;
+-        }
+-      }
+-    } // end once_per_block
+-    alpaka::syncBlockThreads(acc);
+-    if (ncritical == 0) return;
+-    for (int sortO = 0; sortO < ncritical ; ++sortO){ // All threads are running the same code, to know where to exit, which is clunky
+-      if (ncritical == 0 || maxVerticesPerBlock == nprev) return;
+-      int ikO = 0;
+-      double minVal = 999999.;
+-      for (int sort1 = 0; sort1 < ncritical; ++sort1){
+-        if (critical_dist[sort1] > minVal){
+-          minVal = critical_dist[sort1];
+-          ikO    = sort1;
+-        }
+-      }
+-      critical_dist[ikO] = 9999999.;
+-      int ivertexO    = critical_index[ikO];
+-      int ivertex     = vertices[ivertexO].order();  // This will be splitted
+-      int ivertexnext = blockIdx * maxVerticesPerBlock + nprev -1;
+-      // A little bit of safety here. First is needed to avoid reading the -1 entry of vertices->order. Second is not as far as we don't go over 511 vertices, but better keep it just in case
+-      if (ivertexO < blockIdx * maxVerticesPerBlock + nprev -1) ivertexnext = vertices[ivertexO+1].order();  // This will be used in a couple of computations
+-      alpaka::syncBlockThreads(acc);
+-      if (once_per_block(acc)){ // Really no way of parallelizing this I'm afraid
+-        vertices[ivertex].isGood() = false; // Delete it!
+-        double rho =  vertices[ivertex].rho() + vertices[ivertexnext].rho();
+-        if (rho > 1.e-100){ 
+-          vertices[ivertexnext].z() = (vertices[ivertex].rho() * vertices[ivertex].z() + vertices[ivertexnext].rho() * vertices[ivertexnext].z()) / rho;
+-        } 
+-        else{
+-          vertices[ivertexnext].z() = 0.5 * (vertices[ivertex].z() + vertices[ivertexnext].z());
+-        } 
+-        vertices[ivertexnext].rho()  = rho;
+-        vertices[ivertexnext].sw()  += vertices[ivertex].sw();
+-        for (int ivertexOO = ivertexO ; ivertexOO < maxVerticesPerBlock * blockIdx + nprev -1 ; ++ivertexOO){
+-          vertices[ivertexOO].order() = vertices[ivertexOO+1].order();
+-        }
+-        vertices[blockIdx].nV() = vertices[blockIdx].nV()-1; // Also update nvertex
+-      } // end once_per_block
+-      alpaka::syncBlockThreads(acc); 
+-      for (int resort = 0; resort < ncritical ; ++resort){
+-        if (critical_index[resort] > ivertexO) critical_index[resort]--; // critical_index refers to the original vertices->order, so it needs to be updated 
+-      }
+-      nprev = vertices[blockIdx].nV(); // And to the counter of previous vertices
+-      for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-        if (tracks[itrack].kmax() > ivertexO) tracks[itrack].kmax()--;
+-        if ((tracks[itrack].kmin() > ivertexO) || ((tracks[itrack].kmax() < (tracks[itrack].kmin() + 1)) && (tracks[itrack].kmin() > maxVerticesPerBlock*blockIdx))) tracks[itrack].kmin()--;
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      return; 
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    alpaka::syncBlockThreads(acc);
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void split(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta, double threshold){
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    update(acc, tracks, vertices, cParams, osumtkwt, _beta, 0.0, false); // Update positions after merge
+-    alpaka::syncBlockThreads(acc);
+-    double epsilon = 1e-3;
+-    int nprev = vertices[blockIdx].nV();
+-    // Set critical T for all vertices
+-    for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-      int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-      double Tc = 2 * vertices[ivertex].swE() / vertices[ivertex].sw();
+-      vertices[ivertex].aux1() = Tc;
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Sorter things
+-    auto& critical_temp = alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    auto& critical_index = alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    int& ncritical = alpaka::declareSharedVar<int, __COUNTER__>(acc);
+-    // Information for the vertex splitting properties
+-    double& p1 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& p2 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& z1 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& z2 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& w1 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& w2 = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-
+-    if (once_per_block(acc)){
+-      ncritical = 0;
+-      for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-        int ivertex = vertices[ivertexO].order();
+-        if (vertices[ivertex].aux1() * _beta > threshold){ // i.e., if we are to split the vertex
+-          critical_temp[ncritical] = abs(vertices[ivertex].aux1());
+-	  critical_index[ncritical] = ivertexO;
+-	  ncritical++;
+-	  if (ncritical > 128) break;
+-        }
+-      }
+-    } // end once_per_block
+-    alpaka::syncBlockThreads(acc);
+-    if (ncritical == 0 || maxVerticesPerBlock == nprev) return;
+-    for (int sortO = 0; sortO < ncritical ; ++sortO){ // All threads are running the same code, to know where to exit, which is clunky
+-      if (ncritical == 0 || maxVerticesPerBlock == nprev) return;
+-      int ikO = 0;
+-      double maxVal = -1.;
+-      for (int sort1 = 0; sort1 < ncritical; ++sort1){
+-        if (critical_temp[sort1] > maxVal){
+-          maxVal = critical_temp[sort1];
+-          ikO    = sort1;
+-        }
+-      }
+-      critical_temp[ikO] = -1.;
+-      int ivertexO    = critical_index[ikO];
+-      int ivertex     = vertices[ivertexO].order();  // This will be splitted
+-      int ivertexprev = blockIdx * maxVerticesPerBlock;
+-      int ivertexnext = blockIdx * maxVerticesPerBlock + nprev -1; 
+-      // A little bit of safety here. First is needed to avoid reading the -1 entry of vertices->order. Second is not as far as we don't go over 511 vertices, but better keep it just in case
+-      if (ivertexO > blockIdx * maxVerticesPerBlock) ivertexprev = vertices[ivertexO-1].order();  // This will be used in a couple of computations
+-      if (ivertexO < blockIdx * maxVerticesPerBlock + nprev -1) ivertexnext = vertices[ivertexO+1].order();  // This will be used in a couple of computations
+-      if (once_per_block(acc)){
+-        p1 = 0.;
+-	p2 = 0.;
+-	z1 = 0.;
+-	z2 = 0.;
+-	w1 = 0.;
+-	w2 = 0.;
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-        if (tracks[itrack].sum_Z() > 1.e-100) {
+-          // winner-takes-all, usually overestimates splitting
+-          double tl = tracks[itrack].z() < vertices[ivertex].z() ? 1. : 0.;
+-          double tr = 1. - tl;
+-          // soften it, especially at low T
+-          double arg = (tracks[itrack].z() - vertices[ivertex].z()) * sqrt((_beta) * tracks[itrack].oneoverdz2());
+-          if (abs(arg) < 20) {
+-            double t = exp(-arg);
+-            tl = t / (t + 1.);
+-            tr = 1 / (t + 1.);
+-          }
+-	  // Recompute split vertex quantities
+-          double p = vertices[ivertex].rho() * tracks[itrack].weight() * exp(-(_beta) * (tracks[itrack].z()-vertices[ivertex].z())*(tracks[itrack].z()-vertices[ivertex].z())* tracks[itrack].oneoverdz2())/ tracks[itrack].sum_Z();
+-          double w = p * tracks[itrack].oneoverdz2();
+-	  alpaka::atomicAdd(acc, &p1, p*tl, alpaka::hierarchy::Threads{});
+-	  alpaka::atomicAdd(acc, &p2, p*tr, alpaka::hierarchy::Threads{});
+-	  alpaka::atomicAdd(acc, &z1, w*tl*tracks[itrack].z(), alpaka::hierarchy::Threads{});
+-	  alpaka::atomicAdd(acc, &z2, p*tr*tracks[itrack].z(), alpaka::hierarchy::Threads{});
+-	  alpaka::atomicAdd(acc, &w1, w*tl, alpaka::hierarchy::Threads{});
+-	  alpaka::atomicAdd(acc, &w2, w*tr, alpaka::hierarchy::Threads{});
+-        }
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      if (once_per_block(acc)){
+-	// If one vertex is taking all the things, then set the others slightly off to help splitting
+-        if (w1 > 0){
+-          z1 = z1/w1;
+-	}
+-        else{
+-	  z1 = vertices[ivertex].z() - epsilon;	
+-	}
+-	if (w2 > 0){
+-          z2 = z2/w2;
+-        }
+-        else{
+-          z2 = vertices[ivertex].z() + epsilon;
+-        }
+-        // If there is not enough room, reduce split size
+-	if ((ivertexO > maxVerticesPerBlock*blockIdx) && (z1 < (0.6 * vertices[ivertex].z() + 0.4 * vertices[ivertexprev].z()))) { // First in the if is ivertexO, as we care on whether the vertex is the leftmost or rightmost
+-          z1 = 0.6 * vertices[ivertex].z() + 0.4 * vertices[ivertexprev].z();
+-        }
+-        if ((ivertexO < maxVerticesPerBlock* blockIdx +  nprev - 1) && (z2 > (0.6 * vertices[ivertex].z() + 0.4 * vertices[ivertexnext].z()))) {
+-          z2 = 0.6 * vertices[ivertex].z() + 0.4 * vertices[ivertexnext].z();
+-        }
+-      } // end once_per_block
+-      // Now save the properties of the new stuff
+-      alpaka::syncBlockThreads(acc);
+-      int nnew = 999999;
+-      if (abs(z2-z2) > epsilon){ 
+-        // Find the first empty index to save the vertex
+-        for (int icheck = maxVerticesPerBlock * blockIdx ; icheck < maxVerticesPerBlock * (blockIdx + 1); icheck ++ ){
+-          if (not(vertices[icheck].isGood())){
+-            nnew = icheck;
+-            break;
+-          }
+-        }
+-        if (nnew == 999999) break;
+-      }
+-      if (once_per_block(acc)){
+-        double pk1 = p1 * vertices[ivertex].rho() / (p1 + p2);
+-        double pk2 = p2 * vertices[ivertex].rho() / (p1 + p2);
+-        vertices[ivertex].z() = z2;
+-        vertices[ivertex].rho() = pk2;
+-        // Insert it into the first available slot           
+-        vertices[nnew].z()     = z1; 
+-        vertices[nnew].rho()   = pk1; 
+-        // And register it as used
+-        vertices[nnew].isGood()= true;
+-        // TODO:: this is likely not needed as far as it is reset anytime we call update
+-        vertices[nnew].sw()     = 0.;
+-        vertices[nnew].se()     = 0.;
+-        vertices[nnew].swz()    = 0.;
+-        vertices[nnew].swE()    = 0.;
+-        vertices[nnew].exp()    = 0.;
+-        vertices[nnew].exparg() = 0.;
+-	for (int ivnew = maxVerticesPerBlock * blockIdx +  nprev ; ivnew > ivertexO ; ivnew--){ // As we add a vertex, we update from the back downwards
+-          vertices[ivnew].order() = vertices[ivnew-1].order();
+-        }
+-	vertices[ivertexO].order() = nnew;
+-	vertices[blockIdx].nV() += 1;
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      // Now, update kmin/kmax for all tracks
+-      for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-        if (tracks[itrack].kmin() > ivertexO) tracks[itrack].kmin()++;
+-        if ((tracks[itrack].kmax() >= ivertexO) || (tracks[itrack].kmax() == tracks[itrack].kmin())) tracks[itrack].kmax()++;	
+-      }
+-      nprev = vertices[blockIdx].nV();
+-      if (once_per_block(acc)){
+-        // If we did a splitting or old sorted list of vertex index is scrambled, so we need to fix it
+-        for (int resort = 0; resort < ncritical ; ++resort){
+-          if (critical_index[resort] > ivertexO) critical_index[resort]++; // critical_index refers to the original vertices->order, so it needs to be updated
+-        }
+-      }
+-      alpaka::syncBlockThreads(acc);
+-    }
+-    alpaka::syncBlockThreads(acc);
+-  }
+-  
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void purge(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta, double rho0){
+-    // Remove repetitive or low quality entries
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    if (vertices[blockIdx].nV() < 2) return;
+-    double eps = 1e-100;
+-    int nunique_min = 2;
+-    double rhoconst = rho0*exp(-_beta*(cParams.dzCutOff()*cParams.dzCutOff()));
+-    int nprev = vertices[blockIdx].nV();
+-    // Reassign
+-    set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + vertices[blockIdx].nV() ; ivertexO += blockSize){
+-      int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-      vertices[ivertex].aux1() = 0; // sum of track-vertex probabilities
+-      vertices[ivertex].aux2() = 0; // number of uniquely assigned tracks
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Get quality of vertex in terms of #Tracks and sum of track probabilities
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-      double track_aux1 = ((tracks[itrack].sum_Z() > eps) && (tracks[itrack].weight() > cParams.uniquetrkminp())) ? 1./tracks[itrack].sum_Z() : 0.;
+-      for (int ivertexO = tracks[itrack].kmin(); ivertexO < tracks[itrack].kmax() ; ++ivertexO){
+-        int ivertex = vertices[ivertexO].order(); // Remember to always take ordering from here when dealing with vertices
+-	double ppcut = cParams.uniquetrkweight() * vertices[ivertex].rho() / (vertices[ivertex].rho()+rhoconst);
+-	double track_vertex_aux1 = exp(-(_beta)*tracks[itrack].oneoverdz2() * ( (tracks[itrack].z()-vertices[ivertex].z())*(tracks[itrack].z()-vertices[ivertex].z()) ));
+-        double p = vertices[ivertex].rho()*track_vertex_aux1*track_aux1; // The whole track-vertex P_ij = rho_j*p_ij*p_i
+-        alpaka::atomicAdd(acc, &vertices[ivertex].aux1(), p, alpaka::hierarchy::Threads{});
+-        if (p>ppcut) {
+-          alpaka::atomicAdd(acc, &vertices[ivertex].aux2(), 1., alpaka::hierarchy::Threads{});
+-        }
+-      }
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Find worst vertex to purge
+-    int& k0 = alpaka::declareSharedVar<int, __COUNTER__>(acc);
+-
+-    if (once_per_block(acc)){
+-      double sumpmin = tracks.nT(); // So it is always bigger than aux for any vertex
+-      k0 = maxVerticesPerBlock * blockIdx + nprev;
+-      for (int ivertexO = maxVerticesPerBlock * blockIdx + threadIdx; ivertexO < maxVerticesPerBlock * blockIdx + (int) vertices[blockIdx].nV() ; ivertexO += blockSize){
+-        int ivertex = vertices[ivertexO].order();
+-        if ((vertices[ivertex].aux2() < nunique_min) && (vertices[ivertex].aux1() < sumpmin)){
+-          // Will purge 
+-	  sumpmin = vertices[ivertex].aux1();
+-	  k0 = ivertexO;
+-        }
+-      } // end vertex for
+-      if (k0 != (int) (maxVerticesPerBlock * blockIdx + nprev)){
+-        for (int ivertexOO = k0; ivertexOO < maxVerticesPerBlock * blockIdx + (int) nprev - 1; ++ivertexOO){ // TODO:: Any tricks here to multithread? I don't think so
+-          vertices[ivertexOO].order() =vertices[ivertexOO+1].order(); // Update vertex order taking out the purged one
+-        }
+-        vertices[blockIdx].nV()--; // Also update nvertex
+-      }
+-    }// end once_per_block 
+-    if (k0 != (int) (maxVerticesPerBlock * blockIdx + (int) nprev)){
+-      for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-        if (tracks[itrack].kmax() > k0) tracks[itrack].kmax()--;
+-	if ((tracks[itrack].kmin() > k0) || ((tracks[itrack].kmax() < (tracks[itrack].kmin() + 1)) && (tracks[itrack].kmin() > (int) (maxVerticesPerBlock * blockIdx)))) tracks[itrack].kmin()--;   
+-      }
+-    } // end if 
+-    alpaka::syncBlockThreads(acc);
+-    if (nprev != vertices[blockIdx].nV()){
+-      set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    }
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void initialize(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams){
+-    // Initialize all vertices as empty, a single vertex in each block will be initialized with all tracks associated to it
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    vertices[blockIdx].nV() = 1; // We start with one vertex per block
+-    for (int ivertex = threadIdx+maxVerticesPerBlock*blockIdx; ivertex < maxVerticesPerBlock*(blockIdx+1); ivertex+=blockSize){ // Initialize vertices in parallel in the block
+-      vertices[ivertex].sw() = 0.;
+-      vertices[ivertex].se() = 0.;
+-      vertices[ivertex].swz() = 0.;
+-      vertices[ivertex].swE() = 0.;
+-      vertices[ivertex].exp() = 0.;
+-      vertices[ivertex].exparg() = 0.;
+-      vertices[ivertex].z() = 0.;
+-      vertices[ivertex].rho() = 0.;
+-      vertices[ivertex].isGood() = false;
+-      vertices[ivertex].order() = 9999;
+-      if (ivertex == maxVerticesPerBlock*blockIdx){ // Now set up the initial single vetex containing everything
+-        // TODO:: Probably there is a cleaner way of doing this in Alpaka
+-	vertices[ivertex].rho() = 1.;
+-	vertices[ivertex].order() = maxVerticesPerBlock*blockIdx;
+-	vertices[ivertex].isGood() = true;
+-      } 
+-    } // end for
+-    alpaka::syncBlockThreads(acc);
+-    // Now assign all tracks in the block to the single vertex
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){ // Technically not a loop as each thread will have one track in the per block approach, but in the more general case this can be extended to BlockSize in Alpaka != BlockSize in algorithm
+-      tracks.kmin(itrack) = maxVerticesPerBlock*blockIdx; // Tracks are associated to vertex in list kmin, kmin+1,... kmax-1, so this just assign all tracks to the vertex we just created!
+-      tracks.kmax(itrack) = maxVerticesPerBlock*blockIdx + 1;
+-    }
+-    if (once_per_block(acc)){
+-      for (int ivertex =0 ; ivertex < maxVerticesPerBlock*(blockIdx+1); ivertex += 1){
+-        vertices[ivertex].sw() = 0.;
+-        vertices[ivertex].se() = 0.;
+-        vertices[ivertex].swz() = 0.;
+-        vertices[ivertex].swE() = 0.;
+-        vertices[ivertex].exp() = 0.;
+-        vertices[ivertex].exparg() = 0.;
+-        vertices[ivertex].z() = 0.;
+-        vertices[ivertex].rho() = 0.;
+-        vertices[ivertex].isGood() = false;
+-        vertices[ivertex].order() = 9999;
+-        if (ivertex == maxVerticesPerBlock*blockIdx){ // Now set up the initial single vertex containing everything
+-          // TODO:: Probably there is a cleaner way of doing this in Alpaka
+-          vertices[ivertex].rho() = 1.;
+-          vertices[ivertex].order() = maxVerticesPerBlock*blockIdx;
+-          vertices[ivertex].isGood() = true;
+-        } 
+-      }
+-      for (int itrack = 0 ; itrack < (blockIdx+1)*blockSize ; itrack += blockSize){
+-        tracks.kmin(itrack) = maxVerticesPerBlock*blockIdx;
+-	tracks.kmax(itrack) = maxVerticesPerBlock*blockIdx + 1;
+-      }
+-    }
+-    alpaka::syncBlockThreads(acc);
+-  }
+-  
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void getBeta0(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& _beta){
+-    // Computes first critical temperature
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-      tracks[itrack].aux1() = tracks[itrack].weight()*tracks[itrack].oneoverdz2();  // Weighted weight
+-      tracks[itrack].aux2() = tracks[itrack].weight()*tracks[itrack].oneoverdz2()*tracks[itrack].z(); // Weighted position
+-    }
+-    // Initial vertex position
+-    alpaka::syncBlockThreads(acc);
+-    double& wnew = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    double& znew = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-    if (once_per_block(acc)){
+-      wnew = 0.;
+-      znew = 0.;
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){ // TODO:Saving and reading in the tracks dataformat might be a bit too much?
+-      alpaka::atomicAdd(acc, &wnew, tracks[itrack].aux1(), alpaka::hierarchy::Threads{});
+-      alpaka::atomicAdd(acc, &znew, tracks[itrack].aux2(), alpaka::hierarchy::Threads{});
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    if (once_per_block(acc)){
+-      vertices[maxVerticesPerBlock*blockIdx].z() = znew/wnew;
+-      znew = 0.;
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // Now do a chi-2 like of all tracks and save it again in znew
+-    for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){
+-      tracks[itrack].aux2() = tracks[itrack].aux1()*(vertices[maxVerticesPerBlock*blockIdx].z() - tracks[itrack].z() )*(vertices[maxVerticesPerBlock*blockIdx].z() - tracks[itrack].z())*tracks[itrack].oneoverdz2();
+-      alpaka::atomicAdd(acc, &znew, tracks[itrack].aux2(), alpaka::hierarchy::Threads{});
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    if (once_per_block(acc)){
+-      _beta = 2 * znew/wnew; // 1/beta_C, or T_C
+-      if (_beta > cParams.TMin()){ // If T_C > T_Min we have a game to play
+-        int coolingsteps = 1 - int(std::log(_beta/ cParams.TMin()) / std::log(cParams.coolingFactor())); // A tricky conversion to round the number of cooling steps
+-        _beta = std::pow(cParams.coolingFactor(), coolingsteps)/cParams.TMin(); // First cooling step
+-      }
+-      else _beta = cParams.coolingFactor()/cParams.TMin(); // Otherwise, just one step
+-    }
+-    alpaka::syncBlockThreads(acc);
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void thermalize(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta, double delta_highT, double rho0){
+-    // At a fixed temperature, iterate vertex position update until stable
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-    // Thermalizing iteration
+-    int niter = 0; 
+-    double zrange_min_ = 0.01; // Hard coded as in CPU
+-    double delta_max = cParams.delta_lowT();
+-    alpaka::syncBlockThreads(acc);
+-    // Stepping definition
+-    if (cParams.convergence_mode() == 0){
+-      delta_max = delta_highT;
+-    }
+-    else if (cParams.convergence_mode() == 1){
+-      delta_max = cParams.delta_lowT() / sqrt(std::max(_beta, 1.0));
+-    }
+-    int maxIterations = 1000;
+-    alpaka::syncBlockThreads(acc);
+-    // Always start by resetting track-vertex assignment
+-    set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    alpaka::syncBlockThreads(acc);
+-    // Accumulator of variations
+-    double delta_sum_range = 0;
+-    while (niter++ < maxIterations){ // Loop until vertex position change is small
+-      // One iteration of new vertex positions
+-      update(acc, tracks, vertices, cParams, osumtkwt, _beta, rho0, false);
+-      alpaka::syncBlockThreads(acc);
+-      // One iteration of max variation
+-      double dmax = 0.;
+-      for (int ivertexO = maxVerticesPerBlock*blockIdx ; ivertexO < maxVerticesPerBlock*blockIdx + vertices[blockIdx].nV(); ivertexO++){ // TODO::Currently we are doing this in all threads in parallel, might be optimized in other way to multithread max finding?
+-        int ivertex = vertices[ivertexO].order();
+-        if (vertices[ivertex].aux1() >= dmax) dmax = vertices[ivertex].aux1();
+-      }
+-      delta_sum_range += dmax;
+-      alpaka::syncBlockThreads(acc);
+-      if (delta_sum_range > zrange_min_ && dmax > zrange_min_) {  // I.e., if a vertex moved too much we reassign
+-        set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-	delta_sum_range = 0.;
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      if (dmax < delta_max){ // If it moved too little, we stop updating
+-        break;
+-      }
+-    } // end while
+-  } // thermalize
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void coolingWhileSplitting(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // Perform cooling of the deterministic annealing
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    double betafreeze = (1./cParams.TMin()) * sqrt(cParams.coolingFactor()); // Last temperature
+-    while (_beta < betafreeze){ // The cooling loop
+-      alpaka::syncBlockThreads(acc);
+-      int nprev = vertices[blockIdx].nV();
+-      alpaka::syncBlockThreads(acc);
+-      merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-      while (nprev !=  vertices[blockIdx].nV() ) { // If we are here, we merged before, keep merging until stable
+-        nprev = vertices[blockIdx].nV();
+-	alpaka::syncBlockThreads(acc);
+-	update(acc, tracks, vertices, cParams, osumtkwt, _beta, 0.0, false); // Update positions after merge
+-	alpaka::syncBlockThreads(acc);
+-	merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-	alpaka::syncBlockThreads(acc);
+-      } // end while after merging
+-      split(acc, tracks, vertices, cParams, osumtkwt, _beta, 1.0); // As we are close to a critical temperature, check if we need to split and if so, do it
+-      alpaka::syncBlockThreads(acc);
+-      if (once_per_block(acc)){ // Cool down
+-	_beta = _beta/cParams.coolingFactor();
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_highT(), 0.0); // Stabilize positions after cooling
+-      alpaka::syncBlockThreads(acc);
+-      set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta); // Reassign tracks to vertex
+-      alpaka::syncBlockThreads(acc);
+-      update(acc, tracks, vertices, cParams, osumtkwt, _beta, 0.0, false); // Last, update positions again
+-      alpaka::syncBlockThreads(acc);
+-    }
+-  } // end coolingWhileSplitting
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void reMergeTracks(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // After the cooling, we merge any closeby vertices
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int nprev = vertices[blockIdx].nV();
+-    merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    while (nprev !=  vertices[blockIdx].nV() ) { // If we are here, we merged before, keep merging until stable
+-      set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta); // Reassign tracks to vertex
+-      alpaka::syncBlockThreads(acc);
+-      update(acc, tracks, vertices, cParams, osumtkwt, _beta, 0.0, false); // Update before any final merge
+-      alpaka::syncBlockThreads(acc);
+-      nprev = vertices[blockIdx].nV();
+-      merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-    } // end while
+-  } // end reMergeTracks
+-  
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void reSplitTracks(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // Last splitting at the minimal temperature which is a bit more permissive
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    int ntry = 0; 
+-    double threshold = 1.0;
+-    int nprev = vertices[blockIdx].nV();
+-    split(acc, tracks, vertices, cParams, osumtkwt, _beta, threshold);
+-    while (nprev !=  vertices[blockIdx].nV() && (ntry++ < 10)) {
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_highT(), 0.0);
+-      alpaka::syncBlockThreads(acc);
+-      nprev = vertices[blockIdx].nV();
+-      merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-      while (nprev !=  vertices[blockIdx].nV() ) {
+-	nprev = vertices[blockIdx].nV();
+-        update(acc, tracks, vertices, cParams, osumtkwt, _beta, 0.0, false);
+-	alpaka::syncBlockThreads(acc);
+-        merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-	alpaka::syncBlockThreads(acc);
+-      }
+-      threshold *= 1.1; // Make it a bit easier to split
+-      split(acc, tracks, vertices, cParams, osumtkwt, _beta, threshold);
+-      alpaka::syncBlockThreads(acc);
+-    }
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void rejectOutliers(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, double& osumtkwt, double& _beta){
+-    // Treat outliers, either low quality vertex, or those with very far away tracks
+-    int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-    double rho0 = 0.0; // Yes, here is where this thing is used
+-    if (cParams.dzCutOff() > 0){
+-      rho0 = vertices[blockIdx].nV() > 1 ? 1./vertices[blockIdx].nV() : 1.;
+-      for (int rhoindex = 0; rhoindex < 5 ; rhoindex++){ //Can't be parallelized in any reasonable way
+-        update(acc, tracks, vertices, cParams, osumtkwt, _beta, rhoindex*rho0/5., false);
+-        alpaka::syncBlockThreads(acc);
+-      }
+-    } // end if
+-    thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_lowT(), rho0);
+-    int nprev = vertices[blockIdx].nV();
+-    alpaka::syncBlockThreads(acc);
+-    merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    alpaka::syncBlockThreads(acc);
+-    while (nprev !=  vertices[blockIdx].nV()) {
+-      set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta); // Reassign tracks to vertex
+-      alpaka::syncBlockThreads(acc);
+-      update(acc, tracks, vertices, cParams, osumtkwt, _beta, rho0, false); // At rho0 it changes the initial value of the partition function
+-      alpaka::syncBlockThreads(acc);
+-      nprev = vertices[blockIdx].nV();
+-      merge(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-    }
+-    while (_beta < 1./cParams.Tpurge()){ // Cool down to purge temperature
+-      alpaka::syncBlockThreads(acc);
+-      if (once_per_block(acc)){ // Cool down
+-        _beta = std::min(_beta/cParams.coolingFactor(), 1./cParams.Tpurge());
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_lowT(), rho0);
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // And now purge
+-    nprev = vertices[blockIdx].nV();
+-    purge(acc, tracks, vertices, cParams, osumtkwt, _beta, rho0);
+-    while (nprev !=  vertices[blockIdx].nV()) {
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_lowT(), rho0);
+-      nprev = vertices[blockIdx].nV();
+-      alpaka::syncBlockThreads(acc);
+-      purge(acc, tracks, vertices, cParams, osumtkwt, _beta, rho0);
+-      alpaka::syncBlockThreads(acc);
+-    }
+-    while (_beta < 1./cParams.Tstop()){ // Cool down to stop temperature
+-      alpaka::syncBlockThreads(acc);
+-      if (once_per_block(acc)){ // Cool down
+-        _beta = std::min(_beta/cParams.coolingFactor(), 1./cParams.Tstop());
+-      }
+-      alpaka::syncBlockThreads(acc);
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_lowT(), rho0);
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    // The last track to vertex assignment of the clusterizer!
+-    set_vtx_range(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-    alpaka::syncBlockThreads(acc);
+-  } // rejectOutliers
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void resortVerticesAndAssign(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, int32_t griddim){
+-    // Multiblock vertex arbitration
+-    double beta = 1./cParams.Tstop();
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    auto& z= alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    auto& rho= alpaka::declareSharedVar<float[128], __COUNTER__>(acc);
+-    alpaka::syncBlockThreads(acc);
+-    if (once_per_block(acc)){ 
+-      int nTrueVertex = 0;
+-      int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-      int maxVerticesPerBlock = (int) 512/blockSize; // Max vertices size is 512 over number of blocks in grid
+-      for (int32_t blockid = 0; blockid < griddim ; blockid++){
+-        for(int ivtx = blockid * maxVerticesPerBlock; ivtx < blockid * maxVerticesPerBlock + vertices[blockid].nV(); ivtx++){
+-          int ivertex = vertices[ivtx].order();
+-          if ((vertices[ivertex].rho()< 10000) && (abs(vertices[ivertex].z())<30)) {
+-            z[nTrueVertex] = vertices[ivertex].z();
+-            rho[nTrueVertex] = vertices[ivertex].rho();
+-            nTrueVertex ++;
+-            if (nTrueVertex==1024) break;
+-          }
+-        }
+-      }
+-      vertices[0].nV() = nTrueVertex;
+-    }
+-    alpaka::syncBlockThreads(acc);
+-
+-    auto& orderedIndices = alpaka::declareSharedVar<uint16_t[1024], __COUNTER__>(acc);
+-    auto& sws            = alpaka::declareSharedVar<uint16_t[1024], __COUNTER__>(acc);
+-    
+-    int const& nvFinal = vertices[0].nV();
+-
+-    cms::alpakatools::radixSort<Acc1D, float, 2>(acc, z, orderedIndices, sws, nvFinal);
+-    alpaka::syncBlockThreads(acc);
+-    if (once_per_block(acc)){ 
+-      // copy sorted vertices back to the SoA
+-      for (int ivtx=threadIdx; ivtx< vertices[0].nV(); ivtx+=blockSize){
+-        vertices[ivtx].z() = z[ivtx];
+-        vertices[ivtx].rho() = rho[ivtx];
+-        vertices[ivtx].order() = orderedIndices[ivtx];
+-      }
+-    }  
+-    alpaka::syncBlockThreads(acc);
+-    double zrange_min_ = 0.1;
+-     
+-    for (int itrack = threadIdx; itrack < tracks.nT() ; itrack += blockSize){
+-      if (not(tracks[itrack].isGood())) continue;
+-      double zrange     = std::max(cParams.zrange()/ sqrt((beta) * tracks[itrack].oneoverdz2()), zrange_min_);
+-      double zmin       = tracks[itrack].z() - zrange;
+-      int kmin = vertices[0].nV()-1;
+-      if (vertices[vertices[kmin].order()].z() > zmin){ // vertex properties always accessed through vertices->order
+-        while ((kmin > 0) && (vertices[vertices[kmin-1].order()].z() > zmin)) { // i.e., while we find another vertex within range that is before the previous initial step
+-          kmin--;
+-        }
+-      }
+-      else {
+-        while ((kmin < vertices[0].nV()) && (vertices[vertices[kmin].order()].z() < zmin)) { // Or it might happen that we have to take out vertices from the thing
+-          kmin++;
+-        }
+-      }
+-      // Now the same for the upper bound
+-      double zmax       = tracks[itrack].z() + zrange;
+-      int kmax = 0;
+-      if (vertices[vertices[kmax].order()].z()< zmax) {
+-        while (( kmax < vertices[0].nV()  - 1) && ( vertices[vertices[kmax+1].order()].z()< zmax )) { // As long as we have more vertex above kmax but within z range, we can add them to the collection, keep going
+-          kmax++;
+-        }
+-      }
+-      else { //Or maybe we have to restrict it
+-        while (( kmax > 0) && (vertices[vertices[kmax].order()].z() > zmax)) {
+-          kmax--;
+-        }
+-      }
+-      if (kmin <= kmax) {
+-        tracks[itrack].kmin() = kmin;
+-        tracks[itrack].kmax() = kmax + 1; //always looping to tracks->kmax(i) - 1
+-      }
+-      else { // If it is here, the whole vertex are under
+-        tracks[itrack].kmin() = std::max(0, std::min(kmin, kmax));
+-        tracks[itrack].kmax() = std::min(vertices[0].nV(), std::max(kmin, kmax) + 1);
+-      }
+-    }
+-    alpaka::syncBlockThreads(acc); 
+-
+-    double mintrkweight_ = 0.5;
+-    double rho0 = vertices[0].nV() > 1 ? 1./vertices[0].nV() : 1.;
+-    double z_sum_init = rho0*exp(-(beta)*cParams.dzCutOff()*cParams.dzCutOff());
+-    for (int itrack = threadIdx; itrack < tracks.nT() ; itrack += blockSize){
+-      int kmin = tracks[itrack].kmin();
+-      int kmax = tracks[itrack].kmax();
+-      double p_max = -1; 
+-      int iMax = 10000; 
+-      double sum_Z = z_sum_init;
+-      for (auto k = kmin; k < kmax; k++) {
+-        double v_exp = exp(-(beta) * std::pow( tracks[itrack].z() - vertices[vertices[k].order()].z(), 2) * tracks[itrack].oneoverdz2());
+-        sum_Z += vertices[vertices[k].order()].rho() * v_exp;
+-      }
+-      double invZ = sum_Z > 1e-100 ? 1. / sum_Z : 0.0;
+-      for (auto k = kmin; k < kmax; k++) {
+-        float v_exp = exp(-(beta) * std::pow( tracks[itrack].z() - vertices[vertices[k].order()].z(), 2) * tracks[itrack].oneoverdz2()) ;
+-        float p = vertices[vertices[k].order()].rho() * v_exp * invZ;
+-        if (p > p_max && p > mintrkweight_) {
+-          // assign  track i -> vertex k (hard, mintrkweight_ should be >= 0.5 here)
+-          p_max = p;
+-          iMax = k;
+-        }
+-      }
+-      tracks[itrack].kmin() = iMax; 
+-      tracks[itrack].kmax() = iMax+1; 
+-    }
+-    alpaka::syncBlockThreads(acc);
+-  }
+-
+-  template <bool debug = false, typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>> ALPAKA_FN_ACC static void finalizeVertices(const TAcc& acc, portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams){
+-    int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-    int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-    // From here it used to be vertices
+-    if (once_per_block(acc)){
+-    for (int k = 0; k < vertices[0].nV(); k+= 1) { //TODO: ithread, blockSize
+-      int ivertex = vertices[k].order();
+-      vertices[ivertex].ntracks() = 0;
+-      for (int itrack = 0; itrack < tracks.nT(); itrack+= 1){
+-        if (not(tracks[itrack].isGood())) continue; // Remove duplicates
+-        int ivtxFromTk = tracks[itrack].kmin();
+-        if (ivtxFromTk == k){
+-	  bool isNew = true;
+-	  for (int ivtrack = 0; ivtrack < vertices[ivertex].ntracks(); ivtrack++){
+-	    if (tracks[itrack].tt_index() == tracks[vertices[ivertex].track_id()[ivtrack]].tt_index()) isNew = false;
+-          }
+-	  if (!isNew) continue;
+-	  vertices[ivertex].track_id()[vertices[ivertex].ntracks()] = itrack; //tracks[itrack].tt_index();
+-	  vertices[ivertex].track_weight()[vertices[ivertex].ntracks()] = 1.;
+-  	  vertices[ivertex].ntracks()++;
+-        }
+-      }
+-      if (vertices[ivertex].ntracks() < 2){
+-        vertices[ivertex].isGood() = false; // No longer needed
+-        continue; //Skip vertex if it has no tracks
+-      }
+-      vertices[ivertex].x() = 0;
+-      vertices[ivertex].y() = 0;
+-    }
+-    }
+-    alpaka::syncBlockThreads(acc);
+-    if (once_per_block(acc)){
+-      // So we now check whether each vertex is further enough from the previous one
+-      for (int k = 0; k < vertices[0].nV(); k++) {
+-        int prevVertex = ((int) k)-1;
+-        int thisVertex = (int) vertices[k].order();
+-        if (not(vertices[thisVertex].isGood())){
+-          continue;
+-        }
+-        while (!(vertices[vertices[prevVertex].order()].isGood()) && prevVertex >= 0){
+-          // Find the previous vertex that was good
+-          prevVertex--;
+-        }
+-        if ((prevVertex < 0)){ // If it is first, always good
+-          vertices[thisVertex].isGood() = true;
+-        }
+-        else if (abs(vertices[thisVertex].z()-vertices[prevVertex].z()) > (2* cParams.vertexSize())){ //If it is further away enough, it is also good
+-          vertices[thisVertex].isGood() = true;
+-        }
+-        else{
+-          vertices[thisVertex].isGood() = false;
+-        }
+-      }
+-      // This is new, basically we have to deal with the order being broken by the invalidation of vertexes and set back again the vertex multiplicity, unfortunately can't be parallelized without competing conditions
+-      int k = 0;
+-      while (k != vertices[0].nV()){
+-        int thisVertex = vertices[k].order();
+-        if (vertices[thisVertex].isGood()){ // If is good just continue
+-          k++;
+-        }
+-        else{
+-          for (int l = k ; l < vertices[0].nV() ; l++){ //If it is bad, move one position all indexes
+-  	    vertices[l].order() = vertices[l+1].order();
+-  	  }
+-          vertices[0].nV()--; // And reduce vertex number by 1
+-        }
+-      }
+-    }
+-    alpaka::syncBlockThreads(acc);
+-  }
+-
+   class clusterizeKernel {
+   public:
+     template <typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>>
+-    ALPAKA_FN_ACC void operator()(const TAcc& acc,  portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams) const{ 
+-      // This has the core of the clusterization algorithm
+-      // First, declare beta=1/T
+-      initialize(acc, tracks, vertices, cParams);
+-      int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(acc)[0u];
+-      int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u]; // Thread number inside block
+-      int blockIdx  = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u]; // Block number inside grid
+-
+-      double& _beta = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-      double& osumtkwt = alpaka::declareSharedVar<double, __COUNTER__>(acc);
+-      for (int itrack = threadIdx+blockIdx*blockSize; itrack < threadIdx+(blockIdx+1)*blockSize ; itrack += blockSize){ // TODO:Saving and reading in the tracks dataformat might be a bit too much?
+-        alpaka::atomicAdd(acc, &osumtkwt, tracks[itrack].weight(), alpaka::hierarchy::Threads{});
++    ALPAKA_FN_ACC void operator()(const TAcc& acc,
++                                  portablevertex::TrackDeviceCollection::View tracks,
++                                  portablevertex::VertexDeviceCollection::View vertices,
++                                  const portablevertex::ClusterParamsHostCollection::ConstView cParams,
++                                  double* beta_,
++                                  double* osumtkwt_,
++                                  int trackBlockSize) const {
++      // Core of the clusterization algorithm
++      // Produces set of clusters for input set of block-overlapped tracks
++      // tracks contains input track parameters and includes the track-vertex assignment modified during this kernel
++      // vertices is filled up by this kernel with protocluster properties
++      // beta_ and osumtkwt_ are used to pass the final values of _beta and _osumtkwt on each block to the next kernel
++      int blockSize = alpaka::getWorkDiv<alpaka::Grid, alpaka::Blocks>(
++          acc)[0u];  // In GPU blockSize and trackBlockSize should be identical from how the kernel is called, in CPU not
++      int threadIdx = alpaka::getIdx<alpaka::Block, alpaka::Threads>(acc)[0u];  // Thread number inside block
++      int blockIdx = alpaka::getIdx<alpaka::Grid, alpaka::Blocks>(acc)[0u];     // Block number inside grid
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] Start clustering block %i\n", blockIdx);
++        printf("[ClusterizerAlgo::operator()] Parameters blockSize %i, trackBlockSize %i\n", blockSize, trackBlockSize);
++      }
++#endif
++      double& _beta =
++          alpaka::declareSharedVar<double, __COUNTER__>(acc);  // 1/T in the annealing loop, shared in the block
++      double& _osumtkwt = alpaka::declareSharedVar<double, __COUNTER__>(
++          acc);  // Sum of all track weights for normalization of probabilities, shared in the block
++      for (int itrack = threadIdx + blockIdx * trackBlockSize; itrack < threadIdx + (blockIdx + 1) * trackBlockSize;
++           itrack += blockSize) {
++        double temp_weight = static_cast<double>(tracks[itrack].weight());
++        alpaka::atomicAdd(acc, &_osumtkwt, temp_weight, alpaka::hierarchy::Threads{});
++      }
++      alpaka::syncBlockThreads(acc);
++      if (once_per_block(acc)) {
++        _osumtkwt = 1. / _osumtkwt;
++      }
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, _osumtkwt=%1.3f \n", blockIdx, _osumtkwt);
+       }
++#endif
+       alpaka::syncBlockThreads(acc);
+       // In each block, initialize to a single vertex with all tracks
+-      initialize(acc, tracks, vertices, cParams);
++      initialize(acc, tracks, vertices, cParams, trackBlockSize);
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, vertices initialized\n", blockIdx);
++      }
++#endif
+       alpaka::syncBlockThreads(acc);
+       // First estimation of critical temperature
+-      getBeta0(acc, tracks, vertices, cParams, _beta);
+-      alpaka::syncBlockThreads(acc);
+-      // Cool down to beta0 with rho = 0.0 (no regularization term)
+-      thermalize(acc, tracks, vertices, cParams, osumtkwt, _beta, cParams.delta_highT(), 0.0);
++      getBeta0(acc, tracks, vertices, cParams, _beta, trackBlockSize);
+       alpaka::syncBlockThreads(acc);
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, first estimation of TC _beta=%1.3f \n", blockIdx, _beta);
++      }
++#endif
++      // Cool down to betamax with rho = 0.0 (no regularization term)
++      thermalize(acc, tracks, vertices, cParams, _osumtkwt, _beta, cParams.delta_highT(), 0.0, trackBlockSize);
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, first thermalization ended\n", blockIdx);
++      }
++#endif
+       // Now the cooling loop
+-      coolingWhileSplitting(acc, tracks, vertices, cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
++      coolingWhileSplitting(acc, tracks, vertices, cParams, _osumtkwt, _beta, trackBlockSize);
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, cooling ended, T at stop _beta=%1.3f\n", blockIdx, _beta);
++      }
++#endif
+       // After cooling, merge closeby vertices
+-      reMergeTracks(acc,tracks, vertices,cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-      // And split those with tension
+-      reSplitTracks(acc,tracks, vertices,cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-      // After splitting we might get some candidates that are very low quality/have very far away tracks
+-      rejectOutliers(acc,tracks, vertices,cParams, osumtkwt, _beta);
+-      alpaka::syncBlockThreads(acc);
+-    }
+-  }; // class kernel
+-
+-
+-  class arbitrateKernel {
+-  public:
+-    template <typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>>
+-    ALPAKA_FN_ACC void operator()(const TAcc& acc,  portablevertex::TrackDeviceCollection::View tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::ClusterParamsHostCollection::ConstView cParams, int32_t nBlocks) const{
+-      // This has the core of the clusterization algorithm
+-      resortVerticesAndAssign(acc, tracks, vertices,cParams, nBlocks);
+-      alpaka::syncBlockThreads(acc);
+-      finalizeVertices(acc, tracks, vertices, cParams); // In CUDA it used to be verticesAndClusterize
+-      alpaka::syncBlockThreads(acc);
+-    }       
+-  }; // class kernel
+-
+-
+-  ClusterizerAlgo::ClusterizerAlgo(Queue& queue) {
+-  } // ClusterizerAlgo::ClusterizerAlgo
+-  
+-  void ClusterizerAlgo::clusterize(Queue& queue, portablevertex::TrackDeviceCollection& deviceTrack, portablevertex::VertexDeviceCollection& deviceVertex, const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams, int32_t nBlocks, int32_t blockSize){
+-    const int blocks = divide_up_by(nBlocks*blockSize, blockSize); //nBlocks of size blockSize
+-    alpaka::exec<Acc1D>(queue,
+-		        make_workdiv<Acc1D>(blocks, blockSize),
+-			clusterizeKernel{},
+-			deviceTrack.view(), // TODO:: Maybe we can optimize the compiler by not making this const? Tracks would not be modified
+-			deviceVertex.view(),
+-			cParams->view());
+-  } // ClusterizerAlgo::clusterize
+-
+-  void ClusterizerAlgo::arbitrate(Queue& queue, portablevertex::TrackDeviceCollection& deviceTrack, portablevertex::VertexDeviceCollection& deviceVertex, const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams, int32_t nBlocks, int32_t blockSize){
+-    const int blocks = divide_up_by(blockSize, blockSize); //Single block, as it has to converge to a single collection
+-    alpaka::exec<Acc1D>(queue,
+-                        make_workdiv<Acc1D>(blocks, blockSize),
+-                        arbitrateKernel{},
+-                        deviceTrack.view(), // TODO:: Maybe we can optimize the compiler by not making this const? Tracks would not be modified
+-                        deviceVertex.view(),
+-                        cParams->view(),
+-			nBlocks);    
+-  } // arbitraterAlgo::arbitrate
+-
+-} // namespace ALPAKA_ACCELERATOR_NAMESPACE
++      reMergeTracks(acc, tracks, vertices, cParams, _osumtkwt, _beta, trackBlockSize);
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i, merge, last merging step done\n", blockIdx);
++      }
++#endif
++      if (once_per_block(acc)) {
++        beta_[blockIdx] = _beta;
++        osumtkwt_[blockIdx] = _osumtkwt;
++      }
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_CLUSTERIZERALGO
++      if (once_per_block(acc)) {
++        printf("[ClusterizerAlgo::operator()] BlockIdx %i end\n", blockIdx);
++      }
++#endif
++    }
++  };  // clusterizeKernel
++
++  ClusterizerAlgo::ClusterizerAlgo(Queue& queue, int32_t bSize)
++      : beta_(cms::alpakatools::make_device_buffer<double[]>(queue, bSize)),
++        osumtkwt_(cms::alpakatools::make_device_buffer<double[]>(queue, bSize)) {
++    alpaka::memset(queue, beta_, bSize);
++    alpaka::memset(queue, osumtkwt_, bSize);
++  }
++
++  void ClusterizerAlgo::clusterize(Queue& queue,
++                                   portablevertex::TrackDeviceCollection& deviceTrack,
++                                   portablevertex::VertexDeviceCollection& deviceVertex,
++                                   const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams,
++                                   int32_t nBlocks,
++                                   int32_t blockSize) {
++    const int blocks = divide_up_by(nBlocks * blockSize, blockSize);  //nBlocks of size blockSize
++    alpaka::exec<Acc1D>(
++        queue,
++        make_workdiv<Acc1D>(blocks, blockSize),
++        clusterizeKernel{},
++        deviceTrack
++            .view(),  // TODO:: Maybe we can optimize the compiler by not making this const? Tracks would not be modified
++        deviceVertex.view(),
++        cParams->view(),
++        beta_.data(),
++        osumtkwt_.data(),
++        blockSize);
++  }  // ClusterizerAlgo::clusterize
++}  // namespace ALPAKA_ACCELERATOR_NAMESPACE
+Only in /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka: ClusterizerAlgo.dev.h
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.h /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.h
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.h	2025-04-14 12:10:45.724185726 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/ClusterizerAlgo.h	2025-04-10 14:09:38.681775000 +0200
+@@ -7,28 +7,56 @@
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+ 
+   struct clusterParameters {
+-      double Tmin;
+-      double Tpurge;
+-      double Tstop;
+-      double vertexSize;
+-      double coolingFactor;
+-      double d0CutOff;
+-      double dzCutOff;
+-      double uniquetrkweight;
+-      double uniquetrkminp;
+-      double zmerge;
+-      double sel_zrange;
+-      int32_t convergence_mode;
+-      double delta_lowT;
+-      double delta_highT;
++    double Tmin;
++    double Tpurge;
++    double Tstop;
++    double vertexSize;
++    double coolingFactor;
++    double d0CutOff;
++    double dzCutOff;
++    double uniquetrkweight;
++    double uniquetrkminp;
++    double zmerge;
++    double sel_zrange;
++    int32_t convergence_mode;
++    double delta_lowT;
++    double delta_highT;
+   };
+ 
+   class ClusterizerAlgo {
+   public:
+-    ClusterizerAlgo(Queue& queue);
+-    void clusterize(Queue& queue, portablevertex::TrackDeviceCollection& inputTracks, portablevertex::VertexDeviceCollection& deviceVertex, const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams, int32_t nBlocks, int32_t blockSize); // Clusterization
+-    void arbitrate(Queue& queue, portablevertex::TrackDeviceCollection& inputTracks, portablevertex::VertexDeviceCollection& deviceVertex, const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams, int32_t nBlocks, int32_t blockSize); // Arbitration
++    ClusterizerAlgo(Queue& queue, int32_t bSize);
++
++    void clusterize(Queue& queue,
++                    portablevertex::TrackDeviceCollection& inputTracks,
++                    portablevertex::VertexDeviceCollection& deviceVertex,
++                    const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams,
++                    int32_t nBlocks,
++                    int32_t blockSize);  // Clusterization
++
++    void resplit_tracks(Queue& queue,
++                        portablevertex::TrackDeviceCollection& inputTracks,
++                        portablevertex::VertexDeviceCollection& deviceVertex,
++                        const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams,
++                        int32_t nBlocks,
++                        int32_t blockSize);  // Clusterization
++
++    void reject_outliers(Queue& queue,
++                         portablevertex::TrackDeviceCollection& inputTracks,
++                         portablevertex::VertexDeviceCollection& deviceVertex,
++                         const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams,
++                         int32_t nBlocks,
++                         int32_t blockSize);  // Clusterization
++    void arbitrate(Queue& queue,
++                   portablevertex::TrackDeviceCollection& inputTracks,
++                   portablevertex::VertexDeviceCollection& deviceVertex,
++                   const std::shared_ptr<portablevertex::ClusterParamsHostCollection> cParams,
++                   int32_t nBlocks,
++                   int32_t blockSize);  // Arbitration
++
+   private:
++    cms::alpakatools::device_buffer<Device, double[]> beta_;
++    cms::alpakatools::device_buffer<Device, double[]> osumtkwt_;
+   };
+ 
+ }  // namespace ALPAKA_ACCELERATOR_NAMESPACE
+Only in /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka: ClusterizerArbitrator.dev.cc
+Only in /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka: ClusterizerReSplitTracks.dev.cc
+Only in /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka: ClusterizerRejectOutliers.dev.cc
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.dev.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.dev.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.dev.cc	2025-04-14 12:10:45.715185881 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.dev.cc	2025-04-10 14:09:38.686810000 +0200
+@@ -5,31 +5,39 @@
+ 
+ #include "RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.h"
+ 
+-#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO 1
++//#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO 1
+ 
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+-  using namespace cms::alpakatools; 
++  using namespace cms::alpakatools;
+ 
+   class fitVertices {
+   public:
+     template <typename TAcc, typename = std::enable_if_t<alpaka::isAccelerator<TAcc>>>
+-    ALPAKA_FN_ACC void operator()(const TAcc& acc,  const portablevertex::TrackDeviceCollection::ConstView tracks, portablevertex::VertexDeviceCollection::View vertices, const portablevertex::BeamSpotDeviceCollection::ConstView beamSpot, bool* useBeamSpotConstraint) const{
+-      if (once_per_block(acc)){
+-        #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	  printf("[FitterAlgo::fitVertices()] In Vertex 0, %i tracks\n", vertices[0].ntracks());
+-        #endif	
+-        for (int itrackInVertex = 0; itrackInVertex < vertices[0].ntracks(); itrackInVertex++){
+-	  int itrack = vertices[0].track_id()[itrackInVertex];
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-            printf("[FitterAlgo::fitVertices()] Tracks: %i, %1.9f, %1.9f, %1.9f, %1.9f, %1.9f\n", itrack, tracks[itrack].x(),tracks[itrack].y(),tracks[itrack].z(), tracks[itrack].dxy2(),tracks[itrack].dz2());
+-	  #endif
++    ALPAKA_FN_ACC void operator()(const TAcc& acc,
++                                  const portablevertex::TrackDeviceCollection::ConstView tracks,
++                                  portablevertex::VertexDeviceCollection::View vertices,
++                                  BeamSpotPOD const* beamSpot,
++                                  bool* useBeamSpotConstraint) const {
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++      if (once_per_block(acc)) {
++        printf("[FitterAlgo::fitVertices()] In Vertex 0, %i tracks\n", vertices[0].ntracks());
++        for (int itrackInVertex = 0; itrackInVertex < vertices[0].ntracks(); itrackInVertex++) {
++          int itrack = vertices[0].track_id()[itrackInVertex];
++          printf("[FitterAlgo::fitVertices()] Tracks: %i, %1.9f, %1.9f, %1.9f, %1.9f, %1.9f\n",
++                 itrack,
++                 tracks[itrack].x(),
++                 tracks[itrack].y(),
++                 tracks[itrack].z(),
++                 tracks[itrack].dxy2(),
++                 tracks[itrack].dz2());
+         }
+       }
++#endif
+       // These are the kernel operations themselves
+-      const int nTrueVertex = vertices[0].nV(); // Set max true vertex
++      const int nTrueVertex = vertices[0].nV();  // Set max true vertex
+       // Magic numbers from https://github.com/cms-sw/cmssw/blob/master/RecoVertex/PrimaryVertexProducer/interface/WeightedMeanFitter.h#L12
+-      const float precision = 1e-24;
+-      const float precisionsq = precision*precision;
++      const float precision = 1e-12;
++      const float precisionsq = 1e-24;
+       float corr_x = 1.2;
+       const float corr_z = 1.4;
+       const int maxIterations = 2;
+@@ -39,154 +47,216 @@
+       float bserry = 0.;
+       float bsx = 0.;
+       float bsy = 0.;
+-      if (*useBeamSpotConstraint){
+-        bserrx = beamSpot.sx() < precisionsq ? 1./(precisionsq) : 1./(beamSpot.sx());
+-        bserry = beamSpot.sy() < precisionsq ? 1./(precisionsq) : 1./(beamSpot.sy());
+-        bsx    = beamSpot.x();
+-        bsy    = beamSpot.y();
+-	corr_x = 1.0;
++      if (*useBeamSpotConstraint) {
++        bserrx = beamSpot->beamWidthX < precisionsq ? 1. / (precisionsq) : 1. / (beamSpot->beamWidthX);
++        bserry = beamSpot->beamWidthY < precisionsq ? 1. / (precisionsq) : 1. / (beamSpot->beamWidthY);
++        bsx = beamSpot->x;
++        bsy = beamSpot->y;
++        corr_x = 1.0;
+       }
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-        printf("[FitterAlgo::fitVertices()] Set-up, beamspot constrains: %1.9f, %1.9f, %1.9f, %1.9f\n", bserrx, bserry, bsx, bsy);
+-      #endif
+-      for (auto i : elements_with_stride(acc, nTrueVertex) ) { // By construction nTrueVertex <= 512, so this will always be a 1 thread to 1 vertex assignment
+-        if (not(vertices[i].isGood())) continue; // If vertex was killed before, just skip
+-        // Initialize positions and errors to 0
+-	#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	  printf("[FitterAlgo::fitVertices()] Start vertex %i with %i tracks\n", i, vertices[i].ntracks());
+-	#endif
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++      printf("[FitterAlgo::fitVertices()] Set-up, beamspot constrains: %1.9f, %1.9f, %1.9f, %1.9f\n",
++             bserrx,
++             bserry,
++             bsx,
++             bsy);
++#endif
++      for (auto i : uniform_elements(
++               acc,
++               nTrueVertex)) {  // By construction nTrueVertex <= 512, so this will always be a 1 thread to 1 vertex assignment
++        if (not(vertices[i].isGood()))
++          continue;  // If vertex was killed before, just skip
++                     // Initialize positions and errors to 0
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++        printf("[FitterAlgo::fitVertices()] Start vertex %i with %i tracks\n", i, vertices[i].ntracks());
++#endif
+         float x = 0.;
+         float y = 0.;
+         float z = 0.;
+         float errx = 0.;
+         float errz = 0.;
+ 
+-	for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++){
+-	  int itrack = vertices[i].track_id()[itrackInVertex];
+-	  float wxy = tracks[itrack].dxy2() <= precisionsq ? 1./precisionsq : 1./tracks[itrack].dxy2();
+-	  float wz  = tracks[itrack].dz2() <= precisionsq ? 1./precisionsq : 1./tracks[itrack].dz2();
+-	  x += tracks[itrack].x()*wxy;
+-	  y += tracks[itrack].y()*wxy;
+-	  z += tracks[itrack].z()*wz;
+-	  errx += wxy; // x and y have the same error due to symmetry
+-	  errz += wz;
+-	}
++        for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++) {
++          int itrack = vertices[i].track_id()[itrackInVertex];
++          float wxy = tracks[itrack].dxy2() <= precisionsq ? 1. / precisionsq : 1. / tracks[itrack].dxy2();
++          float wz = tracks[itrack].dz2() <= precisionsq ? 1. / precisionsq : 1. / tracks[itrack].dz2();
++          x += tracks[itrack].x() * wxy;
++          y += tracks[itrack].y() * wxy;
++          z += tracks[itrack].z() * wz;
++          errx += wxy;  // x and y have the same error due to symmetry
++          errz += wz;
++        }
+         float erry = errx;
+-	#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-          printf("[FitterAlgo::fitVertices()] After first iteration, before dividing, %1.9f %1.9f %1.9f %1.9f %1.9f \n", x, y, z, errx, errz);
+-	#endif
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++        printf("[FitterAlgo::fitVertices()] After first iteration, before dividing, %1.9f %1.9f %1.9f %1.9f %1.9f \n",
++               x,
++               y,
++               z,
++               errx,
++               errz);
++#endif
+         // Now add the BeamSpot and get first estimation, if no beamspot, this changes nothing
+-	x = (x + bsx*bserrx*bserrx)/(bserrx*bserrx + errx);
+-	y = (y + bsy*bserry*bserry)/(bserry*bserry + erry);
+-	z /= errz;
+-	#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-          printf("[FitterAlgo::fitVertices()] After first iteration, after dividing, %1.9f %1.9f %1.9f %1.9f %1.9f \n", x, y, z, errx, errz);
+-	#endif
+-        // Weights and square weights for iteration	
++        x = (x + bsx * bserrx * bserrx) / (bserrx * bserrx + errx);
++        y = (y + bsy * bserry * bserry) / (bserry * bserry + erry);
++        z /= errz;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++        printf("[FitterAlgo::fitVertices()] After first iteration, after dividing, %1.9f %1.9f %1.9f %1.9f %1.9f \n",
++               x,
++               y,
++               z,
++               errx,
++               errz);
++#endif
++        // Weights and square weights for iteration
+         float s_wx, s_wz;
+-	errx = 1/errx;
+-	erry = 1/erry;
+-	errz = 1/errz;
+-	int ndof;
+-	// Run iterative weighted mean fitter
+-	int niter = 0;
+-	float old_x;
+-	float old_y;
+-	float old_z;
+-	while ((niter++) < maxIterations){
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-            printf("[FitterAlgo::fitVertices()] At iteration %i, errs are %1.15f %1.15f %1.15f\n", niter, errx, erry, errz);
+-	  #endif
++        errx = 1 / errx;
++        erry = 1 / erry;
++        errz = 1 / errz;
++        int ndof;
++        // Run iterative weighted mean fitter
++        int niter = 0;
++        float old_x;
++        float old_y;
++        float old_z;
++        while ((niter++) < maxIterations) {
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++          printf(
++              "[FitterAlgo::fitVertices()] At iteration %i, errs are %1.15f %1.15f %1.15f\n", niter, errx, erry, errz);
++#endif
+           old_x = x;
+-	  old_y = y;
+-	  old_z = z;
+-	  s_wx = 0.;
+-	  s_wz = 0.;
+-	  x = 0.;
+-	  y = 0.;
+-	  z = 0.;
+-	  ndof = 0;
+-	  for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++){
++          old_y = y;
++          old_z = z;
++          s_wx = 0.;
++          s_wz = 0.;
++          x = 0.;
++          y = 0.;
++          z = 0.;
++          ndof = 0;
++          for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++) {
+             int itrack = vertices[i].track_id()[itrackInVertex];
+             // Position (ref point) of the track
+-	    double tx = tracks[itrack].x();
+-	    double ty = tracks[itrack].y();
+-	    double tz = tracks[itrack].z();
+-	    // Momentum of the track
++            double tx = tracks[itrack].x();
++            double ty = tracks[itrack].y();
++            double tz = tracks[itrack].z();
++            // Momentum of the track
+             double px = tracks[itrack].px();
+             double py = tracks[itrack].py();
+             double pz = tracks[itrack].pz();
+-	    // To compute the PCA of the track to the current vertex
+-	    double pnorm2 = px*px+py*py+pz*pz;
+-	    // This is the 'time' needed to move from the ref point to the PCA scalar product of (x_v-x_t)*p_t over magnitude squared of p_t
+-	    double t = (px*(old_x-tx)+py*(old_y-ty)+pz*(old_z-tz))/pnorm2;
+-	    #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	      printf("[FitterAlgo::fitVertices()] Track x: %1.9f, y: %1.9f, z:%1.9f, px: %1.9f, py: %1.9f, pz: %1.9f, t:%1.9f\n",tx, ty, tz, px, py, pz, t);
+-	    #endif
++            // To compute the PCA of the track to the current vertex
++            double pnorm2 = px * px + py * py + pz * pz;
++            // This is the 'time' needed to move from the ref point to the PCA scalar product of (x_v-x_t)*p_t over magnitude squared of p_t
++            double t = (px * (old_x - tx) + py * (old_y - ty) + pz * (old_z - tz)) / pnorm2;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++            printf(
++                "[FitterAlgo::fitVertices()] Track x: %1.9f, y: %1.9f, z:%1.9f, px: %1.9f, py: %1.9f, pz: %1.9f, "
++                "t:%1.9f\n",
++                tx,
++                ty,
++                tz,
++                px,
++                py,
++                pz,
++                t);
++#endif
+             // Advance the track until the PCA
+-	    tx += px*t;
+-	    ty += py*t;
+-	    tz += pz*t;
+-	    float wx = tracks[itrack].dxy2() <= precisionsq ? 1./precisionsq : 1./tracks[itrack].dxy2();
+-            float wz = tracks[itrack].dz2() <= precisionsq ? 1./precisionsq : 1./tracks[itrack].dz2();
+-	    #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	      printf("[FitterAlgo::fitVertices()] Track wx: %1.9f, wz: %1.9f\n", wx, wz);
+-	      printf("[FitterAlgo::fitVertices()] Track sigmas: %1.3f %1.3f %1.3f\n", (tx-old_x)*(tx-old_x)/(1/wx+errx), (ty-old_y)*(ty-old_y)/(1/wx+erry), (tz-old_z)*(tz-old_z)/(1/wz+errz));
+-	      printf("[FitterAlgo::fitVertices()] Track bools: %i %i %i\n",((tx-old_x)*(tx-old_x)/(1/wx+errx) < muSquare), ((ty-old_y)*(ty-old_y)/(1/wx+erry) < muSquare), ((tz-old_z)*(tz-old_z)/(1/wz+errz) < muSquare));
+-	    #endif
+-	    if (((tx-old_x)*(tx-old_x)/(1/wx+errx) < muSquare) && ((ty-old_y)*(ty-old_y)/(1/wx+erry) < muSquare) && ((tz-old_z)*(tz-old_z)/(1/wz+errz) < muSquare)){ // I.e., old coordinates of PCA are within 3 sigma of current vertex position, keep the track
+-	      ndof += 1;
+-	      vertices[i].track_weight()[itrackInVertex] = 1;
+-	      s_wx += wx;
+-	      s_wz += wz;
+-	    }
+-	    else{ // Otherwise, discard track
++            tx += px * t;
++            ty += py * t;
++            tz += pz * t;
++            float wx = tracks[itrack].dxy2() <= precisionsq ? 1. / precisionsq : 1. / tracks[itrack].dxy2();
++            float wz = tracks[itrack].dz2() <= precisionsq ? 1. / precisionsq : 1. / tracks[itrack].dz2();
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++            printf("[FitterAlgo::fitVertices()] Track wx: %1.9f, wz: %1.9f\n", wx, wz);
++            printf("[FitterAlgo::fitVertices()] Track sigmas: %1.3f %1.3f %1.3f\n",
++                   (tx - old_x) * (tx - old_x) / (1 / wx + errx),
++                   (ty - old_y) * (ty - old_y) / (1 / wx + erry),
++                   (tz - old_z) * (tz - old_z) / (1 / wz + errz));
++            printf("[FitterAlgo::fitVertices()] Track bools: %i %i %i\n",
++                   ((tx - old_x) * (tx - old_x) / (1 / wx + errx) < muSquare),
++                   ((ty - old_y) * (ty - old_y) / (1 / wx + erry) < muSquare),
++                   ((tz - old_z) * (tz - old_z) / (1 / wz + errz) < muSquare));
++#endif
++            if (((tx - old_x) * (tx - old_x) / (1 / wx + errx) < muSquare) &&
++                ((ty - old_y) * (ty - old_y) / (1 / wx + erry) < muSquare) &&
++                ((tz - old_z) * (tz - old_z) / (1 / wz + errz) <
++                 muSquare)) {  // I.e., old coordinates of PCA are within 3 sigma of current vertex position, keep the track
++              ndof += 1;
++              vertices[i].track_weight()[itrackInVertex] = 1;
++              s_wx += wx;
++              s_wz += wz;
++            } else {  // Otherwise, discard track
+               vertices[i].track_weight()[itrackInVertex] = 0;
+-	      wx = 0.;
+-	      wz = 0.;
+-	    }
+-	    #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	      printf("[FitterAlgo::fitVertices()] Track %i weights after %1.10f, %1.10f\n", itrackInVertex, wx, wz);
+-	    #endif
+-	    // Here, will only change if track is within 3 sigma
+-            x += tx*wx;
+-	    y += ty*wx;
+-	    z += tz*wz;
+-	    #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	      printf("[FitterAlgo::fitVertices()] Track adds x: %1.9f, y: %1.9f z: %1.9f\n", tx*wx, ty*wx, tz*wz);
+-	    #endif
+-	  } // end for
+-	  // After all tracks, add BS uncertainties, will do nothing if not used
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	    printf("[FitterAlgo::fitVertices()] Before adding BS in %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f %1.9f \n", niter, x, y, z, s_wx, s_wx, s_wz);
+-	  #endif
+-          x += bsx*bserrx;
+-          y += bsy*bserry;
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-            printf("[FitterAlgo::fitVertices()] BS adds x: %1.9f, y: %1.9f\n",  bsx*bserrx,  bsy*bserry);
+-	  #endif
+-	  float s_wy = s_wx;
+-	  s_wx += bserrx;
++              wx = 0.;
++              wz = 0.;
++            }
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++            printf("[FitterAlgo::fitVertices()] Track %i weights after %1.10f, %1.10f\n", itrackInVertex, wx, wz);
++#endif
++            // Here, will only change if track is within 3 sigma
++            x += tx * wx;
++            y += ty * wx;
++            z += tz * wz;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++            printf("[FitterAlgo::fitVertices()] Track adds x: %1.9f, y: %1.9f z: %1.9f\n", tx * wx, ty * wx, tz * wz);
++#endif
++          }  // end for
++// After all tracks, add BS uncertainties, will do nothing if not used
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++          printf("[FitterAlgo::fitVertices()] Before adding BS in %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f %1.9f \n",
++                 niter,
++                 x,
++                 y,
++                 z,
++                 s_wx,
++                 s_wx,
++                 s_wz);
++#endif
++          x += bsx * bserrx;
++          y += bsy * bserry;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++          printf("[FitterAlgo::fitVertices()] BS adds x: %1.9f, y: %1.9f\n", bsx * bserrx, bsy * bserry);
++#endif
++          float s_wy = s_wx;
++          s_wx += bserrx;
+           s_wy += bserry;
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-            printf("[FitterAlgo::fitVertices()] Before dividing %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f %1.9f \n", niter, x, y, z, s_wx, s_wy, s_wz);
+-          #endif	    
+-	  x /= s_wx;
+-	  y /= s_wy;
+-	  z /= s_wz;
+-    	  errx = 1/s_wx;
+-	  errz = 1/s_wz;
+-	  erry = 1/s_wy;
+-	  #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-	    printf("[FitterAlgo::fitVertices()] After dividing %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f \n", niter, x, y, z, errx, errz);
+-	    printf("[FitterAlgo::fitVertices()] Compare old and new: %1.9f %1.9f, %1.9f %1.9f, %1.9f %1.9f \n", old_x, x, old_y, y, old_z, z);
+-	  #endif
+-	  if ((abs(old_x-x) < precision) && (abs(old_y-y) < precision) && (abs(old_z-z) < precision)) break; // If good enough, stop the iterations
+-        } // end while 
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++          printf("[FitterAlgo::fitVertices()] Before dividing %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f %1.9f \n",
++                 niter,
++                 x,
++                 y,
++                 z,
++                 s_wx,
++                 s_wy,
++                 s_wz);
++#endif
++          x /= s_wx;
++          y /= s_wy;
++          z /= s_wz;
++          errx = 1 / s_wx;
++          errz = 1 / s_wz;
++          erry = 1 / s_wy;
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++          printf("[FitterAlgo::fitVertices()] After dividing %i iteration %1.9f %1.9f %1.9f %1.9f %1.9f \n",
++                 niter,
++                 x,
++                 y,
++                 z,
++                 errx,
++                 errz);
++          printf("[FitterAlgo::fitVertices()] Compare old and new: %1.9f %1.9f, %1.9f %1.9f, %1.9f %1.9f \n",
++                 old_x,
++                 x,
++                 old_y,
++                 y,
++                 old_z,
++                 z);
++#endif
++          if ((abs(old_x - x) < precision) && (abs(old_y - y) < precision) && (abs(old_z - z) < precision))
++            break;  // If good enough, stop the iterations
++        }  // end while
+         // Assign everything back in global memory to get the fitted vertex!
+-        errx *= corr_x*corr_x;
+-	erry *= corr_x*corr_x;
+-        errz *= corr_z*corr_z;
++        errx *= corr_x * corr_x;
++        erry *= corr_x * corr_x;
++        errz *= corr_z * corr_z;
+         vertices[i].x() = x;
+         vertices[i].y() = y;
+         vertices[i].z() = z;
+@@ -194,9 +264,9 @@
+         vertices[i].erry() = erry;
+         vertices[i].errz() = errz;
+         vertices[i].ndof() = ndof;
+-        // Last get the chi square of the final vertex fit 
+-        float chi2 = 0.;
+-        for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++){
++        // Last get the chi square of the final vertex fit
++        double chi2 = 0.;
++        for (int itrackInVertex = 0; itrackInVertex < vertices[i].ntracks(); itrackInVertex++) {
+           int itrack = vertices[i].track_id()[itrackInVertex];
+           // Position (ref point) of the track
+           float tx = tracks[itrack].x();
+@@ -204,31 +274,50 @@
+           float tz = tracks[itrack].z();
+           float wx = tracks[itrack].dxy2();
+           float wz = tracks[itrack].dz2();
+-          chi2 += (tx-x)*(tx-x)/(errx+wx) + (ty-y)*(ty-y)/(erry+wx) + (tz-z)*(tz-z)/(errz+wz); // chi2 doesn't use the PCA distance, but the ref point coordinates as in https://github.com/cms-sw/cmssw/blob/master/RecoVertex/PrimaryVertexProducer/interface/WeightedMeanFitter.h#L316
+-        } // end for
++          chi2 +=
++              (tx - x) * (tx - x) / (errx + wx) + (ty - y) * (ty - y) / (erry + wx) +
++              (tz - z) * (tz - z) /
++                  (errz +
++                   wz);  // chi2 doesn't use the PCA distance, but the ref point coordinates as in https://github.com/cms-sw/cmssw/blob/master/RecoVertex/PrimaryVertexProducer/interface/WeightedMeanFitter.h#L316
++        }  // end for
+         vertices[i].chi2() = chi2;
+-	#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
+-          printf("[FitterAlgo::fitVertices()] Vertex %i, x: %1.9f, y:%1.9f, z:%1.9f, errx:%1.9f, errz:%1.9f, chi2:%1.9f, ndof:%1.9f\n", i, vertices[i].x(), vertices[i].y(), vertices[i].z(), vertices[i].errx(), vertices[i].errz(), vertices[i].chi2(), vertices[i].ndof());
+-	#endif
+-      } // end for (stride) loop
+-    } // operator()
+-  }; // class fitVertices
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_FITTERALGO
++        printf(
++            "[FitterAlgo::fitVertices()] Vertex %i, x: %1.9f, y:%1.9f, z:%1.9f, errx:%1.9f, errz:%1.9f, chi2:%1.9f, "
++            "ndof:%1.9f\n",
++            i,
++            vertices[i].x(),
++            vertices[i].y(),
++            vertices[i].z(),
++            vertices[i].errx(),
++            vertices[i].errz(),
++            vertices[i].chi2(),
++            vertices[i].ndof());
++#endif
++      }  // end for (stride) loop
++    }  // operator()
++  };  // class fitVertices
+ 
+-  FitterAlgo::FitterAlgo(Queue& queue, const int32_t nV, fitterParameters fPar) : useBeamSpotConstraint(cms::alpakatools::make_device_buffer<bool>(queue)) {
++  FitterAlgo::FitterAlgo(Queue& queue, const int32_t nV, fitterParameters fPar)
++      : useBeamSpotConstraint(cms::alpakatools::make_device_buffer<bool>(queue)) {
+     // Set fitter parameters
+-    alpaka::memset(queue,  useBeamSpotConstraint, fPar.useBeamSpotConstraint);
+-  } // FitterAlgo::FitterAlgo
+-  
+-  void FitterAlgo::fit(Queue& queue, const portablevertex::TrackDeviceCollection& deviceTrack, portablevertex::VertexDeviceCollection& deviceVertex, const portablevertex::BeamSpotDeviceCollection& deviceBeamSpot){
+-    const int nVertexToFit = 512; // TODO:: Right now it executes for all 512 vertex, even if vertex collection is empty (in which case the kernel passes). Can we make this dynamic to vertex size?
++    alpaka::memset(queue, useBeamSpotConstraint, fPar.useBeamSpotConstraint);
++  }  // FitterAlgo::FitterAlgo
++
++  void FitterAlgo::fit(Queue& queue,
++                       const portablevertex::TrackDeviceCollection& deviceTrack,
++                       portablevertex::VertexDeviceCollection& deviceVertex,
++                       const BeamSpotDevice& deviceBeamSpot) {
++    const int nVertexToFit =
++        512;  // Right now it executes for all 512 vertex, even if vertex collection is empty (in which case the kernel passes). Can we make this dynamic to vertex size?
+     const int threadsPerBlock = 32;
+     const int blocks = divide_up_by(nVertexToFit, threadsPerBlock);
+     alpaka::exec<Acc1D>(queue,
+-		        make_workdiv<Acc1D>(blocks, threadsPerBlock),
+-			fitVertices{},
+-			deviceTrack.view(), // TODO:: Maybe we can optimize the compiler by not making this const? Tracks would not be modified
+-			deviceVertex.view(),
+-			deviceBeamSpot.view(), // TODO:: Same as for tracks
+-			useBeamSpotConstraint.data()); 
+-  } // FitterAlgo::fit
+-} // namespace ALPAKA_ACCELERATOR_NAMESPACE
++                        make_workdiv<Acc1D>(blocks, threadsPerBlock),
++                        fitVertices{},
++                        deviceTrack.view(),
++                        deviceVertex.view(),
++                        deviceBeamSpot.data(),
++                        useBeamSpotConstraint.data());
++  }  // FitterAlgo::fit
++}  // namespace ALPAKA_ACCELERATOR_NAMESPACE
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.h /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.h
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.h	2025-04-14 12:10:45.737185503 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/FitterAlgo.h	2025-04-10 14:09:38.688775000 +0200
+@@ -1,22 +1,26 @@
+ #ifndef RecoVertex_PrimaryVertexProducer_Alpaka_plugins_alpaka_FitterAlgo_h
+ #define RecoVertex_PrimaryVertexProducer_Alpaka_plugins_alpaka_FitterAlgo_h
+ 
++#include "DataFormats/BeamSpot/interface/alpaka/BeamSpotDevice.h"
+ #include "DataFormats/PortableVertex/interface/alpaka/VertexDeviceCollection.h"
+ #include "HeterogeneousCore/AlpakaInterface/interface/config.h"
+ 
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+ 
+   struct fitterParameters {
+-    double chi2cutoff; // Unused?
+-    double minNdof;  // Unused?
++    double chi2cutoff;  // Unused?
++    double minNdof;     // Unused?
+     bool useBeamSpotConstraint;
+-    double maxDistanceToBeam; // Unused?
++    double maxDistanceToBeam;  // Unused?
+   };
+ 
+   class FitterAlgo {
+   public:
+-    FitterAlgo(Queue& queue, const int32_t nV, fitterParameters fPar); // Just configuration and making job divisions
+-    void fit(Queue& queue, const portablevertex::TrackDeviceCollection& deviceTrack, portablevertex::VertexDeviceCollection& deviceVertex, const portablevertex::BeamSpotDeviceCollection& deviceBeamSpot); // The actual fitting
++    FitterAlgo(Queue& queue, const int32_t nV, fitterParameters fPar);  // Just configuration and making job divisions
++    void fit(Queue& queue,
++             const portablevertex::TrackDeviceCollection& deviceTrack,
++             portablevertex::VertexDeviceCollection& deviceVertex,
++             const BeamSpotDevice& deviceBeamSpot);  // The actual fitting
+   private:
+     cms::alpakatools::device_buffer<Device, bool> useBeamSpotConstraint;
+   };
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableBeamSpotSoAProducer.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableBeamSpotSoAProducer.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableBeamSpotSoAProducer.cc	2025-04-14 12:10:45.727185675 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableBeamSpotSoAProducer.cc	2025-04-11 13:47:47.970084000 +0200
+@@ -25,7 +25,7 @@
+ 
+   class PortableBeamSpotSoAProducer : public global::EDProducer<> {
+   public:
+-    PortableBeamSpotSoAProducer(edm::ParameterSet const& config) {
++    PortableBeamSpotSoAProducer(edm::ParameterSet const& config) : EDProducer(config) {
+       theConfig       = config;
+       beamSpotToken_  = consumes<reco::BeamSpot>(config.getParameter<edm::InputTag>("BeamSpotLabel"));
+       devicePutToken_ = produces();
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableTrackSoAProducer.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableTrackSoAProducer.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableTrackSoAProducer.cc	2025-04-14 12:10:45.718185829 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PortableTrackSoAProducer.cc	2025-04-10 15:15:28.528361000 +0200
+@@ -18,7 +18,7 @@
+ #include "DataFormats/BeamSpot/interface/BeamSpot.h"
+ #include "DataFormats/Math/interface/AlgebraicROOTObjects.h"
+ 
+-#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_PORTABLETRACKSOAPRODUCER 1
++#define DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_PORTABLETRACKSOAPRODUCER 0
+ 
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+   /**
+@@ -28,51 +28,59 @@
+    * - puts the Alpaka dataformat in the device for later consumption
+    */
+   struct filterParameters {
+-      // Configurable filter parameters for the tracks
+-      double maxSignificance;
+-      double maxdxyError;
+-      double maxdzError;
+-      double minpAtIP;
+-      double maxetaAtIP;
+-      double maxchi2;
+-      int minpixelHits;
+-      int mintrackerHits;
+-      reco::TrackBase::TrackQuality trackQuality;
+-      double vertexSize;
+-      double d0CutOff;
++    // Configurable filter parameters for the tracks
++    double maxSignificance;
++    double maxdxyError;
++    double maxdzError;
++    double minpAtIP;
++    double maxetaAtIP;
++    double maxchi2;
++    int minpixelHits;
++    int mintrackerHits;
++    reco::TrackBase::TrackQuality trackQuality;
++    double vertexSize;
++    double d0CutOff;
+   };
+ 
+   class PortableTrackSoAProducer : public global::EDProducer<> {
+   public:
+-    PortableTrackSoAProducer(edm::ParameterSet const& config) : theTTBToken(esConsumes(edm::ESInputTag("", "TransientTrackBuilder"))) {
+-      theConfig       = config;
+-      trackToken_     = consumes<reco::TrackCollection>(config.getParameter<edm::InputTag>("TrackLabel"));
+-      beamSpotToken_  = consumes<reco::BeamSpot>(config.getParameter<edm::InputTag>("BeamSpotLabel"));
++    PortableTrackSoAProducer(edm::ParameterSet const& config):EDProducer(config),
++         theTTBToken(esConsumes(edm::ESInputTag("", "TransientTrackBuilder"))) {
++      theConfig = config;
++      trackToken_ = consumes<reco::TrackCollection>(config.getParameter<edm::InputTag>("TrackLabel"));
++      beamSpotToken_ = consumes<reco::BeamSpot>(config.getParameter<edm::InputTag>("BeamSpotLabel"));
+       devicePutToken_ = produces();
+       fParams = {
+-       .maxSignificance=config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxD0Significance"),
+-       .maxdxyError    =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxD0Error"),
+-       .maxdzError     =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxDzError"),
+-       .minpAtIP       =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("minPt"),
+-       .maxetaAtIP     =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxEta"),
+-       .maxchi2        =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxNormalizedChi2"),
+-       .minpixelHits   =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<int>("minPixelLayersWithHits"),
+-       .mintrackerHits =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<int>("minSiliconLayersWithHits"),
+-       .trackQuality   =reco::TrackBase::undefQuality,
+-       .vertexSize     =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("vertexSize"),
+-       .d0CutOff       =config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("d0CutOff")
+-      };
+-      std::string qualityClass = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<std::string>("trackQuality");
+-      if (qualityClass != "any" &&  qualityClass != "Any" && qualityClass != "ANY" && !(qualityClass.empty())) fParams.trackQuality = reco::TrackBase::qualityByName(qualityClass);
++          .maxSignificance =
++              config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxD0Significance"),
++          .maxdxyError =
++              config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxD0Error"),
++          .maxdzError = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxDzError"),
++          .minpAtIP = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("minPt"),
++          .maxetaAtIP = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxEta"),
++          .maxchi2 =
++              config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("maxNormalizedChi2"),
++          .minpixelHits =
++              config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<int>("minPixelLayersWithHits"),
++          .mintrackerHits =
++              config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<int>("minSiliconLayersWithHits"),
++          .trackQuality = reco::TrackBase::undefQuality,
++          .vertexSize = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("vertexSize"),
++          .d0CutOff = config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<double>("d0CutOff")};
++      std::string qualityClass =
++          config.getParameter<edm::ParameterSet>("TkFilterParameters").getParameter<std::string>("trackQuality");
++      if (qualityClass != "any" && qualityClass != "Any" && qualityClass != "ANY" && !(qualityClass.empty()))
++        fParams.trackQuality = reco::TrackBase::qualityByName(qualityClass);
+     }
+ 
+     void produce(edm::StreamID sid, device::Event& iEvent, device::EventSetup const& iSetup) const override {
+       // Get input collections from event
+       auto tracks = iEvent.getHandle(trackToken_);
+-      auto beamSpotHandle    = iEvent.getHandle(beamSpotToken_);
++      auto beamSpotHandle = iEvent.getHandle(beamSpotToken_);
+       reco::BeamSpot beamSpot;
+-      if (beamSpotHandle.isValid()) beamSpot = *beamSpotHandle;
+-      int32_t tsize_   = tracks.product()->size();
++      if (beamSpotHandle.isValid())
++        beamSpot = *beamSpotHandle;
++      int32_t tsize_ = tracks.product()->size();
+ 
+       // Host collections
+       portablevertex::TrackHostCollection hostTracks{tsize_, iEvent.queue()};
+@@ -87,31 +95,44 @@
+       std::vector<reco::TransientTrack> t_tks;
+       t_tks = (*theB).build(tracks, beamSpot);
+ 
+-
+       // We want to keep track of the original reco::Track index to later redo the conversion back to reco::Vertex
+       std::vector<std::pair<int32_t, reco::TransientTrack>> sortedTracksPair;
+-      for (int32_t idx = 0; idx < tsize_; idx++){
++      for (int32_t idx = 0; idx < tsize_; idx++) {
+         sortedTracksPair.push_back(std::pair<int32_t, reco::TransientTrack>(idx, t_tks[idx]));
+       }
+-      
+-      std::sort(sortedTracksPair.begin(), sortedTracksPair.end(), [](const std::pair<int32_t, reco::TransientTrack>& a, const std::pair<int32_t, reco::TransientTrack>& b) -> bool {return (a.second.stateAtBeamLine().trackStateAtPCA()).position().z() < (b.second.stateAtBeamLine().trackStateAtPCA()).position().z();});
+ 
+-      int32_t nTrueTracks = 0; // This will keep track of how many we actually copy to device, only those that pass filter
+-      for (int32_t idx = 0; idx < tsize_; idx ++){
+-	// Fill up the the Track SoA, weight doubles up as an isGood flag, as we compute it only for good tracks
+-        double weight = convertTrack(tview[nTrueTracks], sortedTracksPair[idx].second, beamSpot, fParams, sortedTracksPair[idx].first, nTrueTracks);
+-        if (weight > 0){
+-          nTrueTracks       += 1;
+-	  tview.nT()        += 1;
+-	  tview.totweight() += weight;
+-	}
++      std::sort(sortedTracksPair.begin(),
++                sortedTracksPair.end(),
++                [](const std::pair<int32_t, reco::TransientTrack>& a,
++                   const std::pair<int32_t, reco::TransientTrack>& b) -> bool {
++                  return (a.second.stateAtBeamLine().trackStateAtPCA()).position().z() <
++                         (b.second.stateAtBeamLine().trackStateAtPCA()).position().z();
++                });
++
++      int32_t nTrueTracks =
++          0;  // This will keep track of how many we actually copy to device, only those that pass filter
++      for (int32_t idx = 0; idx < tsize_; idx++) {
++        // Fill up the the Track SoA, weight doubles up as an isGood flag, as we compute it only for good tracks
++        double weight = convertTrack(tview[nTrueTracks],
++                                     sortedTracksPair[idx].second,
++                                     beamSpot,
++                                     fParams,
++                                     sortedTracksPair[idx].first,
++                                     nTrueTracks);
++        if (weight > 0) {
++          nTrueTracks += 1;
++          tview.nT() += 1;
++          tview.totweight() += weight;
++        }
+       }
+-      #ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_PORTABLETRACKSOAPRODUCER
+-        printf("[PortableTrackSoAProducer::produce()] From %i tracks, %i pass filters\n", (int32_t) tracks->size(), nTrueTracks);
+-      #endif
++#ifdef DEBUG_RECOVERTEX_PRIMARYVERTEXPRODUCER_ALPAKA_PORTABLETRACKSOAPRODUCER
++      printf("[PortableTrackSoAProducer::produce()] From %i tracks, %i pass filters\n",
++             (int32_t)tracks->size(),
++             nTrueTracks);
++#endif
+       // Create device collections and copy into device
+       portablevertex::TrackDeviceCollection deviceTracks{tsize_, iEvent.queue()};
+-      
++
+       alpaka::memcpy(iEvent.queue(), deviceTracks.buffer(), hostTracks.buffer());
+ 
+       // And put into the event
+@@ -132,10 +153,10 @@
+       psd0.add<double>("maxDzError", 1.0);
+       psd0.add<std::string>("trackQuality", "any");
+       psd0.add<int>("minPixelLayersWithHits", 2);
+-      psd0.add<int>("minSiliconLayersWithHits", 5);      
++      psd0.add<int>("minSiliconLayersWithHits", 5);
+       psd0.add<double>("vertexSize", 0.006);
+       psd0.add<double>("d0CutOff", 0.10);
+-      desc.add<edm::ParameterSetDescription>("TkFilterParameters",psd0);
++      desc.add<edm::ParameterSetDescription>("TkFilterParameters", psd0);
+       descriptions.addWithDefaultLabel(desc);
+     }
+ 
+@@ -145,50 +166,74 @@
+     const edm::ESGetToken<TransientTrackBuilder, TransientTrackRecord> theTTBToken;
+     device::EDPutToken<portablevertex::TrackDeviceCollection> devicePutToken_;
+     edm::ParameterSet theConfig;
+-    static double convertTrack(portablevertex::TrackHostCollection::View::element out, const reco::TransientTrack in, const reco::BeamSpot bs, filterParameters fParams, int32_t idx, int32_t order);
++    static double convertTrack(portablevertex::TrackHostCollection::View::element out,
++                               const reco::TransientTrack in,
++                               const reco::BeamSpot bs,
++                               filterParameters fParams,
++                               int32_t idx,
++                               int32_t order);
+     filterParameters fParams;
+-  }; //PortableTrackSoAProducer declaration
++  };  //PortableTrackSoAProducer declaration
+ 
+-  double PortableTrackSoAProducer::convertTrack(portablevertex::TrackHostCollection::View::element out, const reco::TransientTrack in, const reco::BeamSpot bs, filterParameters fParams, int32_t idx, int32_t order){
++  double PortableTrackSoAProducer::convertTrack(portablevertex::TrackHostCollection::View::element out,
++                                                const reco::TransientTrack in,
++                                                const reco::BeamSpot bs,
++                                                filterParameters fParams,
++                                                int32_t idx,
++                                                int32_t order) {
+     bool isGood = false;
+     double weight = -1;
+     // First check if it passes filters
+-    if ((in.stateAtBeamLine().transverseImpactParameter().significance() < fParams.maxSignificance) && (in.stateAtBeamLine().transverseImpactParameter().error() < fParams.maxdxyError) && (in.track().dzError() < fParams.maxdzError) && (in.impactPointState().globalMomentum().transverse() > fParams.minpAtIP) && (std::fabs(in.impactPointState().globalMomentum().eta()) < fParams.maxetaAtIP) && (in.normalizedChi2() <fParams.maxchi2) && (in.hitPattern().pixelLayersWithMeasurement() >=fParams.minpixelHits) && (in.hitPattern().trackerLayersWithMeasurement() >= fParams.mintrackerHits) && (in.track().quality(fParams.trackQuality) || (fParams.trackQuality == reco::TrackBase::undefQuality))) isGood = true;
+-    if (isGood){ 
++    if ((in.stateAtBeamLine().transverseImpactParameter().significance() < fParams.maxSignificance) &&
++        (in.stateAtBeamLine().transverseImpactParameter().error() < fParams.maxdxyError) &&
++        (in.track().dzError() < fParams.maxdzError) &&
++        (in.impactPointState().globalMomentum().transverse() > fParams.minpAtIP) &&
++        (std::fabs(in.impactPointState().globalMomentum().eta()) < fParams.maxetaAtIP) &&
++        (in.normalizedChi2() < fParams.maxchi2) &&
++        (in.hitPattern().pixelLayersWithMeasurement() >= fParams.minpixelHits) &&
++        (in.hitPattern().trackerLayersWithMeasurement() >= fParams.mintrackerHits) &&
++        (in.track().quality(fParams.trackQuality) || (fParams.trackQuality == reco::TrackBase::undefQuality)))
++      isGood = true;
++    if (isGood) {
+       // Then define vertex-related stuff like weights
+       weight = 1.;
+-      if (fParams.d0CutOff > 0){
++      if (fParams.d0CutOff > 0) {
+         // significance is measured in the transverse plane
+-	double significance = in.stateAtBeamLine().transverseImpactParameter().significance();
+-        // weight is based on transverse displacement of the track	
+-        weight = 1 + exp(significance*significance + fParams.d0CutOff * fParams.d0CutOff);
++        double significance = in.stateAtBeamLine().transverseImpactParameter().value() /
++                              in.stateAtBeamLine().transverseImpactParameter().error();
++        // weight is based on transverse displacement of the track
++        weight = 1. / (1. + exp(std::pow(significance, 2) - std::pow(fParams.d0CutOff, 2)));
+       }
+       // Just fill up variables
+-      out.x() = in.stateAtBeamLine().trackStateAtPCA().position().x();;
+-      out.y() = in.stateAtBeamLine().trackStateAtPCA().position().y();;
+-      out.z() = in.stateAtBeamLine().trackStateAtPCA().position().z();;
++      out.x() = in.stateAtBeamLine().trackStateAtPCA().position().x();
++      out.y() = in.stateAtBeamLine().trackStateAtPCA().position().y();
++      out.z() = in.stateAtBeamLine().trackStateAtPCA().position().z();
+       out.px() = in.stateAtBeamLine().trackStateAtPCA().momentum().x();
+       out.py() = in.stateAtBeamLine().trackStateAtPCA().momentum().y();
+       out.pz() = in.stateAtBeamLine().trackStateAtPCA().momentum().z();
+       out.weight() = weight;
+       // The original index in the reco::Track collection so we can go back to it eventually
+       out.tt_index() = idx;
+-      out.dz2() = std::pow(in.track().dzError(),2);
+-      // Modified dz2 to account correlations and vertex size for clusterizer 
++      out.dz2() = std::pow(in.track().dzError(), 2);
++      // Modified dz2 to account correlations and vertex size for clusterizer
+       // dz^2 + (bs*pt)^2*pz^2/pt^2 + vertexSize^2
+-      double oneoverdz2 = (out.dz2()) + ((bs.BeamWidthX()*bs.BeamWidthX()*out.px()*out.px()) + (bs.BeamWidthY()*bs.BeamWidthY()*out.py()*out.py()))*out.pz()*out.pz()/(in.stateAtBeamLine().trackStateAtPCA().momentum().perp2()) + fParams.vertexSize*fParams.vertexSize;
+-      oneoverdz2 = 1./oneoverdz2;
++      double oneoverdz2 = (out.dz2()) +
++                          ((std::pow(bs.BeamWidthX() * out.px(), 2)) + (std::pow(bs.BeamWidthY() * out.py(), 2))) *
++                              std::pow(out.pz(), 2) /
++                              std::pow(in.stateAtBeamLine().trackStateAtPCA().momentum().perp2(), 2) +
++                          std::pow(fParams.vertexSize, 2);
++      oneoverdz2 = 1. / oneoverdz2;
+       out.oneoverdz2() = oneoverdz2;
+-      out.dxy2AtIP() = std::pow(in.track().dxyError(),2);
+-      out.dxy2()     = std::pow(in.stateAtBeamLine().transverseImpactParameter().error(), 2);
++      out.dxy2AtIP() = std::pow(in.track().dxyError(), 2);
++      out.dxy2() = std::pow(in.stateAtBeamLine().transverseImpactParameter().error(), 2);
+       out.order() = order;
+-      // All of these are initializers for the vertexing 
+-      out.sum_Z() = 0; // partition function sum
+-      out.kmin() = 0; // minimum vertex identifier, will loop from kmin to kmax-1. At the start only one vertex
+-      out.kmax() = 1; // maximum vertex identifier, will loop from kmin to kmax-1. At the start only one vertex
+-      out.aux1() = 0; // for storing various things in between kernels
+-      out.aux2() = 0; // for storing various things in between kernels
+-      out.isGood() = true; // if we are here, we are to keep this track*/
++      // All of these are initializers for the vertexing
++      out.sum_Z() = 0;      // partition function sum
++      out.kmin() = 0;       // minimum vertex identifier, will loop from kmin to kmax-1. At the start only one vertex
++      out.kmax() = 1;       // maximum vertex identifier, will loop from kmin to kmax-1. At the start only one vertex
++      out.aux1() = 0;       // for storing various things in between kernels
++      out.aux2() = 0;       // for storing various things in between kernels
++      out.isGood() = true;  // if we are here, we are to keep this track
+     }
+     return weight;
+   }
+diff -ur /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PrimaryVertexProducer_Alpaka.cc /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PrimaryVertexProducer_Alpaka.cc
+--- /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PrimaryVertexProducer_Alpaka.cc	2025-04-14 12:10:45.741185435 +0200
++++ /t3home/msaxer/reproduc_cmssw/CMSSW_15_1_0_pre1/src/RecoVertex/PrimaryVertexProducer_Alpaka/plugins/alpaka/PrimaryVertexProducer_Alpaka.cc	2025-04-14 12:36:00.469220000 +0200
+@@ -1,5 +1,6 @@
+ #include "DataFormats/PortableVertex/interface/alpaka/VertexDeviceCollection.h"
+ #include "DataFormats/PortableVertex/interface/VertexHostCollection.h"
++#include "DataFormats/BeamSpot/interface/BeamSpotHost.h"
+ #include "FWCore/ParameterSet/interface/ConfigurationDescriptions.h"
+ #include "FWCore/ParameterSet/interface/ParameterSet.h"
+ #include "FWCore/ParameterSet/interface/ParameterSetDescription.h"
+@@ -20,8 +21,6 @@
+ #include "ClusterizerAlgo.h"
+ #include "FitterAlgo.h"
+ 
+-
+-
+ namespace ALPAKA_ACCELERATOR_NAMESPACE {
+   /**
+    * This class does vertexing by
+@@ -32,39 +31,47 @@
+    */
+   class PrimaryVertexProducer_Alpaka : public stream::EDProducer<> {
+   public:
+-    PrimaryVertexProducer_Alpaka(edm::ParameterSet const& config){
+-      trackToken_     = consumes(config.getParameter<edm::InputTag>("TrackLabel"));
+-      beamSpotToken_  = consumes(config.getParameter<edm::InputTag>("BeamSpotLabel"));
++    PrimaryVertexProducer_Alpaka(edm::ParameterSet const& config):EDProducer(config) {
++      trackToken_ = consumes(config.getParameter<edm::InputTag>("TrackLabel"));
++      beamSpotToken_ = consumes(config.getParameter<edm::InputTag>("BeamSpotLabel"));
+       devicePutToken_ = produces();
+-      blockSize       = config.getParameter<int32_t>("blockSize"); 
+-      blockOverlap    = config.getParameter<double>("blockOverlap");
++      blockSize = config.getParameter<int32_t>("blockSize");
++      blockOverlap = config.getParameter<double>("blockOverlap");
+       fitterParams = {
+-        .chi2cutoff            = config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<double>("chi2cutoff"), // not used?
+-        .minNdof               = config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<double>("minNdof"),  // not used?
+-        .useBeamSpotConstraint  = config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<bool>("useBeamSpotConstraint"),
+-        .maxDistanceToBeam     = config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<double>("maxDistanceToBeam") //not used?
++          .chi2cutoff = config.getParameter<edm::ParameterSet>("TkFitterParameters")
++                            .getParameter<double>("chi2cutoff"),  // not used?
++          .minNdof =
++              config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<double>("minNdof"),  // not used?
++          .useBeamSpotConstraint =
++              config.getParameter<edm::ParameterSet>("TkFitterParameters").getParameter<bool>("useBeamSpotConstraint"),
++          .maxDistanceToBeam = config.getParameter<edm::ParameterSet>("TkFitterParameters")
++                                   .getParameter<double>("maxDistanceToBeam")  //not used?
+       };
+       clusterParams = {
+-        .Tmin   = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tmin"),
+-        .Tpurge = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tpurge"),
+-        .Tstop  = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tstop"),
+-        .vertexSize = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("vertexSize"),
+-        .coolingFactor = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("coolingFactor"),
+-        .d0CutOff = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("d0CutOff"),
+-        .dzCutOff = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("dzCutOff"),
+-        .uniquetrkweight = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("uniquetrkweight"),
+-        .uniquetrkminp = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("uniquetrkminp"),
+-        .zmerge = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("zmerge"),
+-        .sel_zrange = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("zrange"),
+-        .convergence_mode = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<int>("convergence_mode"),
+-        .delta_lowT = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("delta_lowT"),
+-        .delta_highT = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("delta_highT")
+-      };
++          .Tmin = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tmin"),
++          .Tpurge = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tpurge"),
++          .Tstop = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("Tstop"),
++          .vertexSize = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("vertexSize"),
++          .coolingFactor =
++              config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("coolingFactor"),
++          .d0CutOff = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("d0CutOff"),
++          .dzCutOff = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("dzCutOff"),
++          .uniquetrkweight =
++              config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("uniquetrkweight"),
++          .uniquetrkminp =
++              config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("uniquetrkminp"),
++          .zmerge = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("zmerge"),
++          .sel_zrange = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("zrange"),
++          .convergence_mode =
++              config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<int>("convergence_mode"),
++          .delta_lowT = config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("delta_lowT"),
++          .delta_highT =
++              config.getParameter<edm::ParameterSet>("TkClusParameters").getParameter<double>("delta_highT")};
+       cParams = std::make_shared<portablevertex::ClusterParamsHostCollection>(1, cms::alpakatools::host());
+       auto cpview = cParams->view();
+-      cpview.TMin()   = clusterParams.Tmin;
++      cpview.TMin() = clusterParams.Tmin;
+       cpview.Tpurge() = clusterParams.Tpurge;
+-      cpview.Tstop()  = clusterParams.Tstop;
++      cpview.Tstop() = clusterParams.Tstop;
+       cpview.vertexSize() = clusterParams.vertexSize;
+       cpview.coolingFactor() = clusterParams.coolingFactor;
+       cpview.d0CutOff() = clusterParams.d0CutOff;
+@@ -79,32 +86,34 @@
+     }
+ 
+     void produce(device::Event& iEvent, device::EventSetup const& iSetup) {
+-      const portablevertex::TrackDeviceCollection& inputtracks   = iEvent.get(trackToken_);
+-      const portablevertex::BeamSpotDeviceCollection& beamSpot     = iEvent.get(beamSpotToken_);
++      const portablevertex::TrackDeviceCollection& inputtracks = iEvent.get(trackToken_);
++      const BeamSpotDevice& beamSpot = iEvent.get(beamSpotToken_); //removed this in order to avoid beamsport issues
+       int32_t nT = inputtracks.view().metadata().size();
+-      int32_t nBlocks = nT > blockSize ? int32_t ((nT-1)/(blockOverlap*blockSize)) : 1; // If the block size is big enough we process everything at once
++      int32_t nBlocks = nT > blockSize ? int32_t((nT - 1) / (blockOverlap * blockSize))
++                                       : 1;  // If the block size is big enough we process everything at once
+       // Now the device collections we still need
+-      portablevertex::TrackDeviceCollection tracksInBlocks{nBlocks*blockSize, iEvent.queue()}; // As high as needed
+-      portablevertex::VertexDeviceCollection deviceVertex{512, iEvent.queue()}; // Hard capped to 512, though we might want to restrict it for low PU cases
++      portablevertex::TrackDeviceCollection tracksInBlocks{nBlocks * blockSize, iEvent.queue()};  // As high as needed
++      portablevertex::VertexDeviceCollection deviceVertex{
++          512, iEvent.queue()};  // Hard capped to 512, though we might want to restrict it for low PU cases
+ 
+       // run the algorithm
+       //// First create the individual blocks
+-      BlockAlgo blockKernel_{}; 
++      BlockAlgo blockKernel_{};
+       blockKernel_.createBlocks(iEvent.queue(), inputtracks, tracksInBlocks, blockSize, blockOverlap);
+       // Need to have the blocks created before launching the next step
+       alpaka::wait(iEvent.queue());
+-
+       //// Then run the clusterizer per blocks
+-      ClusterizerAlgo clusterizerKernel_{iEvent.queue()}; 
++      ClusterizerAlgo clusterizerKernel_{iEvent.queue(), blockSize};
+       clusterizerKernel_.clusterize(iEvent.queue(), tracksInBlocks, deviceVertex, cParams, nBlocks, blockSize);
++      clusterizerKernel_.resplit_tracks(iEvent.queue(), tracksInBlocks, deviceVertex, cParams, nBlocks, blockSize);
++      clusterizerKernel_.reject_outliers(iEvent.queue(), tracksInBlocks, deviceVertex, cParams, nBlocks, blockSize);
+       // Need to have all vertex before arbitrating and deciding what we keep
+       alpaka::wait(iEvent.queue());
+       clusterizerKernel_.arbitrate(iEvent.queue(), tracksInBlocks, deviceVertex, cParams, nBlocks, blockSize);
+       alpaka::wait(iEvent.queue());
+       //// And then fit
+       FitterAlgo fitterKernel_{iEvent.queue(), deviceVertex.view().metadata().size(), fitterParams};
+-      fitterKernel_.fit(iEvent.queue(), tracksInBlocks, deviceVertex, beamSpot);
+-
++      fitterKernel_.fit(iEvent.queue(), tracksInBlocks, deviceVertex, beamSpot); //removed this in order to avoid beamsport issues
+       // Put the vertices in the event as a portable collection
+       iEvent.emplace(devicePutToken_, std::move(deviceVertex));
+     }
+@@ -120,7 +129,7 @@
+       parf0.add<double>("minNdof", 0.0);
+       parf0.add<bool>("useBeamSpotConstraint", true);
+       parf0.add<double>("maxDistanceToBeam", 1.0);
+-      desc.add<edm::ParameterSetDescription>("TkFitterParameters",parf0);
++      desc.add<edm::ParameterSetDescription>("TkFitterParameters", parf0);
+       edm::ParameterSetDescription parc0;
+       parc0.add<double>("d0CutOff", 3.0);
+       parc0.add<double>("Tmin", 2.0);
+@@ -136,13 +145,13 @@
+       parc0.add<double>("uniquetrkweight", 0.8);
+       parc0.add<double>("uniquetrkminp", 0.0);
+       parc0.add<double>("zrange", 4.0);
+-      desc.add<edm::ParameterSetDescription>("TkClusParameters",parc0);
++      desc.add<edm::ParameterSetDescription>("TkClusParameters", parc0);
+       descriptions.addWithDefaultLabel(desc);
+     }
+ 
+   private:
+     device::EDGetToken<portablevertex::TrackDeviceCollection> trackToken_;
+-    device::EDGetToken<portablevertex::BeamSpotDeviceCollection> beamSpotToken_;
++    device::EDGetToken<BeamSpotDevice> beamSpotToken_;
+     device::EDPutToken<portablevertex::VertexDeviceCollection> devicePutToken_;
+     int32_t blockSize;
+     double blockOverlap;
+Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testCPU_PU200.py
+Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testCPU_noPU.py
+Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testPrimaryVertexProducer_Alpaka.py
+Only in /work/msaxer/ba/carlos_code/cmssw-Alpaka_dev_14_0_0/RecoVertex/PrimaryVertexProducer_Alpaka/test: testPrimaryVertexProducer_Alpaka_PU200.py
