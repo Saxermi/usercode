@@ -378,7 +378,7 @@ process.analyze = cms.Path(process.theTruth * process.oldVertexAnalysis)
 process.vertexing_task = cms.EndPath(
     process.tracksSoA + process.beamSpotDevice + process.vertexSoA + process.vertexAoS
 )
-process.vertexing_task = cms.EndPath(process.beamSpotDevice)
+# process.vertexing_task = cms.EndPath(process.beamSpotDevice)
 
 process.content = cms.EDAnalyzer("EventContentAnalyzer")
 # process.dump = cms.Path(process.content)
