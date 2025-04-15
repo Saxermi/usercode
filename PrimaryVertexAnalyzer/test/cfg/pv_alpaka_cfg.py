@@ -186,7 +186,7 @@ process.FEVToutput = cms.OutputModule(
     outputCommands=cms.untracked.vstring(
         "drop *",
         "keep *_tracksSoA_*_*",
-        "keep *_beamSpotSoA_*_*",
+        "keep *_beamSpotDevice_*_*",
         "keep *_vertexSoA_*_*",
         "keep *_vertexAoS_*_*",
     ),  # I.e., just drop everything and keep things in this module
@@ -247,16 +247,25 @@ process.tracksSoA = cms.EDProducer(
     ),
 )
 
+#
+#
+#
 # Convert reco::BeamSpot to portable BeamSpot
 # process.beamSpotSoA = cms.EDProducer(
-#    "PortableBeamSpotSoAProducer@alpaka", BeamSpotLabel=cms.InputTag("offlineBeamSpot")
+#   "PortableBeamSpotSoAProducer@alpaka", BeamSpotLabel=cms.InputTag("offlineBeamSpot")
 # )
+process.beamSpotDevice = cms.EDProducer(
+    "BeamSpotDeviceProducer@alpaka",
+    src=cms.InputTag("offlineBeamSpot"),
+    alpaka=cms.untracked.PSet(backend=cms.untracked.string("")),
+)
+
 
 process.vertexSoA = cms.EDProducer(
     "PrimaryVertexProducer_Alpaka@alpaka",
     TrackLabel=cms.InputTag("tracksSoA"),
     # BeamSpotLabel=cms.InputTag("beamSpotSoA"),
-    BeamSpotLabel=cms.InputTag("beamSpotPOD"),
+    BeamSpotLabel=cms.InputTag("beamSpotDevice"),
     blockOverlap=cms.double(0.50),
     blockSize=cms.int32(512),
     TkFitterParameters=cms.PSet(
@@ -367,13 +376,16 @@ process.analyze = cms.Path(process.theTruth * process.oldVertexAnalysis)
 ###################################
 
 process.vertexing_task = cms.EndPath(
-    process.tracksSoA + process.vertexSoA + process.vertexAoS
+    process.tracksSoA + process.beamSpotDevice + process.vertexSoA + process.vertexAoS
 )
-# process.vertexing_task = cms.EndPath( process.beamSpotSoA)
+process.vertexing_task = cms.EndPath(process.beamSpotDevice)
 
 process.content = cms.EDAnalyzer("EventContentAnalyzer")
-# rocess.dump = cms.Path(process.content)
+# process.dump = cms.Path(process.content)
 
+# .vertexing_task = cms.EndPath(
+#   process.tracksSoA + process.beamSpotSoA + process.vertexSoA + process.vertexAoS
+# )
 
 process.schedule = cms.Schedule(
     process.vertexing_task,
