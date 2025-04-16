@@ -4,7 +4,7 @@ import re
 import time
 import shutil
 import subprocess
- 
+import luigi
 import law
  
 #####################################################################
@@ -12,7 +12,7 @@ import law
 #####################################################################
 class SetupRunDirectoryTask(law.Task):
     # Base directory where experimental_run_X folders will be created.
-    base_dir = law.Parameter(default="/work/frejalom/ba")
+    base_dir = luigi.Parameter(default="/work/frejalom/ba")
     
     def output(self):
         # The output is a file that stores the chosen run directory.
