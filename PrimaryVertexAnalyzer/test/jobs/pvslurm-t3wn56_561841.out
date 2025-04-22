@@ -1,0 +1,41 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 561841
+HOSTNAME: t3wn56
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_15_0_0_pre2
+%MSG-i AlpakaService:  (NoModuleName) 22-Apr-2025 16:35:09 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+22-Apr-2025 16:35:22 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root
+22-Apr-2025 16:36:57 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 22-Apr-2025 16:37:01 CEST pre-events
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because its quality (2785) is higher than 260 and 4 times larger than the other active server ceph-gw10.gridpp.rl.ac.uk (260) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 22-Apr-2025 16:37:20 CEST pre-events
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because its quality (2708) is higher than 260 and 4 times larger than the other active server ceph-gw11.gridpp.rl.ac.uk (260) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 22-Apr-2025 16:38:58 CEST PreSource
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because the quality (56615) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 22-Apr-2025 16:38:58 CEST PreSource
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (56615) is higher than 260 and 4 times larger than the other active server cmsstor425.fnal.gov (1759) 
+%MSG
+Begin processing the 1st record. Run 1, Event 451, LumiSection 10 on stream 0 at 22-Apr-2025 16:38:59.500 CEST
+Begin processing the 2nd record. Run 1, Event 452, LumiSection 10 on stream 0 at 22-Apr-2025 16:39:32.220 CEST
+Begin processing the 3rd record. Run 1, Event 454, LumiSection 10 on stream 0 at 22-Apr-2025 16:39:50.014 CEST
+Begin processing the 4th record. Run 1, Event 456, LumiSection 10 on stream 0 at 22-Apr-2025 16:40:11.859 CEST
+Begin processing the 5th record. Run 1, Event 457, LumiSection 10 on stream 0 at 22-Apr-2025 16:40:36.271 CEST
+Begin processing the 6th record. Run 1, Event 458, LumiSection 10 on stream 0 at 22-Apr-2025 16:41:12.509 CEST
+Begin processing the 7th record. Run 1, Event 459, LumiSection 10 on stream 0 at 22-Apr-2025 16:41:25.011 CEST
+Begin processing the 8th record. Run 1, Event 461, LumiSection 10 on stream 0 at 22-Apr-2025 16:41:40.105 CEST
+Begin processing the 9th record. Run 1, Event 462, LumiSection 10 on stream 0 at 22-Apr-2025 16:41:58.990 CEST
+[2025-04-22 16:42:18.301340 +0200][Error  ][AsyncSock         ][26186] [cmsxrootd-site1.fnal.gov:1094.0] Socket error encountered: [ERROR] Socket error
+Begin processing the 10th record. Run 1, Event 463, LumiSection 10 on stream 0 at 22-Apr-2025 16:42:32.916 CEST
+Begin processing the 11th record. Run 1, Event 465, LumiSection 10 on stream 0 at 22-Apr-2025 16:42:53.797 CEST
+Begin processing the 12th record. Run 1, Event 467, LumiSection 10 on stream 0 at 22-Apr-2025 16:43:12.246 CEST
+Begin processing the 13th record. Run 1, Event 468, LumiSection 10 on stream 0 at 22-Apr-2025 16:43:44.774 CEST
+Begin processing the 14th record. Run 1, Event 469, LumiSection 10 on stream 0 at 22-Apr-2025 16:44:01.050 CEST
+Begin processing the 15th record. Run 1, Event 470, LumiSection 10 on stream 0 at 22-Apr-2025 16:44:13.144 CEST
+[2025-04-22 16:44:26.125669 +0200][Error  ][AsyncSock         ][26186] [cmsxrootd-site1.fnal.gov:1094.0] Socket error encountered: [ERROR] Socket error
