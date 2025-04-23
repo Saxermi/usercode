@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_58"
+base_path = "experimental_run_59"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/frejalom/ba", log_filename)
 
@@ -162,9 +162,9 @@ def main():
     # ]
 
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0, 0.3]  # Add negative overlaps here
+    overlaps = [0]  # Add negative overlaps here
     # Block sizes to iterate over
-    blocksizes = [256, 1024]
+    blocksizes = [256]
     #blocksizes = [ 512,]
 
     # If in test mode, only submit two jobs, one with notify and one without
