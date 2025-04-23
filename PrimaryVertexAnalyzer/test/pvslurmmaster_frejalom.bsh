@@ -3,7 +3,7 @@
 #SBATCH -o jobs/pvslurm-%N_%j.out
 #SBATCH --mem=3000
 #SBATCH --account=t3
-#SBATCH --partition=standard
+#SBATCH --partition=long
 #
 # submit :
 # sbatch -p short 
@@ -69,7 +69,7 @@ echo "CMSSW RELEASE BASE " $CMSSW_RELEASE_BASE
 # LABEL=pv
 INPUT=`cat samples/${SAMPLE} | sed ':a;N;$!ba;s/\n/,/g'`
 #INPUT=/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-PARAMETERS="runInBlocks=False block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
+PARAMETERS="runInBlocks=True block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
 
 # slurm stuff ------------------------------------------------------------------------------- 
 
