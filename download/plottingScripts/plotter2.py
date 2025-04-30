@@ -4,9 +4,9 @@ import seaborn as sns
 import os
 
 # Paths
-base_path = "//t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/download"
-cluster_csv = os.path.join(base_path, "summary_stats_clusters.csv")
-time_csv = os.path.join(base_path, "summary_stats_time.csv")
+base_path = "/t3home/frejalom/cmssw/CMSSW_15_0_0_pre2/src/usercode/download"
+cluster_csv = os.path.join(base_path, "summary_stats_clusters_50-54.csv")
+time_csv = os.path.join(base_path, "summary_stats_time_50-54.csv")
 print('got paths')
 # Load data
 cluster_df = pd.read_csv(cluster_csv)

@@ -1,18 +1,31 @@
 #!/bin/bash
 
-# Define paths (modify these with your actual paths)
-experiment_folder="/work/frejalom/ba/experimental_run_39"
-dest_256="/work/frejalom/ba/experimental_run_39/o0bs256"
-dest_512="/work/frejalom/ba/experimental_run_39/o0bs512"
+# Source and destination roots
+experiment_folder="/work/frejalom/ba/experimental_run_65"
+destination_root="/work/frejalom/ba/experimental_run_65"
 
-# Create destination folders if they do not exist
-mkdir -p "$dest_256"
-mkdir -p "$dest_512"
+# Ensure destination root exists
+mkdir -p "$destination_root"
 
-# Find and copy CSV files from the 256 folders
-find "$experiment_folder" -type f -path "*/0/256/*.csv" -exec cp {} "$dest_256/" \;
+# Loop over all .csv files inside subfolders like Subset_TTbar_01/0/256/
+find "$experiment_folder" -type f -name "*.csv" | while read -r filepath; do
+    # Example: filepath = Subset_TTbar_01/0/256/filename.csv
 
-# Find and copy CSV files from the 512 folders
-find "$experiment_folder" -type f -path "*/0/512/*.csv" -exec cp {} "$dest_512/" \;
+    # Extract pieces from the path
+    subset_folder=$(echo "$filepath" | grep -o 'Subset_[^/]*')
+    dataset=$(echo "$subset_folder" | sed 's/Subset_//; s/_.*//')  # Extract 'TTbar' from 'Subset_TTbar_01'
 
-echo "CSV files copied successfully."
+    # Extract overlap and blocksize from the path
+    overlap=$(echo "$filepath" | awk -F'/' '{print $(NF-2)}')   # e.g. 0
+    blocksize=$(echo "$filepath" | awk -F'/' '{print $(NF-1)}') # e.g. 256
+
+    # Construct destination folder name
+    config="${overlap}_${blocksize}"
+    dest_dir="$destination_root/$dataset/$config"
+    mkdir -p "$dest_dir"
+
+    # Copy the file
+    cp "$filepath" "$dest_dir/"
+done
+
+echo "CSV files organized and copied successfully."

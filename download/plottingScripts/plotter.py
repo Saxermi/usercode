@@ -7,15 +7,14 @@ from matplotlib.patches import Patch
 from datetime import datetime
 
 # Define root experiment folder and subfolders
-experiment_folder = "/work/frejalom/ba/experimental_run_53"
+experiment_folder = "/work/frejalom/ba/experimental_run_65"
 subfolders = [
-    "o0bs256", "o0bs512", "o0bs1024", "o0bs2048",
-    "o10bs256", "o10bs512", "o10bs1024", "o10bs2048",
-    "o20bs256", "o20bs512", "o20bs1024", "o20bs2048",
-    "o30bs256", "o30bs512", "o30bs1024", "o30bs2048",
-    "o40bs256", "o40bs512", "o40bs1024", "o40bs2048",
-    "o50bs256", "o50bs512", "o50bs1024", "o50bs2048"
+    "HiggsGluonFusion/0_256",
+    "SToMuMu/0_256",
+    "TTbar/0_256",
+    "ZMM/0_256",
 ]
+
 
 # Store original working directory to return to it later
 original_dir = os.getcwd()

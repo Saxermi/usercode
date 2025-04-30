@@ -159,51 +159,46 @@ histogram_names = [
 
 # List of ROOT files with full path
 root_files = [
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_0_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_40_blocksize_256.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_40_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_40_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_50_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_50_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_50_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_60_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_60_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_10/TTbar_overlap_60_blocksize_1024.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_0_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_0_blocksize_512.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_25/TTbar_overlap_30_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_29/TTbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_30/TTbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_0_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_0_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_40_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_50_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_31/ttbar_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_0_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_0_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_40_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_40_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_50_blocksize_128.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_50_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_32/ttbar_overlap_50_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_33/ttbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_33/ttbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_34/ttbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_34/ttbar_overlap_40_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_36/ttbar_overlap_0_blocksize_256.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_36/ttbar_overlap_0_blocksize_512.root",
-    # "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_36/ttbar_overlap_40_blocksize_256.root",
-    #"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_28/TTbar_overlap_0_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_28/TTbar_overlap_40_blocksize_512.root",
-    "/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/rootFileStorage/experimental_run_36/ttbar_overlap_40_blocksize_512.root",
+    # "/work/frejalom/ba/experimental_run_53/ttbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_30_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_30_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/SToMuMu_overlap_0_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/SToMuMu_overlap_30_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/SToMuMu_overlap_30_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/TTbar_overlap_0_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/TTbar_overlap_30_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/TTbar_overlap_30_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_0_blocksize_1024.root",
+    # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_30_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/ZMM_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_61/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_61/SToMuMu_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_61/TTbar_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_61/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_62/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_62/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_62/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_62/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_63/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_63/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_63/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_63/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_64/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_64/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_64/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_64/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_65/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_65/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_65/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_65/ZMM_overlap_0_blocksize_256.root",
 ]
 
 # Colors assigned to each subset if grouping by dataset
@@ -216,7 +211,7 @@ subset_colors = {
 }
 
 
-savefolder = "270325/o40b512"
+savefolder = "250425/SEComp"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -319,10 +314,20 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
         # Extract filename and match against the regex
         filename = os.path.basename(file_path)
         match = pattern.search(filename)
-        if ("experimental_run_10" in file_path):
+        if ("experimental_run_66" in file_path):
             legend_entry = f"{filename.split('_')[0]} DA"
         elif "experimental_run_36" in file_path:
             legend_entry = f"TTbar DAB"
+        elif ("experimental_run_61" in file_path):
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.5"
+        elif ("experimental_run_62" in file_path):
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.01"
+        elif ("experimental_run_63" in file_path):
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.5 no global DA"
+        elif ("experimental_run_64" in file_path):
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25 no global DA"
+        elif ("experimental_run_65" in file_path):
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25"
         elif match:
             subset_type = match.group(1)  # Process name (e.g., HiggsGluonFusion, TTbar)
             overlap = match.group(2)  # Overlap (e.g., n40, 40)
@@ -341,12 +346,15 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
             if hist_name == "SEReconVertices/SESimulatedVertices":
                 numerator = find_histogram_in_directory(directory, "SEReconVertices")
                 denominator = find_histogram_in_directory(directory, "SESimulatedVertices")
+                custom_title = "SE Vertex Reconstruction Efficiency"
             elif hist_name == "PUReconVertices/PUSimulatedVertices":
                 numerator = find_histogram_in_directory(directory, "PUReconVertices")
                 denominator = find_histogram_in_directory(directory, "PUSimulatedVertices")
+                custom_title = "PU Vertex Reconstruction Efficiency"
             elif hist_name == "FakeVertices/PUSimulatedVertices":
                 numerator = find_histogram_in_directory(directory, "FakeVertices")
                 denominator = find_histogram_in_directory(directory, "PUSimulatedVertices")
+                custom_title = "Fake Vertex Reconstruction Rate"
             else:
                 continue
 
@@ -355,6 +363,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
                 denominator.Rebin(5)
                 hist = numerator.Clone(f"{hist_name}_{os.path.basename(file_path)}")
                 hist.Divide(numerator, denominator, 1.0, 1.0, "B")
+                hist.SetTitle(custom_title)
             else:
                 error_log[file_path].append(f"Missing numerator/denominator for {hist_name}")
                 root_file.Close()
@@ -375,7 +384,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
                 continue
 
             # Check flag and set color/line style accordingly
-            if ("experimental_run_7" in file_path) or ("experimental_run_16" in file_path):
+            if ("experimental_run_53" in file_path):
                 color = ROOT.kGray
                 line_style = 1
             elif group_by_dataset:
@@ -418,7 +427,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
 
     # Update and save canvas
     safe_hist_name = hist_name.replace(" ", "_").replace("/", "_")
-    output_file = f"/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/{savefolder}/combined_{safe_hist_name}.pdf"
+    output_file = f"/t3home/frejalom/cmssw/CMSSW_15_0_0_pre2/src/usercode/download/{savefolder}/combined_{safe_hist_name}.pdf"
     canvas.SaveAs(output_file)
     print(f"Saved histogram as '{output_file}'")
 

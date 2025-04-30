@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define source and destination directories
-src_folder="/work/frejalom/ba/experimental_run_53"
-dest_folder="/t3home/frejalom/cmssw/CMSSW_14_2_0_pre4/src/usercode/download/plotter53"
+src_folder="/work/frejalom/ba/sorted_csv_output/"
+dest_folder="/t3home/frejalom/cmssw/CMSSW_15_0_0_pre2/src/usercode/download/plotter58"
 
 # Ensure the destination directory exists
 mkdir -p "$dest_folder"
