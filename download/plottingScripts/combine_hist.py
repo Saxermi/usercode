@@ -159,7 +159,7 @@ histogram_names = [
 
 # List of ROOT files with full path
 root_files = [
-    # "/work/frejalom/ba/experimental_run_53/ttbar_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_36/ttbar_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_1024.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_30_blocksize_1024.root",
@@ -177,12 +177,12 @@ root_files = [
     # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_30_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_66/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_66/SToMuMu_overlap_0_blocksize_256.root",
-    # "/work/frejalom/ba/experimental_run_66/TTbar_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_66/TTbar_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_66/ZMM_overlap_0_blocksize_256.root",
-    "/work/frejalom/ba/experimental_run_61/HiggsGluonFusion_overlap_0_blocksize_256.root",
-    "/work/frejalom/ba/experimental_run_61/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_61/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_61/SToMuMu_overlap_0_blocksize_256.root",
     "/work/frejalom/ba/experimental_run_61/TTbar_overlap_0_blocksize_256.root",
-    "/work/frejalom/ba/experimental_run_61/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_61/ZMM_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_62/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_62/SToMuMu_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_62/TTbar_overlap_0_blocksize_256.root",
@@ -211,7 +211,7 @@ subset_colors = {
 }
 
 
-savefolder = "250425/SEComp"
+savefolder = "300425/ReconQuality"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -319,7 +319,7 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
         elif "experimental_run_36" in file_path:
             legend_entry = f"TTbar DAB"
         elif ("experimental_run_61" in file_path):
-            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.5"
+            legend_entry = f"{filename.split('_')[0]} CascadeDA"
         elif ("experimental_run_62" in file_path):
             legend_entry = f"{filename.split('_')[0]} firstbestastop 0.01"
         elif ("experimental_run_63" in file_path):
