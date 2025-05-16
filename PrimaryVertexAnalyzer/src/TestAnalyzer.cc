@@ -5852,7 +5852,7 @@ std::vector<float> DeterBlockBorders = {
             }
 
             // same but only for tracks with pt over trehsold
-            if(tv.pt()>0.5){
+            if(tv->pt()>0.5){
     
             // Check if the track is matched to a simulated event
             unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
@@ -5867,7 +5867,7 @@ std::vector<float> DeterBlockBorders = {
             }
             // same but only for tracks with eta over trehsold
 
-            if(matchedVtx.eta() <2 && matchedVtx.eta() > -2){
+            if(tv->eta() <2 && tv->eta() > -2){
     
               // Check if the track is matched to a simulated event
               unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
