@@ -632,6 +632,14 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TProfile* PUPurityVsZaxisprofile = new TProfile("PUPurityVsZaxisprofile", "PU Track Assignment Purity vs. Z-Position Profile; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 0, 100);
 
     addn(h, PUPurityVsZaxisprofile);
+       // definition of histogramm that shows the purity as a function of z axis position with a momemntum of above 500 MeV
+       TProfile* PUPurityVsZaxisPTCUTprofile = new TProfile("PUPurityVsZaxisPTCUTprofile", "PU Track Assignment Purity vs. Z-Position Profile; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 0, 100);
+
+       addn(h, PUPurityVsZaxisPTCUTprofile);
+          // definition of histogramm that shows the purity as a function of z axis position with a pseudorapidity inbetween -2 and 2
+          TProfile* PUPurityVsZaxisETACUTprofile = new TProfile("PUPurityVsZaxisETACUTprofile", "PU Track Assignment Purity vs. Z-Position Profile; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 0, 100);
+
+          addn(h, PUPurityVsZaxisETACUTprofile);
     // Define a TH2F histogram for PUPurityVsZaxis
     TH2F* PUPurityVsZaxis  = new TH2F("PUPurityVsZaxis", "PU Track Assignment Purity vs. Z-Position; Z-Position [cm]; Track Assignment Purity [%]", 1000, -20, 20, 1000, 0, 100);
 
@@ -661,6 +669,17 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
     TProfile* PUEfficiencyVsZaxisProfile = new TProfile("PUEfficiencyVsZaxisProfile", "PU Track Assignment Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 0, 100);
 
     addn(h, PUEfficiencyVsZaxisProfile);
+    //
+     // definition of histogramm that shows the purity as a function of z axis position for tracks with momentum over 500MeV
+     TProfile* PUEfficiencyVsZaxisPTCUTProfile = new TProfile("PUEfficiencyVsZaxisPTCUTProfile", "PU Track Assignment Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 0, 100);
+
+     addn(h, PUEfficiencyVsZaxisPTCUTProfile);
+
+          // definition of histogramm that shows the purity as a function of z axis position for tracks with pseudorapidity inbetween -2 and 2
+          TProfile* PUEfficiencyVsZaxisETACUTProfile = new TProfile("PUEfficiencyVsZaxisETACUTProfile", "PU Track Assignment Efficiency vs. Z-Position Profile; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 0, 100);
+
+          addn(h, PUEfficiencyVsZaxisETACUTProfile);
+
     // Define a TH2F histogram for PUBlockBordersvsPurity
     TH2F* PUEfficiencyVsZaxis = new TH2F("PUEfficiencyVsZaxis", "PU Track Assignment Efficiency vs. Z-Position; Z-Position [cm]; Track Assignment Efficiency [%]", 100, -20, 20, 100, 0, 100);
 
@@ -5503,7 +5522,6 @@ std::vector<float> DeterBlockBorders = {
     ///hier
 
 
-
     // Retrieve SEDeterBlockBordersvsEfficencyprofile1
     TProfile* SEDeterBlockBordersvsEfficencyprofile1 = dynamic_cast<TProfile*>(h["efficiency/SEDeterBlockBordersvsEfficencyprofile1"]);
     if (!SEDeterBlockBordersvsEfficencyprofile1) {
@@ -5774,6 +5792,33 @@ std::vector<float> DeterBlockBorders = {
         return;
     }
 
+
+    TProfile* PUPurityVsZaxisPTCUTprofile = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsZaxisPTCUTprofile"]);
+      if (!PUPurityVsZaxisPTCUTprofile) {
+        std::cerr << "Error: Histogram PUPurityVsZaxisPTCUTprofile not found!" << std::endl;
+        return;
+    }
+
+
+
+    TProfile* PUPurityVsZaxisETACUTprofile = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsZaxisETACUTprofile"]);
+      if (!PUPurityVsZaxisETACUTprofile) {
+        std::cerr << "Error: Histogram PUPurityVsZaxisETACUTprofile not found!" << std::endl;
+        return;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     TProfile* PUPurityVsNumTracks = dynamic_cast<TProfile*>(h["efficiency/PUPurityVsNumTracks"]);
     if (!PUPurityVsNumTracks) {
       std::cerr << "Error: Histogram PUPurityVsNumTracks not found!" << std::endl;
@@ -5791,6 +5836,8 @@ std::vector<float> DeterBlockBorders = {
         MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
         unsigned int numMatchedTracks = 0;
         unsigned int numTracks = matchedVtx.tracks.size();
+        unsigned int numMatchedTracksPTtresh = 0;
+        unsigned int numMatchedTracksETAtresh = 0;
 
         // Loop through the reconstructed tracks in the matched vertex
         for (auto tv : matchedVtx.tracks) {
@@ -5803,11 +5850,55 @@ std::vector<float> DeterBlockBorders = {
             if (correctly_assigned) {
                 numMatchedTracks++;
             }
+
+            // same but only for tracks with pt over trehsold
+            if(tv.pt()>0.5){
+    
+            // Check if the track is matched to a simulated event
+            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+
+            // Check if the track is correctly assigned to the signal vertex
+            bool correctly_assigned = (tk_sim == matchedVtx.sim);
+            if (correctly_assigned) {
+              numMatchedTracksPTtresh++;
+            }
+
+            }
+            // same but only for tracks with eta over trehsold
+
+            if(matchedVtx.eta() <2 && matchedVtx.eta() > -2){
+    
+              // Check if the track is matched to a simulated event
+              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
+              assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+  
+              // Check if the track is correctly assigned to the signal vertex
+              bool correctly_assigned = (tk_sim == matchedVtx.sim);
+              if (correctly_assigned) {
+                numMatchedTracksETAtresh++;
+              }
+  
+              }
+
+
+
+
+
+
+
         }
 
         // Calculate the purity as the fraction of correctly matched tracks
         float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
         purity = purity * 100;
+        
+        float purityPTtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numTracks : 0;
+        purityPTtresh = purityPTtresh * 100;
+
+        float purityETAtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numTracks : 0;
+        purityETAtresh = purityETAtresh * 100;
+
 
         // Fill the histogram with the calculated purity
         PUTracksPurity->Fill(purity);
@@ -5835,6 +5926,10 @@ std::vector<float> DeterBlockBorders = {
         PUBlockBordersvsPurityprofile5->Fill(distance, purity);
         PUPurityVsZaxis->Fill(matchedVtx.z(), purity);
         PUPurityVsZaxisprofile->Fill(matchedVtx.z(), purity);
+        PUPurityVsZaxisPTCUTprofile->Fill(matchedVtx.z(), purityPTtresh);
+        PUPurityVsZaxisETACUTprofile->Fill(matchedVtx.z(), purityETAtresh);
+        
+
 
         PUDeterBlockBordersvsPurityprofile->Fill(deterministicdistance, purity);
         PUDeterBlockBordersvsPurity->Fill(deterministicdistance, purity);
@@ -6005,6 +6100,34 @@ std::vector<float> DeterBlockBorders = {
         return;
     }
 
+
+
+
+    // Retrieve PUEfficiencyVsZaxisPTCUTProfile
+    TProfile* PUEfficiencyVsZaxisPTCUTProfile = dynamic_cast<TProfile*>(h["efficiency/PUEfficiencyVsZaxisPTCUTProfile"]);
+    if (!PUEfficiencyVsZaxisPTCUTProfile) {
+        std::cerr << "Error: Histogram PUEfficiencyVsZaxisPTCUTProfile not found!" << std::endl;
+        return;
+    }
+
+
+
+
+
+
+
+    // Retrieve PUEfficiencyVsZaxisETACUTProfile
+    TProfile* PUEfficiencyVsZaxisETACUTProfile = dynamic_cast<TProfile*>(h["efficiency/PUEfficiencyVsZaxisETACUTProfile"]);
+    if (!PUEfficiencyVsZaxisETACUTProfile) {
+        std::cerr << "Error: Histogram PUEfficiencyVsZaxisETACUTProfile not found!" << std::endl;
+        return;
+    }
+
+
+
+
+
+
     // Retrieve PUEfficiencyVsZaxis
     TH2F* PUEfficiencyVsZaxis = dynamic_cast<TH2F*>(h["efficiency/PUEfficiencyVsZaxis"]);
     if (!PUEfficiencyVsZaxis) {
@@ -6026,6 +6149,8 @@ std::vector<float> DeterBlockBorders = {
           
         unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks in the PU event
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
+        unsigned int numMatchedTracksPTtresh = 0; // Count of matched simulated tracks
+        unsigned int numMatchedTracksETAtresh = 0; // Count of matched simulated tracks
 
         // Collect the keys of the tracks in the matched reconstructed vertex
         std::set<unsigned int> recTrackKeys;
@@ -6038,12 +6163,24 @@ std::vector<float> DeterBlockBorders = {
             if (recTrackKeys.find(simTrack.key()) != recTrackKeys.end()) {
                 // Track is found in the reconstructed vertex
                 numMatchedTracks++;  // Increment matched track count
+                if(simTrack.pt()>0.5){
+                  numMatchedTracksPTtresh++;
+                }
+                if(simTrack.eta()>-2 && simTrack.eta()<2){
+                  numMatchedTracksETAtresh++;
+                }
             }
         }
 
         // Calculate the efficiency as the fraction of simulated tracks that are matched
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
         efficiency = efficiency * 100;
+         // Calculate the efficiency as the fraction of simulated tracks that are matched
+         float efficiencyPTtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numSimTracks : 0;
+         efficiencyPTtresh = efficiencyPTtresh * 100;
+          // Calculate the efficiency as the fraction of simulated tracks that are matched
+        float efficiencyETAtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numSimTracks : 0;
+        efficiencyETAtresh = efficiencyETAtresh * 100;
 
         // Fill the histogram with the calculated efficiency
         PUTracksEfficiency->Fill(efficiency);
@@ -6073,6 +6210,9 @@ std::vector<float> DeterBlockBorders = {
 
         PUEfficiencyVsZaxis->Fill(matchedVtx.z(), efficiency);
         PUEfficiencyVsZaxisProfile->Fill(matchedVtx.z(), efficiency);
+        PUEfficiencyVsZaxisPTCUTProfile->Fill(matchedVtx.z(), efficiencyPTtresh);
+        PUEfficiencyVsZaxisETACUTProfile->Fill(matchedVtx.z(), efficiencyETAtresh);
+
 
         PUDeterBlockBordersvsEfficencyprofile5->Fill(deterministicdistance, efficiency);
         PUDeterBlockBordersvsEfficency1->Fill(deterministicdistance, efficiency);
@@ -6483,4 +6623,3 @@ void TestAnalyzer::analyzeVertexRecoCPUTime(std::map<std::string, TH1*>& h,
 
 //define this as a plug-in
 DEFINE_FWK_MODULE(TestAnalyzer);
-
