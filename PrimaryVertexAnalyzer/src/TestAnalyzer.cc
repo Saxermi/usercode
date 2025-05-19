@@ -6185,10 +6185,10 @@ std::vector<float> DeterBlockBorders = {
         float efficiency = (numSimTracks > 0) ? static_cast<float>(numMatchedTracks) / numSimTracks : 0;
         efficiency = efficiency * 100;
          // Calculate the efficiency as the fraction of simulated tracks that are matched
-         float efficiencyPTtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numSimTracks : 0;
+         float efficiencyPTtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numSimTracksPTtresh : 0;
          efficiencyPTtresh = efficiencyPTtresh * 100;
           // Calculate the efficiency as the fraction of simulated tracks that are matched
-        float efficiencyETAtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numSimTracks : 0;
+        float efficiencyETAtresh = (numSimTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numSimTracksETAtresh : 0;
         efficiencyETAtresh = efficiencyETAtresh * 100;
 
         // Fill the histogram with the calculated efficiency
