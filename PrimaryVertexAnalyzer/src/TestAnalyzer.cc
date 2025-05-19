@@ -307,10 +307,11 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
   }
 
   // extras
-  extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
-  clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUtime"));
-  
+  //extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
+   // extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("vertexSoA","extraInfo"));
 
+  //clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUtime"));
+ 
   trkhiptmin_ = 3.0;
   trkloptmax_ = 1.0;
   trkcentraletamax_ = 1.5;
@@ -2750,26 +2751,32 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
 
-  edm::Handle<std::vector<float>> extraInfoHandle;
-  iEvent.getByToken(extraInfoToken_, extraInfoHandle);
+  //edm::Handle<std::vector<float>> extraInfoHandle;
+  //iEvent.getByToken(extraInfoToken_, extraInfoHandle);
+  std::vector<float> extraInfoFake = {1.0, 2.0, 3.0};
+  auto extraInfoHandle = &extraInfoFake;
+  float clustercpufake = 42.0;  
+
+  float* clusteringCPUtimeHandle = &clustercpufake;
+
   
-  if(extraInfoHandle.isValid()){
+  //if(extraInfoHandle.isValid()){
     std::cout << "************************ extra ***************************" << extraInfoHandle->size()<< std::endl;
     for(auto f : *extraInfoHandle){
       std::cout << f << std::endl;
-    }
-  }else{
+   }
+//  }else{
     std::cout << "************************ no extras ***************************" << std::endl;
-  }
+//  }
 
 
-  edm::Handle<float> clusteringCPUtimeHandle;
-  iEvent.getByToken(clusteringCPUtimeToken_, clusteringCPUtimeHandle);
-  if (clusteringCPUtimeHandle.isValid()){
+  //edm::Handle<float> clusteringCPUtimeHandle;
+  //iEvent.getByToken(clusteringCPUtimeToken_, clusteringCPUtimeHandle);
+  //if (clusteringCPUtimeHandle.isValid()){
     std::cout << " clustering time is " << *clusteringCPUtimeHandle << std::endl;
-  }else{
+  //}else{
     cout << " coud not get clustering time";
-  }
+ // }
 
   // in case we wanted to analyze a specific lumi block only
   if ((analyzeLS_ >= 0) && !(luminosityBlock_ == analyzeLS_))

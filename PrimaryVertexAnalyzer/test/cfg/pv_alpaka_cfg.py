@@ -150,6 +150,7 @@ process.options = cms.untracked.PSet(
     #  TryToContinue=cms.untracked.vstring(
     #    "ProductNotFound"
     # ),  # temporary trying to fix the beamspot issue
+    TryToContinue=cms.untracked.vstring("ProductNotFound"),
 )
 
 
@@ -164,7 +165,7 @@ process.vertexreco.remove(process.inclusiveVertexing)
 
 # Number of events to run
 process.maxEvents = cms.untracked.PSet(
-    input=cms.untracked.int32(1),
+    input=cms.untracked.int32(2),
 )
 
 # Production metadata
@@ -186,7 +187,7 @@ process.FEVToutput = cms.OutputModule(
     outputCommands=cms.untracked.vstring(
         "drop *",
         "keep *_tracksSoA_*_*",
-        "keep *_beamSpotDevice_*_*",
+        #     "keep *_beamSpotDevice_*_*",
         "keep *_vertexSoA_*_*",
         "keep *_vertexAoS_*_*",
     ),  # I.e., just drop everything and keep things in this module
@@ -240,7 +241,7 @@ process.tracksSoA = cms.EDProducer(
         maxD0Error=cms.double(1.0),
         maxDzError=cms.double(1.0),
         minPt=cms.double(0.0),
-        maxEta=cms.double(4.0),  # cms.double(2.4),
+        maxEta=cms.double(2.4),
         trackQuality=cms.string("any"),
         vertexSize=cms.double(0.006),
         d0CutOff=cms.double(3.0),
@@ -264,16 +265,8 @@ process.beamSpotDevice = cms.EDProducer(
 process.vertexSoA = cms.EDProducer(
     "PrimaryVertexProducer_Alpaka@alpaka",
     TrackLabel=cms.InputTag("tracksSoA"),
-    # BeamSpotLabel=cms.InputTag("beamSpotSoA"),
-    BeamSpotLabel=cms.InputTag("beamSpotDevice"),
     blockOverlap=cms.double(0.50),
     blockSize=cms.int32(512),
-    TkFitterParameters=cms.PSet(
-        chi2cutoff=cms.double(2.5),
-        minNdof=cms.double(0.0),
-        useBeamSpotConstraint=cms.bool(True),
-        maxDistanceToBeam=cms.double(1.0),
-    ),
     TkClusParameters=cms.PSet(
         coolingFactor=cms.double(0.6),  # moderate annealing speed
         zrange=cms.double(
@@ -368,29 +361,41 @@ process.oldVertexAnalysis = cms.EDAnalyzer(
     compareCollections=parameters["compareCollections"],
     vertexRecoCollections=cms.VInputTag(vcollections),
 )
-process.analyze = cms.Path(process.theTruth * process.oldVertexAnalysis)
+# process.analyze = cms.Path(process.theTruth * process.oldVertexAnalysis)
 
-
+process.vertexing_step = cms.Path(
+    process.tracksSoA  # reco::Track → TrackSoA
+    + process.vertexSoA  # PV-Clustering auf GPU/CPU
+    + process.vertexAoS  # SoA → reco::Vertex
+)
 ###################################
 ## Last, organize paths and exec ##
 ###################################
 
-process.vertexing_task = cms.EndPath(
-    process.tracksSoA + process.beamSpotDevice + process.vertexSoA + process.vertexAoS
-)
+# process.vertexAoS = cms.EDProducer(
+#    "SoAToVertex_tProducer",
+#    soaVertex=cms.InputTag("vertexSoA"),
+#    srcTrack=cms.InputTag("generalTracks"),
+# )
 # process.vertexing_task = cms.EndPath(process.beamSpotDevice)
 
-process.content = cms.EDAnalyzer("EventContentAnalyzer")
+process.analyze_step = cms.Path(process.theTruth * process.oldVertexAnalysis)
+
+# process.content = cms.EDAnalyzer("EventContentAnalyzer")
 # process.dump = cms.Path(process.content)
 
-# .vertexing_task = cms.EndPath(
-#   process.tracksSoA + process.beamSpotSoA + process.vertexSoA + process.vertexAoS
-# )
+# vertexing_task = cms.EndPath(process.tracksSoA + process.vertexSoA + process.vertexAoS)
 
+# process.schedule = cms.Schedule(
+#   process.vertexing_task,
+# process.dump,
+# process.analyze,
+#  process.endjob_step,
+# process.FEVToutput_step
+# )
 process.schedule = cms.Schedule(
-    process.vertexing_task,
-    # process.dump,
-    process.analyze,
+    process.vertexing_step,
+    process.analyze_step,
     process.endjob_step,
-    # process.FEVToutput_step
+    process.FEVToutput_step,
 )
