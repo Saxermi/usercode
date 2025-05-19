@@ -5836,6 +5836,8 @@ std::vector<float> DeterBlockBorders = {
         MVertex& matchedVtx = vtxs.at(simEvt[i].rec);
         unsigned int numMatchedTracks = 0;
         unsigned int numTracks = matchedVtx.tracks.size();
+        unsigned int numTracksPTtresh = 0;
+        unsigned int numTracksETAtresh = 0;
         unsigned int numMatchedTracksPTtresh = 0;
         unsigned int numMatchedTracksETAtresh = 0;
 
@@ -5853,22 +5855,21 @@ std::vector<float> DeterBlockBorders = {
 
             // same but only for tracks with pt over trehsold
             if(tv->pt()>0.5){
-    
-            // Check if the track is matched to a simulated event
-            unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
-            assert(tv->_matched == tk_sim); // Ensure the track has the right matching
+              numTracksPTtresh++;
+              // Check if the track is matched to a simulated event
+              unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
 
-            // Check if the track is correctly assigned to the signal vertex
-            bool correctly_assigned = (tk_sim == matchedVtx.sim);
-            if (correctly_assigned) {
-              numMatchedTracksPTtresh++;
-            }
+              // Check if the track is correctly assigned to the signal vertex
+              bool correctly_assigned = (tk_sim == matchedVtx.sim);
+              if (correctly_assigned) {
+                numMatchedTracksPTtresh++;
+              }
 
             }
             // same but only for tracks with eta over trehsold
 
             if(tv->eta() <2 && tv->eta() > -2){
-    
+              numTracksETAtresh++;
               // Check if the track is matched to a simulated event
               unsigned int tk_sim = tracks.simevent_index_from_key(tv->key());
               assert(tv->_matched == tk_sim); // Ensure the track has the right matching
@@ -5893,10 +5894,10 @@ std::vector<float> DeterBlockBorders = {
         float purity = (numTracks > 0) ? static_cast<float>(numMatchedTracks) / numTracks : 0;
         purity = purity * 100;
         
-        float purityPTtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numTracks : 0;
+        float purityPTtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksPTtresh) / numTracksPTtresh : 0;
         purityPTtresh = purityPTtresh * 100;
 
-        float purityETAtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numTracks : 0;
+        float purityETAtresh = (numTracks > 0) ? static_cast<float>(numMatchedTracksETAtresh) / numTracksETAtresh : 0;
         purityETAtresh = purityETAtresh * 100;
 
 
@@ -6149,9 +6150,10 @@ std::vector<float> DeterBlockBorders = {
           
         unsigned int numSimTracks = simEvt[i].rtk.size(); // Number of simulated tracks in the PU event
         unsigned int numMatchedTracks = 0; // Count of matched simulated tracks
-        unsigned int numMatchedTracksPTtresh = 0; // Count of matched simulated tracks
+        unsigned int numSimTracksETAtresh = 0;
+        unsigned int numMatchedTracksPTtresh = 0;  // Count of matched simulated tracks
         unsigned int numMatchedTracksETAtresh = 0; // Count of matched simulated tracks
-
+        unsigned int numSimTracksPTtresh = 0;
         // Collect the keys of the tracks in the matched reconstructed vertex
         std::set<unsigned int> recTrackKeys;
         for (auto tv : matchedVtx.tracks) {
@@ -6160,6 +6162,13 @@ std::vector<float> DeterBlockBorders = {
 
         // Check if each simulated track has a corresponding reconstructed track
         for (auto& simTrack : simEvt[i].rtk) {
+          if(simTrack.pt()>0.5){
+            numSimTracksPTtresh++;
+          }
+          if(simTrack.eta()>-2 && simTrack.eta()<2){
+            numSimTracksETAtresh++;
+          }
+
             if (recTrackKeys.find(simTrack.key()) != recTrackKeys.end()) {
                 // Track is found in the reconstructed vertex
                 numMatchedTracks++;  // Increment matched track count
