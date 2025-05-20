@@ -7,7 +7,7 @@ from matplotlib.patches import Patch
 from datetime import datetime
 
 # Define root experiment folder and subfolders
-experiment_folder = "/work/frejalom/ba/experimental_run_74"
+experiment_folder = "/work/frejalom/ba/experimental_run_68"
 subfolders = [
     "HiggsGluonFusion/0_256",
     "SToMuMu/0_256",

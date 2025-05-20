@@ -159,7 +159,7 @@ histogram_names = [
 
 # List of ROOT files with full path
 root_files = [
-    "/work/frejalom/ba/experimental_run_36/ttbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_36/ttbar_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_1024.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_58/HiggsGluonFusion_overlap_30_blocksize_1024.root",
@@ -175,13 +175,9 @@ root_files = [
     # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_0_blocksize_1024.root",
     # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_58/ZMM_overlap_30_blocksize_256.root",
-    # "/work/frejalom/ba/experimental_run_66/HiggsGluonFusion_overlap_0_blocksize_256.root",
-    # "/work/frejalom/ba/experimental_run_66/SToMuMu_overlap_0_blocksize_256.root",
-    "/work/frejalom/ba/experimental_run_66/TTbar_overlap_0_blocksize_256.root",
-    # "/work/frejalom/ba/experimental_run_66/ZMM_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_61/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_61/SToMuMu_overlap_0_blocksize_256.root",
-    "/work/frejalom/ba/experimental_run_61/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_61/TTbar_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_61/ZMM_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_62/HiggsGluonFusion_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_62/SToMuMu_overlap_0_blocksize_256.root",
@@ -199,6 +195,40 @@ root_files = [
     # "/work/frejalom/ba/experimental_run_65/SToMuMu_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_65/TTbar_overlap_0_blocksize_256.root",
     # "/work/frejalom/ba/experimental_run_65/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_66/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_67/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_67/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_67/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_67/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_68/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_68/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_68/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_68/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_69/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_69/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_69/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_69/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_70/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_70/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_70/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_70/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_72/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_72/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_72/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_72/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_73/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_73/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_73/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_73/ZMM_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_74/HiggsGluonFusion_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_74/SToMuMu_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_74/TTbar_overlap_0_blocksize_256.root",
+    # "/work/frejalom/ba/experimental_run_74/ZMM_overlap_0_blocksize_256.root",
+    "/work/frejalom/ba/experimental_run_76/Subset_TTbar_01/0/256/pvSubset_TTbar_01_OL0_BS256_20250516_150631.root",
+    "/work/frejalom/ba/experimental_run_75/Subset_TTbar_01/0/256/pvSubset_TTbar_01_OL0_BS256_20250516_150631.root",
 ]
 
 # Colors assigned to each subset if grouping by dataset
@@ -211,7 +241,7 @@ subset_colors = {
 }
 
 
-savefolder = "300425/ReconQuality"
+savefolder = "160525/test4"
 # Line styles to differentiate files within each subset if grouping by dataset
 line_styles = [1, 2, 3, 4]  # Solid, Dashed, Dotted, Dash-Dotted
 
@@ -316,18 +346,22 @@ for hist_name in histogram_names + ratio_names:  # Include ratios in the same lo
         match = pattern.search(filename)
         if ("experimental_run_66" in file_path):
             legend_entry = f"{filename.split('_')[0]} DA"
-        elif "experimental_run_36" in file_path:
-            legend_entry = f"TTbar DAB"
+        elif "experimental_run_72" in file_path:
+            legend_entry = f"{filename.split('_')[0]} DAB"
+        elif ("experimental_run_68" in file_path):
+            legend_entry = f"{filename.split('_')[0]} DABT"
         elif ("experimental_run_61" in file_path):
             legend_entry = f"{filename.split('_')[0]} CascadeDA"
         elif ("experimental_run_62" in file_path):
-            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.01"
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.01 CascadeDA"
         elif ("experimental_run_63" in file_path):
-            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.5 no global DA"
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.5 DABT"
         elif ("experimental_run_64" in file_path):
-            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25 no global DA"
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25 DABT"
         elif ("experimental_run_65" in file_path):
-            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25"
+            legend_entry = f"{filename.split('_')[0]} firstbestastop 0.25 CascadeDA"
+        elif ("experimental_run_74" in file_path):
+            legend_entry = f"{filename.split('_')[0]} fpurge"
         elif match:
             subset_type = match.group(1)  # Process name (e.g., HiggsGluonFusion, TTbar)
             overlap = match.group(2)  # Overlap (e.g., n40, 40)

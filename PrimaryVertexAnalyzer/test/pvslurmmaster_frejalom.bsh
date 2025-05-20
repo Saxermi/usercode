@@ -4,9 +4,11 @@
 #SBATCH --mem=3000
 #SBATCH --account=t3
 #SBATCH --partition=long
+#SBATCH --nodes=1
+#SBATCH --nodelist=t3wn59
 #
 # submit :
-# sbatch -p short 
+# sbatch -p long 
 # monitor jobs:
 # squeue -u <username>
 #

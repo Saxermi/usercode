@@ -1,0 +1,471 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 691368
+HOSTNAME: t3wn56
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_15_0_0_pre2
+%MSG-i AlpakaService:  (NoModuleName) 30-Apr-2025 11:28:42 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+30-Apr-2025 11:28:49 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root
+30-Apr-2025 11:30:08 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 11:30:10 CEST pre-events
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because its quality (808) is higher than 260 and 4 times larger than the other active server ceph-gw11.gridpp.rl.ac.uk (122) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 30-Apr-2025 11:31:11 CEST PreSource
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because the quality (28376) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 30-Apr-2025 11:31:11 CEST PreSource
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (28376) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (260) 
+%MSG
+Begin processing the 1st record. Run 1, Event 5451, LumiSection 110 on stream 0 at 30-Apr-2025 11:31:11.839 CEST
+Begin processing the 2nd record. Run 1, Event 5452, LumiSection 110 on stream 0 at 30-Apr-2025 11:32:11.134 CEST
+Begin processing the 3rd record. Run 1, Event 5458, LumiSection 110 on stream 0 at 30-Apr-2025 11:32:35.220 CEST
+Begin processing the 4th record. Run 1, Event 5461, LumiSection 110 on stream 0 at 30-Apr-2025 11:33:00.363 CEST
+Begin processing the 5th record. Run 1, Event 5462, LumiSection 110 on stream 0 at 30-Apr-2025 11:33:27.203 CEST
+Begin processing the 6th record. Run 1, Event 5463, LumiSection 110 on stream 0 at 30-Apr-2025 11:33:47.802 CEST
+[2025-04-30 11:34:09.318482 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 7th record. Run 1, Event 5464, LumiSection 110 on stream 0 at 30-Apr-2025 11:34:16.255 CEST
+Begin processing the 8th record. Run 1, Event 5465, LumiSection 110 on stream 0 at 30-Apr-2025 11:34:37.506 CEST
+Begin processing the 9th record. Run 1, Event 5467, LumiSection 110 on stream 0 at 30-Apr-2025 11:34:58.203 CEST
+Begin processing the 10th record. Run 1, Event 5472, LumiSection 110 on stream 0 at 30-Apr-2025 11:35:20.794 CEST
+Begin processing the 11th record. Run 1, Event 5473, LumiSection 110 on stream 0 at 30-Apr-2025 11:35:52.047 CEST
+Begin processing the 12th record. Run 1, Event 5474, LumiSection 110 on stream 0 at 30-Apr-2025 11:36:19.233 CEST
+Begin processing the 13th record. Run 1, Event 5475, LumiSection 110 on stream 0 at 30-Apr-2025 11:37:09.128 CEST
+Begin processing the 14th record. Run 1, Event 5477, LumiSection 110 on stream 0 at 30-Apr-2025 11:37:29.455 CEST
+Begin processing the 15th record. Run 1, Event 5481, LumiSection 110 on stream 0 at 30-Apr-2025 11:37:51.822 CEST
+Begin processing the 16th record. Run 1, Event 5483, LumiSection 110 on stream 0 at 30-Apr-2025 11:38:36.070 CEST
+[2025-04-30 11:38:55.352291 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 17th record. Run 1, Event 5484, LumiSection 110 on stream 0 at 30-Apr-2025 11:39:07.739 CEST
+Begin processing the 18th record. Run 1, Event 5485, LumiSection 110 on stream 0 at 30-Apr-2025 11:39:44.981 CEST
+Begin processing the 19th record. Run 1, Event 5486, LumiSection 110 on stream 0 at 30-Apr-2025 11:40:17.172 CEST
+Begin processing the 20th record. Run 1, Event 5487, LumiSection 110 on stream 0 at 30-Apr-2025 11:40:42.591 CEST
+Begin processing the 21st record. Run 1, Event 5493, LumiSection 110 on stream 0 at 30-Apr-2025 11:41:14.899 CEST
+Begin processing the 22nd record. Run 1, Event 5496, LumiSection 110 on stream 0 at 30-Apr-2025 11:41:43.781 CEST
+Begin processing the 23rd record. Run 1, Event 5499, LumiSection 110 on stream 0 at 30-Apr-2025 11:42:11.110 CEST
+30-Apr-2025 11:42:17 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root
+30-Apr-2025 11:42:17 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root
+30-Apr-2025 11:42:20 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 11:42:26 CEST PostProcessEvent
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because the quality (11576) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 11:42:26 CEST PostProcessEvent
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because its quality (11576) is higher than 260 and 4 times larger than the other active server ceph-gw10.gridpp.rl.ac.uk (282) 
+%MSG
+[2025-04-30 11:43:45.377222 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/2094ef0c-ab9b-4835-a564-38a694fd2e2e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorLvl3:  source 30-Apr-2025 11:43:48 CEST PreSource
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because the quality (51587) is above 5130 and it is not the only active server
+%MSG
+Begin processing the 24th record. Run 1, Event 2701, LumiSection 55 on stream 0 at 30-Apr-2025 11:43:48.568 CEST
+Begin processing the 25th record. Run 1, Event 2703, LumiSection 55 on stream 0 at 30-Apr-2025 11:44:36.761 CEST
+Begin processing the 26th record. Run 1, Event 2704, LumiSection 55 on stream 0 at 30-Apr-2025 11:45:24.702 CEST
+Begin processing the 27th record. Run 1, Event 2707, LumiSection 55 on stream 0 at 30-Apr-2025 11:46:19.073 CEST
+[2025-04-30 11:46:45.395132 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 28th record. Run 1, Event 2708, LumiSection 55 on stream 0 at 30-Apr-2025 11:47:19.915 CEST
+Begin processing the 29th record. Run 1, Event 2712, LumiSection 55 on stream 0 at 30-Apr-2025 11:48:08.082 CEST
+Begin processing the 30th record. Run 1, Event 2713, LumiSection 55 on stream 0 at 30-Apr-2025 11:48:55.119 CEST
+Begin processing the 31st record. Run 1, Event 2714, LumiSection 55 on stream 0 at 30-Apr-2025 11:49:36.299 CEST
+Begin processing the 32nd record. Run 1, Event 2719, LumiSection 55 on stream 0 at 30-Apr-2025 11:50:22.133 CEST
+Begin processing the 33rd record. Run 1, Event 2720, LumiSection 55 on stream 0 at 30-Apr-2025 11:51:01.991 CEST
+[2025-04-30 11:51:50.427032 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 34th record. Run 1, Event 2721, LumiSection 55 on stream 0 at 30-Apr-2025 11:51:57.878 CEST
+Begin processing the 35th record. Run 1, Event 2722, LumiSection 55 on stream 0 at 30-Apr-2025 11:52:55.112 CEST
+Begin processing the 36th record. Run 1, Event 2724, LumiSection 55 on stream 0 at 30-Apr-2025 11:54:22.356 CEST
+Begin processing the 37th record. Run 1, Event 2725, LumiSection 55 on stream 0 at 30-Apr-2025 11:55:22.305 CEST
+Begin processing the 38th record. Run 1, Event 2728, LumiSection 55 on stream 0 at 30-Apr-2025 11:56:17.531 CEST
+Begin processing the 39th record. Run 1, Event 2730, LumiSection 55 on stream 0 at 30-Apr-2025 11:57:12.515 CEST
+[2025-04-30 11:57:17.461587 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 40th record. Run 1, Event 2732, LumiSection 55 on stream 0 at 30-Apr-2025 11:58:21.712 CEST
+Begin processing the 41st record. Run 1, Event 2733, LumiSection 55 on stream 0 at 30-Apr-2025 11:59:54.807 CEST
+Begin processing the 42nd record. Run 1, Event 2736, LumiSection 55 on stream 0 at 30-Apr-2025 12:01:55.764 CEST
+[2025-04-30 12:02:50.495843 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 43rd record. Run 1, Event 2737, LumiSection 55 on stream 0 at 30-Apr-2025 12:03:15.531 CEST
+Begin processing the 44th record. Run 1, Event 2738, LumiSection 55 on stream 0 at 30-Apr-2025 12:04:17.209 CEST
+Begin processing the 45th record. Run 1, Event 2739, LumiSection 55 on stream 0 at 30-Apr-2025 12:05:13.263 CEST
+Begin processing the 46th record. Run 1, Event 2743, LumiSection 55 on stream 0 at 30-Apr-2025 12:06:19.318 CEST
+[2025-04-30 12:07:13.522647 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 47th record. Run 1, Event 2744, LumiSection 55 on stream 0 at 30-Apr-2025 12:07:59.182 CEST
+Begin processing the 48th record. Run 1, Event 2745, LumiSection 55 on stream 0 at 30-Apr-2025 12:09:02.575 CEST
+Begin processing the 49th record. Run 1, Event 2748, LumiSection 55 on stream 0 at 30-Apr-2025 12:10:16.456 CEST
+Begin processing the 50th record. Run 1, Event 2749, LumiSection 55 on stream 0 at 30-Apr-2025 12:11:22.814 CEST
+30-Apr-2025 12:11:30 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root
+30-Apr-2025 12:11:30 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root
+30-Apr-2025 12:11:32 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:11:38 CEST PostProcessEvent
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because the quality (11576) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:11:38 CEST PostProcessEvent
+Deactivating ceph-svc20.gridpp.rl.ac.uk from active sources because its quality (11576) is higher than 260 and 4 times larger than the other active server ceph-gw10.gridpp.rl.ac.uk (518) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:11:47 CEST PostProcessEvent
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because the quality (27869) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:11:47 CEST PostProcessEvent
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (27869) is higher than 260 and 4 times larger than the other active server ceph-gw10.gridpp.rl.ac.uk (399) 
+%MSG
+[2025-04-30 12:11:56.552161 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/a2708aab-a0c0-4151-b6fb-ef7a9ea50e5e.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 51st record. Run 1, Event 8001, LumiSection 161 on stream 0 at 30-Apr-2025 12:14:35.810 CEST
+Begin processing the 52nd record. Run 1, Event 8003, LumiSection 161 on stream 0 at 30-Apr-2025 12:15:48.977 CEST
+Begin processing the 53rd record. Run 1, Event 8004, LumiSection 161 on stream 0 at 30-Apr-2025 12:17:00.386 CEST
+[2025-04-30 12:17:32.576303 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,llrxrd-redir.in2p3.fr,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 54th record. Run 1, Event 8005, LumiSection 161 on stream 0 at 30-Apr-2025 12:18:25.223 CEST
+Begin processing the 55th record. Run 1, Event 8006, LumiSection 161 on stream 0 at 30-Apr-2025 12:20:42.275 CEST
+Begin processing the 56th record. Run 1, Event 8007, LumiSection 161 on stream 0 at 30-Apr-2025 12:22:59.827 CEST
+[2025-04-30 12:23:27.637172 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it,xrootd-cms-uk.gridpp.rl.ac.uk,llrxrd-redir.in2p3.fr&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 57th record. Run 1, Event 8008, LumiSection 161 on stream 0 at 30-Apr-2025 12:25:04.933 CEST
+Begin processing the 58th record. Run 1, Event 8012, LumiSection 161 on stream 0 at 30-Apr-2025 12:26:31.138 CEST
+Begin processing the 59th record. Run 1, Event 8014, LumiSection 161 on stream 0 at 30-Apr-2025 12:27:46.044 CEST
+[2025-04-30 12:28:08.698966 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 60th record. Run 1, Event 8015, LumiSection 161 on stream 0 at 30-Apr-2025 12:28:53.851 CEST
+Begin processing the 61st record. Run 1, Event 8016, LumiSection 161 on stream 0 at 30-Apr-2025 12:29:55.849 CEST
+Begin processing the 62nd record. Run 1, Event 8017, LumiSection 161 on stream 0 at 30-Apr-2025 12:30:59.194 CEST
+Begin processing the 63rd record. Run 1, Event 8018, LumiSection 161 on stream 0 at 30-Apr-2025 12:32:04.511 CEST
+[2025-04-30 12:32:58.730326 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it,xrootd-cms-uk.gridpp.rl.ac.uk,llrxrd-redir.in2p3.fr&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 64th record. Run 1, Event 8020, LumiSection 161 on stream 0 at 30-Apr-2025 12:33:09.928 CEST
+Begin processing the 65th record. Run 1, Event 8021, LumiSection 161 on stream 0 at 30-Apr-2025 12:34:20.567 CEST
+Begin processing the 66th record. Run 1, Event 8022, LumiSection 161 on stream 0 at 30-Apr-2025 12:35:53.071 CEST
+[2025-04-30 12:37:15.770483 +0200][Error  ][XRootD            ][22476] [xrootd-cms.infn.it:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 67th record. Run 1, Event 8024, LumiSection 161 on stream 0 at 30-Apr-2025 12:37:44.651 CEST
+Begin processing the 68th record. Run 1, Event 8025, LumiSection 161 on stream 0 at 30-Apr-2025 12:39:03.838 CEST
+Begin processing the 69th record. Run 1, Event 8030, LumiSection 161 on stream 0 at 30-Apr-2025 12:40:10.676 CEST
+Begin processing the 70th record. Run 1, Event 8031, LumiSection 161 on stream 0 at 30-Apr-2025 12:41:19.293 CEST
+[2025-04-30 12:42:00.800631 +0200][Error  ][XRootD            ][22476] [xrootd-cms.infn.it:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 71st record. Run 1, Event 8032, LumiSection 161 on stream 0 at 30-Apr-2025 12:42:20.617 CEST
+Begin processing the 72nd record. Run 1, Event 8033, LumiSection 161 on stream 0 at 30-Apr-2025 12:43:21.080 CEST
+Begin processing the 73rd record. Run 1, Event 8034, LumiSection 161 on stream 0 at 30-Apr-2025 12:44:40.930 CEST
+Begin processing the 74th record. Run 1, Event 8035, LumiSection 161 on stream 0 at 30-Apr-2025 12:45:42.107 CEST
+[2025-04-30 12:46:24.818726 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,llrxrd-redir.in2p3.fr,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 75th record. Run 1, Event 8037, LumiSection 161 on stream 0 at 30-Apr-2025 12:46:51.630 CEST
+Begin processing the 76th record. Run 1, Event 8040, LumiSection 161 on stream 0 at 30-Apr-2025 12:48:04.825 CEST
+Begin processing the 77th record. Run 1, Event 8041, LumiSection 161 on stream 0 at 30-Apr-2025 12:50:23.226 CEST
+[2025-04-30 12:51:00.853719 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-redir-int.cr.cnaf.infn.it,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 78th record. Run 1, Event 8042, LumiSection 161 on stream 0 at 30-Apr-2025 12:53:00.937 CEST
+Begin processing the 79th record. Run 1, Event 8043, LumiSection 161 on stream 0 at 30-Apr-2025 12:54:09.099 CEST
+Begin processing the 80th record. Run 1, Event 8046, LumiSection 161 on stream 0 at 30-Apr-2025 12:55:15.436 CEST
+[2025-04-30 12:55:55.899474 +0200][Error  ][XRootD            ][22476] [xrootd-cms.infn.it:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 81st record. Run 1, Event 8048, LumiSection 161 on stream 0 at 30-Apr-2025 12:56:26.977 CEST
+Begin processing the 82nd record. Run 1, Event 8049, LumiSection 161 on stream 0 at 30-Apr-2025 12:57:35.004 CEST
+30-Apr-2025 12:57:43 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root
+30-Apr-2025 12:57:43 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root
+30-Apr-2025 12:57:47 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:57:59 CEST PostProcessEvent
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because the quality (31711) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:57:59 CEST PostProcessEvent
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because its quality (31711) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (1346) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:58:05 CEST PostProcessEvent
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because the quality (27869) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  AfterFile 30-Apr-2025 12:58:05 CEST PostProcessEvent
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (27869) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (1831) 
+%MSG
+[2025-04-30 13:00:30.932182 +0200][Error  ][XRootD            ][22476] [llrxrd-redir.in2p3.fr:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/511692aa-7f7d-43fc-b566-6d289fb1a9a8.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-04-30 13:01:00.923731 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-04-30 13:01:17.929135 +0200][Error  ][XRootD            ][22476] [ceph-svc20.gridpp.rl.ac.uk:1094] Unable to get the response to request kXR_readv (handle: 0x00000000, chunks: [(offset: 256, size: 524288); (offset: 524544, size: 524288); (offset: 1048832, size: 524288); (offset: 1573120, size: 524288); (offset: 2097408, size: 524288); (offset: 2621696, size: 524288); (offset: 3145984, size: 524288); (offset: 3670272, size: 524288); (offset: 4194560, size: 524288); (offset: 4718848, size: 524288); (offset: 5243136, size: 524288); (offset: 5767424, size: 524288); (offset: 6291712, size: 524288); (offset: 6816000, size: 524288); (offset: 7340288, size: 524288); (offset: 7864576, size: 524288); (offset: 8388864, size: 524288); (offset: 8913152, size: 524288); (offset: 9437440, size: 524288); (offset: 9961728, size: 524288); (offset: 10486016, size: 524288); (offset: 11010304, size: 524288); (offset: 11534592, size: 524288); (offset: 12058880, size: 524288); (offset: 12583168, size: 524288); (offset: 13107456, size: 524288); (offset: 13631744, size: 524288); (offset: 14156032, size: 524288); (offset: 14680320, size: 524288); (offset: 15204608, size: 524288); (offset: 15728896, size: 524288); (offset: 16253184, size: 524288); (offset: 16777472, size: 524288); (offset: 17301760, size: 524288); (offset: 17826048, size: 524288); (offset: 18350336, size: 524288); (offset: 18874624, size: 524288); (offset: 19398912, size: 524288); (offset: 19923200, size: 524288); (offset: 20447488, size: 524288); (offset: 20971776, size: 524288); (offset: 21496064, size: 287934); (offset: 21783998, size: 524288); (offset: 22308286, size: 524288); (offset: 22832574, size: 524288); (offset: 23356862, size: 524288); (offset: 23881150, size: 524288); (offset: 24405438, size: 524288); (offset: 24929726, size: 524288); (offset: 25454014, size: 524288); (offset: 25978302, size: 524288); (offset: 26502590, size: 524288); (offset: 27026878, size: 524288); (offset: 27551166, size: 524288); (offset: 28075454, size: 524288); (offset: 28599742, size: 524288); (offset: 29124030, size: 524288); (offset: 29648318, size: 524288); (offset: 30172606, size: 524288); (offset: 30696894, size: 524288); (offset: 31221182, size: 524288); (offset: 31745470, size: 524288); (offset: 32269758, size: 524288); (offset: 32794046, size: 524288); (offset: 33318334, size: 524288); (offset: 33842622, size: 524288); (offset: 34366910, size: 524288); (offset: 34891198, size: 524288); (offset: 35415486, size: 524288); (offset: 35939774, size: 524288); (offset: 36464062, size: 524288); (offset: 36988350, size: 524288); (offset: 37512638, size: 524288); (offset: 38036926, size: 524288); (offset: 38561214, size: 524288); (offset: 39085502, size: 524288); (offset: 39609790, size: 524288); (offset: 40134078, size: 107615); (offset: 40241693, size: 524288); (offset: 40765981, size: 524288); (offset: 41290269, size: 524288); (offset: 41814557, size: 524288); (offset: 42338845, size: 524288); (offset: 42863133, size: 524288); (offset: 43387421, size: 524288); (offset: 43911709, size: 524288); (offset: 44435997, size: 524288); (offset: 44960285, size: 524288); (offset: 45484573, size: 524288); (offset: 46008861, size: 524288); (offset: 46533149, size: 524288); (offset: 47057437, size: 524288); (offset: 47581725, size: 524288); (offset: 48106013, size: 524288); (offset: 48630301, size: 524288); (offset: 49154589, size: 524288); (offset: 49678877, size: 524288); (offset: 50203165, size: 524288); (offset: 50727453, size: 524288); (offset: 51251741, size: 524288); (offset: 51776029, size: 524288); (offset: 52300317, size: 524288); (offset: 52824605, size: 524288); (offset: 53348893, size: 524288); (offset: 53873181, size: 524288); (offset: 54397469, size: 524288); (offset: 54921757, size: 524288); (offset: 55446045, size: 524288); (offset: 55970333, size: 524288); (offset: 56494621, size: 524288); (offset: 57018909, size: 524288); (offset: 57543197, size: 524288); (offset: 58067485, size: 524288); (offset: 58591773, size: 87099); (offset: 58678872, size: 524288); (offset: 59203160, size: 524288); (offset: 59727448, size: 524288); (offset: 60251736, size: 524288); (offset: 60776024, size: 524288); (offset: 61300312, size: 524288); (offset: 61824600, size: 147563); (offset: 74872517, size: 524288); (offset: 75396805, size: 524288); (offset: 75921093, size: 524288); (offset: 76445381, size: 524288); (offset: 76969669, size: 524288); (offset: 77493957, size: 524288); (offset: 78018245, size: 524288); (offset: 78542533, size: 524288); (offset: 79066821, size: 524288); (offset: 79591109, size: 524288); (offset: 80115397, size: 524288); (offset: 80639685, size: 524288); (offset: 81163973, size: 524288); (offset: 81688261, size: 524288); (offset: 82212549, size: 524288); (offset: 82736837, size: 524288); (offset: 83261125, size: 524288); (offset: 83785413, size: 524288); (offset: 84309701, size: 524288); (offset: 84833989, size: 524288); (offset: 85358277, size: 524288); (offset: 85882565, size: 524288); (offset: 86406853, size: 524288); (offset: 86931141, size: 524288); (offset: 87455429, size: 524288); (offset: 87979717, size: 524288); (offset: 88504005, size: 524288); (offset: 89028293, size: 524288); (offset: 89552581, size: 524288); (offset: 90076869, size: 524288); (offset: 90601157, size: 524288); (offset: 91125445, size: 524288); (offset: 91649733, size: 524288); (offset: 92174021, size: 524288); (offset: 92698309, size: 524288); (offset: 93222597, size: 524288); (offset: 93746885, size: 227499); (offset: 94209080, size: 42819); (offset: 102401262, size: 242279); (offset: 105175895, size: 524288); (offset: 105700183, size: 243556); (offset: 106152058, size: 524288); (offset: 106676346, size: 524288); (offset: 107200634, size: 228979); (offset: 108346460, size: 18881); (offset: 109055501, size: 1721); (offset: 109408509, size: 36483); (offset: 140198275, size: 742); (offset: 149763834, size: 94148); (offset: 149892028, size: 328470); ], total size: 83884716)
+[2025-04-30 13:01:20.921039 +0200][Error  ][XRootD            ][22476] [ceph-gw11.gridpp.rl.ac.uk:1094] Unable to get the response to request kXR_readv (handle: 0x01000000, chunks: [(offset: 256, size: 524288); (offset: 524544, size: 524288); (offset: 1048832, size: 524288); (offset: 1573120, size: 524288); (offset: 2097408, size: 524288); (offset: 2621696, size: 524288); (offset: 3145984, size: 524288); (offset: 3670272, size: 524288); (offset: 4194560, size: 524288); (offset: 4718848, size: 524288); (offset: 5243136, size: 524288); (offset: 5767424, size: 524288); (offset: 6291712, size: 524288); (offset: 6816000, size: 524288); (offset: 7340288, size: 524288); (offset: 7864576, size: 524288); (offset: 8388864, size: 524288); (offset: 8913152, size: 524288); (offset: 9437440, size: 524288); (offset: 9961728, size: 524288); (offset: 10486016, size: 524288); (offset: 11010304, size: 524288); (offset: 11534592, size: 524288); (offset: 12058880, size: 524288); (offset: 12583168, size: 524288); (offset: 13107456, size: 524288); (offset: 13631744, size: 524288); (offset: 14156032, size: 524288); (offset: 14680320, size: 524288); (offset: 15204608, size: 524288); (offset: 15728896, size: 524288); (offset: 16253184, size: 524288); (offset: 16777472, size: 524288); (offset: 17301760, size: 524288); (offset: 17826048, size: 524288); (offset: 18350336, size: 524288); (offset: 18874624, size: 524288); (offset: 19398912, size: 524288); (offset: 19923200, size: 524288); (offset: 20447488, size: 524288); (offset: 20971776, size: 524288); (offset: 21496064, size: 287934); (offset: 21783998, size: 524288); (offset: 22308286, size: 524288); (offset: 22832574, size: 524288); (offset: 23356862, size: 524288); (offset: 23881150, size: 524288); (offset: 24405438, size: 524288); (offset: 24929726, size: 524288); (offset: 25454014, size: 524288); (offset: 25978302, size: 524288); (offset: 26502590, size: 524288); (offset: 27026878, size: 524288); (offset: 27551166, size: 524288); (offset: 28075454, size: 524288); (offset: 28599742, size: 524288); (offset: 29124030, size: 524288); (offset: 29648318, size: 524288); (offset: 30172606, size: 524288); (offset: 30696894, size: 524288); (offset: 31221182, size: 524288); (offset: 31745470, size: 524288); (offset: 32269758, size: 524288); (offset: 32794046, size: 524288); (offset: 33318334, size: 524288); (offset: 33842622, size: 524288); (offset: 34366910, size: 524288); (offset: 34891198, size: 524288); (offset: 35415486, size: 524288); (offset: 35939774, size: 524288); (offset: 36464062, size: 524288); (offset: 36988350, size: 524288); (offset: 37512638, size: 524288); (offset: 38036926, size: 524288); (offset: 38561214, size: 524288); (offset: 39085502, size: 524288); (offset: 39609790, size: 524288); (offset: 40134078, size: 107615); (offset: 40241693, size: 524288); (offset: 40765981, size: 524288); (offset: 41290269, size: 524288); (offset: 41814557, size: 524288); (offset: 42338845, size: 524288); (offset: 42863133, size: 524288); (offset: 43387421, size: 524288); (offset: 43911709, size: 524288); (offset: 44435997, size: 524288); (offset: 44960285, size: 524288); (offset: 45484573, size: 524288); (offset: 46008861, size: 524288); (offset: 46533149, size: 524288); (offset: 47057437, size: 524288); (offset: 47581725, size: 524288); (offset: 48106013, size: 524288); (offset: 48630301, size: 524288); (offset: 49154589, size: 524288); (offset: 49678877, size: 524288); (offset: 50203165, size: 524288); (offset: 50727453, size: 524288); (offset: 51251741, size: 524288); (offset: 51776029, size: 524288); (offset: 52300317, size: 524288); (offset: 52824605, size: 524288); (offset: 53348893, size: 524288); (offset: 53873181, size: 524288); (offset: 54397469, size: 524288); (offset: 54921757, size: 524288); (offset: 55446045, size: 524288); (offset: 55970333, size: 524288); (offset: 56494621, size: 524288); (offset: 57018909, size: 524288); (offset: 57543197, size: 524288); (offset: 58067485, size: 524288); (offset: 58591773, size: 87099); (offset: 58678872, size: 524288); (offset: 59203160, size: 524288); (offset: 59727448, size: 524288); (offset: 60251736, size: 524288); (offset: 60776024, size: 524288); (offset: 61300312, size: 524288); (offset: 61824600, size: 147563); (offset: 74872517, size: 524288); (offset: 75396805, size: 524288); (offset: 75921093, size: 524288); (offset: 76445381, size: 524288); (offset: 76969669, size: 524288); (offset: 77493957, size: 524288); (offset: 78018245, size: 524288); (offset: 78542533, size: 524288); (offset: 79066821, size: 524288); (offset: 79591109, size: 524288); (offset: 80115397, size: 524288); (offset: 80639685, size: 524288); (offset: 81163973, size: 524288); (offset: 81688261, size: 524288); (offset: 82212549, size: 524288); (offset: 82736837, size: 524288); (offset: 83261125, size: 524288); (offset: 83785413, size: 524288); (offset: 84309701, size: 524288); (offset: 84833989, size: 524288); (offset: 85358277, size: 524288); (offset: 85882565, size: 524288); (offset: 86406853, size: 524288); (offset: 86931141, size: 524288); (offset: 87455429, size: 524288); (offset: 87979717, size: 524288); (offset: 88504005, size: 524288); (offset: 89028293, size: 524288); (offset: 89552581, size: 524288); (offset: 90076869, size: 524288); (offset: 90601157, size: 524288); (offset: 91125445, size: 524288); (offset: 91649733, size: 524288); (offset: 92174021, size: 524288); (offset: 92698309, size: 524288); (offset: 93222597, size: 524288); (offset: 93746885, size: 227499); (offset: 94209080, size: 42819); (offset: 102401262, size: 242279); (offset: 105175895, size: 524288); (offset: 105700183, size: 243556); (offset: 106152058, size: 524288); (offset: 106676346, size: 524288); (offset: 107200634, size: 228979); (offset: 108346460, size: 18881); (offset: 109055501, size: 1721); (offset: 109408509, size: 36483); (offset: 140198275, size: 742); (offset: 149763834, size: 94148); (offset: 149892028, size: 328470); ], total size: 83884716)
+[2025-04-30 13:01:20.921304 +0200][Error  ][File              ][22476] [0x7f5c30293250@root://xrootd-cms.infn.it:1094//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root?xrdcl.requuid=10a45305-c5ec-4834-a84a-a7f576064831] Fatal file state error. Message kXR_readv (handle: 0x01000000, chunks: [(offset: 256, size: 524288); (offset: 524544, size: 524288); (offset: 1048832, size: 524288); (offset: 1573120, size: 524288); (offset: 2097408, size: 524288); (offset: 2621696, size: 524288); (offset: 3145984, size: 524288); (offset: 3670272, size: 524288); (offset: 4194560, size: 524288); (offset: 4718848, size: 524288); (offset: 5243136, size: 524288); (offset: 5767424, size: 524288); (offset: 6291712, size: 524288); (offset: 6816000, size: 524288); (offset: 7340288, size: 524288); (offset: 7864576, size: 524288); (offset: 8388864, size: 524288); (offset: 8913152, size: 524288); (offset: 9437440, size: 524288); (offset: 9961728, size: 524288); (offset: 10486016, size: 524288); (offset: 11010304, size: 524288); (offset: 11534592, size: 524288); (offset: 12058880, size: 524288); (offset: 12583168, size: 524288); (offset: 13107456, size: 524288); (offset: 13631744, size: 524288); (offset: 14156032, size: 524288); (offset: 14680320, size: 524288); (offset: 15204608, size: 524288); (offset: 15728896, size: 524288); (offset: 16253184, size: 524288); (offset: 16777472, size: 524288); (offset: 17301760, size: 524288); (offset: 17826048, size: 524288); (offset: 18350336, size: 524288); (offset: 18874624, size: 524288); (offset: 19398912, size: 524288); (offset: 19923200, size: 524288); (offset: 20447488, size: 524288); (offset: 20971776, size: 524288); (offset: 21496064, size: 287934); (offset: 21783998, size: 524288); (offset: 22308286, size: 524288); (offset: 22832574, size: 524288); (offset: 23356862, size: 524288); (offset: 23881150, size: 524288); (offset: 24405438, size: 524288); (offset: 24929726, size: 524288); (offset: 25454014, size: 524288); (offset: 25978302, size: 524288); (offset: 26502590, size: 524288); (offset: 27026878, size: 524288); (offset: 27551166, size: 524288); (offset: 28075454, size: 524288); (offset: 28599742, size: 524288); (offset: 29124030, size: 524288); (offset: 29648318, size: 524288); (offset: 30172606, size: 524288); (offset: 30696894, size: 524288); (offset: 31221182, size: 524288); (offset: 31745470, size: 524288); (offset: 32269758, size: 524288); (offset: 32794046, size: 524288); (offset: 33318334, size: 524288); (offset: 33842622, size: 524288); (offset: 34366910, size: 524288); (offset: 34891198, size: 524288); (offset: 35415486, size: 524288); (offset: 35939774, size: 524288); (offset: 36464062, size: 524288); (offset: 36988350, size: 524288); (offset: 37512638, size: 524288); (offset: 38036926, size: 524288); (offset: 38561214, size: 524288); (offset: 39085502, size: 524288); (offset: 39609790, size: 524288); (offset: 40134078, size: 107615); (offset: 40241693, size: 524288); (offset: 40765981, size: 524288); (offset: 41290269, size: 524288); (offset: 41814557, size: 524288); (offset: 42338845, size: 524288); (offset: 42863133, size: 524288); (offset: 43387421, size: 524288); (offset: 43911709, size: 524288); (offset: 44435997, size: 524288); (offset: 44960285, size: 524288); (offset: 45484573, size: 524288); (offset: 46008861, size: 524288); (offset: 46533149, size: 524288); (offset: 47057437, size: 524288); (offset: 47581725, size: 524288); (offset: 48106013, size: 524288); (offset: 48630301, size: 524288); (offset: 49154589, size: 524288); (offset: 49678877, size: 524288); (offset: 50203165, size: 524288); (offset: 50727453, size: 524288); (offset: 51251741, size: 524288); (offset: 51776029, size: 524288); (offset: 52300317, size: 524288); (offset: 52824605, size: 524288); (offset: 53348893, size: 524288); (offset: 53873181, size: 524288); (offset: 54397469, size: 524288); (offset: 54921757, size: 524288); (offset: 55446045, size: 524288); (offset: 55970333, size: 524288); (offset: 56494621, size: 524288); (offset: 57018909, size: 524288); (offset: 57543197, size: 524288); (offset: 58067485, size: 524288); (offset: 58591773, size: 87099); (offset: 58678872, size: 524288); (offset: 59203160, size: 524288); (offset: 59727448, size: 524288); (offset: 60251736, size: 524288); (offset: 60776024, size: 524288); (offset: 61300312, size: 524288); (offset: 61824600, size: 147563); (offset: 74872517, size: 524288); (offset: 75396805, size: 524288); (offset: 75921093, size: 524288); (offset: 76445381, size: 524288); (offset: 76969669, size: 524288); (offset: 77493957, size: 524288); (offset: 78018245, size: 524288); (offset: 78542533, size: 524288); (offset: 79066821, size: 524288); (offset: 79591109, size: 524288); (offset: 80115397, size: 524288); (offset: 80639685, size: 524288); (offset: 81163973, size: 524288); (offset: 81688261, size: 524288); (offset: 82212549, size: 524288); (offset: 82736837, size: 524288); (offset: 83261125, size: 524288); (offset: 83785413, size: 524288); (offset: 84309701, size: 524288); (offset: 84833989, size: 524288); (offset: 85358277, size: 524288); (offset: 85882565, size: 524288); (offset: 86406853, size: 524288); (offset: 86931141, size: 524288); (offset: 87455429, size: 524288); (offset: 87979717, size: 524288); (offset: 88504005, size: 524288); (offset: 89028293, size: 524288); (offset: 89552581, size: 524288); (offset: 90076869, size: 524288); (offset: 90601157, size: 524288); (offset: 91125445, size: 524288); (offset: 91649733, size: 524288); (offset: 92174021, size: 524288); (offset: 92698309, size: 524288); (offset: 93222597, size: 524288); (offset: 93746885, size: 227499); (offset: 94209080, size: 42819); (offset: 102401262, size: 242279); (offset: 105175895, size: 524288); (offset: 105700183, size: 243556); (offset: 106152058, size: 524288); (offset: 106676346, size: 524288); (offset: 107200634, size: 228979); (offset: 108346460, size: 18881); (offset: 109055501, size: 1721); (offset: 109408509, size: 36483); (offset: 140198275, size: 742); (offset: 149763834, size: 94148); (offset: 149892028, size: 328470); ], total size: 83884716) returned with [ERROR] Operation expired
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 30-Apr-2025 13:01:20 CEST pre-events
+XrdRequestManager::handle(name='root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root) failure when reading from ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL); failed with error '[ERROR] Operation expired' (errno=0, code=206).
+%MSG
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 30-Apr-2025 13:01:20 CEST pre-events
+Request failure when reading from ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)
+%MSG
+[2025-04-30 13:04:17.951666 +0200][Error  ][XRootD            ][22476] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 30-Apr-2025 13:04:17 CEST pre-events
+Caught a CMSSW exception when running connection recovery.
+%MSG
+----- Begin Fatal Exception 30-Apr-2025 13:04:18 CEST-----------------------
+An exception of category 'FileReadError' occurred while
+   [0] Calling InputSource::readEvent_
+   [1] Reading branch EventSelections
+   [2] Calling XrdFile::readv()
+   [3] XrdAdaptor::ClientRequest::HandleResponse() failure while running connection recovery
+   [4] Handling XrdAdaptor::RequestManager::requestFailure()
+   [5] In XrdAdaptor::RequestManager::OpenHandler::HandleResponseWithHosts()
+Exception Message:
+XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root', flags=0x10, permissions=0660) => error '[ERROR] Operation expired' (errno=0, code=206)
+   Additional Info:
+      [a] Original error: '[ERROR] Operation expired' (errno=0, code=206, source=ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)).
+      [b] Original failed source is ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)
+      [c] Disabled source: ceph-svc20.gridpp.rl.ac.uk:1094
+----- End Fatal Exception -------------------------------------------------
+30-Apr-2025 13:04:18 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/3a06f244-e528-4f05-a587-52c7b08ec966.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 5775.66 seconds
+ Time Summary: 
+ - Min event:   5.7288
+ - Max event:   39.7967
+ - Avg event:   8.59234
+ - Total loop:  5636.95
+ - Total init:  137.678
+ - Total job:   5775.66
+ - Total EventSetup: 26.0336
+ - Total non-module: 72.7889
+ Event Throughput: 0.0145469 ev/s
+ CPU Summary: 
+ - Total loop:     516.761
+ - Total init:     125.272
+ - Total extra:    0
+ - Total children: 0.126619
+ - Total job:      642.873
+ Processing Summary: 
+ - Number of Events:  82
+ - Number of Global Begin Lumi Calls:  4
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 82 passed = 82 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0         82         82          0          0 MPV
+TrigReport     1    1         82         82          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         82         82          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0         82         82          0          0 tpClusterProducer
+TrigReport     1    1         82         82          0          0 quickTrackAssociatorByHits
+TrigReport     1    2         82         82          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3         82         82          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport         82         82         82          0          0 MPV
+TrigReport         82         82         82          0          0 TriggerResults
+TrigReport         82         82         82          0          0 analyze
+TrigReport         82         82         82          0          0 oldVertexAnalysis
+TrigReport         82         82         82          0          0 quickTrackAssociatorByHits
+TrigReport         82         82         82          0          0 testVertices
+TrigReport         82         82         82          0          0 tpClusterProducer
+TrigReport         82         82         82          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 6.226123
+TimeReport      event loop Real/event = 67.915205
+TimeReport     sum Streams Real/event = 67.043933
+TimeReport efficiency CPU/Real/thread = 0.091675
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport   8.485255     8.588734  MPV
+TimeReport   8.488784     8.592306  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.736638     0.745621  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.867338     1.890110  tpClusterProducer
+TimeReport   0.000022     0.000023  quickTrackAssociatorByHits
+TimeReport   0.458509     0.464101  trackingParticleRecoTrackAsssociation
+TimeReport   0.233768     0.236619  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000003     0.000003     0.000003  MPV
+TimeReport   0.000004     0.000004     0.000004  TriggerResults
+TimeReport   0.000015     0.000015     0.000015  analyze
+TimeReport   0.233768     0.236619     0.236619  oldVertexAnalysis
+TimeReport   0.000022     0.000023     0.000023  quickTrackAssociatorByHits
+TimeReport   0.736638     0.745621     0.745621  testVertices
+TimeReport   1.867338     1.890110     1.890110  tpClusterProducer
+TimeReport   0.458509     0.464101     0.464101  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+clusters_20250430_113150.csv
+clusters_20250430_113219.csv
+clusters_20250430_113242.csv
+clusters_20250430_113306.csv
+clusters_20250430_113334.csv
+clusters_20250430_113353.csv
+clusters_20250430_113422.csv
+clusters_20250430_113444.csv
+clusters_20250430_113504.csv
+clusters_20250430_113526.csv
+clusters_20250430_113559.csv
+clusters_20250430_113625.csv
+clusters_20250430_113716.csv
+clusters_20250430_113736.csv
+clusters_20250430_113758.csv
+clusters_20250430_113842.csv
+clusters_20250430_113914.csv
+clusters_20250430_113953.csv
+clusters_20250430_114025.csv
+clusters_20250430_114048.csv
+clusters_20250430_114120.csv
+clusters_20250430_114149.csv
+clusters_20250430_114216.csv
+clusters_20250430_114405.csv
+clusters_20250430_114443.csv
+clusters_20250430_114530.csv
+clusters_20250430_114625.csv
+clusters_20250430_114727.csv
+clusters_20250430_114813.csv
+clusters_20250430_114901.csv
+clusters_20250430_114941.csv
+clusters_20250430_115028.csv
+clusters_20250430_115108.csv
+clusters_20250430_115204.csv
+clusters_20250430_115301.csv
+clusters_20250430_115430.csv
+clusters_20250430_115529.csv
+clusters_20250430_115624.csv
+clusters_20250430_115720.csv
+clusters_20250430_115829.csv
+clusters_20250430_120002.csv
+clusters_20250430_120205.csv
+clusters_20250430_120324.csv
+clusters_20250430_120425.csv
+clusters_20250430_120519.csv
+clusters_20250430_120625.csv
+clusters_20250430_120805.csv
+clusters_20250430_120909.csv
+clusters_20250430_121023.csv
+clusters_20250430_121129.csv
+clusters_20250430_121452.csv
+clusters_20250430_121554.csv
+clusters_20250430_121708.csv
+clusters_20250430_121832.csv
+clusters_20250430_122050.csv
+clusters_20250430_122306.csv
+clusters_20250430_122512.csv
+clusters_20250430_122638.csv
+clusters_20250430_122755.csv
+clusters_20250430_122901.csv
+clusters_20250430_123002.csv
+clusters_20250430_123107.csv
+clusters_20250430_123211.csv
+clusters_20250430_123317.csv
+clusters_20250430_123428.csv
+clusters_20250430_123600.csv
+clusters_20250430_123751.csv
+clusters_20250430_123911.csv
+clusters_20250430_124017.csv
+clusters_20250430_124127.csv
+clusters_20250430_124227.csv
+clusters_20250430_124327.csv
+clusters_20250430_124449.csv
+clusters_20250430_124549.csv
+clusters_20250430_124659.csv
+clusters_20250430_124812.csv
+clusters_20250430_125030.csv
+clusters_20250430_125307.csv
+clusters_20250430_125415.csv
+clusters_20250430_125521.csv
+clusters_20250430_125633.csv
+clusters_20250430_125742.csv
+daten_20250430_113150.csv
+daten_20250430_113219.csv
+daten_20250430_113242.csv
+daten_20250430_113306.csv
+daten_20250430_113334.csv
+daten_20250430_113353.csv
+daten_20250430_113422.csv
+daten_20250430_113444.csv
+daten_20250430_113504.csv
+daten_20250430_113526.csv
+daten_20250430_113559.csv
+daten_20250430_113625.csv
+daten_20250430_113716.csv
+daten_20250430_113736.csv
+daten_20250430_113758.csv
+daten_20250430_113842.csv
+daten_20250430_113914.csv
+daten_20250430_113953.csv
+daten_20250430_114025.csv
+daten_20250430_114048.csv
+daten_20250430_114120.csv
+daten_20250430_114149.csv
+daten_20250430_114216.csv
+daten_20250430_114405.csv
+daten_20250430_114443.csv
+daten_20250430_114530.csv
+daten_20250430_114625.csv
+daten_20250430_114727.csv
+daten_20250430_114813.csv
+daten_20250430_114901.csv
+daten_20250430_114941.csv
+daten_20250430_115028.csv
+daten_20250430_115108.csv
+daten_20250430_115204.csv
+daten_20250430_115301.csv
+daten_20250430_115430.csv
+daten_20250430_115529.csv
+daten_20250430_115624.csv
+daten_20250430_115720.csv
+daten_20250430_115829.csv
+daten_20250430_120002.csv
+daten_20250430_120205.csv
+daten_20250430_120324.csv
+daten_20250430_120425.csv
+daten_20250430_120519.csv
+daten_20250430_120625.csv
+daten_20250430_120805.csv
+daten_20250430_120909.csv
+daten_20250430_121023.csv
+daten_20250430_121129.csv
+daten_20250430_121452.csv
+daten_20250430_121554.csv
+daten_20250430_121708.csv
+daten_20250430_121832.csv
+daten_20250430_122050.csv
+daten_20250430_122306.csv
+daten_20250430_122512.csv
+daten_20250430_122638.csv
+daten_20250430_122755.csv
+daten_20250430_122901.csv
+daten_20250430_123002.csv
+daten_20250430_123107.csv
+daten_20250430_123211.csv
+daten_20250430_123317.csv
+daten_20250430_123428.csv
+daten_20250430_123600.csv
+daten_20250430_123751.csv
+daten_20250430_123911.csv
+daten_20250430_124017.csv
+daten_20250430_124127.csv
+daten_20250430_124227.csv
+daten_20250430_124327.csv
+daten_20250430_124449.csv
+daten_20250430_124549.csv
+daten_20250430_124659.csv
+daten_20250430_124812.csv
+daten_20250430_125030.csv
+daten_20250430_125307.csv
+daten_20250430_125415.csv
+daten_20250430_125521.csv
+daten_20250430_125633.csv
+daten_20250430_125742.csv
+logfile
+pv.root
+pv_cfg.py

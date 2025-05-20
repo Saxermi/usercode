@@ -1,0 +1,193 @@
+HOME: /t3home/frejalom
+USER: frejalom
+SLURM_JOB_ID: 741342
+HOSTNAME: t3wn51
+CMSSW RELEASE BASE  /cvmfs/cms.cern.ch/slc7_amd64_gcc12/cms/cmssw/CMSSW_15_0_0_pre2
+%MSG-i AlpakaService:  (NoModuleName) 06-May-2025 11:23:28 CEST pre-events
+AlpakaServiceSerialSync succesfully initialised.
+Found 1 device:
+  - Intel(R) Xeon(R) CPU E5-2698 v3 @ 2.30GHz
+%MSG
+06-May-2025 11:23:43 CEST  Initiating request to open file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root
+06-May-2025 11:25:15 CEST  Successfully opened file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root
+%MSG-w XrdAdaptorLvl3:  AfterFile 06-May-2025 11:25:17 CEST pre-events
+Deactivating ceph-gw11.gridpp.rl.ac.uk from active sources because its quality (296) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (60) 
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 06-May-2025 11:27:05 CEST PreSource
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because the quality (60713) is above 5130 and it is not the only active server
+%MSG
+%MSG-w XrdAdaptorLvl3:  source 06-May-2025 11:27:05 CEST PreSource
+Deactivating ceph-gw10.gridpp.rl.ac.uk from active sources because its quality (60713) is higher than 260 and 4 times larger than the other active server ceph-svc20.gridpp.rl.ac.uk (951) 
+%MSG
+Begin processing the 1st record. Run 1, Event 451, LumiSection 10 on stream 0 at 06-May-2025 11:27:05.807 CEST
+Begin processing the 2nd record. Run 1, Event 452, LumiSection 10 on stream 0 at 06-May-2025 11:29:00.385 CEST
+Begin processing the 3rd record. Run 1, Event 454, LumiSection 10 on stream 0 at 06-May-2025 11:30:28.241 CEST
+[2025-05-06 11:30:42.152124 +0200][Error  ][XRootD            ][49412] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 4th record. Run 1, Event 456, LumiSection 10 on stream 0 at 06-May-2025 11:31:58.759 CEST
+Begin processing the 5th record. Run 1, Event 457, LumiSection 10 on stream 0 at 06-May-2025 11:34:35.664 CEST
+Begin processing the 6th record. Run 1, Event 458, LumiSection 10 on stream 0 at 06-May-2025 11:36:40.743 CEST
+[2025-05-06 11:37:19.214721 +0200][Error  ][XRootD            ][49412] [xrootd-redic.pi.infn.it:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root?tried=+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk&triedrc=resel,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+Begin processing the 7th record. Run 1, Event 459, LumiSection 10 on stream 0 at 06-May-2025 11:37:28.522 CEST
+Begin processing the 8th record. Run 1, Event 461, LumiSection 10 on stream 0 at 06-May-2025 11:38:56.402 CEST
+Begin processing the 9th record. Run 1, Event 462, LumiSection 10 on stream 0 at 06-May-2025 11:40:43.339 CEST
+[2025-05-06 11:41:51.236012 +0200][Error  ][XRootD            ][49412] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root?tried=+1213llrxrd-redir.in2p3.fr,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-svc20.gridpp.rl.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,xrootd-redic.pi.infn.it&triedrc=resel,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+[2025-05-06 11:44:00.248289 +0200][Error  ][XRootD            ][49412] [ceph-svc20.gridpp.rl.ac.uk:1094] Unable to get the response to request kXR_readv (handle: 0x00000000, chunks: [(offset: 1282675210, size: 38212); (offset: 1283180142, size: 201018); (offset: 1297035131, size: 524288); (offset: 1297559419, size: 524288); (offset: 1298083707, size: 524288); (offset: 1298607995, size: 524288); (offset: 1299132283, size: 524288); (offset: 1299656571, size: 524288); (offset: 1300180859, size: 524288); (offset: 1300705147, size: 524288); (offset: 1301229435, size: 524288); (offset: 1301753723, size: 524288); (offset: 1302278011, size: 524288); (offset: 1302802299, size: 524288); (offset: 1303326587, size: 524288); (offset: 1303850875, size: 524288); (offset: 1304375163, size: 524288); (offset: 1304899451, size: 137442); (offset: 1305950967, size: 524288); (offset: 1306475255, size: 524288); (offset: 1306999543, size: 524288); (offset: 1307523831, size: 524288); (offset: 1308048119, size: 524288); (offset: 1308572407, size: 524288); (offset: 1309096695, size: 524288); (offset: 1309620983, size: 524288); (offset: 1310145271, size: 524288); (offset: 1310669559, size: 524288); (offset: 1311193847, size: 524288); (offset: 1311718135, size: 524288); (offset: 1312242423, size: 524288); (offset: 1312766711, size: 524288); (offset: 1313290999, size: 524288); (offset: 1313815287, size: 524288); (offset: 1314339575, size: 524288); (offset: 1314863863, size: 178744); (offset: 1348739291, size: 23415); (offset: 1372228686, size: 524288); (offset: 1372752974, size: 524288); (offset: 1373277262, size: 524288); (offset: 1373801550, size: 524288); (offset: 1374325838, size: 524288); (offset: 1374850126, size: 524288); (offset: 1375374414, size: 524288); (offset: 1375898702, size: 498692); (offset: 1377269728, size: 524288); (offset: 1377794016, size: 233773); (offset: 1379253686, size: 524288); (offset: 1379777974, size: 524288); (offset: 1380302262, size: 524288); (offset: 1380826550, size: 524288); (offset: 1381350838, size: 524288); (offset: 1381875126, size: 524288); (offset: 1382399414, size: 524288); (offset: 1382923702, size: 524288); (offset: 1383447990, size: 524288); (offset: 1383972278, size: 524288); (offset: 1384496566, size: 524288); (offset: 1385020854, size: 524288); (offset: 1385545142, size: 524288); (offset: 1386069430, size: 422070); (offset: 1387170095, size: 15277); (offset: 1395868105, size: 2793); (offset: 1428180662, size: 524288); (offset: 1428704950, size: 136725); ], total size: 30199713)
+[2025-05-06 11:44:00.248981 +0200][Error  ][File              ][49412] [0x7f87d14d4ad0@root://xrootd-cms.infn.it:1094//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root?tried=ceph-gw11.gridpp.rl.ac.uk&triedrc=resel&xrdcl.requuid=b93f7a59-3d0c-4bf2-ae17-603423df89cd] Fatal file state error. Message kXR_readv (handle: 0x00000000, chunks: [(offset: 1282675210, size: 38212); (offset: 1283180142, size: 201018); (offset: 1297035131, size: 524288); (offset: 1297559419, size: 524288); (offset: 1298083707, size: 524288); (offset: 1298607995, size: 524288); (offset: 1299132283, size: 524288); (offset: 1299656571, size: 524288); (offset: 1300180859, size: 524288); (offset: 1300705147, size: 524288); (offset: 1301229435, size: 524288); (offset: 1301753723, size: 524288); (offset: 1302278011, size: 524288); (offset: 1302802299, size: 524288); (offset: 1303326587, size: 524288); (offset: 1303850875, size: 524288); (offset: 1304375163, size: 524288); (offset: 1304899451, size: 137442); (offset: 1305950967, size: 524288); (offset: 1306475255, size: 524288); (offset: 1306999543, size: 524288); (offset: 1307523831, size: 524288); (offset: 1308048119, size: 524288); (offset: 1308572407, size: 524288); (offset: 1309096695, size: 524288); (offset: 1309620983, size: 524288); (offset: 1310145271, size: 524288); (offset: 1310669559, size: 524288); (offset: 1311193847, size: 524288); (offset: 1311718135, size: 524288); (offset: 1312242423, size: 524288); (offset: 1312766711, size: 524288); (offset: 1313290999, size: 524288); (offset: 1313815287, size: 524288); (offset: 1314339575, size: 524288); (offset: 1314863863, size: 178744); (offset: 1348739291, size: 23415); (offset: 1372228686, size: 524288); (offset: 1372752974, size: 524288); (offset: 1373277262, size: 524288); (offset: 1373801550, size: 524288); (offset: 1374325838, size: 524288); (offset: 1374850126, size: 524288); (offset: 1375374414, size: 524288); (offset: 1375898702, size: 498692); (offset: 1377269728, size: 524288); (offset: 1377794016, size: 233773); (offset: 1379253686, size: 524288); (offset: 1379777974, size: 524288); (offset: 1380302262, size: 524288); (offset: 1380826550, size: 524288); (offset: 1381350838, size: 524288); (offset: 1381875126, size: 524288); (offset: 1382399414, size: 524288); (offset: 1382923702, size: 524288); (offset: 1383447990, size: 524288); (offset: 1383972278, size: 524288); (offset: 1384496566, size: 524288); (offset: 1385020854, size: 524288); (offset: 1385545142, size: 524288); (offset: 1386069430, size: 422070); (offset: 1387170095, size: 15277); (offset: 1395868105, size: 2793); (offset: 1428180662, size: 524288); (offset: 1428704950, size: 136725); ], total size: 30199713) returned with [ERROR] Operation expired
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 06-May-2025 11:44:00 CEST pre-events
+XrdRequestManager::handle(name='root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root) failure when reading from ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL); failed with error '[ERROR] Operation expired' (errno=0, code=206).
+%MSG
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 06-May-2025 11:44:00 CEST pre-events
+Request failure when reading from ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)
+%MSG
+[2025-05-06 11:44:24.203357 +0200][Error  ][XRootDTransport   ][49412] Message 0x7f8755109510, stream [1, 0] is a response that we're no longer interested in (timed out)
+[2025-05-06 11:46:57.290203 +0200][Error  ][XRootD            ][49412] [cms-xrd-global.cern.ch:1094] Unable to get the response to request kXR_open (file: /store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root?tried=+1098cms-xrd-global011098cms-xrd-global02.cern.ch,+1213xrootd-redic.pi.infn.it,+1213xrootd011213xrootd-cms-uk.gridpp.rl1213xrootd02.grid.hep.ph.ic.ac.uk,ceph-gw11.gridpp.rl.ac.uk,ceph-gw10.gridpp.rl.ac.uk,ceph-svc20.gridpp.rl.ac.uk,cms-aaa-manager01.gridpp.rl.ac.uk,xrootd-cms-uk.gridpp.rl.ac.uk,llrxrd-redir.in2p3.fr,cms-xrd-transit.cern.ch&triedrc=enoent,enoent,enoent, mode: 0460, flags: kXR_open_read kXR_async kXR_retstat )
+%MSG-w XrdAdaptorInternal:  (NoModuleName) 06-May-2025 11:46:57 CEST pre-events
+Caught a CMSSW exception when running connection recovery.
+%MSG
+----- Begin Fatal Exception 06-May-2025 11:46:57 CEST-----------------------
+An exception of category 'FileReadError' occurred while
+   [0] Calling InputSource::readEvent_
+   [1] Reading branch EventSelections
+   [2] Calling XrdFile::readv()
+   [3] XrdAdaptor::ClientRequest::HandleResponse() failure while running connection recovery
+   [4] Handling XrdAdaptor::RequestManager::requestFailure()
+   [5] In XrdAdaptor::RequestManager::OpenHandler::HandleResponseWithHosts()
+Exception Message:
+XrdCl::File::Open(name='root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root', flags=0x10, permissions=0660) => error '[ERROR] Operation expired' (errno=0, code=206)
+   Additional Info:
+      [a] Original error: '[ERROR] Operation expired' (errno=0, code=206, source=ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)).
+      [b] Original failed source is ceph-svc20.gridpp.rl.ac.uk:1094 (site T1_UK_RAL)
+      [c] Disabled source: ceph-svc20.gridpp.rl.ac.uk:1094
+----- End Fatal Exception -------------------------------------------------
+06-May-2025 11:46:57 CEST  Closed file root://xrootd-cms.infn.it//store/relval/CMSSW_15_0_0_pre2/RelValUpsilon1SToMuMu_14/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/104f197c-d612-4b92-b2db-a977f4242726.root
+TestAnalyzer::endJob: done
+TimeReport> Time report complete in 1481.8 seconds
+ Time Summary: 
+ - Min event:   4.86887
+ - Max event:   40.4941
+ - Avg event:   11.1758
+ - Total loop:  1284.04
+ - Total init:  192.2
+ - Total job:   1481.8
+ - Total EventSetup: 17.6752
+ - Total non-module: 0.864454
+ Event Throughput: 0.00700914 ev/s
+ CPU Summary: 
+ - Total loop:     58.3169
+ - Total init:     151.468
+ - Total extra:    0
+ - Total children: 0.125269
+ - Total job:      210.542
+ Processing Summary: 
+ - Number of Events:  9
+ - Number of Global Begin Lumi Calls:  1
+ - Number of Global Begin Run Calls: 1
+
+
+TrigReport ---------- Event  Summary ------------
+TrigReport Events total = 9 passed = 9 failed = 0
+
+TrigReport ---------- Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+TrigReport     1    0          9          9          0          0 MPV
+TrigReport     1    1          9          9          0          0 analyze
+
+
+TrigReport -------End-Path   Summary ------------
+TrigReport  Trig Bit#   Executed     Passed     Failed      Error Name
+
+
+TrigReport ---------- Modules in Path: MPV ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          9          9          0          0 testVertices
+
+
+TrigReport ---------- Modules in Path: analyze ------------
+TrigReport  Trig Bit#    Visited     Passed     Failed      Error Name
+TrigReport     1    0          9          9          0          0 tpClusterProducer
+TrigReport     1    1          9          9          0          0 quickTrackAssociatorByHits
+TrigReport     1    2          9          9          0          0 trackingParticleRecoTrackAsssociation
+TrigReport     1    3          9          9          0          0 oldVertexAnalysis
+
+
+TrigReport ---------- Module Summary ------------
+TrigReport    Visited   Executed     Passed     Failed      Error Name
+TrigReport          9          9          9          0          0 MPV
+TrigReport          9          9          9          0          0 TriggerResults
+TrigReport          9          9          9          0          0 analyze
+TrigReport          9          9          9          0          0 oldVertexAnalysis
+TrigReport          9          9          9          0          0 quickTrackAssociatorByHits
+TrigReport          9          9          9          0          0 testVertices
+TrigReport          9          9          9          0          0 tpClusterProducer
+TrigReport          9          9          9          0          0 trackingParticleRecoTrackAsssociation
+
+
+TimeReport ---------- Event  Summary ---[sec]----
+TimeReport       event loop CPU/event = 5.832346
+TimeReport      event loop Real/event = 128.404425
+TimeReport     sum Streams Real/event = 128.823294
+TimeReport efficiency CPU/Real/thread = 0.045422
+
+TimeReport ---------- Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+TimeReport  10.032551    11.147278  MPV
+TimeReport  10.058133    11.175704  analyze
+
+TimeReport  per event     per exec  Name
+
+TimeReport -------End-Path   Summary ---[Real sec]----
+TimeReport  per event     per exec  Name
+
+TimeReport  per event     per exec  Name
+
+TimeReport ---------- Modules in Path: MPV ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   0.476949     0.529943  testVertices
+
+
+TimeReport ---------- Modules in Path: analyze ---[Real sec]----
+TimeReport  per event    per visit  Name
+TimeReport   1.219104     1.354560  tpClusterProducer
+TimeReport   0.000037     0.000041  quickTrackAssociatorByHits
+TimeReport   1.263984     1.404427  trackingParticleRecoTrackAsssociation
+TimeReport   0.175488     0.194987  oldVertexAnalysis
+
+TimeReport  per event    per visit  Name
+
+TimeReport ---------- Module Summary ---[Real sec]----
+TimeReport  per event     per exec    per visit  Name
+TimeReport   0.000003     0.000003     0.000003  MPV
+TimeReport   0.000003     0.000004     0.000004  TriggerResults
+TimeReport   0.000016     0.000018     0.000018  analyze
+TimeReport   0.175488     0.194987     0.194987  oldVertexAnalysis
+TimeReport   0.000037     0.000041     0.000041  quickTrackAssociatorByHits
+TimeReport   0.476949     0.529943     0.529943  testVertices
+TimeReport   1.219104     1.354560     1.354560  tpClusterProducer
+TimeReport   1.263984     1.404427     1.404427  trackingParticleRecoTrackAsssociation
+
+TimeReport  per event     per exec    per visit  Name
+
+T---Report end!
+
+
+clusters_20250506_112745.csv
+clusters_20250506_112904.csv
+clusters_20250506_113034.csv
+clusters_20250506_113204.csv
+clusters_20250506_113443.csv
+clusters_20250506_113649.csv
+clusters_20250506_113735.csv
+clusters_20250506_113903.csv
+clusters_20250506_114052.csv
+daten_20250506_112745.csv
+daten_20250506_112904.csv
+daten_20250506_113034.csv
+daten_20250506_113204.csv
+daten_20250506_113443.csv
+daten_20250506_113649.csv
+daten_20250506_113735.csv
+daten_20250506_113903.csv
+daten_20250506_114052.csv
+logfile
+pv.root
+pv_cfg.py

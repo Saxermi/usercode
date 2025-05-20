@@ -7,9 +7,7 @@ base_path = "/work/frejalom/ba"
 
 # Define mapping of run folders to beta1
 runs = {
-    "experimental_run_69": 0.25,
-    "experimental_run_68": 0.5,
-    "experimental_run_70": 0.1,
+    "experimental_run_62": "DAB"
 }
 
 # Collect results separately by metric
@@ -113,8 +111,8 @@ cluster_summary = summarize(cluster_df, value_col="Mean")
 
 # Save to CSV
 output_dir       = "/t3home/frejalom/cmssw/CMSSW_15_0_0_pre2/src/usercode/download"
-time_csv_path    = os.path.join(output_dir, "summary_stats_time_no_global_da.csv")
-cluster_csv_path = os.path.join(output_dir, "summary_stats_clusters_no_global_da.csv")
+time_csv_path    = os.path.join(output_dir, "summary_stats_time_old_dab.csv")
+cluster_csv_path = os.path.join(output_dir, "summary_stats_clusters_old_dab.csv")
 
 time_summary.to_csv(time_csv_path,    index=False)
 cluster_summary.to_csv(cluster_csv_path, index=False)

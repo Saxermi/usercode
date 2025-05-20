@@ -86,8 +86,8 @@ parameters={  # can be overwritten by arguments of the same name
   "minNdof": cms.double( 2.0 ),
 # clustering in blocks
   "runInBlocks" : cms.bool(True),# default value run in blocks is true
-  "block_size" : cms.uint32(512),
-    "overlap_frac" : cms.double(0.1)
+  "block_size" : cms.uint32(256),
+    "overlap_frac" : cms.double(0.0)
 }
 
 print(">>>>>>>>>>>>>>>>>>>>>>   this is pv_cfg.py   <<<<<<<<<<<<<<<<<<<<<<<<<")
