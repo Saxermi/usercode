@@ -125,7 +125,7 @@ process.source = cms.Source(
     "PoolSource",
     fileNames=cms.untracked.vstring(
         root_path(
-            "/store/relval/CMSSW_15_1_0_pre1/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2580000/c699f8a2-4146-4edb-8614-9bf8d188ffee.root"
+            "/store/relval/CMSSW_15_0_0_pre2/RelValTTbar_14TeV/GEN-SIM-RECO/PU_141X_mcRun4_realistic_v3_STD_Run4D110_PU-v1/2590000/378fb7fc-617e-4ed2-b7b4-de75dd432b73.root"
         )
     ),
     secondaryFileNames=cms.untracked.vstring(),
@@ -396,6 +396,5 @@ process.analyze_step = cms.Path(process.theTruth * process.oldVertexAnalysis)
 process.schedule = cms.Schedule(
     process.vertexing_step,
     process.analyze_step,
-    process.endjob_step,
-    process.FEVToutput_step,
+    process.endjob_step
 )
