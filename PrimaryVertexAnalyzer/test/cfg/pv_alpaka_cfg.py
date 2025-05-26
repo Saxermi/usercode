@@ -79,8 +79,8 @@ parameters = {  # can be overwritten by arguments of the same name
     "minNdof": cms.double(2.0),
     # clustering in blocks
     "runInBlocks": cms.bool(True),
-    "block_size": cms.uint32(1024),
-    "overlap_frac": cms.double(0.5),
+    "block_size": cms.uint32(1000),
+    "overlap_frac": cms.double(0.0),
 }
 info = "alpaka_run4_test"
 
@@ -165,7 +165,7 @@ process.vertexreco.remove(process.inclusiveVertexing)
 
 # Number of events to run
 process.maxEvents = cms.untracked.PSet(
-    input=cms.untracked.int32(2),
+    input=cms.untracked.int32(15),
 )
 
 # Production metadata
@@ -265,8 +265,8 @@ process.beamSpotDevice = cms.EDProducer(
 process.vertexSoA = cms.EDProducer(
     "PrimaryVertexProducer_Alpaka@alpaka",
     TrackLabel=cms.InputTag("tracksSoA"),
-    blockOverlap=cms.double(0.50),
-    blockSize=cms.int32(512),
+    blockOverlap=cms.double(0.5),
+    blockSize=cms.int32(1000),
     TkClusParameters=cms.PSet(
         coolingFactor=cms.double(0.6),  # moderate annealing speed
         zrange=cms.double(
@@ -292,6 +292,7 @@ process.vertexSoA = cms.EDProducer(
         ),  # minimal a priori track weight for counting unique tracks
     ),
 )
+
 
 process.vertexAoS = cms.EDProducer(
     "SoAToRecoVertexProducer",
@@ -394,7 +395,5 @@ process.analyze_step = cms.Path(process.theTruth * process.oldVertexAnalysis)
 # process.FEVToutput_step
 # )
 process.schedule = cms.Schedule(
-    process.vertexing_step,
-    process.analyze_step,
-    process.endjob_step
+    process.vertexing_step, process.analyze_step, process.endjob_step
 )

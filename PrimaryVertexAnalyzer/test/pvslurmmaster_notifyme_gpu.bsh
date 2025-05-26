@@ -101,8 +101,9 @@ cd $WORKDIR
 cp $STARTDIR/cfg/pv_alpaka_cfg.py .
 #cp $STARTDIR/plotter.py .
 touch logfile
+#cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
-cmsRun pv_alpaka_cfg.py -b gpu-nvidia | /usr/bin/gzip >> logfile
+cmsRun pv_alpaka_cfg.py input=$INPUT events=$NEVENT -b gpu-nvidia | /usr/bin/gzip >> logfile
 ls
 
 # touch debuglog cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile

@@ -308,7 +308,7 @@ TestAnalyzer::TestAnalyzer(const ParameterSet& iConfig)
 
   // extras
   //extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("testVertices","extraInfo"));
-   // extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("vertexSoA","extraInfo"));
+   extraInfoToken_ = consumes<std::vector<float>>(edm::InputTag("vertexSoA","extraInfo"));
 
   //clusteringCPUtimeToken_ = consumes<float>(edm::InputTag("testVertices","clusteringCPUtime"));
  
@@ -2751,23 +2751,23 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
 
-  //edm::Handle<std::vector<float>> extraInfoHandle;
-  //iEvent.getByToken(extraInfoToken_, extraInfoHandle);
-  std::vector<float> extraInfoFake = {1.0, 2.0, 3.0};
-  auto extraInfoHandle = &extraInfoFake;
+  edm::Handle<std::vector<float>> extraInfoHandle;
+  iEvent.getByToken(extraInfoToken_, extraInfoHandle);
+  //std::vector<float> extraInfoFake = {1.0, 2.0, 3.0};
+  //auto extraInfoHandle = &extraInfoFake;
   float clustercpufake = 42.0;  
 
   float* clusteringCPUtimeHandle = &clustercpufake;
 
   
-  //if(extraInfoHandle.isValid()){
+  if(extraInfoHandle.isValid()){
     std::cout << "************************ extra ***************************" << extraInfoHandle->size()<< std::endl;
     for(auto f : *extraInfoHandle){
       std::cout << f << std::endl;
    }
-//  }else{
+  }else{
     std::cout << "************************ no extras ***************************" << std::endl;
-//  }
+  }
 
 
   //edm::Handle<float> clusteringCPUtimeHandle;
