@@ -165,7 +165,7 @@ process.vertexreco.remove(process.inclusiveVertexing)
 
 # Number of events to run
 process.maxEvents = cms.untracked.PSet(
-    input=cms.untracked.int32(15),
+    input=cms.untracked.int32(100),
 )
 
 # Production metadata

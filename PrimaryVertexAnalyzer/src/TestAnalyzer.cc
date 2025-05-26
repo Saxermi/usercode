@@ -439,6 +439,34 @@ std::map<std::string, TH1*> TestAnalyzer::bookVertexHistograms(TDirectory * dir)
                    3000);
       addn(h, NVertexVSCPUTime);
 
+  // Definition of the 2D histogram, which shows the gpu time used vs the number of vertices reconstructed
+  TH2F* NVertexVSGPUTime  =
+  new TH2F("NVertexVSGPUTime",
+           " Parallelized Time vs Number of Reconstructed Vertices; Count of Reconstructed Tertices;Time [ms] ",
+           1000,
+           0,
+           300,
+           1000,
+           0,
+           3000);
+addn(h, NVertexVSGPUTime);
+
+
+TH2F* NVertexVSGPUCPUTime  =
+new TH2F("NVertexVSGPUCPUTime",
+         " Total Time vs Number of Reconstructed Vertices; Count of Reconstructed Tertices;Time [ms] ",
+         1000,
+         0,
+         300,
+         1000,
+         0,
+         3000);
+addn(h, NVertexVSGPUCPUTime);
+
+
+
+
+
     // Definition of the 2D histogram, which shows the simulated vs recon position (on z-axis) in one plot for SE
     TH2F* SERecoVsSimZPositionBlock  = new TH2F("SERecoVsSimZPositionBlock", "SE Reconstructed vs. Simulated Vertex Z-Position; Reconstructed Vertex Position [cm]; Simulated Vertex Position [cm]", 1000, -15, 15, 1000, -15, 15);
     addn(h, SERecoVsSimZPositionBlock);
@@ -2750,11 +2778,15 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
   dumpThisEvent_ = false;
   forceDump_ = false;   // use with caution
   lsglb_ = 0;
+  float gpuTime = 1;
 
   edm::Handle<std::vector<float>> gpuTimeInfoHandle;
   iEvent.getByToken(gpuTimeInfoToken_, gpuTimeInfoHandle);
   if(gpuTimeInfoHandle.isValid()){
     std::cout << "  gpu clustering time = " << gpuTimeInfoHandle->at(0) << endl;
+    gpuTime = (!gpuTimeInfoHandle->empty()) ? (*gpuTimeInfoHandle)[0] : -1.0;
+    std::cout << "  gpu clustering time handle = " << gpuTime << endl;
+
   }
 
 
@@ -2926,7 +2958,7 @@ void TestAnalyzer::analyze(const Event& iEvent, const EventSetup& iSetup)
 	timer_stop("tp-matching");
 
         timer_start("analyzeVertexCollectionTP");
-	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,*extraInfoHandle,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
+	analyzeVertexCollectionTP(histos, vertexes, tracks, simEvt,*clusteringCPUtimeHandle,*extraInfoHandle,gpuTime,  label); //added clusteringCPUtimeHandle to process cputime *clusteringCPUtimeHandle,
 	timer_stop("analyzeVertexCollectionTP");
 
 	analyzeVertexCollectionZmatching(histos, vertexes, simEvt, label, zwindow_sigmas_);
@@ -4795,6 +4827,8 @@ void TestAnalyzer::analyzeVertexCollectionTP(std::map<std::string, TH1*>& h,
                                              vector<SimEvent>& simEvt,
                                              const float CPUtime,
                                              const std::vector<float>& blockborders,
+                                             const float GPUtime,
+
                                              const string message
                                              ) // added cputime to access cpu time here 
                                              // also addeblockborders to access block borders 
@@ -6354,6 +6388,30 @@ std::vector<float> DeterBlockBorders = {
         std::cerr << "Error: Histogram NVertexVSCPUTime not found!" << std::endl;
         return;
     }
+
+
+    // Definition of the 2D histogram, which shows the cpu time used vs the number of vertices reconstructed
+    TH2F *NVertexVSGPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSGPUTime"]);
+    if (!NVertexVSGPUTime) {
+        std::cerr << "Error: Histogram NVertexVSGPUTime not found!" << std::endl;
+        return;
+    }
+
+    TH2F *NVertexVSGPUCPUTime = dynamic_cast<TH2F *>(h["efficiency/NVertexVSGPUCPUTime"]);
+    if (!NVertexVSGPUCPUTime) {
+        std::cerr << "Error: Histogram NVertexVSGPUCPUTime not found!" << std::endl;
+        return;
+    }
+    float total_time = 0;
+    total_time = CPUtime + GPUtime;
+    std::cout << " gpu time time" << GPUtime << std::endl;
+
+    std::cout << " Total time" << total_time << std::endl;
+
+
+    NVertexVSGPUTime->Fill( simEvt.size(),GPUtime);
+    NVertexVSGPUCPUTime->Fill( simEvt.size(),total_time);
+
     NVertexVSCPUTime->Fill( simEvt.size(),CPUtime);
 
     // next histogram

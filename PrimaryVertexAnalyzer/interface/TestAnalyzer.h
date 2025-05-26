@@ -1676,6 +1676,7 @@ void analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
                                  std::vector<SimEvent>& simEvt,
                                   const float cputime = 1.0,
                                   const std::vector<float>& blockborders = {},
+                                  const float GPUtime = 1.0,
                                  const std::string message = ""
                                );
   
