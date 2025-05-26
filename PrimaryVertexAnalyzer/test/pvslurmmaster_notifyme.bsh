@@ -99,9 +99,8 @@ cd $WORKDIR
 cp $STARTDIR/cfg/${LABEL}_cfg.py  .
 #cp $STARTDIR/plotter.py .
 touch logfile
-#cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 
-cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT  | /usr/bin/gzip >> logfile
+cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
 ls
 
 # touch debuglog

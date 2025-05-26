@@ -165,7 +165,7 @@ process.vertexreco.remove(process.inclusiveVertexing)
 
 # Number of events to run
 process.maxEvents = cms.untracked.PSet(
-    input=cms.untracked.int32(100),
+    input=cms.untracked.int32(-1),
 )
 
 # Production metadata
@@ -217,7 +217,43 @@ parser.add_argument(
     default="auto",
     help="Alpaka backend. Comma separated list. Possible options: cpu, gpu-nvidia, gpu-amd",
 )
+parser.add_argument(
+    "-n",
+    "--events",
+    dest="nevent",
+    type=int,
+    default=-1,
+    help="Anzahl der Events (-1 = alle)",
+)
+parser.add_argument(
+    "-d",
+    "--input",
+    dest="inputfiles",
+    type=str,
+    default="",
+    help="ROOT-Datei(en) oder Textdatei mit Dateiliste; "
+    "mehrere .root Dateien mit Komma trennen",
+)
 args = parser.parse_args()
+# -------------------------------------------------------------
+#   Werte in den bestehenden Process übernehmen
+# -------------------------------------------------------------
+
+# 1) Events
+if args.nevent >= 0:
+    process.maxEvents.input = cms.untracked.int32(args.nevent)
+
+# 2) Eingabedateien
+if args.inputfiles:
+    if args.inputfiles.endswith(".root") and "," not in args.inputfiles:
+        files = [args.inputfiles]
+    elif args.inputfiles.endswith(".root"):
+        files = args.inputfiles.split(",")
+    else:  # Textdatei mit Dateiliste
+        with open(args.inputfiles) as f:
+            files = [l.strip() for l in f if l.strip()]
+
+    process.source.fileNames = cms.untracked.vstring(*[root_path(f) for f in files])
 
 # Set the backend for all jobs
 process.options.accelerators = args.backend.split(",")

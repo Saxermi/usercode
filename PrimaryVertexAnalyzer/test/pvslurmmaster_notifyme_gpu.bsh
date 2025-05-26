@@ -1,11 +1,16 @@
+##!/bin/bash
+## batch job control
+##SBATCH -o jobs/pvslurm-%N_%j.out
+##SBATCH --mem-per-cpu=3000
+##SBATCH --account=gpu_gres                                  # to access gpu resources
+##SBATCH --partition=standard
+##SBATCH --partition=qgpu                                     # Specify your cluster partition
 #!/bin/bash
 # batch job control
 #SBATCH -o jobs/pvslurm-%N_%j.out
-#SBATCH --mem-per-cpu=3000
-#SBATCH --account=gpu_gres                                  # to access gpu resources
+#SBATCH --mem=3000
+#SBATCH --account=t3
 #SBATCH --partition=standard
-#SBATCH --partition=qgpu                                     # Specify your cluster partition
-
 #SBATCH --mail-type=FAIL
 #SBATCH --mail-user=michael.saxer@psi.ch
 #
@@ -73,7 +78,7 @@ echo "CMSSW RELEASE BASE " $CMSSW_RELEASE_BASE
 # LABEL=pv
 INPUT=`cat samples/${SAMPLE} | sed ':a;N;$!ba;s/\n/,/g'`
 #INPUT=/store/relval/CMSSW_14_1_0_pre7/RelValTTbar_14TeV/GEN-SIM-RECO/141X_mcRun4_realistic_v1_STD_2026D110_PU-v1/2580000/d7a7c619-06d6-451a-a1fc-9ca3e17e4e27.root
-PARAMETERS="runInBlocks=True block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
+#PARAMETERS="runInBlocks=True block_size=$BLOCKSIZE overlap_frac=$OVERLAPP"
 
 # slurm stuff ------------------------------------------------------------------------------- 
 
@@ -101,9 +106,9 @@ cd $WORKDIR
 cp $STARTDIR/cfg/pv_alpaka_cfg.py .
 #cp $STARTDIR/plotter.py .
 touch logfile
-#cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
+#cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfilegpu-nvidia 
 
-cmsRun pv_alpaka_cfg.py input=$INPUT events=$NEVENT -b gpu-nvidia | /usr/bin/gzip >> logfile
+cmsRun pv_alpaka_cfg.py -d $INPUT -n $NEVENT -b cpu | /usr/bin/gzip >> logfile
 ls
 
 # touch debuglog cmsRun ${LABEL}_cfg.py input=$INPUT events=$NEVENT $PARAMETERS | /usr/bin/gzip >> logfile
