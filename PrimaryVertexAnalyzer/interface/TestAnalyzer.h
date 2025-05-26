@@ -1957,6 +1957,7 @@ void analyzeVertexCollectionZmatching(std::map<std::string, TH1*>& h,
   const edm::ESGetToken<TrackerTopology, TrackerTopologyRcd> trackerTopologyToken_;
 
   edm::EDGetTokenT<std::vector<float>> extraInfoToken_;
+  edm::EDGetTokenT<std::vector<float>> gpuTimeInfoToken_;
   edm::EDGetTokenT<float> clusteringCPUtimeToken_;
 
   static const int iX = 0;
