@@ -1,11 +1,11 @@
-##!/bin/bash
+#!/bin/bash
 ## batch job control
 ##SBATCH -o jobs/pvslurm-%N_%j.out
 ##SBATCH --mem-per-cpu=3000
 ##SBATCH --account=gpu_gres                                  # to access gpu resources
 ##SBATCH --partition=standard
 ##SBATCH --partition=qgpu                                     # Specify your cluster partition
-#!/bin/bash
+##!/bin/bash
 # batch job control
 #SBATCH -o jobs/pvslurm-%N_%j.out
 #SBATCH --mem=3000
