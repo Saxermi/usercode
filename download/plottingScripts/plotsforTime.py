@@ -4,7 +4,7 @@ import os
 
 def _load_and_filter(csv_path, **filters):
     """
-    Load the CSV, filter by Overlap, Blocksize, Beta1 as given in filters,
+    Load the CSV, filter by Overlap, Blocksize, T_stop as given in filters,
     and only keep the 'final time and size' checkpoint.
     Returns a DataFrame with an extra column 'Time_s'.
     """
@@ -21,125 +21,142 @@ def _load_and_filter(csv_path, **filters):
     out['Time_s'] = out['Mean'] * 1e-6
     return out
 
-def plot_beta1_vs_time(csv_path, overlap_val, blocksize_val):
+def plot_T_stop_vs_time(csv_path, overlap_val, blocksize_val):
     df = _load_and_filter(csv_path, Overlap=overlap_val, Blocksize=blocksize_val)
-    # split out the reference run for a black “DA” marker
-    ref   = df[df.Run == 'experimental_run_66']
-    other = df[df.Run != 'experimental_run_56']
-    
+
+    # Convert T_stop to numeric where possible
+    df['T_stop_numeric'] = pd.to_numeric(df['T_stop'], errors='coerce')
+
+    # Separate references
+    da_row  = df[df.Run == 'experimental_run_95']
+    dab_row = df[df.Run == 'experimental_run_72']
+    cascade = df[~df.Run.isin(['experimental_run_95', 'experimental_run_72'])]
+
     plt.figure()
-    plt.scatter(other.Beta1, other.Time_s, marker='o', label='CascadeDA')
-    plt.scatter(ref.Beta1,   ref.Time_s,   marker='o', color='black', label='DA')
-    plt.xlabel('firstbestastop')
+
+    # CascadeDA as scatter
+    plt.scatter(cascade['T_stop_numeric'], cascade['Time_s'], marker='o', label='CascadeDA')
+
+    # DA and DAB as horizontal lines
+    if not da_row.empty:
+        da_val = da_row['Time_s'].mean()
+        plt.axhline(da_val, color='black', linestyle='--', label='DA')
+
+    if not dab_row.empty:
+        dab_val = dab_row['Time_s'].mean()
+        plt.axhline(dab_val, color='gray', linestyle='--', label='DAB')
+
+    plt.xlabel('T_stop')
     plt.ylabel('Total Clustering Time (s)')
-    plt.title(f'Influence of firstbestastop on Clustering Time\n'
+    plt.title(f'Influence of T_stop on Clustering Time\n'
               f'Overlap={overlap_val}, Blocksize={blocksize_val}')
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
+
     out = f'Influence_of_firstbestastop_o{overlap_val}_bs{blocksize_val}.png'
     plt.savefig(out)
     plt.close()
     print("✅", out)
 
-def plot_overlap_vs_time(csv_path, beta1_val, blocksize_val):
-    # 1) load all totals for this blocksize
+
+def plot_overlap_vs_time(csv_path, T_stop_val, blocksize_val):
     df = _load_and_filter(csv_path, Blocksize=blocksize_val)
 
-    sub = df[df.Beta1.isin([beta1_val, 'DA'])].copy()
-
-    # 3) convert µs→s
+    # Use only rows relevant for this plot
+    sub = df[df.T_stop.isin([T_stop_val, 'DA', 'DAB'])].copy()
     sub['Time_s'] = sub['Mean'] * 1e-6
 
-    # 4) split out
-    numeric = sub[sub.Beta1 == beta1_val]
-    da_rows = sub[sub.Beta1 == 'DA']
+    # Split by Run
+    numeric = sub[sub.T_stop == T_stop_val]
+    da_row = sub[sub.Run == 'experimental_run_95']
+    dab_row = sub[sub.Run == 'experimental_run_72']
 
     if numeric.empty:
-        raise ValueError(f"No runs with Beta1={beta1_val}")
-    if da_rows.empty:
-        raise ValueError("No DA reference rows found")
-
-    # 5) aggregate DA down to one point
-    da_x = da_rows['Overlap'].median()
-    da_y = da_rows['Time_s'].mean()
-
-    # 6) plot
+        raise ValueError(f"No runs with T_stop={T_stop_val}")
+    
     plt.figure()
-    plt.scatter(numeric.Overlap, numeric.Time_s,
-                marker='o', label='CascadeDA')
-    plt.scatter(da_x, da_y,
-                marker='o', color='black', label='DA')
+
+    # CascadeDA points
+    plt.scatter(numeric.Overlap, numeric.Time_s, marker='o', label='CascadeDA')
+
+    # Reference lines
+    if not da_row.empty:
+        da_val = da_row['Time_s'].mean()
+        plt.axhline(da_val, color='black', linestyle='--', label='DA')
+
+    if not dab_row.empty:
+        dab_val = dab_row['Time_s'].mean()
+        plt.axhline(dab_val, color='gray', linestyle='--', label='DAB')
 
     plt.xlabel('Overlap')
     plt.ylabel('Total Clustering Time (s)')
     plt.title(
         f'Influence of Overlap on Clustering Time\n'
-        f'firstbestastop={beta1_val}, Blocksize={blocksize_val}'
+        f'firstbestastop={T_stop_val}, Blocksize={blocksize_val}'
     )
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
 
-    fname = f'overlap_firstbestastop{beta1_val}_bs{blocksize_val}.png'
+    fname = f'overlap_firstbestastop{T_stop_val}_bs{blocksize_val}.png'
     plt.savefig(fname)
     plt.close()
     print(f"✅ Saved {fname}")
 
 
-def plot_blocksize_vs_time(csv_path, beta1_val, overlap_val):
-    # 1) load all totals for this overlap
+def plot_blocksize_vs_time(csv_path, T_stop_val, overlap_val):
     df = _load_and_filter(csv_path, Overlap=overlap_val)
 
-    sub = df[df.Beta1.isin([beta1_val, 'DA'])].copy()
-
-    # 3) convert µs→s
+    sub = df[df.T_stop.isin([T_stop_val, 'DA', 'DAB'])].copy()
     sub['Time_s'] = sub['Mean'] * 1e-6
 
-    # 4) split out
-    numeric = sub[sub.Beta1 == beta1_val]
-    da_rows = sub[sub.Beta1 == 'DA']
+    numeric = sub[sub.T_stop == T_stop_val]
+    da_row = sub[sub.Run == 'experimental_run_95']
+    dab_row = sub[sub.Run == 'experimental_run_72']
 
     if numeric.empty:
-        raise ValueError(f"No runs with Beta1={beta1_val}")
-    if da_rows.empty:
-        raise ValueError("No DA reference rows found")
-
-    # 5) aggregate DA down to one point
-    da_x = da_rows['Blocksize'].median()
-    da_y = da_rows['Time_s'].mean()
-
-    # 6) plot
+        raise ValueError(f"No runs with T_stop={T_stop_val}")
+    
     plt.figure()
-    plt.scatter(numeric.Blocksize, numeric.Time_s,
-                marker='o', label='CascadeDA')
-    plt.scatter(da_x, da_y,
-                marker='o', color='black', label='DA')
+
+    # CascadeDA points
+    plt.scatter(numeric.Blocksize, numeric.Time_s, marker='o', label='CascadeDA')
+
+    # Reference lines
+    if not da_row.empty:
+        da_val = da_row['Time_s'].mean()
+        plt.axhline(da_val, color='black', linestyle='--', label='DA')
+
+    if not dab_row.empty:
+        dab_val = dab_row['Time_s'].mean()
+        plt.axhline(dab_val, color='gray', linestyle='--', label='DAB')
 
     plt.xlabel('Blocksize')
     plt.ylabel('Total Clustering Time (s)')
     plt.title(
         f'Influence of Blocksize on Clustering Time\n'
-        f'firstbestastop={beta1_val}, Overlap={overlap_val}'
+        f'firstbestastop={T_stop_val}, Overlap={overlap_val}'
     )
     plt.grid(True)
     plt.legend()
     plt.tight_layout()
 
-    fname = f'blocksize_sweep_b{beta1_val}_o{overlap_val}.png'
+    fname = f'blocksize_sweep_b{T_stop_val}_o{overlap_val}.png'
     plt.savefig(fname)
     plt.close()
     print(f"✅ Saved {fname}")
 
 
+
 if __name__ == "__main__":
     csv_file = '/t3home/frejalom/cmssw/CMSSW_15_0_0_pre2/src/usercode/download/summary_stats_time_60.csv'
         
-    # 1) Beta1 sweep
-    plot_beta1_vs_time  (csv_file, overlap_val=0,  blocksize_val=256)
+    # 1) T_stop sweep
+    plot_T_stop_vs_time  (csv_file, overlap_val=0,  blocksize_val=256)
     
-    # 2) Overlap sweep (fix Beta1 & blocksize)
-    plot_overlap_vs_time(csv_file, beta1_val='0.5', blocksize_val=256)
+    # 2) Overlap sweep (fix T_stop & blocksize)
+    plot_overlap_vs_time(csv_file, T_stop_val='0.5', blocksize_val=256)
     
-    # 3) Blocksize sweep (fix Beta1 & overlap)
-    plot_blocksize_vs_time(csv_file, beta1_val='0.5', overlap_val=0)
+    # 3) Blocksize sweep (fix T_stop & overlap)
+    plot_blocksize_vs_time(csv_file, T_stop_val='0.5', overlap_val=0)

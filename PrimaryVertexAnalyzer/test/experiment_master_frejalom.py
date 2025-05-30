@@ -10,7 +10,7 @@ TEST_MODE = False  # Set to False to submit all jobs
 global base_path
 # Get the current timestamp for the log filename
 timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-base_path = "experimental_run_78"
+base_path = "experimental_run_99"
 log_filename = f"{base_path}_{timestamp}.log"
 log_path = os.path.join("/work/frejalom/ba", log_filename)
 
@@ -23,7 +23,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
 def create_directory(path):
     """
     Function to create a directory if it doesn't exist.
@@ -118,7 +117,7 @@ def main():
     # samples = [f"TTbar_{str(i).zfill(2)}" for i in range(1, 16)]
     
     subsets = [
-        "Subset_SToMuMu_01", "Subset_SToMuMu_02", "Subset_SToMuMu_03", 
+        # "Subset_SToMuMu_01", "Subset_SToMuMu_02", "Subset_SToMuMu_03", 
         "Subset_TTbar_01", "Subset_TTbar_02", 
         "Subset_HiggsGluonFusion_01", "Subset_HiggsGluonFusion_02", "Subset_HiggsGluonFusion_03", 
         "Subset_ZMM_01", "Subset_ZMM_02", "Subset_ZMM_03"
@@ -162,7 +161,7 @@ def main():
     # ]
 
     # Overlap values from 0.0 to 0.9 in 0.1 increments (include negative values if needed)
-    overlaps = [0, 10, 20, 30, 40, 50]  # Add negative overlaps here
+    overlaps = [0]  # Add negative overlaps here
     # Block sizes to iterate over
     blocksizes = [256]
     #blocksizes = [ 512,]

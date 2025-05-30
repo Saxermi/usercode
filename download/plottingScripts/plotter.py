@@ -7,10 +7,9 @@ from matplotlib.patches import Patch
 from datetime import datetime
 
 # Define root experiment folder and subfolders
-experiment_folder = "/work/frejalom/ba/experimental_run_68"
+experiment_folder = "/work/frejalom/ba/experimental_run_97"
 subfolders = [
     "HiggsGluonFusion/0_256",
-    "SToMuMu/0_256",
     "TTbar/0_256",
     "ZMM/0_256",
 ]
@@ -110,7 +109,7 @@ for subfolder in subfolders:
         box.set(facecolor=time_color)
     plt.xticks(range(1, len(checkpoints) + 1), checkpoints, rotation=45, ha='right')
     plt.ylabel("Time (µs)")
-    plt.title(f"Time taken for each step (n={n_files}, Earliest: {earliest_date.strftime('%Y-%m-%d %H:%M:%S')})")
+    plt.title(f"Time taken for Each Step")
 
     # Compute statistics freshly for this plot
     time_stats = []
@@ -122,7 +121,7 @@ for subfolder in subfolders:
             time_stats.append(f"{cp}: mean={mean_val:.1f}, median={median_val:.1f}, std={std_val:.1f}")
     stats_text = " | ".join(time_stats) + "    " + created_text
 
-    plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
+    #plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
     plt.tight_layout(rect=[0, 0.03, 1, 1])
     plt.savefig("time_per_step.png")
     print("✅ Saved: time_per_step.png")
@@ -138,7 +137,7 @@ for subfolder in subfolders:
         box.set(facecolor=size_color)
     plt.xticks(range(1, len(checkpoints) + 1), checkpoints, rotation=45, ha='right')
     plt.ylabel("Size after step")
-    plt.title(f"Size after each step (n={n_files}, Earliest: {earliest_date.strftime('%Y-%m-%d %H:%M:%S')})")
+    plt.title(f"Size After Each Step")
 
     # Set y-axis for clusters in steps of 25
     plt.ylim(0, max_cluster_tick)
@@ -154,7 +153,7 @@ for subfolder in subfolders:
             cluster_stats.append(f"{cp}: mean={mean_val:.1f}, median={median_val:.1f}, std={std_val:.1f}")
     stats_text = " | ".join(cluster_stats) + "    " + created_text
 
-    plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
+    #plt.figtext(0.5, 0.01, stats_text, wrap=True, horizontalalignment='center', fontsize=8)
     plt.tight_layout(rect=[0, 0.03, 1, 1])
     plt.savefig("size_per_step.png")
     print("✅ Saved: size_per_step.png")
@@ -190,7 +189,7 @@ for subfolder in subfolders:
 
     ax1.set_xticks(range(1, len(checkpoints) + 1))
     ax1.set_xticklabels(checkpoints, rotation=45, ha='right')
-    plt.title(f"Time and Size after each step (n={n_files}, Earliest: {earliest_date.strftime('%Y-%m-%d %H:%M:%S')})")
+    plt.title(f"Time and Size After Each Step")
 
     # Compute statistics freshly for the overlay plot
     time_stats_overlay = []
@@ -211,7 +210,7 @@ for subfolder in subfolders:
 
     stats_text_overlay = ("Time (µs): " + " | ".join(time_stats_overlay) +
                         "\nSize: " + " | ".join(cluster_stats_overlay) + "    " + created_text)
-    plt.figtext(0.5, 0.01, stats_text_overlay, wrap=True, horizontalalignment='center', fontsize=8)
+    #plt.figtext(0.5, 0.01, stats_text_overlay, wrap=True, horizontalalignment='center', fontsize=8)
 
     # Add legend using custom patches
     legend_handles = [Patch(facecolor=time_color, label="Time (µs)"),
